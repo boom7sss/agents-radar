@@ -1,107 +1,110 @@
 # ArXiv AI Research Digest 2026-07-10
 
-> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-07-10 01:49 UTC
+> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-07-10 15:58 UTC
 
 ---
 
-Here is the structured ArXiv AI Research Digest for 2026-07-10.
+# ArXiv AI Research Digest — 2026-07-10
+
+## Today's Highlights
+
+This batch reveals a clear shift toward *agentic systems* that must operate reliably in real-world, long-horizon, and multi-agent settings. Several papers tackle the evaluation and robustness of LLMs under practical constraints—quantization, routing, and memory limitations—while others introduce new benchmarks for proactive agents, scientific reasoning, and decentralized energy markets. A notable thread is the emergence of **reasoning-through-generation** (video-based reasoning) and **lineage-aware idea generation**, suggesting the field is moving beyond static QA toward process-oriented intelligence. On the methods side, speculative decoding continues to see creative refinements, and there is renewed attention to the *behavioral* rather than just *performance* effects of model compression.
 
 ---
 
-### ArXiv AI Research Digest: 2026-07-10
+## Key Papers
 
-#### 1. Today’s Highlights
+### 🧠 Large Language Models
 
-This week’s submissions reveal a strong shift toward **agentic systems** and **evaluation under constraint**. Several papers tackle the critical problem of measuring LLM behavior beyond accuracy, including new benchmarks for proactive real-world agents (*UniClawBench*) and scientific lineage reasoning (*IdeaGene-Bench*). On the efficiency front, we see significant work on **speculative decoding** (*DominoTree*, *Resample or Reroute?*), **extreme quantization** (*BiSCo-LLM*), and **model routing** under test-time budgets. Notably, a new class of *process-based* reasoning is emerging through video generation (*OpenCoF*), while several papers question the stability and interpretability of current compression and training methods (*Score Accuracy*, *Super Weights*, *Illusion of Equivalency*). The community is clearly moving from "can we build it?" to "how do we trust, deploy, and verify it?"
+**The Illusion of Equivalency: Statistical Characterization of Quantization Effects in LLMs**
+http://arxiv.org/abs/2607.08734v1 — Rababah et al.
+Shows that accuracy and perplexity hide substantial behavioral changes from quantization, introducing *correctness agreement* metrics to capture what models actually *do* differently.
 
-#### 2. Key Papers
+**Super Weights in LLMs and the Failure of Selective Training**
+http://arxiv.org/abs/2607.08733v1 — Subramanian et al.
+Demonstrates that "super weight" phenomena are not universal across LLMs and that Super Weight-aware training fails to improve pruning resilience, challenging a recent prominent claim.
 
-**🧠 Large Language Models (architecture, training, alignment, evaluation)**
+**UltraX: Refining Pre-Training Data at Scale with Adaptive Programmatic Editing**
+http://arxiv.org/abs/2607.08646v1 — Zhao et al.
+Addresses the diminishing returns of data scaling by proposing adaptive programmatic editing to improve data quality, a practical path forward when raw data supply plateaus.
 
-- **[The Illusion of Equivalency: Statistical Characterization of Quantization Effects in LLMs](http://arxiv.org/abs/2607.08734v1)**  
-  *Baha Rababah, Cuneyt Gurcan Akcora, Carson K. Leung*  
-  Proposes *correctness agreement metrics* beyond accuracy/perplexity to reveal hidden behavioral shifts caused by quantization, critical for safe deployment.
+**BiSCo-LLM: Lookup-Free Binary Spherical Coding for Extreme Low-Bit LLM Compression**
+http://arxiv.org/abs/2607.08643v1 — Shao et al.
+Introduces a lookup-free binary spherical coding method that achieves extreme low-bit compression without the runtime overhead of codebook lookups, advancing deployability.
 
-- **[Super Weights in LLMs and the Failure of Selective Training](http://arxiv.org/abs/2607.08733v1)**  
-  *Shreyas Subramanian, Adewale Akinfaderin, Akarsha Sehwag*  
-  Shows that "super weight" parameter importance does not generalize across all LLMs, and that training-aware approaches fail to exploit them—a cautionary result for pruning research.
+**Validity of LLMs as Data Annotators: AMALIA on Authority**
+http://arxiv.org/abs/2607.08731v1 — Pita
+Evaluates Portugal's national LLM (AMALIA-9B) as a moral foundation annotator, finding high agreement with humans but exposing systematic biases that limit validity as a standalone annotator.
 
-- **[UltraX: Refining Pre-Training Data at Scale with Adaptive Programmatic Editing](http://arxiv.org/abs/2607.08646v1)**  
-  *Xinlong Zhao, Dongsheng Liu, Hengyu Zhao et al.*  
-  Introduces scalable, programmatic data editing to improve LLM pre-training quality as raw data limits are reached, representing a shift from data scaling to data curation.
+### 🤖 Agents & Reasoning
 
-- **[BiSCo-LLM: Lookup-Free Binary Spherical Coding for Extreme Low-Bit LLM Compression](http://arxiv.org/abs/2607.08643v1)**  
-  *Yuantian Shao, Peisong Wang, Zhilei Liu et al.*  
-  Achieves near-binary compression of LLMs via spherical coding without lookup tables, promising massive memory savings while maintaining inference quality.
+**WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search**
+http://arxiv.org/abs/2607.08662v1 — Song et al.
+Proposes a recursive multi-agent architecture that overcomes the context and trajectory limitations of single ReAct-style agents for complex, research-oriented web search.
 
-**🤖 Agents & Reasoning (planning, tool use, multi-agent, chain-of-thought)**
+**Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents**
+http://arxiv.org/abs/2607.08716v1 — Wu et al.
+Introduces a proactive memory mechanism that surfaces decision-relevant state from long trajectories before it becomes buried in the context window, a critical capability for persistent agents.
 
-- **[UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks](http://arxiv.org/abs/2607.08768v1)**  
-  *Zhekai Chen, Chengqi Duan, Kaiyue Sun et al.*  
-  Proposes a new benchmark for *proactive* agents that must operate tools and assist users in unstructured, real-world environments.
+**OpenCoF: Learning to Reason Through Video Generation**
+http://arxiv.org/abs/2607.08763v1 — Chen et al.
+Frames reasoning as temporally connected frames rather than text-based chain-of-thought, opening a novel paradigm where video generation models serve as reasoning engines.
 
-- **[WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search](http://arxiv.org/abs/2607.08662v1)**  
-  *Xiaoshuai Song, Liancheng Zhang, Kangzhi Zhao et al.*  
-  Uses recursive multi-agent swarms to overcome a single ReAct-style agent's context and trajectory limits for complex research-oriented web search.
+**Workflow as Knowledge: Semantic Persistence for LLM-Mediated Workflows**
+http://arxiv.org/abs/2607.08740v1 — Quinto et al.
+Proposes a Lisp-inspired symbolic model for persistent, reusable workflows in LLM systems—moving beyond one-shot tool use toward structured, checkpointable agent behavior.
 
-- **[Remember When It Matters: Proactive Memory Agent for Long-Horizon Agents](http://arxiv.org/abs/2607.08716v1)**  
-  *Yifan Wu, Lizhu Zhang, Yuhang Zhou et al.*  
-  Addresses the critical forgetting problem in long-horizon agent tasks by proactively surfacing decision-relevant state buried in long trajectories.
+**SolarChain-Eval: A Physics-Constrained Benchmark for Trustworthy Economic Agents in Decentralized Energy Markets**
+http://arxiv.org/abs/2607.08681v1 — Ou et al.
+A benchmark that evaluates both task performance *and* trustworthiness (physical data integrity, market manipulation, security) for autonomous agents in cyber-physical energy markets.
 
-- **[SolarChain-Eval: A Physics-Constrained Benchmark for Trustworthy Economic Agents in Decentralized Energy Markets](http://arxiv.org/abs/2607.08681v1)**  
-  *Shilin Ou, Yifan Xu, Luyao Zhang*  
-  A timely benchmark assessing agent safety and trustworthiness in cyber-physical energy markets, focusing on resistance to data exploitation.
+### 🔧 Methods & Frameworks
 
-**🔧 Methods & Frameworks (new techniques, benchmarks, efficiency improvements)**
+**SLORR: Simple and Efficient In-Training Low-Rank Regularization**
+http://arxiv.org/abs/2607.08754v1 — González-Martínez, Liu
+A lightweight in-training regularizer that improves compressibility of neural networks without requiring expensive SVDs, making low-rank factorization more practical at scale.
 
-- **[OpenCoF: Learning to Reason Through Video Generation](http://arxiv.org/abs/2607.08763v1)**  
-  *Xinyan Chen, Ziyu Guo, Renrui Zhang et al.*  
-  A novel reasoning paradigm: using temporally connected video frames to represent logical consequences, offering an alternative to chain-of-thought.
+**A Practical Investigation of Training-free Relaxed Speculative Decoding**
+http://arxiv.org/abs/2607.08690v1 — Xia et al.
+Empirically examines relaxed speculative decoding (which trades exactness for speed) and provides practical guidance on when to accept approximation for throughput gains.
 
-- **[Score Accuracy Along the Forward Diffusion Does Not Certify Numerical Stability in Diffusion Sampling](http://arxiv.org/abs/2607.08757v1)**  
-  *Yiwei Zhou*  
-  A counterexample-driven proof that small score-matching error does not guarantee stable reverse sampling—a foundational warning for diffusion model safety.
+**When Structured Sparse Autoencoders Learn Consistent Concepts Across Modalities**
+http://arxiv.org/abs/2607.08605v1 — Liao et al.
+Shows that structured sparse autoencoders can learn modality-consistent concepts in vision-language models, advancing mechanistic interpretability for multimodal architectures.
 
-- **[DominoTree: Conditional Tree-Structured Drafting with Domino for Speculative Decoding](http://arxiv.org/abs/2607.08642v1)**  
-  *Saw S. Lin, Jyh-Shing Roger Jang*  
-  Improves speculative decoding by generating conditional tree-structured drafts, outperforming block-diffusion and best-first tree methods.
+**ARDY: Autoregressive Diffusion with Hybrid Representation for Interactive Human Motion Generation**
+http://arxiv.org/abs/2607.08741v1 — Zhao et al.
+Combines autoregressive and diffusion components for real-time interactive 3D human motion generation, addressing the speed-quality tradeoff for animation and robotics.
 
-- **[Resample or Reroute? Budget-Aware Test-Time Model Selection for Large Language Models](http://arxiv.org/abs/2607.08665v1)**  
-  *Teng-Ruei Chen*  
-  Shows that test-time resampling recovers selection headroom lost by single-commit routers, with implications for cost-quality trade-offs in LLM serving.
+### 📊 Applications
 
-- **[Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation](http://arxiv.org/abs/2607.08758v1)**  
-  *Yifan Zhou, Qihao Yang, Yan Li et al.*  
-  Introduces a benchmark to test whether AI can trace and recombine scientific ideas across lineages, analogous to biological genomes.
+**Towards Precision Therapy in Hepatocellular Carcinoma: A Clinical-Reasoning LLM for Risk Stratification and Treatment Guidance**
+http://arxiv.org/abs/2607.08602v1 — Cui et al.
+Develops HCC-STAR, a clinical LLM that reasons over electronic medical records for personalized cancer treatment, moving beyond coarse staging systems.
 
-- **[SLORR: Simple and Efficient In-Training Low-Rank Regularization](http://arxiv.org/abs/2607.08754v1)**  
-  *David González-Martínez, Shiwei Liu*  
-  A practical, SVD-free regularization method that makes large models amenable to aggressive low-rank compression without accuracy loss.
+**AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding**
+http://arxiv.org/abs/2607.08745v1 — Damodharan et al.
+A new benchmark evaluating VLMs on dashcam-based reasoning about driving incidents, revealing gaps in spatial-temporal reasoning for autonomous driving.
 
-**📊 Applications (domain-specific, multimodal, code generation)**
-
-- **[AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding](http://arxiv.org/abs/2607.08745v1)**  
-  *Siddharth Damodaran, Radhika Gupta, Ali Alshami et al.*  
-  A new VQA benchmark specifically for dashcam incident reasoning, pushing VLMs toward safety-critical autonomous driving evaluations.
-
-- **[ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation](http://arxiv.org/abs/2607.08691v1)**  
-  *QiHong Chen, Aaron Imani, Iftekhar Ahmed*  
-  Retrieves code based on *procedural similarity* (how functions work) rather than surface-level similarity, significantly improving repository-level code generation.
-
-#### 3. Research Trend Signal
-
-A strong emerging theme is the **formalization of agent evaluation under resource and trust constraints**. Multiple papers move beyond accuracy to define *correctness agreement*, *numerical stability*, *physics-constrained behavior*, and *lineage reasoning* as first-class evaluation axes. This is paired with a push toward **test-time adaptation**: resampling, routing, and budget-aware model selection are replacing static model choices. In efficiency, the trend is toward **conditional and structured approximations** (tree-based speculative decoding, spherical binary coding, in-training low-rank regularization) rather than uniform compression. Finally, there is a notable **convergence of reasoning and generation**—video frames as reasoning sequences (*OpenCoF*) and procedural similarity for code (*ProjAgent*) suggest a move toward task-native representations for reasoning, not just text.
-
-#### 4. Worth Deep Reading
-
-1. **[[2607.08757] Score Accuracy Along the Forward Diffusion Does Not Certify Numerical Stability in Diffusion Sampling](http://arxiv.org/abs/2607.08757v1)**  
-   *Why:* This paper provides a clean, formal counterexample that should be read by anyone working on diffusion model deployment. It separates average error from worst-case sampling stability, a distinction with major safety implications.
-
-2. **[[2607.08734] The Illusion of Equivalency: Statistical Characterization of Quantization Effects in LLMs](http://arxiv.org/abs/2607.08734v1)**  
-   *Why:* As quantization becomes standard for deployment, this paper systematically reveals what current metrics hide. Essential for any practitioner relying on compressed models.
-
-3. **[[2607.08646] UltraX: Refining Pre-Training Data at Scale with Adaptive Programmatic Editing](http://arxiv.org/abs/2607.08646v1)**  
-   *Why:* With scaling laws approaching a data plateau, UltraX offers a practical path forward that is likely to shape the next generation of pre-training pipelines. The programmatic editing approach is both novel and scalable.
+**ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation**
+http://arxiv.org/abs/2607.08691v1 — Chen et al.
+Proposes retrieval based on *procedural similarity* (what functions *do*) rather than lexical or semantic similarity, improving repository-level code generation by surfacing structurally analogous implementations.
 
 ---
-*This digest is auto-generated by [agents-radar](https://github.com/duanyytop/agents-radar).*
+
+## Research Trend Signal
+
+Three interconnected trends stand out. **First**, the field is moving decisively toward *evaluative realism*: papers on quantization, routing, and memory no longer settle for perplexity or accuracy—they probe behavioral divergence, trustworthiness, and failure modes under deployment constraints. **Second**, *agentic systems are becoming structured systems* rather than single prompting loops. Workflows, persistent memory, recursive multi-agent orchestration, and formal market mechanisms indicate a maturation from "LLM as chat" to "LLM as infrastructure component." **Third**, a subtle but important shift appears in *data philosophy*: UltraX's programmatic editing and the lineage-aware idea generation benchmark (IdeaGene-Bench) both suggest that the bottleneck is no longer data volume but *data structure and provenance*. The community is beginning to treat data not as a static resource but as something that can be *engineered, curated, and inherited* like code or genomes.
+
+---
+
+## Worth Deep Reading
+
+1. **Super Weights in LLMs and the Failure of Selective Training** (http://arxiv.org/abs/2607.08733v1) — This paper directly challenges a high-impact claim about parameter importance in LLMs. Its negative result (super weight-aware training doesn't work, super weights aren't universal) is the kind of rigorous replication-and-falsification that the field urgently needs.
+
+2. **When Structured Sparse Autoencoders Learn Consistent Concepts Across Modalities** (http://arxiv.org/abs/2607.08605v1) — Opens a promising direction for multimodal interpretability. If SAEs can learn cross-modal consistent concepts, we gain a principled tool for understanding how VLMs represent the world, with implications for safety and debugging.
+
+3. **A Practical Investigation of Training-free Relaxed Speculative Decoding** (http://arxiv.org/abs/2607.08690v1) — Speculative decoding is now a core inference optimization. This paper's empirical rigor about when and how much approximation is acceptable provides actionable guidance for anyone deploying LLMs under latency or budget constraints.
+
+---
+*This digest is auto-generated by [agents-radar](https://github.com/boom7sss/agents-radar).*
