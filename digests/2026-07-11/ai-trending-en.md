@@ -1,148 +1,89 @@
 # AI Open Source Trends 2026-07-11
 
-> Sources: GitHub Trending + GitHub Search API | Generated: 2026-07-11 01:12 UTC
+> Sources: GitHub Trending + GitHub Search API | Generated: 2026-07-11 03:20 UTC
 
 ---
 
-# AI Open Source Trends Report – 2026-07-11
+# AI Open Source Trends Report — 2026-07-11
 
-## 1. Today’s Highlights
+## 1. Today's Highlights
 
-The open‑source AI ecosystem is undergoing a rapid shift from monolithic agent frameworks to **modular, composable agent skills**. Today’s trending list is dominated by projects that equip AI coding agents (Claude Code, Gemini CLI, Codex, etc.) with reusable skills—`addyosmani/agent-skills`, `mattpocock/skills`, and `obra/superpowers` together accumulated over **2,800+ stars in a single day**. The **MCP (Model Context Protocol)** ecosystem continues to expand, with tools like `wonderwhy-er/DesktopCommanderMCP` (terminal control) and `google-labs-code/stitch-skills` (MCP‑compatible skill library) gaining traction. Meanwhile, **long‑term memory for agents** is becoming a critical infrastructure layer, as seen in `TencentCloud/TencentDB-Agent-Memory` and the highly‑starred `mem0ai/mem0`. Finally, **AI‑native office automation** is emerging as a new vertical, led by `iOfficeAI/OfficeCLI` (1,224 stars today), which enables agents to edit Word, Excel, and PowerPoint files without any installed Office suite.
+Today's GitHub landscape is dominated by a surge in **standardized "agent skills"** — reusable, production-grade instruction sets for AI coding agents like Claude Code, Gemini CLI, and Cursor. Three separate projects (addyosmani/agent-skills, mattpocock/skills, obra/superpowers) collectively gained over 3,800 stars, signaling strong community desire for interoperable agent behavior definitions. Meanwhile, agent memory infrastructure is maturing rapidly: TencentCloud's **TencentDB-Agent-Memory** and the open-source **claude-mem** (86k+ stars) both tackle long-term context persistence across sessions. A new category of **agent-native office automation** emerges with iOfficeAI's OfficeCLI, purpose-built for AI agents to manipulate Word/Excel/PowerPoint without any desktop Office installation.
+
+---
 
 ## 2. Top Projects by Category
 
-### 🔧 AI Infrastructure (frameworks, SDKs, inference engines, developer tools)
+### 🔧 AI Infrastructure (Frameworks, SDKs, Inference Engines, Dev Tools)
 
-- **[wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP)** – ⭐0 ( +328 today)  
-  MCP server giving Claude terminal control, file search, and diff editing – a key building block for agent autonomy.
+- **[langchain-ai/langchain](https://github.com/langchain-ai/langchain)** — ⭐141,485 — The leading agent engineering platform for building LLM-powered applications, now deeply integrated with MCP and tool-calling standards.
+- **[vllm-project/vllm](https://github.com/vllm-project/vllm)** — ⭐85,936 — High-throughput LLM inference serving engine, the de facto standard for production deployments.
+- **[langchain4j/langchain4j](https://github.com/langchain4j/langchain4j)** — ⭐12,573 — The JVM-native LangChain port, bringing unified LLM and vector store APIs to Java/Spring/Kotlin ecosystems.
+- **[0xPlaygrounds/rig](https://github.com/0xPlaygrounds/rig)** — ⭐7,886 — Modular LLM application framework in Rust, gaining traction for its type-safe agent construction.
+- **[samchon/nestia](https://github.com/samchon/nestia)** — ⭐2,164 — NestJS helper with integrated AI chatbot development capabilities.
+- **[LancerLab/croqtile](https://github.com/LancerLab/croqtile)** — ⭐34 — A next-gen AI-native kernel programming DSL aiming to maximize developer productivity on AI hardware.
 
-- **[vllm-project/vllm](https://github.com/vllm-project/vllm)** – ⭐85,931 (total)  
-  High‑throughput LLM inference engine; remained the backbone for production AI serving.
+### 🤖 AI Agents / Workflows (Agent Frameworks, Automation, Multi-Agent Systems)
 
-- **[ollama/ollama](https://github.com/ollama/ollama)** – ⭐175,892 (total)  
-  The easiest way to run local LLMs (Gemma, DeepSeek, Qwen, etc.) – still the #1 choice for local‑first AI.
+- **[Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT)** — ⭐185,458 — The original autonomous agent project, still the most-starred general-purpose agent framework.
+- **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** — ⭐212,825 — "The agent that grows with you" — a rapidly growing agent harness with built-in skill systems and memory.
+- **[OpenHands/OpenHands](https://github.com/OpenHands/OpenHands)** — ⭐80,388 — AI-driven software development agent, competing with Claude Code and Codex in the coding agent space.
+- **[wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP)** — ⭐0 (+328 today) — MCP server giving Claude terminal control and file system editing; top trending repo today.
+- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — ⭐0 (+1,116 today) — Production-grade engineering skills for AI coding agents, authored by a Chrome engineering leader.
+- **[mattpocock/skills](https://github.com/mattpocock/skills)** — ⭐0 (+1,712 today) — Skills for "real engineers" extracted from the author's personal .claude directory; highest daily stars in trending.
+- **[obra/superpowers](https://github.com/obra/superpowers)** — ⭐0 (+1,013 today) — An agentic skills framework and software development methodology that works.
+- **[google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills)** — ⭐0 (+117 today) — Google's official library of Agent Skills for the Stitch MCP server, following the open Agent Skills standard.
 
-- **[langchain-ai/langchain](https://github.com/langchain-ai/langchain)** – ⭐141,484 (total)  
-  The canonical agent engineering platform; now integrates deeply with MCP and skills frameworks.
+### 📦 AI Applications (Specific Apps, Vertical Solutions)
 
-- **[mem0ai/mem0](https://github.com/mem0ai/mem0)** – ⭐60,572 (total)  
-  Universal memory layer for AI agents – becoming the standard for persistent context across sessions.
+- **[open-webui/open-webui](https://github.com/open-webui/open-webui)** — ⭐145,004 — The most popular user-friendly AI interface supporting Ollama, OpenAI, and local models.
+- **[CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)** — ⭐48,423 — AI productivity studio with 300+ built-in assistants and unified access to frontier LLMs.
+- **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — ⭐0 (+1,224 today) — First open-source Office suite purpose-built for AI agents to read/edit/automate documents without Office installation.
+- **[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)** — ⭐92,244 — Multi-agent LLM financial trading framework, demonstrating vertical agent specialization.
+- **[browser-use/browser-use](https://github.com/browser-use/browser-use)** — ⭐104,152 — Makes websites accessible for AI agents, enabling browser automation at scale.
+- **[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl)** — ⭐148,962 — The API for AI agents to search, scrape, and interact with web content.
+- **[activepieces/activepieces](https://github.com/activepieces/activepieces)** — ⭐23,206 — AI agent workflow automation platform managing ~400 MCP servers.
 
-- **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** – ⭐0 ( +123 today)  
-  4‑tier progressive pipeline for fully local long‑term memory; zero external API dependencies.
+### 🧠 LLMs / Training (Model Weights, Training Frameworks, Fine-Tuning Tools)
 
-- **[qdrant/qdrant](https://github.com/qdrant/qdrant)** – ⭐33,137 (total)  
-  High‑performance vector database – a common backend for RAG agent memory.
+- **[huggingface/transformers](https://github.com/huggingface/transformers)** — ⭐162,461 — The foundational model-definition framework supporting virtually all modern LLMs.
+- **[ollama/ollama](https://github.com/ollama/ollama)** — ⭐175,894 — The easiest way to run local LLMs, now supporting Kimi-K2.6, GLM-5.1, DeepSeek, Qwen, and more.
+- **[open-compass/opencompass](https://github.com/open-compass/opencompass)** — ⭐7,184 — Comprehensive LLM evaluation platform supporting 100+ datasets and major model families.
+- **[galilai-group/stable-pretraining](https://github.com/galilai-group/stable-pretraining)** — ⭐283 — Reliable, scalable library for pretraining foundation and world models.
+- **[scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)** — ⭐66,685 — Classic ML framework, still essential for non-LLM AI pipelines.
 
-### 🤖 AI Agents / Workflows (agent frameworks, automation, multi‑agent systems)
+### 🔍 RAG / Knowledge (Vector Databases, Retrieval-Augmented Generation, Knowledge Management)
 
-- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** – ⭐0 ( +1,116 today)  
-  Production‑grade engineering skills for AI coding agents – the most starred trending repo today.
+- **[infiniflow/ragflow](https://github.com/infiniflow/ragflow)** — ⭐84,782 — Leading open-source RAG engine combining cutting-edge RAG with agent capabilities.
+- **[mem0ai/mem0](https://github.com/mem0ai/mem0)** — ⭐60,579 — Universal memory layer for AI agents, enabling persistent long-term context.
+- **[milvus-io/milvus](https://github.com/milvus-io/milvus)** — ⭐45,177 — Cloud-native vector database for scalable ANN search.
+- **[qdrant/qdrant](https://github.com/qdrant/qdrant)** — ⭐33,137 — High-performance vector search engine, production-tested for enterprise AI.
+- **[thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)** — ⭐86,785 — Persistent context across sessions for every agent; compresses, summarizes, and reinjects context.
+- **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** — ⭐0 (+123 today) — Fully local long-term memory for AI agents via a 4-tier progressive pipeline with zero external APIs.
+- **[Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)** — ⭐81,996 — Turns any folder of code, docs, or data into a queryable knowledge graph for AI agents.
+- **[VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex)** — ⭐33,927 — Document index for "vectorless, reasoning-based RAG," a novel approach to retrieval.
 
-- **[mattpocock/skills](https://github.com/mattpocock/skills)** – ⭐0 ( +1,712 today)  
-  A collection of skills from real .claude directories; directly addresses practical agent workflows.
-
-- **[obra/superpowers](https://github.com/obra/superpowers)** – ⭐0 ( +1,013 today)  
-  An agentic skills framework and software development methodology that “just works”.
-
-- **[google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills)** – ⭐0 ( +117 today)  
-  MCP‑compatible skill library from Google Labs; promises cross‑agent compatibility (Antigravity, Gemini CLI, Claude Code).
-
-- **[esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix)** – ⭐26,620 (total)  
-  DeepSeek‑native coding agent for the terminal, engineered for prefix‑cache stability.
-
-- **[activepieces/activepieces](https://github.com/activepieces/activepieces)** – ⭐23,205 (total)  
-  AI workflow automation with ~400 MCP servers – a visual alternative to coding agent pipelines.
-
-- **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** – ⭐212,773 (total)  
-  “The agent that grows with you” – a highly popular general‑purpose agent framework.
-
-### 📦 AI Applications (vertical solutions, end‑user tools)
-
-- **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** – ⭐0 ( +1,224 today)  
-  First open‑source Office suite purpose‑built for AI agents: read, edit, automate Word/Excel/PowerPoint without Microsoft Office.
-
-- **[CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)** – ⭐48,419 (total)  
-  AI productivity studio with 300+ assistants, smart chat, and autonomous agents – a unified front‑end for multiple LLMs.
-
-- **[TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)** – ⭐92,235 (total)  
-  Multi‑agent LLM framework for financial trading – a clear vertical application gaining huge interest.
-
-- **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** – ⭐38,241 (total)  
-  AI generates real, editable PowerPoint from any document – another office automation success.
-
-- **[Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm)** – ⭐63,080 (total)  
-  “Stop renting your intelligence” – local‑first agent experience with built‑in RAG.
-
-- **[Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)** – ⭐81,956 (total)  
-  Turn any codebase, docs, or images into a queryable knowledge graph – a unique agent skill.
-
-### 🧠 LLMs / Training (model weights, training frameworks, fine‑tuning)
-
-- **[pytorch/pytorch](https://github.com/pytorch/pytorch)** – ⭐101,719 (total)  
-  The dominant deep learning framework; all recent LLM releases build on it.
-
-- **[huggingface/transformers](https://github.com/huggingface/transformers)** – ⭐162,457 (total)  
-  The universal model‑definition framework; still the first stop for any new model.
-
-- **[ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)** – ⭐59,335 (total)  
-  YOLO26/11 object detection – constantly updated vision model family.
-
-- **[galilai-group/stable-pretraining](https://github.com/galilai-group/stable-pretraining)** – ⭐283 (total)  
-  Minimal, scalable library for pretraining foundation and world models – a niche but professionally focused tool.
-
-- **[galilai-group/stable-pretraining](https://github.com/galilai-group/stable-pretraining)** – ⭐283  
-  (New entry – reliable pretraining library for foundation models.)
-
-### 🔍 RAG / Knowledge (vector databases, retrieval‑augmented generation, knowledge management)
-
-- **[open-webui/open-webui](https://github.com/open-webui/open-webui)** – ⭐145,000 (total)  
-  The most popular user‑friendly AI interface; deep RAG support with Ollama.
-
-- **[infiniflow/ragflow](https://github.com/infiniflow/ragflow)** – ⭐84,778 (total)  
-  Leading open‑source RAG engine with agent capabilities – production‑grade context layer.
-
-- **[siyuan-note/siyuan](https://github.com/siyuan-note/siyuan)** – ⭐45,031 (total)  
-  Privacy‑first, self‑hosted knowledge management with AI integration – bridging note‑taking and RAG.
-
-- **[milvus-io/milvus](https://github.com/milvus-io/milvus)** – ⭐45,177 (total)  
-  Cloud‑native vector database for scalable ANN search – standard in large‑scale RAG pipelines.
-
-- **[lancedb/lancedb](https://github.com/lancedb/lancedb)** – ⭐10,858 (total)  
-  Embedded retrieval library for multimodal AI – developer‑friendly alternative to full vector DBs.
-
-- **[memvid/memvid](https://github.com/memvid/memvid)** – ⭐15,739 (total)  
-  Serverless, single‑file memory layer for agents – replaces complex RAG pipelines.
-
-- **[VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex)** – ⭐33,925 (total)  
-  “Vectorless, reasoning‑based RAG” – a novel approach challenging traditional vector search.
+---
 
 ## 3. Trend Signal Analysis
 
-Today’s data reveals three decisive trends:
+**The "Agent Skills" movement is the dominant signal today.** Three independent projects — addyosmani/agent-skills, mattpocock/skills, and obra/superpowers — collectively gained over 3,800 stars in a single day, all addressing the same problem: how to define, share, and reuse production-grade instructions for AI coding agents. This mirrors the early Dockerfile movement — a standardization layer is emerging for agent behavior. The Google-backed **stitch-skills** project formalizes this into an open standard, suggesting institutional adoption is imminent.
 
-**First, the “Agent Skills” movement has exploded.** The three trending repos `agent-skills`, `skills`, and `superpowers` collectively gained over 3,800 stars today. This signals a community‑wide shift from building monolithic agents to composing agents from pre‑built, shareable skills. Developers no longer want to write agent logic from scratch; instead they adopt a standardised skill format (`.claude` directories, MCP‑compatible manifests) and reuse production‑tested capabilities. The appearance of `google-labs-code/stitch-skills`, explicitly targeting cross‑agent compatibility (Antigravity, Gemini CLI, Claude Code), further suggests that skill interoperability is becoming a priority for major players.
+**Memory infrastructure is becoming a first-class concern.** The simultaneous traction of claude-mem (86k stars), mem0 (60k stars), and today's TencentDB-Agent-Memory shows that the community has identified persistent context as the critical missing piece for production agents. The shift from "chat with context window" to "agent with database-backed memory" is accelerating rapidly. Notably, TencentDB-Agent-Memory's approach of a "4-tier progressive pipeline" indicates industrial-grade thinking around memory stratification.
 
-**Second, long‑term memory for agents is maturing as a distinct infrastructure layer.** `TencentDB-Agent-Memory` and `mem0ai/mem0` (with >60k stars) both focus on giving agents persistent, external memory. The rise of specialised memory solutions—`memvid`, `cognee`, `topoteretes/cognee`—indicates that simple RAG is no longer enough; agents need a structured, progressive memory pipeline (cache → short‑term → long‑term → knowledge graph) to maintain coherent multi‑session behaviour.
+**Agent-native document manipulation is a new category.** OfficeCLI's 1,224 stars today represents the first major open-source attempt to give AI agents direct, programmatic access to Office file formats without requiring a desktop installation. This is significant because document generation/review remains one of the most requested enterprise agent use cases. The project's "single binary, no Office required" approach solves a real deployment friction.
 
-**Third, AI‑native office automation is a new hot spot.** `iOfficeAI/OfficeCLI` (1,224 stars today) and `hugohe3/ppt-master` (38k total) are both enabling agents to directly manipulate office documents. This goes beyond “chat with a PDF” – agents can now create real, editable spreadsheets and presentations. This aligns with the broader trend of agents executing real‑world tasks (not just generating text).
+**Connections to recent events:** The rise of agent skills directly correlates with the proliferation of CLI-based coding agents (Claude Code, Codex, Gemini CLI, OpenCode, etc.). As these tools mature, the need for shared, high-quality skill definitions becomes acute. The RAG ecosystem continues absorbing agent capabilities — RAGflow, Graphify, and PageIndex all blur the line between retrieval and agent orchestration.
 
-**Connection to industry events:** The prominence of Claude‑centric tools (DesktopCommanderMCP, claude‑code‑templates) and the explicit mention of Claude Code in multiple skills repos reflects the continued dominance of Anthropic’s agent platform. The launch of `Google Labs' Stitch MCP server` and cross‑agent skills suggests a push toward open standards. Finally, the sheer number of projects tagged `ai-agent` in the topic search (80+ repos) confirms that agent development has become the primary AI open‑source activity, surpassing traditional ML framework development in community velocity.
+---
 
 ## 4. Community Hot Spots
 
-- **`addyosmani/agent-skills`** – The most starred trending repo today. Its focus on *production‑grade* skills for AI coding agents signals that the community values reliability over experimentation. Worth watching for skill best practices.
-
-- **`iOfficeAI/OfficeCLI`** – A new entrant that fills a critical gap: AI agents need to interact with real office files. If this gains traction, it could become the de‑facto tool for enterprise agent automation.
-
-- **`TencentCloud/TencentDB-Agent-Memory`** – Four‑tier memory pipeline with zero external APIs. As agents become more persistent, this architecture could serve as a reference implementation for local memory layers.
-
-- **`google-labs-code/stitch-skills`** – The first official Google Labs contribution in this space. Its compatibility with multiple coding agents (Antigravity, Gemini CLI, Codex) suggests that Google is betting on an open skill standard rather than proprietary lock‑in.
-
-- **`mem0ai/mem0`** – Already at 60k stars, this project is quickly becoming the universal memory layer for agents. For any developer building multi‑session agents, integrating mem0 should be a priority.
-
-- **`VectifyAI/PageIndex`** – “vectorless RAG” challenges the assumption that vector databases are required for retrieval. If this reasoning‑based approach proves scalable, it could reduce infrastructure costs for many agent deployments.
+- **Agent Skills Standardization** — Watch **addyosmani/agent-skills** and **google-labs-code/stitch-skills**. The emergence of an interoperability standard for agent instructions is akin to early containerization; developers should invest in understanding the skill format and contributing skills for their domain expertise.
+- **Agent Memory Systems** — **mem0ai/mem0** and **thedotmack/claude-mem** are the key projects. As agents move from stateless chat to persistent workers, memory layer design becomes a core architectural decision. TencentDB-Agent-Memory's entry adds an enterprise-grade option.
+- **Agent-Native Office Automation** — **iOfficeAI/OfficeCLI** is one to track closely. If this gains traction, it could redefine how organizations approach document workflows — moving from human-operated Office to agent-operated document pipelines.
+- **RAG → Agent Convergence** — **infiniflow/ragflow** and **Graphify-Labs/graphify** are blurring the line between retrieval systems and agent frameworks. The "knowledge graph as agent memory" approach in Graphify (81k stars) deserves attention for its architectural novelty.
+- **Financial Agent Applications** — **TauricResearch/TradingAgents** (92k stars) and **ZhuLinsen/daily_stock_analysis** (56k stars) show that domain-specific agents for finance are a major community investment. The multi-agent trading framework approach suggests this is moving beyond simple price prediction.
 
 ---
 *This digest is auto-generated by [agents-radar](https://github.com/boom7sss/agents-radar).*

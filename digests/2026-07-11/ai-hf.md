@@ -1,153 +1,112 @@
 # Hugging Face 热门模型日报 2026-07-11
 
-> 数据来源: [Hugging Face Hub](https://huggingface.co/) | 共 30 个模型 | 生成时间: 2026-07-11 01:12 UTC
+> 数据来源: [Hugging Face Hub](https://huggingface.co/) | 共 30 个模型 | 生成时间: 2026-07-11 03:20 UTC
 
 ---
 
-好的，作为一名AI模型生态分析师，以下是我根据2026年7月11日的Hugging Face热门模型数据整理的日报。
+好的，作为AI模型生态分析师，以下为您生成2026年7月11日的《Hugging Face热门模型日报》。
 
 ---
 
-### **Hugging Face 热门模型日报 | 2026-07-11**
+### 🤗 Hugging Face 热门模型日报 | 2026-07-11
 
-#### **今日速览**
+---
 
-今日Hugging Face榜单呈现显著的多模态与MoE（混合专家）趋势。**GLM-5.2** 以绝对点赞数领跑，标志着新一代大规模对话模型的崛起。同时，**Qwen3.6** 系列模型生态空前繁荣，涌现出大量高质量的社区微调与量化版本，展示了其在推理、未审查及多模态场景的强大基础能力。此外，**英伟达（NVIDIA）** 与 **DeepSeek** 等头部力量均发布了面向特定领域（如定位、高性能推理）的专业模型，表明开源模型正在从通用对话向深度专业化演进。特别值得注意的是，视觉语言的文本转图、转视频模型开始回归热门榜前列，预示着多模态生成领域的新一轮竞争。
+### 📰 今日速览
 
-#### **热门模型**
+本周 Hugging Face 生态呈现出明显的“多模态扩张”与“小模型高效化”并行趋势。以 **Qwen 3.5/3.6** 为基座的社区微调模型（尤其是 GGUF 量化版本）在下载量上占据绝对主导，显示出社区对可部署、高性能开源模型的旺盛需求。同时，**NVIDIA 和 DeepSeek 等大厂** 密集发布新一代大模型（如 Nemotron 系列、DeepSeek-V4），并积极探索 MoE（混合专家）与新型量化（如 NVFP4）架构，标志着开源大模型的军备竞赛进入新阶段。值得注意的是，从图像定位（LocateAnything）到视频生成（LingBotVideo），多模态模型的种类和成熟度均有显著提升。
 
-##### 🧠 **语言模型（LLM、对话模型、指令微调）**
+---
 
--   **GLM-5.2**
-    -   作者: zai-org | 点赞: 3,784 | 下载: 392,655
-    -   一句话说明：智谱AI推出的最新一代对话模型，凭借其强大的对话能力与混合专家（MoE）架构，成为本周社区关注度最高的模型。
-    -   [链接](https://huggingface.co/zai-org/GLM-5.2)
+### 🏆 热门模型
 
--   **deepseek-ai/DeepSeek-V4-Pro-DSpark**
-    -   作者: deepseek-ai | 点赞: 463 | 下载: 33,088
-    -   一句话说明：DeepSeek V4系列的旗舰“Pro”版本，专注于提升推理与专业任务（“DSpark”）性能，是深度求索在高级推理模型方向的重要布局。
-    -   [链接](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark)
+#### 🧠 语言模型（LLM、对话模型、指令微调）
 
--   **tencent/Hy3**
-    -   作者: tencent | 点赞: 664 | 下载: 6,923
-    -   一句话说明：腾讯推出的混元系列最新文本生成模型，代表了国内大厂在基础模型上的最新成果。
-    -   [链接](https://huggingface.co/tencent/Hy3)
+-   **[zai-org/GLM-5.2](https://huggingface.co/zai-org/GLM-5.2)**
+    - **作者**: zai-org | **点赞**: 3,787 | **下载**: 392,655
+    - **说明**: 国产大模型 GLM 系列的最新版本，采用 MoE 架构，凭借其在对话和生成任务上的强劲性能，成为本周点赞量最高的模型。
+-   **[InternScience/Agents-A1](https://huggingface.co/InternScience/Agents-A1)**
+    - **作者**: InternScience | **点赞**: 473 | **下载**: 25,772
+    - **说明**: 基于 Qwen3.5 MoE 的智能体模型，表明社区对模型“知行合一”，即从单纯生成迈向工具使用和自主决策能力的追求。
+-   **[meituan-longcat/LongCat-2.0](https://huggingface.co/meituan-longcat/LongCat-2.0)**
+    - **作者**: meituan-longcat | **点赞**: 172 | **下载**: 1,308
+    - **说明**: 美团推出的超长上下文模型，服务于长文档理解与生成场景，体现了产业界对大模型处理复杂业务信息的需求。
+-   **[mistralai/Leanstral-1.5-119B-A6B](https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B)**
+    - **作者**: mistralai | **点赞**: 184 | **下载**: 315
+    - **说明**: Mistral 发布的大参数 MoE 模型（119B，激活6B），延续其高效计算路线，探索极致性能与成本的平衡。
+-   **[deepseek-ai/DeepSeek-V4-Pro-DSpark](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark)**
+    - **作者**: deepseek-ai | **点赞**: 463 | **下载**: 33,088
+    - **说明**: DeepSeek V4 系列的 Pro 版本，结合创新的 DSpark 技术，标志着 DeepSeek 在顶级开源模型领域持续发力，与 NVIDIA 等形成竞争。
+-   **[nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4](https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4)**
+    - **作者**: nvidia | **点赞**: 99 | **下载**: 23,404
+    - **说明**: NVIDIA 发布的新一代 Nemotron 模型，采用 NVFP4 4-bit 量化，展示了在保持性能的同时大幅降低推理内存占用方面的探索。
 
--   **InternScience/Agents-A1**
-    -   作者: InternScience | 点赞: 470 | 下载: 25,772
-    -   一句话说明：一款基于Qwen3.5 MoE架构的智能体模型，专注于Agent场景，是Agent专业化模型趋势的代表。
-    -   [链接](https://huggingface.co/InternScience/Agents-A1)
+#### 🎨 多模态与生成（图像、视频、音频、文本到X）
 
--   **meituan-longcat/LongCat-2.0**
-    -   作者: meituan-longcat | 点赞: 170 | 下载: 1,308
-    -   一句话说明：美团推出的长文本对话模型迭代版本，专注于处理超长上下文的对话任务。
-    -   [链接](https://huggingface.co/meituan-longcat/LongCat-2.0)
+-   **[nvidia/LocateAnything-3B](https://huggingface.co/nvidia/LocateAnything-3B)
+    - **作者**: nvidia | **点赞**: 2,701 | **下载**: 1,456,269
+    - **说明**: NVIDIA 出品的视觉定位模型，能精准识别和定位图像中的任意物体，强大的零样本能力使其在多模态应用（如机器人、图像编辑）中极具潜力。
+-   **[empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF](https://huggingface.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF)**
+    - **作者**: empero-ai | **点赞**: 1,981 | **下载**: 1,909,705
+    - **说明**: 基于 Qwen3.5 的社区顶级微调版本，融合了 Claude-Mythos 数据集，其 GGUF 量化版在性能与可部署性上达到极佳平衡，下载量巨大。
+-   **[baidu/Unlimited-OCR](https://huggingface.co/baidu/Unlimited-OCR)**
+    - **作者**: baidu | **点赞**: 1,921 | **下载**: 1,319,683
+    - **说明**: 百度推出的大模型时代的新一代 OCR 模型，以其强大的识别能力和通用性（Unlimited）迅速成为企业级应用标杆。
+-   **[HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive](https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive)**
+    - **作者**: HauhauCS | **点赞**: 2,626 | **下载**: 2,660,170
+    - **说明**: 基于 Qwen3.6 的社区微调版本，主打“无审查”并集成了视觉能力，吸引了大量寻求自由度高的角色扮演或创意生成用户。
+-   **[krea/Krea-2-Turbo](https://huggingface.co/krea/Krea-2-Turbo)**
+    - **作者**: krea | **点赞**: 578 | **下载**: 164,525
+    - **说明**: Krea 团队推出的改进版文生图模型，相比基础版拥有更快的生成速度和更优的效果，代表了图像生成领域从“可用”到“好用”的进化。
+-   **[robbyant/lingbot-video-moe-30b-a3b](https://huggingface.co/robbyant/lingbot-video-moe-30b-a3b)**
+    - **作者**: robbyant | **点赞**: 77 | **下载**: 317
+    - **说明**: 开创性的视频生成 MoE 模型，预示着将大模型的高效架构（MoE）引入高计算成本的视频生成领域，未来可期。
 
--   **SupraLabs/Supra-Router-51M**
-    -   作者: SupraLabs | 点赞: 86 | 下载: 1,160
-    -   一句话说明：一个只有51M参数的轻量级路由模型，旨在为多模型系统动态选择合适的专家模型，展现了生态基础设施的演变。
-    -   [链接](https://huggingface.co/SupraLabs/Supra-Router-51M)
+#### 🔧 专用模型（代码、数学、医疗、嵌入、分类）
 
-##### 🎨 **多模态与生成（图像、视频、音频、文本到X）**
+-   **[yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF](https://huggingface.co/yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF)**
+    - **作者**: yuxinlu1 | **点赞**: 1,135 | **下载**: 427,668
+    - **说明**: 基于 Google Gemma-4 的 Agentic 代码模型，专为终端和代码生成场景优化，表明社区正积极探索小模型在专业 Agent 领域的应用。
+-   **[google/tabfm-1.0.0-pytorch](https://huggingface.co/google/tabfm-1.0.0-pytorch)**
+    - **作者**: google | **点赞**: 345 | **下载**: 18,626
+    - **说明**: Google 开源的表格基础模型（TabFM），首次将大规模预训练范式引入表格数据领域，对金融、医疗等依赖结构化数据的行业意义重大。
+-   **[SupraLabs/Supra-Router-51M](https://huggingface.co/SupraLabs/Supra-Router-51M)**
+    - **作者**: SupraLabs | **点赞**: 88 | **下载**: 1,160
+    - **说明**: 一种专门用于模型路由的小型模型（51M参数），可智能判断任务并调度给最适合的大模型，是构建高效模型生态的关键组件。
 
--   **nvidia/LocateAnything-3B**
-    -   作者: nvidia | 点赞: 2,700 | 下载: 1,456,269
-    -   一句话说明：英伟达推出的3B参数视觉定位模型，能够根据文本描述在图像中精确定位目标，是机器人与视觉理解领域的重磅发布。
-    -   [链接](https://huggingface.co/nvidia/LocateAnything-3B)
+#### 📦 微调与量化（社区微调、GGUF、AWQ）
 
--   **baidu/Unlimited-OCR**
-    -   作者: baidu | 点赞: 1,921 | 下载: 1,319,683
-    -   一句话说明：百度的通用OCR模型，支持海量场景下的文字识别，凭借高实用性获得了广泛关注与下载。
-    -   [链接](https://huggingface.co/baidu/Unlimited-OCR)
+-   **[unsloth/Qwen3.6-27B-MTP-GGUF](https://huggingface.co/unsloth/Qwen3.6-27B-MTP-GGUF)**
+    - **作者**: unsloth | **点赞**: 1,038 | **下载**: 2,895,457
+    - **说明**: unsloth 团队发布的 Qwen3.6 官方量化版，其极高的下载量证明了 unsloth 在模型量化领域的领先地位和社区对高质量量化模型的热切追求。
+-   **[deepreinforce-ai/Ornith-1.0-35B-GGUF](https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B-GGUF)
+    - **作者**: deepreinforce-ai | **点赞**: 837 | **下载**: 1,085,554
+    - **说明**: 基于强大基座模型的社区微调版，其 GGUF 量化版广受欢迎，反映了“好模型+好量化”的组合是取得高下载的普遍公式。
+-   **[nvidia/Qwen3.6-27B-NVFP4](https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4)
+    - **作者**: nvidia | **点赞**: 336 | **下载**: 787,748
+    - **说明**: NVIDIA 使用其自研的 Model Optimizer 工具对 Qwen3.6 进行 4-bit 量化，不仅推动了 NVFP4 这一新格式的普及，也为行业提供了更多量化选择。
 
--   **krea/Krea-2-Turbo**
-    -   作者: krea | 点赞: 575 | 下载: 164,525
-    -   一句话说明：Krea公司的第二代图像生成模型的Turbo版，专注于更快速度的文本到图像生成，效果备受社区认可。
-    -   [链接](https://huggingface.co/krea/Krea-2-Turbo)
+---
 
--   **Alissonerdx/LTX-Best-Face-ID**
-    -   作者: Alissonerdx | 点赞: 83 | 下载: 0
-    -   一句话说明：基于LTX模型的视频生成LoRA，专注于身份保持的文本到视频生成，展现了社区在定制化视频生成领域的探索。
-    -   [链接](https://huggingface.co/Alissonerdx/LTX-Best-Face-ID)
+### 🌐 生态信号
 
--   **OpenMOSS-Team/MOSS-Transcribe-Diarize**
-    -   作者: OpenMOSS-Team | 点赞: 98 | 下载: 5,919
-    -   一句话说明：复旦MOSS团队推出的语音转文字与说话人分离模型，专注音频文本转换与会议记录等场景。
-    -   [链接](https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize)
+1.  **Qwen 生态持续扩张，成为社区微调“首选底座”**：从榜单看，Qwen 3.5/3.6 系列模型（尤其是其 MoE 变体）正取代 LLaMA 成为社区微调和量化活动最活跃的基座模型。Qwythos、HauhauCS 等多个明星微调版本均基于 Qwen，说明其在性能、易用性和社区支持上已形成强大飞轮效应。
 
-##### 🔧 **专用模型（代码、数学、医疗、嵌入）**
+2.  **MoE 架构全面开花，量化格式多元化**：无论是大厂出品（GLM-5.2、Leanstral）还是社区贡献（Agents-A1），MoE 架构成为主流。与此同时，量化领域不再是 GGUF 一家独大，NVIDIA 的 **NVFP4**、以及 DeepSeek 的新型技术正成为行业关注的焦点，低比特推理正走向多样化。
 
--   **google/tabfm-1.0.0-pytorch**
-    -   作者: google | 点赞: 345 | 下载: 18,626
-    -   一句话说明：谷歌推出的表格数据基础模型，支持零样本分类与回归，为处理结构化数据提供了强大的大模型解决方案。
-    -   [链接](https://huggingface.co/google/tabfm-1.0.0-pytorch)
+3.  **大厂（NVIDIA, DeepSeek）占据生态高位**：NVIDIA 和 DeepSeek 均带来多款模型（基座、微调、量化版本），且获得了极高关注度，显示顶级 AI 公司在开源社区中的话语权日益增强。这与纯社区小团队形成互补，共同构建了从研究到落地的完整链路。
 
--   **nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4**
-    -   作者: nvidia | 点赞: 99 | 下载: 23,404
-    -   一句话说明：英伟达为竞赛/推理场景设计的MoE模型，专为解决复杂逻辑问题（“Puzzle”）而生，目标是提升模型在推理密集型任务上的表现。
-    -   [链接](https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4)
+4.  **“专业模型”兴起，从通用走向精准**：TabFM（表格）、LocateAnything（图像定位）、Supra-Router（模型路由）等模型的诞生，标志着 AI 应用正在从“一个模型通吃”转向“模型专家+智能调度”的专业化分工时代。
 
--   **robbyant/lingbot-video-moe-30b-a3b**
-    -   作者: robbyant | 点赞: 75 | 下载: 317
-    -   一句话说明：一个30B参数的视频生成MoE模型，展示了在视频生成领域应用稀疏激活架构的尝试。
-    -   [链接](https://huggingface.co/robbyant/lingbot-video-moe-30b-a3b)
+---
 
-##### 📦 **微调与量化（社区微调、GGUF、AWQ）**
+### 🔭 值得探索
 
--   **HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive**
-    -   作者: HauhauCS | 点赞: 2,623 | 下载: 2,660,170
-    -   一句话说明：Qwen3.6的社区微调版本，主打“未审查”和“激进”风格，是目前下载量最高的模型之一，反映了对多样化、去限制对话模型的需求旺盛。
-    -   [链接](https://huggingface.co/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive)
+1.  **nvidia/LocateAnything-3B**：推荐理由：这是 NVIDIA 在多模态感知领域的一次重要开源，其强大的零样本定位能力堪称“开箱即用”。无论是 AI 研究员还是前端开发者，都能基于此快速构建视觉交互应用，是探索视觉 AI Agent 的绝佳起点。
 
--   **empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF**
-    -   作者: empero-ai | 点赞: 1,976 | 下载: 1,909,705
-    -   一句话说明：结合Claude风格的微调并量化，GGUF版本的高下载量表明它是消费级硬件上使用“Mythos”对话风格的首选。
-    -   [链接](https://huggingface.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF)
+2.  **zai-org/GLM-5.2**：推荐理由：作为国内顶尖大模型的最新一代，它在当前榜单上点赞数一骑绝尘，代表了国产开源模型的最新高度。深入研究其 MoE 架构与微调细节，对于理解大模型发展方向具有重要参考价值。
 
--   **unsloth/Qwen3.6-27B-MTP-GGUF**
-    -   作者: unsloth | 点赞: 1,036 | 下载: 2,895,457
-    -   一句话说明：Unsloth对Qwen3.6的多任务（MTP）版本进行GGUF量化，是本周下载量最高的模型，完美融合了高性能与本地部署的便利性。
-    -   [链接](https://huggingface.co/unsloth/Qwen3.6-27B-MTP-GGUF)
-
--   **yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF**
-    -   作者: yuxinlu1 | 点赞: 1,134 | 下载: 427,668
-    -   一句话说明：对Gemma-4进行Agent化微调并量化的GGUF版本，专为编程与终端操作设计，是“编程Agent”模型的热门选择。
-    -   [链接](https://huggingface.co/yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF)
-
--   **nvidia/Qwen3.6-27B-NVFP4**
-    -   作者: nvidia | 点赞: 336 | 下载: 787,748
-    -   一句话说明：英伟达使用其Model Optimizer工具对Qwen3.6进行NVFP4量化，提供了能在主流硬件上高效运行的官方优化版本。
-    -   [链接](https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4)
-
--   **deepreinforce-ai/Ornith-1.0-35B-GGUF**
-    -   作者: deepreinforce-ai | 点赞: 835 | 下载: 1,085,554
-    -   一句话说明：Ornith模型的GGUF版本，因其高下载量成为社区中备受关注的、可在本地部署的35B级强大语言模型。
-    -   [链接](https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B-GGUF)
-
--   **unsloth/DeepSeek-V4-Flash-GGUF**
-    -   作者: unsloth | 点赞: 124 | 下载: 31,895
-    -   一句话说明：由Unsloth为DeepSeek V4 Flash专家模型提供的GGUF量化版，旨在让V4系列的高效推理在消费级设备上成为可能。
-    -   [链接](https://huggingface.co/unsloth/DeepSeek-V4-Flash-GGUF)
-
--   **froggeric/Qwen-Fixed-Chat-Templates**
-    -   作者: froggeric | 点赞: 836 | 下载: 0
-    -   一句话说明：一个独立的社区修复工具，专门解决Qwen模型的聊天模板配置问题，反映了模型生态中基础设施优化的活跃度。
-    -   [链接](https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates)
-
--   **empero-ai/Qwythos-9B-Claude-Mythos-5-1M**
-    -   作者: empero-ai | 点赞: 761 | 下载: 184,315
-    -   一句话说明：Qwythos模型的原版（非量化），同样拥有高人气，表明“Mythos”这一特定风格微调已形成一个成熟的产品线。
-    -   [链接](https://huggingface.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M)
-
-#### **生态信号**
-
-本周生态呈现三大趋势：**第一，Qwen3.6成为社区“地基”**。从未审查版、量化版到修复工具，Qwen3.6的生态链条极其完整，说明其成为社区进行二次开发的核心首选。**第二，MoE架构全面开花**。GLM-5.2、Qwen3.6、DeepSeek-V4、NVIDIA Nemotron系列均采用MoE，这已成为高性能模型的标准范式。**第三，开源权重模型正快速“产品化”**。庞大的GGUF、NVFP4量化需求表明，社区不再满足于跑分，而是急需能真正在本地设备（PC、手机）上运行、能解决具体问题（如Agent、OCR、编程）的“产品级”模型。开源权重模型的优势正在从“能力天花板”转向“生态可部署性”。
-
-#### **值得探索**
-
-1.  **nvidia/LocateAnything-3B**：推荐理由为 **“最值得关注的视觉基础模型”**。它将大模型的理解能力与视觉的定位能力深度结合，在机器人抓取、自动驾驶、图像编辑等领域有巨大潜力，是英伟达在多模态智能体方向的关键棋子。
-2.  **google/tabfm-1.0.0-pytorch**：推荐理由为 **“结构化数据的Game Changer”**。大模型在非结构化数据上表现强劲，但表格数据一直是其短板。谷歌的TabFM试图用Transformer统一表格数据处理，其零样本能力极具研究与应用价值，可能会改变传统数据科学的工作流。
-3.  **unsloth/DeepSeek-V4-Flash-GGUF**：推荐理由为 **“体验顶级专家模型的入口”**。DeepSeek V4代表了当前最前沿的MoE技术之一。Unsloth的量化版是普通开发者以较低资源门槛，深度感受并研究DeepSeek V4最核心的“Flash”推理技术的最佳途径。
+3.  **yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF**：推荐理由：这个超长模型名背后，是一次将小参数模型（12B）深度适配代码 Agent 任务的成功尝试。它证明了“小模型+强 Agent”的可能性，是低成本构建自动化编程助手的理想研究与部署对象。
 
 ---
 *本日报由 [agents-radar](https://github.com/boom7sss/agents-radar) 自动生成。*
