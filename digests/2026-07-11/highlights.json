@@ -1,0 +1,118 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code发布v2.1.207版本修复多项Bug",
+      "OpenAI Codex推出两个Alpha版本测试新模型",
+      "Gemini CLI发布Nightly版本引入新功能",
+      "Qwen Code正式版v0.19.9修复粘贴图片失效",
+      "DeepSeek TUI即将发布v0.8.68架构升级",
+      "社区集体抱怨模型行为控制与稳定性问题"
+    ],
+    "ai-agents": [
+      "OpenClaw今日处理427条Issues和500条PR",
+      "修复macOS上exec-approvals套接字flaky测试",
+      "TUI长token显示emoji乱码问题得到修复",
+      "Android Canvas待机界面简化边框与内边距",
+      "社区聚焦内存泄漏、会话丢失与密钥安全",
+      "Slack用户token回退机制进入关键修复阶段"
+    ],
+    "ai-trending": [
+      "Agent Skills生态爆发，三项目同日登顶Trending",
+      "腾讯云开源长期记忆方案TencentDB-Agent-Memory",
+      "OfficeCLI单日新增1224 Stars，专为AI Agent设计",
+      "RAG生态繁荣，milvus、qdrant等10+项目活跃",
+      "vllm本周支持DeepSeek-K2.6等新模型",
+      "ollama集成Kimi-K2.6、GLM-5.1成本地首选"
+    ],
+    "ai-hn": [
+      "Apple起诉OpenAI窃取商业机密，得446分热议",
+      "GPT-5.6 Sol Ultra证明圈双覆盖猜想获337分",
+      "GPT-5.6误删用户文件事件引发安全担忧",
+      "前美联储主席伯南克加入Anthropic监管信托",
+      "OpenAI浏览器Atlas关停引产业变化讨论",
+      "GPT-5.6与Grok 4.5、Claude等构建同一应用"
+    ],
+    "ai-arxiv": [
+      "量化效应揭示传统指标无法捕捉行为偏差",
+      "超级权重并非所有LLM普遍现象且无法修复",
+      "UltraX提出自适应程序化编辑精炼预训练数据",
+      "UniClawBench首个主动智能体通用基准发布",
+      "Latent Memory Palace将推理迁移至连续控制",
+      "主动记忆机制提升长程任务成功率显著"
+    ],
+    "ai-hf": [
+      "GLM-5.2以3784赞领跑Hugging Face",
+      "DeepSeek-V4-Pro-DSpark旗舰推理模型上线",
+      "NVIDIA LocateAnything-3B视觉定位模型发布",
+      "InternScience Agents-A1专注Agent场景微调",
+      "Supra-Router-51M轻量路由模型仅51M参数",
+      "Qwen3.6系列社区微调与量化版本大爆发"
+    ],
+    "ai-community": [
+      "AI模板采纳暗藏‘笑里藏刀’隐性合同陷阱",
+      "跨AI提供商API建立错误模型比状态码更可靠",
+      "50个Agent并行扫描4.66亿行代码的实战案例",
+      "开源Linter专抓AI助手写出的安全漏洞",
+      "Google AI气候影响批判文章获139分高热",
+      "开发者从‘能否用’转向‘如何可靠地用’"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code auto mode default on Bedrock/Vertex",
+      "OpenCode and DeepSeek TUI gaining momentum",
+      "Model switching & reasoning level now base expectations",
+      "Windows stability and TUI reliability pain points",
+      "Nine major tools competing across providers",
+      "Claude Code and Codex lead community activity"
+    ],
+    "ai-agents": [
+      "OpenClaw: 427 issues, 500 PRs updated",
+      "No new releases; latest v2026.5.18",
+      "Fixed flaky exec-approvals socket guard test",
+      "Corrected state directory creation permissions",
+      "High-severity stability and security concerns",
+      "Steady progress on gateway/plugins/UI fixes"
+    ],
+    "ai-trending": [
+      "Modular composable agent skills dominate trending",
+      "DesktopCommanderMCP gains 328 stars today",
+      "iOfficeAI/OfficeCLI: 1,224 stars for AI office",
+      "MCP ecosystem expanding with stitch-skills",
+      "Long-term memory agents with TencentDB-Agent-Memory",
+      "addyosani/agent-skills accumulated 2,800+ stars"
+    ],
+    "ai-hn": [
+      "Apple files sweeping lawsuit against OpenAI",
+      "GPT-5.6 Sol Ultra proves Cycle Double Cover Conjecture",
+      "HN community skeptical of Apple's motives",
+      "Debate over validity of AI math proof",
+      "GPT-5.6 vs Grok vs Claude build same 4 apps",
+      "Top story: Apple sues OpenAI over trade secrets"
+    ],
+    "ai-arxiv": [
+      "Super weights in LLMs do not degrade pruning",
+      "BiSCo-LLM: extreme 2-4 bit compression",
+      "Agentic robustness benchmarks like UniClawBench",
+      "Proactive Memory Agent for long-horizon",
+      "OpenCoF: reasoning through video generation",
+      "Workflow as Knowledge for structured representations"
+    ],
+    "ai-hf": [
+      "GLM-5.2 leads with 3,784 likes",
+      "NVIDIA LocateAnything-3B vision grounding",
+      "Qwen 3.6 ecosystem with uncensored variants",
+      "Baidu Unlimited-OCR for enterprise document",
+      "Tencent Hy3 strong Chinese performance",
+      "Community GGUF conversions from unsloth"
+    ],
+    "ai-community": [
+      "Unified error model beats status code checks",
+      "Linter catches AI-injected security bugs",
+      "Tool calling returns HTTP 200 but tool never ran",
+      "Streaming logs zero tokens despite output",
+      "Climate critique of Google AI bloat",
+      "Caching proxy saves 70% inference costs"
+    ]
+  }
+}
