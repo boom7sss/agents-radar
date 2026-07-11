@@ -383,6 +383,29 @@ export interface ReportHighlights {
   [reportId: string]: string[];
 }
 
+export interface DailyPick {
+  title: string;
+  why: string;
+  source: string;
+  url?: string;
+}
+
+export interface DailyPicks {
+  picks: DailyPick[];
+}
+
+/**
+ * Selects a short, cross-source editorial briefing for readers who want the
+ * signal without opening every specialist report.
+ */
+export function buildDailyPicksPrompt(reportContents: Record<string, string>): string {
+  const sections = Object.entries(reportContents)
+    .map(([id, content]) => `## [${id}]\n\n${content.slice(0, 1800)}`)
+    .join("\n\n---\n\n");
+
+  return `你是一位严格的中文 AI 新闻主编。以下是今日多个来源的 AI 生态报告节选。请从中选出真正最值得读者关注的 5–10 条事件；如果当天没有足够强的新闻，可以少于 5 条，绝不能凑数。\n\n${sections}\n\n---\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"picks":[{"title":"事件标题","why":"为什么重要（不超过45字）","source":"来源名称","url":"报告中已有的原始链接"}]}\n\n选择规则：\n- 优先级：官方模型/产品发布、原始论文、重要开源发布、政策/融资等实质行业事件；高质量社区讨论只能作为佐证，不能替代事实来源\n- 同一事件多处出现时，只保留一条，并使用最原始、最可信的来源\n- 跳过例行小更新、营销稿、重复讨论、没有实际新增信息的 Issue/PR\n- 条目要覆盖当天最重要的不同方向，不要让同一家公司或同一主题占据多数\n- url 只能使用节选里出现过的链接；找不到可靠链接时省略 url 字段，绝不能编造\n- title 要具体，why 用人话解释对 AI 从业者或关注者的实际影响`;
+}
+
 export function buildHighlightsPrompt(
   reportContents: Record<string, string>,
   lang: Lang = "zh",

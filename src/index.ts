@@ -27,7 +27,14 @@ import {
   buildPeersComparisonPrompt,
   buildSkillsPrompt,
 } from "./prompts.ts";
-import { buildTrendingPrompt, buildHighlightsPrompt, type ReportHighlights } from "./prompts-data.ts";
+import {
+  buildTrendingPrompt,
+  buildHighlightsPrompt,
+  buildDailyPicksPrompt,
+  type DailyPick,
+  type DailyPicks,
+  type ReportHighlights,
+} from "./prompts-data.ts";
 import { callLlm, parseLlmJson, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
 import { buildCliReportContent, buildOpenclawReportContent } from "./report-builders.ts";
 import {
@@ -468,7 +475,45 @@ async function main(): Promise<void> {
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
   console.log(`  Saved ${highlightsPath}`);
 
-  // 6. Create GitHub issues for CLI + OpenClaw (zh + en)
+  // 6. Build one cross-source editorial selection for readers who only want
+  // today's highest-signal developments. The specialist reports remain intact.
+  console.log("  Selecting today's AI must-reads...");
+  const dailyPicks: DailyPicks = { picks: [] };
+  try {
+    const rawPicks = await callLlm(buildDailyPicksPrompt(zhReports), 2048);
+    const parsed = parseLlmJson<DailyPicks>(rawPicks);
+    if (Array.isArray(parsed.picks)) {
+      dailyPicks.picks = parsed.picks
+        .filter(
+          (pick): pick is DailyPick =>
+            typeof pick?.title === "string" &&
+            typeof pick?.why === "string" &&
+            typeof pick?.source === "string",
+        )
+        .slice(0, 10);
+    }
+  } catch (err) {
+    console.error(`  [daily-picks] generation failed: ${err}`);
+  }
+
+  const picksJsonPath = saveFile(JSON.stringify(dailyPicks, null, 2), dateStr, "daily-picks.json");
+  const picksMarkdown = [
+    `# 今日 AI 必看 · ${dateStr}`,
+    "",
+    ...(dailyPicks.picks.length
+      ? dailyPicks.picks.flatMap((pick, index) => [
+          `${index + 1}. **${pick.title}**`,
+          `   ${pick.why}`,
+          `   ${pick.url ? `[来源：${pick.source}](${pick.url})` : `来源：${pick.source}`}`,
+          "",
+        ])
+      : ["今天没有筛出足够高信号的必看条目；请查看下方专题日报。", ""]),
+  ].join("\n");
+  const picksMarkdownPath = saveFile(picksMarkdown, dateStr, "ai-picks.md");
+  console.log(`  Saved ${picksJsonPath}`);
+  console.log(`  Saved ${picksMarkdownPath}`);
+
+  // 7. Create GitHub issues for CLI + OpenClaw (zh + en)
   if (digestRepo) {
     for (const lang of ["zh", "en"] as const) {
       const cliUrl = await createGitHubIssue(

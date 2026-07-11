@@ -14,6 +14,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { NOTIFY_LABELS } from "./i18n.ts";
 import type { Highlights } from "./notify.ts";
+import type { DailyPick, DailyPicks } from "./prompts-data.ts";
 
 const PAGES_URL_DEFAULT = "https://duanyytop.github.io/agents-radar";
 
@@ -64,7 +65,9 @@ export function buildFeishuMessage(
   highlights?: Highlights | null,
 ): string {
   const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
-  const baseReports = reports.filter((r) => !r.endsWith("-en"));
+  // Picks have their own compact card, so keep the existing overview focused
+  // on the specialist reports instead of listing the same content twice.
+  const baseReports = reports.filter((r) => !r.endsWith("-en") && r !== "ai-picks");
   const isWeekly = baseReports.includes("ai-weekly");
   const isMonthly = baseReports.includes("ai-monthly");
 
@@ -105,6 +108,19 @@ export function buildFeishuMessage(
   return lines.join("\n");
 }
 
+export function buildDailyPicksMessage(date: string, picks: DailyPick[]): string {
+  const lines = [`📌 **今日 AI 必看 · ${date}**`];
+
+  for (const [index, pick] of picks.entries()) {
+    lines.push("");
+    lines.push(`${index + 1}. **${pick.title}**`);
+    lines.push(`   ${pick.why}`);
+    lines.push(`   ${pick.url ? `[来源：${pick.source}](${pick.url})` : `来源：${pick.source}`}`);
+  }
+
+  return lines.join("\n");
+}
+
 async function main(): Promise<void> {
   const urls = getWebhookUrls();
   if (!urls.length) {
@@ -138,6 +154,16 @@ async function main(): Promise<void> {
     }
   }
 
+  let dailyPicks: DailyPicks | null = null;
+  const dailyPicksPath = path.join("digests", date, "daily-picks.json");
+  if (fs.existsSync(dailyPicksPath)) {
+    try {
+      dailyPicks = JSON.parse(fs.readFileSync(dailyPicksPath, "utf-8")) as DailyPicks;
+    } catch {
+      console.log("[feishu] Failed to parse daily-picks.json — skipping picks card.");
+    }
+  }
+
   const isMonthly = reports.some((r) => r === "ai-monthly");
   const isWeekly = reports.some((r) => r === "ai-weekly");
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
@@ -145,6 +171,11 @@ async function main(): Promise<void> {
   const title = `${icon} agents-radar${suffix} · ${date}`;
 
   const content = buildFeishuMessage(date, reports, undefined, highlights);
+
+  if (dailyPicks?.picks?.length) {
+    console.log(`[feishu] Sending ${dailyPicks.picks.length} daily picks…`);
+    await sendFeishu(`📌 今日 AI 必看 · ${date}`, buildDailyPicksMessage(date, dailyPicks.picks));
+  }
 
   console.log(`[feishu] Sending to ${urls.length} webhook(s) for ${date} (${reports.length} reports)…`);
   await sendFeishu(title, content);

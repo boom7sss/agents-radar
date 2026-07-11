@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { buildFeishuMessage } from "../feishu.ts";
+import { buildDailyPicksMessage, buildFeishuMessage } from "../feishu.ts";
 import type { Highlights } from "../notify.ts";
 
 const BASE_URL = "https://example.com/radar";
@@ -92,5 +92,26 @@ describe("buildFeishuMessage", () => {
     const msg = buildFeishuMessage("2026-03-09", ["ai-cli", "ai-cli-en"], BASE_URL, null);
     expect(msg).toContain("AI CLI 工具");
     expect(msg).not.toContain("◦");
+  });
+
+  it("keeps the must-read selection out of the full overview card", () => {
+    const msg = buildFeishuMessage("2026-03-09", ["ai-picks", "ai-cli"], BASE_URL);
+    expect(msg).toContain("AI CLI 工具");
+    expect(msg).not.toContain("ai-picks");
+    expect(msg).not.toContain("今日 AI 必看");
+  });
+
+  it("builds a short must-read card with source links", () => {
+    const msg = buildDailyPicksMessage("2026-03-09", [
+      {
+        title: "OpenAI 发布新模型",
+        why: "推理成本下降，适合更大规模部署。",
+        source: "OpenAI",
+        url: "https://example.com/release",
+      },
+    ]);
+    expect(msg).toContain("今日 AI 必看");
+    expect(msg).toContain("OpenAI 发布新模型");
+    expect(msg).toContain("[来源：OpenAI](https://example.com/release)");
   });
 });
