@@ -19,18 +19,35 @@ const categoryMap = [["AI 基础工具", "基础工具"], ["AI 智能体", "智�
 function parseReport(md) {
   let category = "其他";
   const projects = [];
+  let current = null;
+  const flush = () => {
+    if (!current || projects.some((p) => p.repo.toLowerCase() === current.repo.toLowerCase())) return;
+    current.analysis ||= "今日趋势项目，详细信息请查阅 README。";
+    projects.push(current);
+  };
   for (const line of md.split("\n")) {
-    if (/^#####/.test(line)) category = categoryMap.find(([label]) => line.includes(label))?.[1] ?? "其他";
-    if (!line.trimStart().startsWith("-")) continue;
+    if (/^#{3,5}\s/.test(line)) category = categoryMap.find(([label]) => line.includes(label))?.[1] ?? category;
     const link = line.match(/\[([^\]]+)\]\((https:\/\/github\.com\/([^\s)]+))\)/);
+    if (link && line.trimStart().startsWith("-")) {
+      flush();
+      current = { name: link[1].split("/").at(-1), repo: link[3], url: link[2], category, reportedStars: 0, reportedDaily: 0, analysis: "" };
+      const inlineStars = line.match(/⭐\s*([\d,]+)/);
+      const inlineDaily = line.match(/\(\+([\d,]+)\s+today\)/i);
+      if (inlineStars) current.reportedStars = Number(inlineStars[1].replaceAll(",", ""));
+      if (inlineDaily) current.reportedDaily = Number(inlineDaily[1].replaceAll(",", ""));
+      const inlineAnalysis = line.split(/\s+-\s+/).slice(1).join(" - ").trim();
+      if (inlineAnalysis) current.analysis = inlineAnalysis;
+      continue;
+    }
+    if (!current) continue;
     const stars = line.match(/⭐\s*([\d,]+)/);
-    if (!link || !stars) continue;
-    const repo = link[3];
-    if (projects.some((p) => p.repo.toLowerCase() === repo.toLowerCase())) continue;
     const daily = line.match(/\(\+([\d,]+)\s+today\)/i);
-    const analysis = line.split(/\s+-\s+/).slice(1).join(" - ").trim() || "今日趋势项目，详细信息请查阅 README。";
-    projects.push({ name: link[1].split("/").at(-1), repo, url: link[2], category, reportedStars: Number(stars[1].replaceAll(",", "")), reportedDaily: Number((daily?.[1] ?? "0").replaceAll(",", "")), analysis });
+    if (stars) current.reportedStars = Number(stars[1].replaceAll(",", ""));
+    if (daily) current.reportedDaily = Number(daily[1].replaceAll(",", ""));
+    const explanation = line.match(/(?:一句话说明|项目说明|核心价值)[：:]\*?\*?\s*(.+)$/);
+    if (explanation) current.analysis = explanation[1].replace(/^\*\*|\*\*$/g, "").trim();
   }
+  flush();
   return projects;
 }
 
@@ -134,9 +151,11 @@ async function addDeploymentBriefs(items) {
 }
 
 const parsed = parseReport(report);
+if (parsed.length < 5) throw new Error(`Quality gate failed: only ${parsed.length} projects parsed from ${reportPath}`);
 const projects = [];
 for (let i = 0; i < parsed.length; i += 6) projects.push(...await Promise.all(parsed.slice(i, i + 6).map(enrich)));
 await addDeploymentBriefs(projects);
+if (deepseekKey && projects.filter((p) => p.deploymentBrief).length < Math.ceil(projects.length * 0.7)) throw new Error("Quality gate failed: fewer than 70% of projects received DeepSeek deployment briefs");
 projects.sort((a, b) => b.score - a.score || b.dailyGrowth - a.dailyGrowth);
 for (const project of projects) delete project._readme;
 const payload = { generated: new Date().toISOString(), date, methodology: "health-v1/potential-v1", projects };
