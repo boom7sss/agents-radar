@@ -2,8 +2,8 @@
   "Nutlope/hallmark": [
     {
       "date": "2026-07-13",
-      "stars": 4213,
-      "growth": 7
+      "stars": 4215,
+      "growth": 2
     }
   ],
   "LancerLab/croqtile": [
@@ -16,22 +16,22 @@
   "davila7/claude-code-templates": [
     {
       "date": "2026-07-13",
-      "stars": 29215,
+      "stars": 29216,
       "growth": 1
     }
   ],
   "vllm-project/vllm": [
     {
       "date": "2026-07-13",
-      "stars": 86071,
-      "growth": 0
+      "stars": 86072,
+      "growth": 1
     }
   ],
   "firecrawl/firecrawl": [
     {
       "date": "2026-07-13",
-      "stars": 149858,
-      "growth": 2
+      "stars": 149864,
+      "growth": 6
     }
   ],
   "0xPlaygrounds/rig": [
@@ -44,21 +44,21 @@
   "virattt/ai-hedge-fund": [
     {
       "date": "2026-07-13",
-      "stars": 61364,
+      "stars": 61365,
       "growth": 1
     }
   ],
   "langgenius/dify": [
     {
       "date": "2026-07-13",
-      "stars": 148606,
-      "growth": 0
+      "stars": 148607,
+      "growth": 1
     }
   ],
   "ColeMurray/background-agents": [
     {
       "date": "2026-07-13",
-      "stars": 2237,
+      "stars": 2239,
       "growth": 2
     }
   ],
@@ -66,21 +66,21 @@
     {
       "date": "2026-07-13",
       "stars": 20482,
-      "growth": 6
+      "growth": 0
     }
   ],
   "PrefectHQ/prefect": [
     {
       "date": "2026-07-13",
-      "stars": 23119,
-      "growth": 3
+      "stars": 23121,
+      "growth": 2
     }
   ],
   "affaan-m/ECC": [
     {
       "date": "2026-07-13",
       "stars": 228929,
-      "growth": 4
+      "growth": 0
     }
   ],
   "acon96/home-llm": [
@@ -93,8 +93,8 @@
   "Dicklesworthstone/destructive_command_guard": [
     {
       "date": "2026-07-13",
-      "stars": 2787,
-      "growth": 16
+      "stars": 2791,
+      "growth": 4
     }
   ],
   "huggingface/transformers": [
@@ -150,7 +150,7 @@
     {
       "date": "2026-07-13",
       "stars": 84879,
-      "growth": 1
+      "growth": 0
     }
   ],
   "open-compass/opencompass": [
@@ -170,8 +170,8 @@
   "headroomlabs-ai/headroom": [
     {
       "date": "2026-07-13",
-      "stars": 58734,
-      "growth": 2
+      "stars": 58735,
+      "growth": 1
     }
   ],
   "topoteretes/cognee": [
@@ -184,8 +184,8 @@
   "thedotmack/claude-mem": [
     {
       "date": "2026-07-13",
-      "stars": 86966,
-      "growth": 0
+      "stars": 86968,
+      "growth": 2
     }
   ]
 }
