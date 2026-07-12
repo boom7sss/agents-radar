@@ -2,8 +2,8 @@
   "Nutlope/hallmark": [
     {
       "date": "2026-07-13",
-      "stars": 4215,
-      "growth": 2
+      "stars": 4220,
+      "growth": 5
     }
   ],
   "LancerLab/croqtile": [
@@ -16,15 +16,15 @@
   "davila7/claude-code-templates": [
     {
       "date": "2026-07-13",
-      "stars": 29216,
-      "growth": 1
+      "stars": 29218,
+      "growth": 2
     }
   ],
   "vllm-project/vllm": [
     {
       "date": "2026-07-13",
       "stars": 86072,
-      "growth": 1
+      "growth": 0
     }
   ],
   "firecrawl/firecrawl": [
@@ -44,29 +44,29 @@
   "virattt/ai-hedge-fund": [
     {
       "date": "2026-07-13",
-      "stars": 61365,
-      "growth": 1
+      "stars": 61367,
+      "growth": 2
     }
   ],
   "langgenius/dify": [
     {
       "date": "2026-07-13",
       "stars": 148607,
-      "growth": 1
+      "growth": 0
     }
   ],
   "ColeMurray/background-agents": [
     {
       "date": "2026-07-13",
-      "stars": 2239,
-      "growth": 2
+      "stars": 2242,
+      "growth": 3
     }
   ],
   "HKUDS/Vibe-Trading": [
     {
       "date": "2026-07-13",
-      "stars": 20482,
-      "growth": 0
+      "stars": 20486,
+      "growth": 4
     }
   ],
   "PrefectHQ/prefect": [
@@ -93,8 +93,8 @@
   "Dicklesworthstone/destructive_command_guard": [
     {
       "date": "2026-07-13",
-      "stars": 2791,
-      "growth": 4
+      "stars": 2797,
+      "growth": 6
     }
   ],
   "huggingface/transformers": [
@@ -184,8 +184,57 @@
   "thedotmack/claude-mem": [
     {
       "date": "2026-07-13",
-      "stars": 86968,
-      "growth": 2
+      "stars": 86969,
+      "growth": 1
+    }
+  ],
+  "samchon/nestia": [
+    {
+      "date": "2026-07-13",
+      "stars": 2164,
+      "growth": 1
+    }
+  ],
+  "NousResearch/hermes-agent": [
+    {
+      "date": "2026-07-13",
+      "stars": 213716,
+      "growth": 0
+    }
+  ],
+  "Significant-Gravitas/AutoGPT": [
+    {
+      "date": "2026-07-13",
+      "stars": 185496,
+      "growth": 0
+    }
+  ],
+  "Shubhamsaboo/awesome-llm-apps": [
+    {
+      "date": "2026-07-13",
+      "stars": 118474,
+      "growth": 450
+    }
+  ],
+  "zhayujie/CowAgent": [
+    {
+      "date": "2026-07-13",
+      "stars": 45945,
+      "growth": 0
+    }
+  ],
+  "pytorch/pytorch": [
+    {
+      "date": "2026-07-13",
+      "stars": 101777,
+      "growth": 0
+    }
+  ],
+  "milvus-io/milvus": [
+    {
+      "date": "2026-07-13",
+      "stars": 45202,
+      "growth": 0
     }
   ]
 }
