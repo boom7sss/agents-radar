@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const token = process.env.GITHUB_TOKEN;
+const deepseekKey = process.env.DEEPSEEK_API_KEY;
 if (!token) throw new Error("GITHUB_TOKEN is required");
 
 const root = process.cwd();
@@ -48,12 +49,13 @@ const context = ["ai-hn.md", "ai-community.md"].map((f) => { try { return fs.rea
 async function enrich(project) {
   try {
     const encoded = project.repo.split("/").map(encodeURIComponent).join("/");
-    const [repoRes, commitsRes, contributorsRes, issuesRes, releasesRes] = await Promise.all([
+    const [repoRes, commitsRes, contributorsRes, issuesRes, releasesRes, readmeRes] = await Promise.all([
       api(`/repos/${encoded}`),
       api(`/repos/${encoded}/commits?since=${encodeURIComponent(since30)}&per_page=1`),
       api(`/repos/${encoded}/contributors?anon=1&per_page=1`),
       api(`/repos/${encoded}/issues?state=closed&since=${encodeURIComponent(since30)}&per_page=100`),
       api(`/repos/${encoded}/releases?per_page=10`),
+      api(`/repos/${encoded}/readme`).catch(() => ({ data: {} })),
     ]);
     const r = repoRes.data;
     const commits30d = linkCount(commitsRes.link, commitsRes.data.length);
@@ -92,17 +94,47 @@ async function enrich(project) {
     if (r.open_issues_count > closedIssues30d * 8 + 50) risks.push("Issue 积压较多");
     if (contributors < 3) risks.push("贡献者集中度较高");
     history[project.repo] = [...(history[project.repo] ?? []).filter((x) => x.date !== date), { date, stars, growth: dailyGrowth }].slice(-30);
-    return { ...project, description: r.description || project.analysis.split("。")[0] + "。", stars, dailyGrowth, acceleration, ageDays: Math.round(ageDays), language: r.language, forks: r.forks_count, openIssues: r.open_issues_count, commits30d, contributors, closedIssues30d, releases90d, license: r.license?.spdx_id ?? null, externalMentions, health, potential, healthScore, potentialScore, score, risks };
+    const readme = Buffer.from(readmeRes.data.content ?? "", "base64").toString("utf8").slice(0, 7000);
+    return { ...project, description: r.description || project.analysis.split("。")[0] + "。", stars, dailyGrowth, acceleration, ageDays: Math.round(ageDays), language: r.language, homepage: r.homepage || null, topics: r.topics ?? [], forks: r.forks_count, openIssues: r.open_issues_count, commits30d, contributors, closedIssues30d, releases90d, license: r.license?.spdx_id ?? null, externalMentions, health, potential, healthScore, potentialScore, score, risks, _readme: readme };
   } catch (error) {
     console.warn(`[dashboard] ${project.repo}: ${error.message}`);
-    return { ...project, description: project.analysis.split("。")[0] + "。", stars: project.reportedStars, dailyGrowth: project.reportedDaily, score: 50, healthScore: 50, potentialScore: 50, health: {}, potential: {}, risks: ["部分健康度数据暂未取得"] };
+    return { ...project, description: project.analysis.split("。")[0] + "。", stars: project.reportedStars, dailyGrowth: project.reportedDaily, score: 50, healthScore: 50, potentialScore: 50, health: {}, potential: {}, risks: ["部分健康度数据暂未取得"], _readme: "" };
+  }
+}
+
+const deploymentSystemPrompt = `你是资深开源项目部署顾问。根据项目 README、GitHub 元数据和今日趋势解读，为晨间读者生成“1 分钟部署决策报告”。只输出 JSON 数组，不要 Markdown。每项严格包含：repo、purpose（项目作用，45-90字）、productType（网站/Web服务/桌面应用/CLI/SDK或库/模型/数据基础设施/其他之一）、deploymentConditions（数组，2-5条具体条件）、difficulty（1-5整数）、estimatedTime（如“15–30分钟”）、suitableFor（25-60字）、deploymentSteps（数组，3-5条简明步骤）、risks（数组，1-4条）、confidence（high/medium/low）。不得猜测 README 未支持的云服务、端口或硬件；信息不足时明确写“需查阅 README”，并降低 confidence。难度标准：1=下载即用；2=单运行时/单命令；3=环境变量或容器；4=数据库/GPU/多服务；5=分布式生产部署。`;
+
+async function addDeploymentBriefs(items) {
+  if (!deepseekKey) {
+    console.warn("[dashboard] DEEPSEEK_API_KEY missing; deployment briefs will use frontend fallback");
+    return;
+  }
+  for (let i = 0; i < items.length; i += 6) {
+    const batch = items.slice(i, i + 6);
+    const input = batch.map((p) => ({ repo: p.repo, category: p.category, description: p.description, language: p.language, homepage: p.homepage, topics: p.topics, license: p.license, analysis: p.analysis, readmeExcerpt: p._readme }));
+    try {
+      const response = await fetch("https://api.deepseek.com/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${deepseekKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ model: process.env.DEEPSEEK_MODEL ?? "deepseek-chat", temperature: 0.15, max_tokens: 5000, response_format: { type: "json_object" }, messages: [{ role: "system", content: deploymentSystemPrompt }, { role: "user", content: `分析以下项目并返回 {"projects":[...]}：\n${JSON.stringify(input)}` }] }) });
+      if (!response.ok) throw new Error(`DeepSeek ${response.status}`);
+      const body = await response.json();
+      const parsed = JSON.parse(body.choices?.[0]?.message?.content ?? "{}");
+      const briefs = Array.isArray(parsed) ? parsed : parsed.projects;
+      if (!Array.isArray(briefs)) throw new Error("invalid JSON shape");
+      for (const project of batch) {
+        const brief = briefs.find((x) => x.repo?.toLowerCase() === project.repo.toLowerCase());
+        if (brief) project.deploymentBrief = brief;
+      }
+    } catch (error) {
+      console.warn(`[dashboard] deployment brief batch failed: ${error.message}`);
+    }
   }
 }
 
 const parsed = parseReport(report);
 const projects = [];
 for (let i = 0; i < parsed.length; i += 6) projects.push(...await Promise.all(parsed.slice(i, i + 6).map(enrich)));
+await addDeploymentBriefs(projects);
 projects.sort((a, b) => b.score - a.score || b.dailyGrowth - a.dailyGrowth);
+for (const project of projects) delete project._readme;
 const payload = { generated: new Date().toISOString(), date, methodology: "health-v1/potential-v1", projects };
 fs.writeFileSync(path.join(digestsDir, date, "projects.json"), JSON.stringify(payload, null, 2) + "\n");
 fs.writeFileSync(historyPath, JSON.stringify(history, null, 2) + "\n");
