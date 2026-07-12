@@ -1,3 +1,4 @@
+
 {
   "name": "agents-radar",
   "version": "1.0.0",
@@ -11,6 +12,7 @@
     "format": "prettier --write src",
     "format:check": "prettier --check src",
     "manifest": "tsx src/generate-manifest.ts",
+    "dashboard": "node scripts/generate-dashboard.mjs",
     "weekly": "tsx src/weekly.ts",
     "monthly": "tsx src/monthly.ts",
     "notify": "tsx src/notify.ts",
