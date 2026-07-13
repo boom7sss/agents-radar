@@ -4,6 +4,11 @@
       "date": "2026-07-13",
       "stars": 4220,
       "growth": 5
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 5081,
+      "growth": 861
     }
   ],
   "LancerLab/croqtile": [
@@ -25,6 +30,11 @@
       "date": "2026-07-13",
       "stars": 86072,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 86162,
+      "growth": 90
     }
   ],
   "firecrawl/firecrawl": [
@@ -102,6 +112,11 @@
       "date": "2026-07-13",
       "stars": 162546,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 162573,
+      "growth": 27
     }
   ],
   "hugohe3/ppt-master": [
@@ -116,6 +131,11 @@
       "date": "2026-07-13",
       "stars": 48477,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 48521,
+      "growth": 44
     }
   ],
   "santifer/career-ops": [
@@ -123,6 +143,11 @@
       "date": "2026-07-13",
       "stars": 59744,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 59877,
+      "growth": 133
     }
   ],
   "starpig1129/DATAGEN": [
@@ -137,11 +162,21 @@
       "date": "2026-07-13",
       "stars": 98979,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 99034,
+      "growth": 55
     }
   ],
   "galilai-group/stable-pretraining": [
     {
       "date": "2026-07-13",
+      "stars": 285,
+      "growth": 0
+    },
+    {
+      "date": "2026-07-14",
       "stars": 285,
       "growth": 0
     }
@@ -151,6 +186,11 @@
       "date": "2026-07-13",
       "stars": 84879,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 84964,
+      "growth": 85
     }
   ],
   "open-compass/opencompass": [
@@ -158,6 +198,11 @@
       "date": "2026-07-13",
       "stars": 7183,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 7186,
+      "growth": 3
     }
   ],
   "mem0ai/mem0": [
@@ -165,6 +210,11 @@
       "date": "2026-07-13",
       "stars": 60670,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 60748,
+      "growth": 78
     }
   ],
   "headroomlabs-ai/headroom": [
@@ -172,6 +222,11 @@
       "date": "2026-07-13",
       "stars": 58735,
       "growth": 1
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 58959,
+      "growth": 224
     }
   ],
   "topoteretes/cognee": [
@@ -207,6 +262,11 @@
       "date": "2026-07-13",
       "stars": 185496,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 185511,
+      "growth": 15
     }
   ],
   "Shubhamsaboo/awesome-llm-apps": [
@@ -214,6 +274,11 @@
       "date": "2026-07-13",
       "stars": 118474,
       "growth": 450
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 119539,
+      "growth": 1065
     }
   ],
   "zhayujie/CowAgent": [
@@ -221,6 +286,11 @@
       "date": "2026-07-13",
       "stars": 45945,
       "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 45960,
+      "growth": 15
     }
   ],
   "pytorch/pytorch": [
@@ -234,6 +304,67 @@
     {
       "date": "2026-07-13",
       "stars": 45202,
+      "growth": 0
+    },
+    {
+      "date": "2026-07-14",
+      "stars": 45210,
+      "growth": 8
+    }
+  ],
+  "ollama/ollama": [
+    {
+      "date": "2026-07-14",
+      "stars": 176060,
+      "growth": 0
+    }
+  ],
+  "open-webui/open-webui": [
+    {
+      "date": "2026-07-14",
+      "stars": 145310,
+      "growth": 0
+    }
+  ],
+  "esengine/DeepSeek-Reasonix": [
+    {
+      "date": "2026-07-14",
+      "stars": 26868,
+      "growth": 0
+    }
+  ],
+  "CopilotKit/CopilotKit": [
+    {
+      "date": "2026-07-14",
+      "stars": 35999,
+      "growth": 0
+    }
+  ],
+  "ZhuLinsen/daily_stock_analysis": [
+    {
+      "date": "2026-07-14",
+      "stars": 57056,
+      "growth": 0
+    }
+  ],
+  "OpenCut-app/OpenCut": [
+    {
+      "date": "2026-07-14",
+      "stars": 66124,
+      "growth": 1077
+    }
+  ],
+  "Graphify-Labs/graphify": [
+    {
+      "date": "2026-07-14",
+      "stars": 84611,
+      "growth": 1028
+    }
+  ],
+  "NirDiamant/RAG_Techniques": [
+    {
+      "date": "2026-07-14",
+      "stars": 28528,
       "growth": 0
     }
   ]

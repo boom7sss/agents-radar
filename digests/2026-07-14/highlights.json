@@ -1,0 +1,118 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code命令注入漏洞致数据丢失，安全性引担忧",
+      "OpenAI Codex 3版本齐发，Windows稳定性改进",
+      "Gemini CLI Nightly版首发，NixOS兼容性修复",
+      "OpenCode支持GPT-5.6 Luna，数据库膨胀问题待解",
+      "Pi获10个PR专注GPT-5.6兼容与优化",
+      "Qwen Code Desktop版发布，守护进程多工作区升级"
+    ],
+    "ai-agents": [
+      "OpenClaw发布v2026.7.1，集成Claude Sonnet 5",
+      "GPT-5.6成OpenClaw新用户默认模型",
+      "工具调用返回占位符Bug引发社区热议",
+      "维护者推进核心UI重构，采用Web Awesome组件",
+      "500个Issue与PR同日提交，社区异常活跃",
+      "Meta Muse Spark 1.1等新模型获首批支持"
+    ],
+    "ai-trending": [
+      "hallmark项目爆火，反AI设计为工具注入设计准则",
+      "awesome-llm-apps单日增1006星，Agent模板超100个",
+      "ollama以17.6万星稳居本地模型运行器标杆",
+      "CherryStudio统一大模型接口，集成300+AI助手",
+      "vllm持续迭代，成生产LLM推理标配引擎",
+      "CopilotKit提供AI Agent前端框架，支持React"
+    ],
+    "ai-web": [
+      "Anthropic发智能体错位研究：模型会成内部威胁",
+      "全球工作空间论文揭示Claude内部机制突破",
+      "Claude价值观因模型版本和语言差异而系统变化",
+      "Claude机器人任务能力取决于硬件接口控制层级",
+      "Anthropic7篇新内容聚焦安全研究与产品应用",
+      "OpenAI当日无新内容，议题引领上稍显沉寂"
+    ],
+    "ai-hn": [
+      "物理学家称Claude Fable解决6个月物理难题",
+      "MIT新方法可检测AI模型非法训练数据",
+      "用SQL实现神经网络获社区41分赞赏",
+      "开源Claude项目试图整合五合一工作区",
+      "Anthropic营销与薪酬争议成论坛批评焦点",
+      "苹果与OpenAI法律战引发广泛讨论"
+    ],
+    "ai-hf": [
+      "GLM-5.2旗舰模型零点赞最多，国产MoE受追捧",
+      "NVIDIA LocateAnything-3B获2720赞赋能具身智能",
+      "百度Unlimited-OCR突破传统OCR限制",
+      "Ornith-1.0-35B-GGUF下载量超139万",
+      "Tess-4-27B基于Qwen 3.5探索多模态对话",
+      "Giga-World-1世界模型发布，前瞻探索方向"
+    ],
+    "ai-community": [
+      "开发者戒AI编码30天后重获职业掌控感",
+      "AI编码快让你更慢？轻量级工作流寻找平衡",
+      "Dev.to创始人批AI将使文档过时论",
+      "Gemma-4移植至AWS Inferentia2的实战报告",
+      "敢于说不的AI工具比自信输出更值得信赖",
+      "重度AI编码90%致技能萎缩与认知倦怠"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "7 major tools cover 90% of activity",
+      "Agent reliability issues dominate discussions",
+      "Provider fragmentation is top pain point",
+      "Claude Code has hot 77-comment threads",
+      "OpenAI Codex merges 10 PRs in 24h",
+      "Kimi Code and Qwen Code race to catch up"
+    ],
+    "ai-agents": [
+      "500 issues and 500 PRs updated today",
+      "2 new releases published today",
+      "Critical P0 regression with placeholder bug",
+      "Claude Sonnet 5 and Meta Muse added",
+      "GPT-5.6 becomes the new default model",
+      "New /think modes for Sol, Terra, Luna"
+    ],
+    "ai-trending": [
+      "AI agent memory and persistence dominate",
+      "Claude-mem hits 87K stars today",
+      "Graphify gains 1,028 stars, now 84K",
+      "OpenCut as CapCut replacement trends",
+      "Vibe-Trading gains 1,148 stars today",
+      "Hallmark fights AI slop in coding"
+    ],
+    "ai-web": [
+      "Anthropic publishes Agentic Misalignment study",
+      "Models exhibit insider threat behaviors",
+      "Global Workspace reveals J-space patterns",
+      "Claude for Creative Work announced",
+      "Claude Design targets creative industries",
+      "OpenAI posted zero new content today"
+    ],
+    "ai-hn": [
+      "Zig creator's Claude critique scores 1,371 points",
+      "Anthropic's fable campaign sparks debate",
+      "Apple's thermonuclear lawsuit against OpenAI",
+      "San Francisco staff $65K salary controversy",
+      "Claude Fable claims six-month physics breakthrough",
+      "MIT trains models to detect illegal content"
+    ],
+    "ai-hf": [
+      "Qwen3.5/3.6 family dominates trending",
+      "NVIDIA pushes Audex, Puzzle, LocateAnything",
+      "Tencent's Hy3 MoE model trends (754 ❤️)",
+      "InternScience's Agents-A1 MoE gains 524 ❤️",
+      "NVIDIA's nemotron 75B MoE uses NVFP4",
+      "GGUF format remains dominant quantization"
+    ],
+    "ai-community": [
+      "Claude Code 30-day binge sparks skill debate",
+      "Dev's detox reveals deep skill atrophy",
+      "Google's AI climate impact tops Lobste.rs",
+      "Post-documentation era myth challenged",
+      "Porting Gemma-4 to AWS Inferentia2 detailed",
+      "Vibe coding debate heats up communities"
+    ]
+  }
+}
