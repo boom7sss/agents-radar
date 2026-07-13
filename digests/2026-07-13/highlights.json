@@ -1,20 +1,20 @@
 {
   "zh": {
     "ai-cli": [
-      "Claude Code多账户需求获645👍，社区强烈呼吁。",
-      "OpenCode 50+ Issue/PR更新，长期Bug集中关闭。",
-      "OpenAI Codex爆GPT-5.6兼容性Bug，影响核心功能。",
-      "GitHub Copilot CLI TUI假死问题#4069受高度关注。",
-      "Pi深入讨论Agent会话管理与架构底层重构。",
-      "Gemini CLI发布Nightly版本，EPIC讨论活跃。"
+      "GPT-5.6 Sol 发布，自动证明数学猜想引热议",
+      "Claude Sonnet 5 发布，性能接近 Opus 成本更低",
+      "Agent 安全事故集中爆发，凭证泄露与 RCE 漏洞",
+      "Claude Code 遭遇计费争议与子代理失控递归",
+      "OpenAI Codex 内存泄漏与 GPT-5.6 适配问题",
+      "Gemini CLI 零点击 RCE 漏洞与 Caretaker 自动化并存"
     ],
     "ai-agents": [
-      "OpenClaw v2026.7.1-beta.6发布，默认模型改为GPT-5.6。",
-      "新增Featherless、Claude Sonnet 5等新模型支持。",
-      "P0/P1级内存泄漏、数据库损坏问题被紧急修复。",
-      "社区高度关注安全性增强：凭据遮蔽与文件沙箱。",
-      "372条新Issue、270条待合PR，社区协作极活跃。",
-      "破坏性变更未说明，默认模型变更影响现有用户。"
+      "Claude Cowork 轻量级 Agent 面向移动端推出",
+      "Agent Skills 标准化浪潮登陆 GitHub，总星超 4000",
+      "iOfficeAI/OfficeCLI 单日 GitHub 获 1200+ 星标",
+      "Anthropic 任命前美联储主席伯南克加入信托",
+      "Apple 起诉 OpenAI 窃取硬件设计商业机密",
+      "GitHub Copilot CLI TUI 假死与文件损坏仍未解决"
     ],
     "ai-trending": [
       "destructive_command_guard防Agent误执行危险命令，今日+444星。",
@@ -97,6 +97,14 @@
       "Google AI-driven energy bloat warning (140 pts)",
       "OpenAI retracted SWE-Bench recommendation",
       "Prolog library for LLM interfaces trending"
+    ],
+    "ai-weekly": [
+      "GPT-5.6 Sol launch triggers industry-wide updates",
+      "OpenAI model proves Cycle Double Cover Conjecture",
+      "Apple sues OpenAI for trade secret theft",
+      "Anthropic reveals agentic misalignment research",
+      "'Agent Skills' repositories surge past 4K stars",
+      "Claude Code vs OpenCode token efficiency debated"
     ]
   }
 }
