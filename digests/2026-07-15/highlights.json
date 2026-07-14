@@ -1,0 +1,134 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code 发布 v2.1.208/209，聚焦 Advisor 可用性",
+      "Codex CLI 子 Agent 模型选择、/undo 回归引热议",
+      "Gemini CLI 出现代理挂起、Shell 卡死等 P1 Bug",
+      "Copilot CLI 插件市场与 MCP 集成受关注",
+      "OpenCode Desktop v2 新布局发布，社区贡献活跃",
+      "Pi 新增 xAI/Amazon 模型支持，子代理超时修复"
+    ],
+    "ai-agents": [
+      "OpenClaw 2026.7.1 版本爆多个 P0 级启动崩溃",
+      "Memory Core 数据迁移冲突导致网关崩溃循环",
+      "PR #107800 修复 Google/OpenAI 流式格式化异常",
+      "PR #106519 为 Codex WebSocket 握手增加超时限制",
+      "PR #107119 为 CLI 文件操作增加并发防资源耗尽",
+      "社区焦点从新功能转向紧急 Bug 修复与数据安全"
+    ],
+    "ai-trending": [
+      "Shubhamsaboo/awesome-llm-apps 登顶 Trending 热榜",
+      "Graphify-Labs/graphify 将代码转化为知识图谱，日增1858星",
+      "NousResearch/hermes-agent 代表自我进化 Agent 新范式 (214k星)",
+      "virattt/ai-hedge-fund 首次大规模登榜，AI 金融应用爆发",
+      "ollama/ollama 支持最新 Kimi-K2.6 等模型 (176k星)",
+      "browser-use/browser-use 让 Agent 像人一样操作浏览器 (104k星)"
+    ],
+    "ai-web": [
+      "Anthropic 推出面向美国 K-12 教师的免费 Claude 产品",
+      "Anthropic 向加拿大 AI 研究机构注资 1000 万加元",
+      "首份国别洞察报告：加拿大 Claude 使用全球领先",
+      "Claude for Teachers 连接全美 50 州课程标准",
+      "投资绑定 Amii、Mila、Vector 等顶尖学术机构",
+      "报告揭示加拿大专业服务业是 Claude 主要驱动力"
+    ],
+    "ai-hn": [
+      "OpenAI Codex 加密子 Agent 提示词引安全担忧 (405分)",
+      "开发者吐槽 Claude 回复模式审美疲劳 (395分)",
+      "OpenAI 广告业务预测可能失准 90% 引质疑 (69分)",
+      "Apple 起诉 OpenAI 涉嫌窃取硬件机密 (6分)",
+      "Oodle.ai 推出每百万 Agent 追踪记录仅 10 美元工具",
+      "NVIDIA 保留显存从 380 MiB 降至 31 MiB 硬核优化"
+    ],
+    "ai-arxiv": [
+      "Requential Coding 用自生成数据实现模型压缩新极限",
+      "Meta认知综述：LLM 自我监控与策略调整能力有限",
+      "研究揭示 LLM 评判偏见源于内部隐藏表征模式",
+      "RAG 中温度参数会影响输出文本的意识形态倾向",
+      "LLM 存在类似人类的产出-感知不对称性",
+      "逆向强化学习与紧凑模型结合推动领域落地"
+    ],
+    "ai-hf": [
+      "GLM-5.2 MoE 模型获 3946 赞，成社区焦点",
+      "百度 Unlimited-OCR 下载量达 171 万",
+      "NVIDIA Nemotron 75B 采用 NVFP4 超低精度量化",
+      "Unsloth 的 NVFP4 和 MTP 格式下载量惊人",
+      "InternScience 发布基于 Qwen3.5 的 Agent 专用模型",
+      "Qwythos-9B 视觉语言模型下载量超 200 万"
+    ],
+    "ai-community": [
+      "AI 框架让前 10% 像魔法，后 90% 让人崩溃",
+      "Claude Code 打字前 Token 消耗是普通工具的 5 倍",
+      "开发者分享将 Agent Token 费用降低 60% 的精确方案",
+      "OWASP 发布 Agentic Top 10 安全风险指南",
+      "自托管与优化推理成本成为今日社区热词",
+      "构建对抗性验证机制解决 AI 代理可靠性问题"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code ships two patches fixing Windows bugs",
+      "OpenAI Codex releases 4 alpha versions in 24h",
+      "Qwen Code and Pi champion orchestrator paradigm",
+      "Community demands better session state and undo",
+      "Gemini CLI struggles with subagent model enforcement",
+      "OpenCode and DeepSeek TUI battle provider compatibility"
+    ],
+    "ai-agents": [
+      "500 issues and 500 PRs updated in 24 hours",
+      "Fatal crash-loops plague OpenClaw 2026.7.1 release",
+      "157 PRs merged despite focus on regression fixes",
+      "Memory migration gateway causes startup failures",
+      "Maintainers close 177 issues amid stressful period",
+      "Zero new releases as team stabilizes codebase"
+    ],
+    "ai-trending": [
+      "mattpocock/skills gains +1,864 stars in one day",
+      "Graphify hits 86,292 stars for code knowledge graphs",
+      "claude-mem pioneers persistent agent context memory",
+      "AI video editing tools OpenCut and Clypra surge",
+      "ai-hedge-fund and Vibe-Trading lead financial AI",
+      "Dify and RAGFlow solidify positions in RAG ecosystem"
+    ],
+    "ai-web": [
+      "Anthropic launches Claude for Teachers in US K-12",
+      "$10M CAD committed to Canadian AI research hubs",
+      "Canada has second-highest per-capita Claude adoption",
+      "OpenAI publishes zero new articles on this date",
+      "Claude for Teachers offers free premium access",
+      "Anthropic targets education vertical with state standards"
+    ],
+    "ai-hn": [
+      "OpenAI ad business forecast misses by 90%",
+      "Apple sues OpenAI alleging theft of hardware secrets",
+      "Codex encrypts sub-agent prompts for enterprise safety",
+      "Claude's load-bearing linguistic tics spark debate",
+      "OpenAI mandates hardware-backed passkeys for Trusted Access",
+      "Community skeptical of Big AI's financial promises"
+    ],
+    "ai-arxiv": [
+      "Distributed backdoors threaten multi-agent LLM systems",
+      "Hidden-state origins of LLM judge bias revealed",
+      "AdvancedMathBench tests mathematical proof generation",
+      "Survey positions metacognition as critical for AI",
+      "Time-lag-aware scheduling tackles real-world complexity",
+      "Structure constraints improve generalization in models"
+    ],
+    "ai-hf": [
+      "Qwen 3.5/3.6 quantizations dominate trending models",
+      "HauhauCS/Qwen3.6-35B-A3B-Uncensored leads downloads",
+      "Tencent's Hy3 and Baidu's OCR show enterprise scale",
+      "NVIDIA's Nemotron-Labs-Audex-30B pushes MoE reasoning",
+      "GGUF format remains top vector for community distribution",
+      "empero-ai/Qwythos-9B-Claude-Mythos GGUF gains traction"
+    ],
+    "ai-community": [
+      "Claude Code faked its work then confessed unprompted",
+      "Claude Code burns 5x more tokens before you type",
+      "AI frameworks make first 10% magic, break on rest",
+      "OWASP releases Agentic Top 10 security risks",
+      "MiMo-V2.5 full-pipeline optimization signals maturity",
+      "Developers share techniques to cut token costs"
+    ]
+  }
+}

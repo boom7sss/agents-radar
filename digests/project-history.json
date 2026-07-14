@@ -35,6 +35,11 @@
       "date": "2026-07-14",
       "stars": 86162,
       "growth": 90
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 86264,
+      "growth": 102
     }
   ],
   "firecrawl/firecrawl": [
@@ -56,6 +61,11 @@
       "date": "2026-07-13",
       "stars": 61367,
       "growth": 2
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 61845,
+      "growth": 478
     }
   ],
   "langgenius/dify": [
@@ -63,6 +73,11 @@
       "date": "2026-07-13",
       "stars": 148607,
       "growth": 0
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 148837,
+      "growth": 230
     }
   ],
   "ColeMurray/background-agents": [
@@ -77,6 +92,11 @@
       "date": "2026-07-13",
       "stars": 20486,
       "growth": 4
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 22801,
+      "growth": 2315
     }
   ],
   "PrefectHQ/prefect": [
@@ -117,6 +137,11 @@
       "date": "2026-07-14",
       "stars": 162573,
       "growth": 27
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 162609,
+      "growth": 36
     }
   ],
   "hugohe3/ppt-master": [
@@ -167,6 +192,11 @@
       "date": "2026-07-14",
       "stars": 99034,
       "growth": 55
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 99093,
+      "growth": 59
     }
   ],
   "galilai-group/stable-pretraining": [
@@ -191,6 +221,11 @@
       "date": "2026-07-14",
       "stars": 84964,
       "growth": 85
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 85041,
+      "growth": 77
     }
   ],
   "open-compass/opencompass": [
@@ -241,6 +276,11 @@
       "date": "2026-07-13",
       "stars": 86969,
       "growth": 1
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 87255,
+      "growth": 286
     }
   ],
   "samchon/nestia": [
@@ -255,6 +295,11 @@
       "date": "2026-07-13",
       "stars": 213716,
       "growth": 0
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 214862,
+      "growth": 1146
     }
   ],
   "Significant-Gravitas/AutoGPT": [
@@ -267,6 +312,11 @@
       "date": "2026-07-14",
       "stars": 185511,
       "growth": 15
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 185538,
+      "growth": 27
     }
   ],
   "Shubhamsaboo/awesome-llm-apps": [
@@ -279,6 +329,11 @@
       "date": "2026-07-14",
       "stars": 119539,
       "growth": 1065
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 120729,
+      "growth": 1190
     }
   ],
   "zhayujie/CowAgent": [
@@ -298,6 +353,11 @@
       "date": "2026-07-13",
       "stars": 101777,
       "growth": 0
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 101811,
+      "growth": 34
     }
   ],
   "milvus-io/milvus": [
@@ -310,6 +370,11 @@
       "date": "2026-07-14",
       "stars": 45210,
       "growth": 8
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 45224,
+      "growth": 14
     }
   ],
   "ollama/ollama": [
@@ -317,6 +382,11 @@
       "date": "2026-07-14",
       "stars": 176060,
       "growth": 0
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 176114,
+      "growth": 54
     }
   ],
   "open-webui/open-webui": [
@@ -359,12 +429,45 @@
       "date": "2026-07-14",
       "stars": 84611,
       "growth": 1028
+    },
+    {
+      "date": "2026-07-15",
+      "stars": 86294,
+      "growth": 1683
     }
   ],
   "NirDiamant/RAG_Techniques": [
     {
       "date": "2026-07-14",
       "stars": 28528,
+      "growth": 0
+    }
+  ],
+  "langchain4j/langchain4j": [
+    {
+      "date": "2026-07-15",
+      "stars": 12597,
+      "growth": 0
+    }
+  ],
+  "browser-use/browser-use": [
+    {
+      "date": "2026-07-15",
+      "stars": 104757,
+      "growth": 0
+    }
+  ],
+  "PaddlePaddle/PaddleOCR": [
+    {
+      "date": "2026-07-15",
+      "stars": 85482,
+      "growth": 0
+    }
+  ],
+  "OpenHands/OpenHands": [
+    {
+      "date": "2026-07-15",
+      "stars": 80783,
       "growth": 0
     }
   ]
