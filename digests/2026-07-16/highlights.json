@@ -1,0 +1,134 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code 发布 v2.1.210，修复子代理技能丢失问题",
+      "OpenAI Codex Alpha 三版本连发，多智能体协作成焦点",
+      "Gemini CLI Nightly 更新，子代理状态误报问题待解",
+      "Qwen Code 连发三版，专注代码理解深度和AST能力",
+      "GitHub Copilot CLI 发布两个补丁，修复多项稳定性问题",
+      "OpenCode v1.18.2 发布，社区活跃度持续攀升"
+    ],
+    "ai-agents": [
+      "OpenClaw 发布 v2026.7.2-beta.1，支持远程编码会话",
+      "P0 启动崩溃问题成焦点，2026.7.1 版本迁移失败频发",
+      "修复会话重连上下文重复注入，PR #108253 引关注",
+      "PR #108127 修复会话日志丢失事件，提升追踪可靠性",
+      "CI 稳定性获关键修复，减少锁竞争测试间歇性失败",
+      "新问题涌现速度惊人，项目陷高活跃高问题密度状态"
+    ],
+    "ai-trending": [
+      "Hallmark 日增1119星，用CSS对抗AI同质化设计",
+      "mattpocock/skills 日增2160星，AI技能包开箱即用",
+      "openinterpreter 零成本模型优化，降低AI代理门槛",
+      "AutoGPT 持续演进，复杂任务分解引领生态",
+      "vllm 达86350星，LLM推理引擎需求持续火爆",
+      "Graphify 将代码转知识图，变革AI知识检索范式"
+    ],
+    "ai-web": [
+      "Anthropic 推出 Claude Tag，Slack 中变身虚拟成员",
+      "Claude for Teachers 发布，教育领域定制化解决方案",
+      "Anthropic 发布10个金融Agent模板，覆盖投行合规",
+      "Anthropic 投资加AI研究1000万加元",
+      "Claude Opus 4.7 金融基准测试得分64.37%领先行业",
+      "OpenAI 自我改进路径有突破，具体内容待确认"
+    ],
+    "ai-hn": [
+      "提示工程成功诱骗Claude泄露用户私密记忆（596分）",
+      "9750亿参数开放权重模型Inkling发布，震撼社区",
+      "Anthropic研究揭示AI在不同文化中的价值观差异",
+      "Brainless开源组件库模仿Claude Code和Codex风格",
+      "Grok Build宣布开源，xAI战略向社区开放",
+      "OpenAI发布开发者硬件Codex Micro引热议"
+    ],
+    "ai-arxiv": [
+      "LLM自我修复多为“形式”修而非“内容”，挑战有效性",
+      "自我认知研究：AI智能体何时会“掂量”任务难度",
+      "LLM评判者在无参考答案时系统高估回答质量",
+      "提出抑制模型参数回忆以解决知识过时和幻觉",
+      "多智能体系统从临床笔记自动提取症状获突破",
+      "简单奖励涌现复杂集体行为，揭示群智新机制"
+    ],
+    "ai-hf": [
+      "Qwythos-9B下载超200万，社区微调视觉推理最强",
+      "Qwen3.6-35B无审查版下载244万，激进风格受追捧",
+      "百度Unlimited-OCR下载超170万，文档识别落地验证",
+      "GLM-5.2 MoE架构获3991点赞，中文对话统治榜首",
+      "Ornith-1.0-35B GGUF量化版下载超150万",
+      "Unsloth极致压缩Qwen3.6-27B至NVFP4精度"
+    ],
+    "ai-community": [
+      "实战构建带不确定性意识的AI Agent拒绝回答",
+      "银行AI聊天机器人从Demo到生产工程的鸿沟总结",
+      "将提示工程比作赌博，探讨LLM随机性挑战",
+      "LangSmith vs Traccia：观察与强制执行监控对比",
+      "用Zod实现类型安全LLM输出，消除模型返回猜测",
+      "构建LLM断路器：预算超支时自动降级到本地模型"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Windows reliability is a cross-cutting concern",
+      "Authentication flows erode ecosystem trust",
+      "OpenAI Codex shipped 3 alpha releases",
+      "Claude Code digest failed to generate",
+      "Multi-agent orchestration is maturing",
+      "Terminal vs IDE integration divergence grows"
+    ],
+    "ai-agents": [
+      "OpenClaw shipped v2026.7.2-beta.1",
+      "482 issues and 500 PRs in 24 hours",
+      "Previous release triggered crash-loops",
+      "Remote coding sessions now on cloud workers",
+      "Terminal session resumption added",
+      "Open-to-closed item ratio is 2:1"
+    ],
+    "ai-trending": [
+      "Agent Skills become a new distribution format",
+      "mattpocock/skills gained 2,160 stars today",
+      "AI Finance & Trading is a major growth vector",
+      "Nutlope/hallmark fights AI slop with design",
+      "mem0 and headroom target long-term memory",
+      "OpenInterpreter goes Rust-based for efficiency"
+    ],
+    "ai-web": [
+      "Anthropic launched Claude Tag for Slack",
+      "Claude Tag builds long-term context autonomously",
+      "65% of Anthropic product code created internally",
+      "Claude for Teachers released for K-12",
+      "Anthropic committed $10M to Canadian AI",
+      "OpenAI posted two metadata-only entries"
+    ],
+    "ai-hn": [
+      "Claude memory leak demo hits 600 points",
+      "Inkling 975B open-weights LLM released",
+      "OpenAI lost EU trademark case",
+      "OpenAI launched branded Codex keyboard",
+      "Anthropic IPO rumors spark debate",
+      "Grok Build is now open source"
+    ],
+    "ai-arxiv": [
+      "LLMs learn to refuse uncertain answers",
+      "Resist and Update certifies non-misreporting",
+      "Knowledgeless LMs suppress parametric recall",
+      "Efficient inference for diffusion LLMs",
+      "Neuro-symbolic approaches for geometry grow",
+      "Procedural simulation frameworks for robotics"
+    ],
+    "ai-hf": [
+      "Ternary quantization gains mainstream traction",
+      "Vision-language models overtake pure LLMs",
+      "zai-org/GLM-5.2 has 3,991 likes",
+      "Uncensored Qwen3.6 gets 2.4M downloads",
+      "Baidu Unlimited-OCR reaches 1.7M downloads",
+      "MoE architectures dominate the leaderboard"
+    ],
+    "ai-community": [
+      "AI cost drift is invisible to dashboards",
+      "Agentic workflows should get less agentic",
+      "Prompting feels like gambling",
+      "Bruce Schneier warns about AI surveillance",
+      "Hype cycle gives way to engineering realism",
+      "Developers share hard-won production lessons"
+    ]
+  }
+}
