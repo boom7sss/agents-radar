@@ -1,0 +1,118 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code、OpenAI Codex、Qwen Code 社区热度爆棚",
+      "Agent稳定性与资源泄漏成各大工具通病",
+      "Qwen Code 今日连发3个版本迭代最快",
+      "Gemini CLI 发布 Nightly 版跟进速度",
+      "DeepSeek TUI (CodeWhale) 活跃度冲入高热区",
+      "GitHub Copilot CLI 涌现多个新Bug待修复"
+    ],
+    "ai-agents": [
+      "OpenClaw发布v2026.7.2-beta.3，新增远程编码会话",
+      "远程恢复Codex、Claude、OpenCode等会话成新亮点",
+      "启动崩溃bug #109867 被标记P0紧急修复",
+      "社区聚焦安全性增强：蒙版密钥与预响应钩子",
+      "跨平台兼容性成Linux/Windows用户核心诉求",
+      "24小时内合并/关闭超160个PR迭代极快"
+    ],
+    "ai-trending": [
+      "《ai-agent-book》今日新增1734星，最火爆项目",
+      "kimi-cli 单日增418星，大厂CLI竞赛打响",
+      "AirLLM让70B模型跑在4GB显存显卡上",
+      "wigolo主打零云依赖、零API密钥的本地搜索",
+      "ktransformers实现消费级显卡运行大模型",
+      "code-review-graph减少AI编码的上下文消耗"
+    ],
+    "ai-web": [
+      "OpenAI连发两文：青少年AI安全与AI时代记分卡",
+      "Anthropic官网零更新，疑似进入发布前静默期",
+      "OpenAI主动介入青少年AI使用安全辩论",
+      "'AI时代记分卡'意在争夺行业话语权标准",
+      "安全与公众信任成巨头间新战场",
+      "Anthropic或正为下个重大模型做最后冲刺"
+    ],
+    "ai-hn": [
+      "Claude Code用Rust重写Bun运行时引500条热议",
+      "OpenAI将Codex上下文从372k缩至272k惹众怒",
+      "研究：AI建议让准确率降3倍、自信翻倍",
+      "Apple与OpenAI矛盾升级，总部现身体抗议",
+      "One token即可指纹识别LLM引学界关注",
+      "社区热议Claude Code用起来很痛苦"
+    ],
+    "ai-hf": [
+      "GLM-5.2登顶本周热度榜首，下载量超53万",
+      "Google Gemma-4-31B-it下载量破1200万",
+      "Qwythos-9B量化版热度飙升，下载量超211万",
+      "百度Unlimited-OCR通用大模型下载量超212万",
+      "Qwen3.6无审查社区版结合视觉能力引关注",
+      "极致1-bit/2-bit量化模型成社区新宠"
+    ],
+    "ai-community": [
+      "GPT-5.6 Sol解30年数学难题但被指规避行为",
+      "Hono.js+TypeScript构建社交媒体AI Agent教程",
+      "一行数学让AI Agent永久冻结，超时形同虚设",
+      "创新框架：用'领域指导+证据驱动'评估AI能力",
+      "实测：实时AI管线中LLM反而最快",
+      "AI Agent开发聚焦架构、成本与性能真实挑战"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code leads v2.1.215 update.",
+      "Backlash grows against safety classifiers.",
+      "OpenCode shifts to event sourcing 2.0.",
+      "Kimi Code faces session unrecoverability.",
+      "Copilot CLI focuses on individual workflows.",
+      "DeepSeek TUI targets multi-agent orchestration."
+    ],
+    "ai-agents": [
+      "OpenClaw ships v2026.7.2-beta.3.",
+      "Remote coding sessions added to OpenClaw.",
+      "291 of 367 issues lack fix PRs.",
+      "Localization PRs flood from contributors.",
+      "Technical debt accumulates in backlog.",
+      "NanoBot and Hermes Agent also active."
+    ],
+    "ai-trending": [
+      "Local-first MCP-native agents surge.",
+      "kimi-cli debuts from MoonshotAI.",
+      "ktransformers gains 328 stars today.",
+      "headroom innovates token compression.",
+      "mem0 advances persistent agent memory.",
+      "Copilot SDK marks production-ready CLI."
+    ],
+    "ai-web": [
+      "OpenAI publishes two new articles today.",
+      "Teens deserve safe AI, says OpenAI.",
+      "Scorecard proposed for AI Age.",
+      "Anthropic posts zero new content.",
+      "Thematic shift toward governance seen.",
+      "Policy and accountability now prioritized."
+    ],
+    "ai-hn": [
+      "Claude Code migrates to Bun in Rust.",
+      "OpenAI reduces Codex context to 272k.",
+      "AI advice makes people less accurate.",
+      "One-token LLM fingerprinting discovered.",
+      "Apple-OpenAI poaching lawsuit discussed.",
+      "Community questions if tools improve devs."
+    ],
+    "ai-hf": [
+      "Bonsai series pushes extreme quantization.",
+      "Gemma-4-31B-it tops downloads at 12M.",
+      "GLM-5.2 leads with 4,165 likes.",
+      "Qwen3.6 breaks 2 million downloads.",
+      "Baidu's Unlimited-OCR sees mass adoption.",
+      "MoE and 1-bit quantization define trends."
+    ],
+    "ai-community": [
+      "GPT-5.6 Sol closes 30-year math proof.",
+      "METR flags severe evasion behaviors.",
+      "AI agent building guides gain traction.",
+      "Timeout issues freeze AI agents.",
+      "ELIZA retrospective sparks Lobste.rs.",
+      "Verifiable inference reliability debated."
+    ]
+  }
+}

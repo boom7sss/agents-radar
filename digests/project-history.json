@@ -196,6 +196,11 @@
       "date": "2026-07-16",
       "stars": 48623,
       "growth": 102
+    },
+    {
+      "date": "2026-07-20",
+      "stars": 48763,
+      "growth": 140
     }
   ],
   "santifer/career-ops": [
@@ -254,6 +259,11 @@
       "date": "2026-07-16",
       "stars": 285,
       "growth": 0
+    },
+    {
+      "date": "2026-07-20",
+      "stars": 290,
+      "growth": 5
     }
   ],
   "infiniflow/ragflow": [
@@ -305,6 +315,11 @@
       "date": "2026-07-14",
       "stars": 60748,
       "growth": 78
+    },
+    {
+      "date": "2026-07-20",
+      "stars": 61208,
+      "growth": 460
     }
   ],
   "headroomlabs-ai/headroom": [
@@ -329,6 +344,11 @@
       "date": "2026-07-16",
       "stars": 27948,
       "growth": 305
+    },
+    {
+      "date": "2026-07-20",
+      "stars": 28494,
+      "growth": 546
     }
   ],
   "thedotmack/claude-mem": [
@@ -557,6 +577,11 @@
       "date": "2026-07-16",
       "stars": 85570,
       "growth": 88
+    },
+    {
+      "date": "2026-07-20",
+      "stars": 85806,
+      "growth": 236
     }
   ],
   "OpenHands/OpenHands": [
@@ -598,6 +623,104 @@
     {
       "date": "2026-07-16",
       "stars": 16601,
+      "growth": 0
+    }
+  ],
+  "bojieli/ai-agent-book": [
+    {
+      "date": "2026-07-20",
+      "stars": 5329,
+      "growth": 1734
+    }
+  ],
+  "MoonshotAI/kimi-cli": [
+    {
+      "date": "2026-07-20",
+      "stars": 9864,
+      "growth": 418
+    }
+  ],
+  "kvcache-ai/ktransformers": [
+    {
+      "date": "2026-07-20",
+      "stars": 18327,
+      "growth": 328
+    }
+  ],
+  "Eigenwise/atomic-agents": [
+    {
+      "date": "2026-07-20",
+      "stars": 6050,
+      "growth": 0
+    }
+  ],
+  "github/copilot-sdk": [
+    {
+      "date": "2026-07-20",
+      "stars": 9946,
+      "growth": 46
+    }
+  ],
+  "lyogavin/airllm": [
+    {
+      "date": "2026-07-20",
+      "stars": 23609,
+      "growth": 374
+    }
+  ],
+  "KnockOutEZ/wigolo": [
+    {
+      "date": "2026-07-20",
+      "stars": 1778,
+      "growth": 605
+    }
+  ],
+  "Canner/WrenAI": [
+    {
+      "date": "2026-07-20",
+      "stars": 16172,
+      "growth": 96
+    }
+  ],
+  "trycua/cua": [
+    {
+      "date": "2026-07-20",
+      "stars": 20221,
+      "growth": 87
+    }
+  ],
+  "tirth8205/code-review-graph": [
+    {
+      "date": "2026-07-20",
+      "stars": 21106,
+      "growth": 551
+    }
+  ],
+  "jamiepine/voicebox": [
+    {
+      "date": "2026-07-20",
+      "stars": 43298,
+      "growth": 629
+    }
+  ],
+  "AstrBotDevs/AstrBot": [
+    {
+      "date": "2026-07-20",
+      "stars": 36681,
+      "growth": 62
+    }
+  ],
+  "zchoi/Awesome-Embodied-Robotics-and-Agent": [
+    {
+      "date": "2026-07-20",
+      "stars": 1834,
+      "growth": 0
+    }
+  ],
+  "zilliztech/claude-context": [
+    {
+      "date": "2026-07-20",
+      "stars": 12163,
       "growth": 0
     }
   ]

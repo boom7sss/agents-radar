@@ -1,0 +1,1547 @@
+{
+  "generated": "2026-07-19T23:03:19.352Z",
+  "date": "2026-07-20",
+  "methodology": "health-v1/potential-v1",
+  "projects": [
+    {
+      "name": "cognee",
+      "repo": "topoteretes/cognee",
+      "url": "https://github.com/topoteretes/cognee",
+      "category": "知识库",
+      "reportedStars": 28493,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Cognee is the open-source AI memory platform for agents. Give your AI agents persistent long-term memory across sessions with a self-hosted knowledge graph engine.",
+      "stars": 28494,
+      "dailyGrowth": 546,
+      "acceleration": 241,
+      "ageDays": 1068,
+      "language": "Python",
+      "homepage": "https://www.cognee.ai",
+      "topics": [
+        "agent-memory",
+        "agent-skills",
+        "ai",
+        "ai-agents",
+        "ai-memory",
+        "cognitive-architecture",
+        "cognitive-memory",
+        "context-engineering",
+        "contributions-welcome",
+        "good-first-issue",
+        "good-first-pr",
+        "graph-database",
+        "graph-rag",
+        "help-wanted",
+        "knowledge",
+        "knowledge-graph",
+        "memory-management",
+        "open-source",
+        "vector-database"
+      ],
+      "forks": 2724,
+      "openIssues": 617,
+      "commits30d": 468,
+      "contributors": 208,
+      "closedIssues30d": 100,
+      "releases90d": 10,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 100,
+        "contributorStrength": 72,
+        "issueResponse": 100,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 100,
+        "acceleration": 100,
+        "projectAge": 72,
+        "communityActivity": 91,
+        "externalHeat": 25
+      },
+      "healthScore": 94,
+      "potentialScore": 78,
+      "score": 85,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "topoteretes/cognee",
+        "purpose": "开源AI记忆平台，为智能体提供持久长期记忆，支持任意格式数据摄入，构建自托管知识图谱，结合向量嵌入和图推理，实现跨会话的上下文感知。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要Python 3.10–3.14环境",
+          "需要LLM API密钥（如OpenAI）",
+          "可选：配置向量数据库和图数据库",
+          "支持Docker部署"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "30–60分钟",
+        "suitableFor": "需要为AI智能体构建持久记忆和知识图谱的开发者，适用于企业知识管理、智能客服、研究助手等场景。",
+        "deploymentSteps": [
+          "安装cognee：uv pip install cognee",
+          "设置LLM API密钥（环境变量或.env文件）",
+          "使用API进行记忆操作：remember、recall、forget、improve",
+          "可选：配置数据库和Docker部署"
+        ],
+        "risks": [
+          "需要一定的Python和AI框架经验",
+          "知识图谱构建可能消耗较多API调用",
+          "自托管需管理基础设施"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "cherry-studio",
+      "repo": "CherryHQ/cherry-studio",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "category": "应用",
+      "reportedStars": 48763,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+      "stars": 48763,
+      "dailyGrowth": 140,
+      "acceleration": 38,
+      "ageDays": 787,
+      "language": "TypeScript",
+      "homepage": "https://cherryai.com",
+      "topics": [
+        "agent-skills",
+        "ai-agent",
+        "awesome-skills",
+        "claude-code",
+        "codex",
+        "deepseek",
+        "hermes-agent",
+        "openclaw",
+        "skills",
+        "vibe-coding"
+      ],
+      "forks": 4637,
+      "openIssues": 1213,
+      "commits30d": 552,
+      "contributors": 405,
+      "closedIssues30d": 100,
+      "releases90d": 9,
+      "license": "AGPL-3.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 100,
+        "contributorStrength": 81,
+        "issueResponse": 100,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 86,
+        "acceleration": 100,
+        "projectAge": 72,
+        "communityActivity": 94,
+        "externalHeat": 25
+      },
+      "healthScore": 96,
+      "potentialScore": 75,
+      "score": 84,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "CherryHQ/cherry-studio",
+        "purpose": "一款跨平台桌面AI生产力工具，支持多种大语言模型提供商，内置300+预配置AI助手，提供智能对话、文档处理、翻译、Mermaid图表等功能，无需环境配置即可使用。",
+        "productType": "桌面应用",
+        "deploymentConditions": [
+          "支持Windows、Mac、Linux操作系统",
+          "无需安装运行时环境，下载即用",
+          "需自行获取LLM API密钥（如OpenAI、Gemini等）"
+        ],
+        "difficulty": 1,
+        "estimatedTime": "5–10分钟",
+        "suitableFor": "希望快速获得多模型AI助手桌面客户端的个人用户或团队，无需技术背景即可上手。",
+        "deploymentSteps": [
+          "从GitHub Releases页面下载对应操作系统的安装包",
+          "安装并启动应用",
+          "在设置中添加LLM API密钥（如OpenAI、Anthropic等）",
+          "开始使用内置助手或创建自定义助手"
+        ],
+        "risks": [
+          "需自行承担API调用费用",
+          "部分高级功能（如MCP服务器）需查阅文档配置"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "mem0",
+      "repo": "mem0ai/mem0",
+      "url": "https://github.com/mem0ai/mem0",
+      "category": "知识库",
+      "reportedStars": 61208,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Universal memory layer for AI Agents",
+      "stars": 61208,
+      "dailyGrowth": 460,
+      "acceleration": 382,
+      "ageDays": 1126,
+      "language": "TypeScript",
+      "homepage": "https://mem0.ai",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "application",
+        "chatbots",
+        "chatgpt",
+        "genai",
+        "llm",
+        "long-term-memory",
+        "memory",
+        "memory-management",
+        "python",
+        "rag",
+        "state-management"
+      ],
+      "forks": 7119,
+      "openIssues": 677,
+      "commits30d": 152,
+      "contributors": 381,
+      "closedIssues30d": 100,
+      "releases90d": 10,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 83,
+        "contributorStrength": 80,
+        "issueResponse": 100,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 99,
+        "acceleration": 100,
+        "projectAge": 58,
+        "communityActivity": 88,
+        "externalHeat": 25
+      },
+      "healthScore": 93,
+      "potentialScore": 74,
+      "score": 82,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "mem0ai/mem0",
+        "purpose": "为AI智能体提供智能记忆层的开源工具，支持多层级记忆（用户、会话、智能体），可跨会话保持个性化上下文，适用于聊天机器人、客服、医疗等场景。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "支持Python和TypeScript SDK",
+          "可选自托管服务器（需Docker）或使用云平台",
+          "需要LLM API密钥（如OpenAI）用于记忆提取",
+          "推荐安装NLP依赖以增强搜索：pip install mem0ai[nlp]"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "希望为AI助手或智能体添加长期记忆能力的开发者，适用于个性化对话、客服系统、健康管理等。",
+        "deploymentSteps": [
+          "安装SDK：pip install mem0ai 或 npm install mem0ai",
+          "配置LLM API密钥",
+          "使用API添加和搜索记忆",
+          "可选：使用Docker部署自托管服务器"
+        ],
+        "risks": [
+          "自托管需管理数据库和服务器",
+          "云平台可能涉及费用",
+          "记忆算法更新后需迁移数据（参考迁移指南）"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "code-review-graph",
+      "repo": "tirth8205/code-review-graph",
+      "url": "https://github.com/tirth8205/code-review-graph",
+      "category": "智能体",
+      "reportedStars": 0,
+      "reportedDaily": 551,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Local-first code intelligence graph for MCP and CLI. Builds a persistent map of your codebase so AI coding tools read only what matters, with benchmarked context reductions on reviews and large-repo workflows.",
+      "stars": 21106,
+      "dailyGrowth": 551,
+      "acceleration": 0,
+      "ageDays": 143,
+      "language": "Python",
+      "homepage": "https://code-review-graph.com",
+      "topics": [
+        "ai-coding",
+        "claude",
+        "claude-code",
+        "code-review",
+        "graphrag",
+        "incremental",
+        "knowledge-graph",
+        "llm",
+        "mcp",
+        "python",
+        "static-analysis",
+        "tree-sitter"
+      ],
+      "forks": 2175,
+      "openIssues": 87,
+      "commits30d": 158,
+      "contributors": 98,
+      "closedIssues30d": 18,
+      "releases90d": 5,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 84,
+        "contributorStrength": 62,
+        "issueResponse": 84,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 100,
+        "acceleration": 50,
+        "projectAge": 88,
+        "communityActivity": 77,
+        "externalHeat": 25
+      },
+      "healthScore": 86,
+      "potentialScore": 68,
+      "score": 76,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "tirth8205/code-review-graph",
+        "purpose": "为AI编码工具构建代码库的结构化知识图谱，通过MCP协议提供精准上下文，减少代码审查时的Token消耗，支持增量更新和多种AI平台。",
+        "productType": "CLI",
+        "deploymentConditions": [
+          "Python 3.10+",
+          "推荐安装uv以优化MCP配置",
+          "支持macOS、Linux、Windows"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "5–10分钟",
+        "suitableFor": "使用AI编码助手（如Claude Code、Cursor）进行代码审查的开发者，希望减少Token消耗并提高审查效率。",
+        "deploymentSteps": [
+          "运行 pip install code-review-graph 或 pipx install code-review-graph",
+          "在项目目录中执行 code-review-graph install 自动配置AI工具",
+          "执行 code-review-graph build 解析代码库生成图谱",
+          "重启编辑器后向AI助手发送“Build the code review graph for this project”"
+        ],
+        "risks": [
+          "首次构建大型项目可能耗时较长（约500文件10秒）",
+          "需确保AI工具支持MCP协议"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "cua",
+      "repo": "trycua/cua",
+      "url": "https://github.com/trycua/cua",
+      "category": "智能体",
+      "reportedStars": 0,
+      "reportedDaily": 87,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Scale computer-use 2.0 with open-source drivers, cross-OS fleets, and benchmarks for training, evaluation, and data generation.",
+      "stars": 20221,
+      "dailyGrowth": 87,
+      "acceleration": 0,
+      "ageDays": 534,
+      "language": "HTML",
+      "homepage": "https://cua.ai",
+      "topics": [
+        "agent",
+        "ai-agent",
+        "apple",
+        "computer-use",
+        "computer-use-agent",
+        "containerization",
+        "cua",
+        "desktop-automation",
+        "hacktoberfest",
+        "lume",
+        "macos",
+        "manus",
+        "operator",
+        "swift",
+        "virtualization",
+        "virtualization-framework",
+        "windows",
+        "windows-sandbox"
+      ],
+      "forks": 1341,
+      "openIssues": 542,
+      "commits30d": 328,
+      "contributors": 83,
+      "closedIssues30d": 42,
+      "releases90d": 10,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 96,
+        "contributorStrength": 60,
+        "issueResponse": 100,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 81,
+        "acceleration": 50,
+        "projectAge": 72,
+        "communityActivity": 85,
+        "externalHeat": 25
+      },
+      "healthScore": 91,
+      "potentialScore": 63,
+      "score": 75,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "trycua/cua",
+        "purpose": "开源计算机使用代理框架，提供跨操作系统的后台桌面自动化驱动、沙箱环境和基准测试，支持macOS、Windows和Linux。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "macOS或Linux需运行安装脚本，Windows需PowerShell",
+          "Python 3.11+（用于Cua沙箱）",
+          "支持Apple Silicon和x86"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "需要构建计算机使用代理（如桌面自动化、测试）的开发者，希望跨平台后台运行并集成AI智能体。",
+        "deploymentSteps": [
+          "根据操作系统运行安装命令（macOS/Linux: curl脚本；Windows: PowerShell）",
+          "按照安装后提示完成配置",
+          "可选：pip install cua 安装Python沙箱库",
+          "参考文档驱动第一个应用"
+        ],
+        "risks": [
+          "Linux Wayland支持有限，需特定配置",
+          "macOS Sequoia可能仍会弹出辅助功能步骤",
+          "需查阅README了解详细权限要求"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "copilot-sdk",
+      "repo": "github/copilot-sdk",
+      "url": "https://github.com/github/copilot-sdk",
+      "category": "基础工具",
+      "reportedStars": 0,
+      "reportedDaily": 46,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Multi-platform SDK for integrating GitHub Copilot Agent into apps and services",
+      "stars": 9946,
+      "dailyGrowth": 46,
+      "acceleration": 0,
+      "ageDays": 187,
+      "language": "Java",
+      "homepage": null,
+      "topics": [],
+      "forks": 1349,
+      "openIssues": 245,
+      "commits30d": 133,
+      "contributors": 92,
+      "closedIssues30d": 91,
+      "releases90d": 10,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 81,
+        "contributorStrength": 61,
+        "issueResponse": 100,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 73,
+        "acceleration": 50,
+        "projectAge": 88,
+        "communityActivity": 81,
+        "externalHeat": 25
+      },
+      "healthScore": 88,
+      "potentialScore": 63,
+      "score": 74,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "github/copilot-sdk",
+        "purpose": "多平台SDK，用于将GitHub Copilot代理集成到应用和服务中，支持Python、TypeScript、Go、.NET、Java和Rust。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要对应语言的包管理器（如pip、npm、go get等）",
+          "需要GitHub Copilot订阅或BYOK配置",
+          "可选：安装Copilot CLI（部分SDK自动包含）"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "希望将Copilot的代理工作流嵌入自己应用的开发者，适合有API集成经验的团队。",
+        "deploymentSteps": [
+          "选择并安装对应语言的SDK包",
+          "配置GitHub Copilot订阅或BYOK密钥",
+          "参考SDK README编写调用代码",
+          "运行应用测试集成"
+        ],
+        "risks": [
+          "需要有效的GitHub Copilot订阅（除非使用BYOK）",
+          "不同语言SDK的API可能略有差异，需查阅对应文档"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "AstrBot",
+      "repo": "AstrBotDevs/AstrBot",
+      "url": "https://github.com/AstrBotDevs/AstrBot",
+      "category": "智能体",
+      "reportedStars": 0,
+      "reportedDaily": 62,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+      "stars": 36681,
+      "dailyGrowth": 62,
+      "acceleration": 0,
+      "ageDays": 1319,
+      "language": "Python",
+      "homepage": "https://astrbot.app",
+      "topics": [
+        "agent",
+        "ai",
+        "astrbot",
+        "chatbot",
+        "chatgpt",
+        "discord",
+        "docker",
+        "gemini",
+        "gpt",
+        "llama",
+        "llm",
+        "mcp",
+        "openai",
+        "python",
+        "qq",
+        "qqbot",
+        "telegram"
+      ],
+      "forks": 2544,
+      "openIssues": 1325,
+      "commits30d": 153,
+      "contributors": 321,
+      "closedIssues30d": 100,
+      "releases90d": 10,
+      "license": "AGPL-3.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 83,
+        "contributorStrength": 78,
+        "issueResponse": 100,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 77,
+        "acceleration": 50,
+        "projectAge": 58,
+        "communityActivity": 87,
+        "externalHeat": 25
+      },
+      "healthScore": 92,
+      "potentialScore": 59,
+      "score": 73,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "AstrBotDevs/AstrBot",
+        "purpose": "开源全功能AI智能体聊天机器人平台，集成QQ、微信、Telegram等多平台，支持LLM对话、插件扩展、知识库和MCP协议。",
+        "productType": "网站/Web服务",
+        "deploymentConditions": [
+          "Python 3.12+",
+          "推荐安装uv",
+          "支持Docker部署"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "10–20分钟",
+        "suitableFor": "希望快速搭建跨平台AI聊天机器人（如QQ、Telegram）的个人或团队，需要插件扩展和知识库功能。",
+        "deploymentSteps": [
+          "运行 uv tool install astrbot --python 3.12",
+          "执行 astrbot init 初始化环境",
+          "运行 astrbot run 启动服务",
+          "通过WebUI配置平台和LLM"
+        ],
+        "risks": [
+          "首次运行可能因macOS安全检查耗时较长",
+          "需自行配置各IM平台的API密钥"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "PaddleOCR",
+      "repo": "PaddlePaddle/PaddleOCR",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR",
+      "category": "知识库",
+      "reportedStars": 85805,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
+      "stars": 85806,
+      "dailyGrowth": 236,
+      "acceleration": 148,
+      "ageDays": 2264,
+      "language": "Python",
+      "homepage": "https://www.paddleocr.com",
+      "topics": [
+        "ai4science",
+        "chineseocr",
+        "document-parsing",
+        "document-translation",
+        "kie",
+        "ocr",
+        "paddleocr-vl",
+        "pdf-extractor-rag",
+        "pdf-parser",
+        "pdf2markdown",
+        "pp-ocr",
+        "pp-structure",
+        "rag"
+      ],
+      "forks": 11040,
+      "openIssues": 219,
+      "commits30d": 3,
+      "contributors": 295,
+      "closedIssues30d": 78,
+      "releases90d": 3,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 23,
+        "contributorStrength": 77,
+        "issueResponse": 100,
+        "releaseCadence": 84,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 92,
+        "acceleration": 100,
+        "projectAge": 58,
+        "communityActivity": 67,
+        "externalHeat": 25
+      },
+      "healthScore": 77,
+      "potentialScore": 68,
+      "score": 72,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "PaddlePaddle/PaddleOCR",
+        "purpose": "一个领先的OCR工具包和文档AI引擎，可将PDF和图片转换为结构化数据（JSON/Markdown），支持100+语言，集成PP-OCRv6和文档VLM模型，适用于RAG和智能体应用。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要Python 3.8–3.12环境",
+          "支持CPU、GPU（NVIDIA）、XPU、NPU等多种硬件",
+          "推荐使用GPU以获得最佳性能",
+          "可通过pip安装：pip install paddleocr"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "需要将文档或图片中的文字提取为结构化数据的开发者，适用于RAG系统、文档解析、数据录入等场景。",
+        "deploymentSteps": [
+          "安装PaddleOCR：pip install paddleocr",
+          "使用命令行或Python API进行OCR识别",
+          "可选：使用PP-StructureV3进行文档结构分析",
+          "集成到RAG或智能体应用中"
+        ],
+        "risks": [
+          "首次运行需下载模型文件，可能耗时较长",
+          "复杂文档（如表格、公式）的识别精度需根据实际测试"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "voicebox",
+      "repo": "jamiepine/voicebox",
+      "url": "https://github.com/jamiepine/voicebox",
+      "category": "应用",
+      "reportedStars": 0,
+      "reportedDaily": 629,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "The open-source AI voice studio. Clone, dictate, create.",
+      "stars": 43298,
+      "dailyGrowth": 629,
+      "acceleration": 0,
+      "ageDays": 175,
+      "language": "TypeScript",
+      "homepage": "https://voicebox.sh",
+      "topics": [
+        "ai",
+        "cuda",
+        "mlx",
+        "qwen3-tts",
+        "qwen3-tts-ui",
+        "voice-ai",
+        "voice-clone",
+        "whisper"
+      ],
+      "forks": 5289,
+      "openIssues": 575,
+      "commits30d": 17,
+      "contributors": 51,
+      "closedIssues30d": 13,
+      "releases90d": 5,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 48,
+        "contributorStrength": 53,
+        "issueResponse": 54,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 100,
+        "acceleration": 50,
+        "projectAge": 88,
+        "communityActivity": 52,
+        "externalHeat": 25
+      },
+      "healthScore": 71,
+      "potentialScore": 63,
+      "score": 66,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "jamiepine/voicebox",
+        "purpose": "本地优先的AI语音工作室，支持语音克隆、多引擎文本转语音、全局听写和智能体语音输出，完全离线运行。",
+        "productType": "桌面应用",
+        "deploymentConditions": [
+          "macOS（Apple Silicon/Intel）、Windows或Linux",
+          "支持CUDA、MLX、ROCm等GPU加速",
+          "Docker也可用"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "10–20分钟",
+        "suitableFor": "需要高质量语音合成和克隆的个人或团队，注重隐私和本地运行，支持多种TTS引擎和听写功能。",
+        "deploymentSteps": [
+          "从官网或GitHub Releases下载对应平台的安装包",
+          "安装后启动应用，首次运行会自动下载模型",
+          "可选配置MCP服务器以集成AI智能体"
+        ],
+        "risks": [
+          "Linux暂无预编译二进制，需从源码构建",
+          "模型下载可能较大，需稳定网络",
+          "GPU加速需相应硬件和驱动"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "ktransformers",
+      "repo": "kvcache-ai/ktransformers",
+      "url": "https://github.com/kvcache-ai/ktransformers",
+      "category": "基础工具",
+      "reportedStars": 0,
+      "reportedDaily": 328,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "A Flexible Framework for Experiencing Heterogeneous LLM Inference/Fine-tune Optimizations",
+      "stars": 18327,
+      "dailyGrowth": 328,
+      "acceleration": 0,
+      "ageDays": 724,
+      "language": "Python",
+      "homepage": "https://kvcache-ai.github.io/ktransformers/",
+      "topics": [],
+      "forks": 1451,
+      "openIssues": 461,
+      "commits30d": 16,
+      "contributors": 124,
+      "closedIssues30d": 13,
+      "releases90d": 3,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 47,
+        "contributorStrength": 65,
+        "issueResponse": 55,
+        "releaseCadence": 84,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 95,
+        "acceleration": 50,
+        "projectAge": 72,
+        "communityActivity": 56,
+        "externalHeat": 25
+      },
+      "healthScore": 70,
+      "potentialScore": 60,
+      "score": 64,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "kvcache-ai/ktransformers",
+        "purpose": "一个灵活的框架，用于体验异构计算下的大语言模型推理和微调优化，支持CPU-GPU协同，可运行DeepSeek等大型MoE模型。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要Python 3.8+和pip",
+          "推荐NVIDIA GPU（如L20）和Intel CPU（如Xeon Gold）",
+          "需要CUDA和PyTorch环境",
+          "需查阅README获取完整依赖和安装步骤"
+        ],
+        "difficulty": 4,
+        "estimatedTime": "30–60分钟",
+        "suitableFor": "希望利用CPU-GPU异构计算优化大模型推理和微调的研究人员或开发者，适合有GPU和CUDA经验的用户。",
+        "deploymentSteps": [
+          "克隆仓库并进入kt-kernel目录",
+          "运行pip install .安装核心包",
+          "根据README配置模型路径和硬件参数",
+          "运行示例脚本进行推理或微调"
+        ],
+        "risks": [
+          "需要特定硬件（如Intel AMX/AVX支持的CPU）才能发挥最佳性能",
+          "模型下载和分片可能占用大量磁盘空间",
+          "部分功能（如SGLang集成）需额外配置"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "kimi-cli",
+      "repo": "MoonshotAI/kimi-cli",
+      "url": "https://github.com/MoonshotAI/kimi-cli",
+      "category": "基础工具",
+      "reportedStars": 0,
+      "reportedDaily": 418,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Kimi Code CLI is your next CLI agent.",
+      "stars": 9864,
+      "dailyGrowth": 418,
+      "acceleration": 0,
+      "ageDays": 277,
+      "language": "Python",
+      "homepage": "https://moonshotai.github.io/kimi-cli/",
+      "topics": [],
+      "forks": 1193,
+      "openIssues": 777,
+      "commits30d": 7,
+      "contributors": 71,
+      "closedIssues30d": 10,
+      "releases90d": 10,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 34,
+        "contributorStrength": 58,
+        "issueResponse": 40,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 98,
+        "acceleration": 50,
+        "projectAge": 88,
+        "communityActivity": 44,
+        "externalHeat": 25
+      },
+      "healthScore": 66,
+      "potentialScore": 61,
+      "score": 63,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "MoonshotAI/kimi-cli",
+        "purpose": "一个终端AI代理，可帮助完成软件开发任务和终端操作，支持代码编辑、命令执行、网页搜索，并集成VS Code和Zsh。",
+        "productType": "CLI",
+        "deploymentConditions": [
+          "需要Python 3.8+和pip",
+          "需要GitHub Copilot订阅或BYOK配置",
+          "可选：Node.js/npm用于构建Web UI"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "5–10分钟",
+        "suitableFor": "需要在终端中通过AI辅助完成编程和系统管理任务的开发者，适合熟悉命令行的用户。",
+        "deploymentSteps": [
+          "运行pip install kimi-cli安装",
+          "运行kimi命令启动CLI",
+          "根据提示登录或配置API密钥",
+          "可选：安装VS Code扩展或Zsh插件增强集成"
+        ],
+        "risks": [
+          "需要有效的GitHub Copilot订阅或BYOK配置",
+          "项目正在迁移至kimi-code，未来可能停止维护"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "airllm",
+      "repo": "lyogavin/airllm",
+      "url": "https://github.com/lyogavin/airllm",
+      "category": "基础工具",
+      "reportedStars": 0,
+      "reportedDaily": 374,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "AirLLM 70B inference with single 4GB GPU",
+      "stars": 23609,
+      "dailyGrowth": 374,
+      "acceleration": 0,
+      "ageDays": 1133,
+      "language": "Jupyter Notebook",
+      "homepage": null,
+      "topics": [
+        "chinese-llm",
+        "chinese-nlp",
+        "finetune",
+        "generative-ai",
+        "instruct-gpt",
+        "instruction-set",
+        "llama",
+        "llm",
+        "lora",
+        "open-models",
+        "open-source",
+        "open-source-models",
+        "qlora"
+      ],
+      "forks": 2679,
+      "openIssues": 107,
+      "commits30d": 20,
+      "contributors": 10,
+      "closedIssues30d": 63,
+      "releases90d": 2,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 50,
+        "contributorStrength": 32,
+        "issueResponse": 100,
+        "releaseCadence": 62,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 97,
+        "acceleration": 50,
+        "projectAge": 58,
+        "communityActivity": 61,
+        "externalHeat": 25
+      },
+      "healthScore": 69,
+      "potentialScore": 58,
+      "score": 63,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "lyogavin/airllm",
+        "purpose": "大幅降低大模型推理内存占用，使70B模型可在单张4GB GPU上运行，支持DeepSeek-V3等超大模型，无需量化或剪枝。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要Python 3.8+和pip",
+          "需要NVIDIA GPU（最低4GB显存）和CUDA",
+          "需要足够的磁盘空间存储分片模型"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "希望在有限GPU资源下运行大模型的个人开发者或研究者，适合有Python和CUDA基础的用户。",
+        "deploymentSteps": [
+          "运行pip install airllm安装",
+          "使用AutoModel.from_pretrained加载模型",
+          "调用generate方法进行推理",
+          "可选：启用4bit/8bit压缩加速"
+        ],
+        "risks": [
+          "首次运行需分解模型，可能耗时较长",
+          "推理速度受限于CPU-GPU数据传输",
+          "部分模型可能需要手动调整参数"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "wigolo",
+      "repo": "KnockOutEZ/wigolo",
+      "url": "https://github.com/KnockOutEZ/wigolo",
+      "category": "智能体",
+      "reportedStars": 0,
+      "reportedDaily": 605,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "The go-to web for your AI coding agent — local-first search, fetch, crawl & research over MCP. No API keys, no cloud, $0/query. Public beta.",
+      "stars": 1778,
+      "dailyGrowth": 605,
+      "acceleration": 0,
+      "ageDays": 98,
+      "language": "TypeScript",
+      "homepage": "https://knockoutez.github.io/wigolo/",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agent",
+        "claude",
+        "cli",
+        "developer-tools",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "metasearch",
+        "model-context-protocol",
+        "nodejs",
+        "privacy",
+        "rag",
+        "search",
+        "search-engine",
+        "typescript",
+        "web-crawler",
+        "web-scraping",
+        "web-search"
+      ],
+      "forks": 111,
+      "openIssues": 22,
+      "commits30d": 562,
+      "contributors": 5,
+      "closedIssues30d": 7,
+      "releases90d": 10,
+      "license": "NOASSERTION",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 100,
+        "contributorStrength": 24,
+        "issueResponse": 47,
+        "releaseCadence": 100,
+        "license": 25
+      },
+      "potential": {
+        "starVelocity": 100,
+        "acceleration": 50,
+        "projectAge": 88,
+        "communityActivity": 57,
+        "externalHeat": 25
+      },
+      "healthScore": 59,
+      "potentialScore": 64,
+      "score": 62,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "KnockOutEZ/wigolo",
+        "purpose": "为AI智能体提供本地优先的Web搜索、抓取、爬取和研究能力，通过MCP服务器实现，无需API密钥和云服务，完全本地运行。",
+        "productType": "CLI",
+        "deploymentConditions": [
+          "Node.js 20+",
+          "约1.5GB磁盘空间",
+          "支持macOS、Linux、Windows"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "5–10分钟",
+        "suitableFor": "需要为AI编码助手（如Claude Code、Cursor）添加Web搜索和抓取能力的开发者，注重隐私和零成本。",
+        "deploymentSteps": [
+          "运行 npx wigolo init --agents=<你的AI工具名> 自动配置",
+          "可选设置环境变量 WIGOLO_LLM_PROVIDER 和 GEMINI_API_KEY 以启用LLM增强功能",
+          "运行 npx wigolo doctor 检查健康状态"
+        ],
+        "risks": [
+          "首次初始化需下载浏览器引擎和模型，可能耗时较长",
+          "LLM增强功能需免费API密钥，否则体验受限"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "ai-agent-book",
+      "repo": "bojieli/ai-agent-book",
+      "url": "https://github.com/bojieli/ai-agent-book",
+      "category": "智能体",
+      "reportedStars": 0,
+      "reportedDaily": 1734,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
+      "stars": 5329,
+      "dailyGrowth": 1734,
+      "acceleration": 0,
+      "ageDays": 314,
+      "language": "Python",
+      "homepage": null,
+      "topics": [
+        "agent",
+        "agent-memory",
+        "ai-agent",
+        "book",
+        "coding-agent",
+        "context-engineering",
+        "large-language-models",
+        "llm",
+        "mcp",
+        "multi-agent",
+        "multimodal",
+        "rag",
+        "reinforcement-learning"
+      ],
+      "forks": 503,
+      "openIssues": 5,
+      "commits30d": 149,
+      "contributors": 8,
+      "closedIssues30d": 2,
+      "releases90d": 0,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 83,
+        "contributorStrength": 30,
+        "issueResponse": 34,
+        "releaseCadence": 0,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 100,
+        "acceleration": 50,
+        "projectAge": 88,
+        "communityActivity": 49,
+        "externalHeat": 25
+      },
+      "healthScore": 49,
+      "potentialScore": 62,
+      "score": 57,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "bojieli/ai-agent-book",
+        "purpose": "《深入理解AI Agent》开源书籍，涵盖设计原理与工程实践，包含全书正文、PDF和配套代码，覆盖上下文工程、记忆、工具等主题。",
+        "productType": "其他",
+        "deploymentConditions": [
+          "需要Python 3.8+和pip",
+          "需要LLM API密钥（如OpenAI、SiliconFlow等）",
+          "部分实验需要GPU或外部仓库"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "30–60分钟（单个实验）",
+        "suitableFor": "希望系统学习AI Agent原理并动手实践的开发者或研究者，适合有Python基础和对LLM感兴趣的用户。",
+        "deploymentSteps": [
+          "克隆仓库",
+          "进入对应章节目录（如chapter1/）",
+          "安装依赖（通常为pip install -r requirements.txt）",
+          "配置API密钥并运行实验脚本"
+        ],
+        "risks": [
+          "部分实验依赖外部仓库，需额外克隆",
+          "训练类实验需要GPU资源",
+          "API密钥可能产生费用"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "WrenAI",
+      "repo": "Canner/WrenAI",
+      "url": "https://github.com/Canner/WrenAI",
+      "category": "应用",
+      "reportedStars": 0,
+      "reportedDaily": 96,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "GenBI (Generative BI) for AI agents, an open-source, governed text-to-SQL through an open context layer that turns natural-language questions into trusted dashboards, charts, and SQL across 20+ data sources, such as BigQuery, Snowflake, PostgreSQL, ClickHouse, Amazon Redshift, Databricks and more.",
+      "stars": 16172,
+      "dailyGrowth": 96,
+      "acceleration": 0,
+      "ageDays": 859,
+      "language": "Python",
+      "homepage": "https://docs.getwren.ai/oss/introduction",
+      "topics": [
+        "agent",
+        "anthropic",
+        "bigquery",
+        "charts",
+        "context-engineering",
+        "duckdb",
+        "genbi",
+        "llm",
+        "openai",
+        "postgresql",
+        "rag",
+        "sql",
+        "sqlai",
+        "text-to-chart",
+        "text-to-sql",
+        "text2sql",
+        "vertex"
+      ],
+      "forks": 1838,
+      "openIssues": 372,
+      "commits30d": 75,
+      "contributors": 72,
+      "closedIssues30d": 8,
+      "releases90d": 10,
+      "license": "NOASSERTION",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 71,
+        "contributorStrength": 58,
+        "issueResponse": 36,
+        "releaseCadence": 100,
+        "license": 25
+      },
+      "potential": {
+        "starVelocity": 82,
+        "acceleration": 50,
+        "projectAge": 72,
+        "communityActivity": 55,
+        "externalHeat": 25
+      },
+      "healthScore": 58,
+      "potentialScore": 57,
+      "score": 57,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "Canner/WrenAI",
+        "purpose": "开源生成式BI引擎，让AI智能体通过自然语言生成受治理的SQL和仪表盘，支持20+数据源，内置上下文层确保准确性。",
+        "productType": "CLI",
+        "deploymentConditions": [
+          "Python 3.10+",
+          "支持DuckDB内置，可选PostgreSQL等扩展",
+          "需安装pip和npx"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "需要让AI智能体（如Claude Code）从数据库生成可信BI报表和仪表盘的团队，注重数据治理和上下文管理。",
+        "deploymentSteps": [
+          "运行 pip install wrenai 安装核心包",
+          "运行 npx skills add Canner/WrenAI 安装AI客户端发现存根",
+          "按照CLI引导配置数据源和上下文",
+          "通过AI助手发出自然语言查询生成仪表盘"
+        ],
+        "risks": [
+          "需自行配置数据源连接和权限",
+          "中国用户可能需要使用镜像加速",
+          "依赖LLM的准确性，需仔细验证SQL"
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "atomic-agents",
+      "repo": "Eigenwise/atomic-agents",
+      "url": "https://github.com/Eigenwise/atomic-agents",
+      "category": "基础工具",
+      "reportedStars": 6050,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Building AI agents, atomically",
+      "stars": 6050,
+      "dailyGrowth": 0,
+      "acceleration": 0,
+      "ageDays": 777,
+      "language": "Python",
+      "homepage": "https://eigenwise.github.io/atomic-agents/",
+      "topics": [
+        "ai",
+        "artificial-intelligence",
+        "large-language-model",
+        "large-language-models",
+        "llms",
+        "openai",
+        "openai-api"
+      ],
+      "forks": 512,
+      "openIssues": 6,
+      "commits30d": 27,
+      "contributors": 38,
+      "closedIssues30d": 5,
+      "releases90d": 4,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 55,
+        "contributorStrength": 49,
+        "issueResponse": 45,
+        "releaseCadence": 100,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 30,
+        "acceleration": 50,
+        "projectAge": 72,
+        "communityActivity": 50,
+        "externalHeat": 25
+      },
+      "healthScore": 70,
+      "potentialScore": 45,
+      "score": 56,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "Eigenwise/atomic-agents",
+        "purpose": "轻量级模块化AI代理框架，基于原子化设计，支持通过Pydantic和Instructor构建可组合、可预测的AI管道和应用。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要Python 3.8+和pip",
+          "需要OpenAI或其他兼容的LLM API密钥",
+          "可选：安装额外provider包（如instructor[anthropic]）"
+        ],
+        "difficulty": 2,
+        "estimatedTime": "10–20分钟",
+        "suitableFor": "希望快速构建结构化AI代理应用的开发者，适合熟悉Python和Pydantic的用户。",
+        "deploymentSteps": [
+          "运行pip install atomic-agents安装",
+          "安装所需provider（如pip install instructor[openai]）",
+          "参考快速示例编写代理代码",
+          "运行脚本测试"
+        ],
+        "risks": [
+          "依赖外部LLM API，需确保API密钥有效",
+          "框架较新，文档和社区支持可能有限"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "stable-pretraining",
+      "repo": "galilai-group/stable-pretraining",
+      "url": "https://github.com/galilai-group/stable-pretraining",
+      "category": "模型",
+      "reportedStars": 290,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Reliable, minimal and scalable library for pretraining foundation and world models",
+      "stars": 290,
+      "dailyGrowth": 5,
+      "acceleration": 5,
+      "ageDays": 726,
+      "language": "Python",
+      "homepage": "https://galilai-group.github.io/stable-pretraining/",
+      "topics": [
+        "computer-vision",
+        "computer-vision-algorithms",
+        "contrastive-learning",
+        "deep-learning",
+        "distributed",
+        "foundation-models",
+        "joint-embedding",
+        "joint-embedding-predictive-architecture",
+        "large-language-model",
+        "multimodal-learning",
+        "pytorch",
+        "self-supervised-learning",
+        "stable-pretraining",
+        "transformers"
+      ],
+      "forks": 53,
+      "openIssues": 18,
+      "commits30d": 11,
+      "contributors": 20,
+      "closedIssues30d": 10,
+      "releases90d": 2,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 41,
+        "contributorStrength": 41,
+        "issueResponse": 60,
+        "releaseCadence": 62,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 50,
+        "acceleration": 60,
+        "projectAge": 72,
+        "communityActivity": 47,
+        "externalHeat": 25
+      },
+      "healthScore": 61,
+      "potentialScore": 51,
+      "score": 55,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "galilai-group/stable-pretraining",
+        "purpose": "一个基于PyTorch Lightning的基础模型预训练框架，提供模块化设计、30+预置训练方案（如SimCLR、DINO、CLIP），支持分布式训练、SLURM集群、GPU增强和实验追踪。",
+        "productType": "SDK或库",
+        "deploymentConditions": [
+          "需要Python环境（建议3.8+）",
+          "需要PyTorch及相关依赖",
+          "推荐使用GPU（NVIDIA CUDA）加速训练",
+          "可选JAX后端（实验性）"
+        ],
+        "difficulty": 4,
+        "estimatedTime": "30–60分钟",
+        "suitableFor": "从事基础模型预训练研究的研究人员或工程师，需要灵活、可扩展的训练框架。",
+        "deploymentSteps": [
+          "克隆仓库并安装依赖：git clone && pip install -e .",
+          "配置数据加载器（支持HuggingFace数据集等）",
+          "定义模块（backbone、projector、forward函数）",
+          "设置回调（如OnlineProbe）和训练器",
+          "使用Manager启动训练（支持SLURM自动恢复）"
+        ],
+        "risks": [
+          "需要较强的深度学习框架使用经验",
+          "GPU资源需求较高，大规模训练需集群支持",
+          "JAX后端为实验性，稳定性需验证"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "Awesome-Embodied-Robotics-and-Agent",
+      "repo": "zchoi/Awesome-Embodied-Robotics-and-Agent",
+      "url": "https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent",
+      "category": "模型",
+      "reportedStars": 1834,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "This is a curated list of \"Embodied AI or robot with Large Language Models\" research. Watch this repository for the latest updates! 🔥",
+      "stars": 1834,
+      "dailyGrowth": 0,
+      "acceleration": 0,
+      "ageDays": 1097,
+      "language": null,
+      "homepage": null,
+      "topics": [
+        "agent",
+        "awesome",
+        "embodied-agent",
+        "embodied-ai",
+        "large-language-model",
+        "manipulator-robotics",
+        "navigation",
+        "planning-algorithms",
+        "scene-understanding"
+      ],
+      "forks": 99,
+      "openIssues": 3,
+      "commits30d": 4,
+      "contributors": 20,
+      "closedIssues30d": 0,
+      "releases90d": 0,
+      "license": "Apache-2.0",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 27,
+        "contributorStrength": 41,
+        "issueResponse": 28,
+        "releaseCadence": 0,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 30,
+        "acceleration": 50,
+        "projectAge": 58,
+        "communityActivity": 32,
+        "externalHeat": 25
+      },
+      "healthScore": 39,
+      "potentialScore": 39,
+      "score": 39,
+      "risks": [],
+      "deploymentBrief": {
+        "repo": "zchoi/Awesome-Embodied-Robotics-and-Agent",
+        "purpose": "一份精选的具身智能与机器人结合大语言模型的研究论文列表，涵盖视觉-语言-动作模型、自进化智能体、导航、操作等方向，持续更新最新成果。",
+        "productType": "其他",
+        "deploymentConditions": [
+          "无需部署，直接访问GitHub仓库即可浏览",
+          "建议使用浏览器或Markdown阅读器查看"
+        ],
+        "difficulty": 1,
+        "estimatedTime": "1分钟",
+        "suitableFor": "对具身智能、机器人、多模态大模型感兴趣的研究者或开发者，用于追踪前沿进展。",
+        "deploymentSteps": [
+          "打开GitHub仓库页面",
+          "浏览README中的目录和论文列表",
+          "点击链接阅读论文或项目详情"
+        ],
+        "risks": [
+          "列表可能不完整，需自行验证论文质量"
+        ],
+        "confidence": "high"
+      }
+    },
+    {
+      "name": "claude-context",
+      "repo": "zilliztech/claude-context",
+      "url": "https://github.com/zilliztech/claude-context",
+      "category": "知识库",
+      "reportedStars": 12163,
+      "reportedDaily": 0,
+      "analysis": "今日趋势项目，详细信息请查阅 README。",
+      "description": "Code search MCP for Claude Code. Make entire codebase the context for any coding agent.",
+      "stars": 12163,
+      "dailyGrowth": 0,
+      "acceleration": 0,
+      "ageDays": 409,
+      "language": "TypeScript",
+      "homepage": "https://github.com/zilliztech/claude-context/tree/master/docs",
+      "topics": [
+        "agent",
+        "agentic-rag",
+        "ai-coding",
+        "claude-code",
+        "code-generation",
+        "code-search",
+        "cursor",
+        "embedding",
+        "gemini-cli",
+        "mcp",
+        "merkle-tree",
+        "nodejs",
+        "openai",
+        "rag",
+        "semantic-search",
+        "typescript",
+        "vector-database",
+        "vibe-coding",
+        "voyage-ai",
+        "vscode-extension"
+      ],
+      "forks": 901,
+      "openIssues": 125,
+      "commits30d": 4,
+      "contributors": 27,
+      "closedIssues30d": 1,
+      "releases90d": 0,
+      "license": "MIT",
+      "externalMentions": 0,
+      "health": {
+        "commitFrequency": 27,
+        "contributorStrength": 45,
+        "issueResponse": 14,
+        "releaseCadence": 0,
+        "license": 100
+      },
+      "potential": {
+        "starVelocity": 30,
+        "acceleration": 50,
+        "projectAge": 72,
+        "communityActivity": 29,
+        "externalHeat": 25
+      },
+      "healthScore": 37,
+      "potentialScore": 41,
+      "score": 39,
+      "risks": [
+        "Issue 积压较多"
+      ],
+      "deploymentBrief": {
+        "repo": "zilliztech/claude-context",
+        "purpose": "为Claude Code等AI编程助手提供语义代码搜索的MCP插件，将整个代码库作为上下文，无需多轮发现即可找到相关代码，降低大型代码库的使用成本。",
+        "productType": "CLI",
+        "deploymentConditions": [
+          "需要Node.js 20+",
+          "需要Zilliz Cloud免费向量数据库API密钥",
+          "需要OpenAI API密钥用于嵌入模型"
+        ],
+        "difficulty": 3,
+        "estimatedTime": "15–30分钟",
+        "suitableFor": "使用Claude Code、Cursor等AI编程助手的开发者，希望将整个代码库作为上下文以提升代码生成和搜索效率。",
+        "deploymentSteps": [
+          "注册Zilliz Cloud获取向量数据库API密钥和公共端点",
+          "获取OpenAI API密钥",
+          "使用CLI命令配置MCP服务器：claude mcp add claude-context -e OPENAI_API_KEY=... -e MILVUS_ADDRESS=... -e MILVUS_TOKEN=... -- npx @zilliz/claude-context-mcp@latest",
+          "重启Claude Code或相应客户端以生效"
+        ],
+        "risks": [
+          "依赖外部云服务（Zilliz Cloud和OpenAI），可能产生费用",
+          "API密钥泄露风险，需妥善保管",
+          "大型代码库首次索引可能耗时较长"
+        ],
+        "confidence": "high"
+      }
+    }
+  ]
+}
