@@ -146,6 +146,7 @@ export const FOOTER = {
 
 export const REPORT_LABELS: Record<string, string> = {
   "ai-picks": "今日 AI 必看",
+  "ai-paper-picks": "今日论文精读",
   "ai-cli": "AI CLI 工具社区动态日报",
   "ai-cli-en": "AI CLI Tools Digest",
   "ai-agents": "AI Agents 生态日报",

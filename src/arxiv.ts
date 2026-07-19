@@ -19,6 +19,8 @@ export interface ArxivPaper {
   categories: string[];
   url: string;
   pdfUrl: string;
+  comment: string;
+  journalRef: string;
 }
 
 export interface ArxivData {
@@ -34,7 +36,7 @@ const ARXIV_MAX_RESULTS = 50;
 const API_URL = "https://export.arxiv.org/api/query";
 
 /** ArXiv categories to search. */
-const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG"];
+const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.CV", "eess.IV", "q-bio.QM"];
 
 /** Delay between requests (ArXiv asks for 3s). */
 const REQUEST_DELAY_MS = 3000;
@@ -89,11 +91,13 @@ function parseEntry(entryXml: string): ArxivPaper | null {
   const published = extractTag(entryXml, "published");
   const updated = extractTag(entryXml, "updated");
   const categories = extractAttr(entryXml, "category", "term");
+  const comment = extractTag(entryXml, "arxiv:comment").replace(/\s+/g, " ");
+  const journalRef = extractTag(entryXml, "arxiv:journal_ref").replace(/\s+/g, " ");
 
   const url = id; // ArXiv id IS the URL (e.g. http://arxiv.org/abs/...)
   const pdfUrl = extractLinkHref(entryXml, "related") || id.replace("/abs/", "/pdf/");
 
-  return { id, title, summary, authors, published, updated, categories, url, pdfUrl };
+  return { id, title, summary, authors, published, updated, categories, url, pdfUrl, comment, journalRef };
 }
 
 // ---------------------------------------------------------------------------

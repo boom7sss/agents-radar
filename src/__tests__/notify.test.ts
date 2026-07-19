@@ -98,9 +98,10 @@ describe("buildMessage", () => {
   });
 
   it("keeps the must-read selection out of the regular notification", () => {
-    const msg = buildMessage("2026-03-09", ["ai-picks", "ai-cli"], BASE_URL);
+    const msg = buildMessage("2026-03-09", ["ai-picks", "ai-paper-picks", "ai-cli"], BASE_URL);
     expect(msg).toContain("AI CLI 工具");
     expect(msg).not.toContain("ai-picks");
     expect(msg).not.toContain("今日 AI 必看");
+    expect(msg).not.toContain("今日论文精读");
   });
 });

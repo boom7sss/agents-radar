@@ -14,7 +14,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { NOTIFY_LABELS } from "./i18n.ts";
 import type { Highlights } from "./notify.ts";
-import type { DailyPick, DailyPicks } from "./prompts-data.ts";
+import type { DailyPick, DailyPicks, PaperPick, PaperPicks } from "./prompts-data.ts";
 
 const PAGES_URL_DEFAULT = "https://duanyytop.github.io/agents-radar";
 
@@ -67,7 +67,7 @@ export function buildFeishuMessage(
   const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
   // Picks have their own compact card, so keep the existing overview focused
   // on the specialist reports instead of listing the same content twice.
-  const baseReports = reports.filter((r) => !r.endsWith("-en") && r !== "ai-picks");
+  const baseReports = reports.filter((r) => !r.endsWith("-en") && r !== "ai-picks" && r !== "ai-paper-picks");
   const isWeekly = baseReports.includes("ai-weekly");
   const isMonthly = baseReports.includes("ai-monthly");
 
@@ -121,6 +121,20 @@ export function buildDailyPicksMessage(date: string, picks: DailyPick[]): string
   return lines.join("\n");
 }
 
+export function buildPaperPicksMessage(date: string, picks: PaperPick[]): string {
+  const lines = [`📄 **今日论文精读 · ${date}**`];
+
+  for (const [index, pick] of picks.entries()) {
+    lines.push("");
+    lines.push(`${index + 1}. **${pick.title}** · \`${pick.venue}\``);
+    lines.push(`   做什么：${pick.takeaway}`);
+    lines.push(`   为什么读：${pick.why}`);
+    lines.push(`   [阅读论文](${pick.url})`);
+  }
+
+  return lines.join("\n");
+}
+
 async function main(): Promise<void> {
   const urls = getWebhookUrls();
   if (!urls.length) {
@@ -164,6 +178,16 @@ async function main(): Promise<void> {
     }
   }
 
+  let paperPicks: PaperPicks | null = null;
+  const paperPicksPath = path.join("digests", date, "paper-picks.json");
+  if (fs.existsSync(paperPicksPath)) {
+    try {
+      paperPicks = JSON.parse(fs.readFileSync(paperPicksPath, "utf-8")) as PaperPicks;
+    } catch {
+      console.log("[feishu] Failed to parse paper-picks.json — skipping paper card.");
+    }
+  }
+
   const isMonthly = reports.some((r) => r === "ai-monthly");
   const isWeekly = reports.some((r) => r === "ai-weekly");
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
@@ -175,6 +199,11 @@ async function main(): Promise<void> {
   if (dailyPicks?.picks?.length) {
     console.log(`[feishu] Sending ${dailyPicks.picks.length} daily picks…`);
     await sendFeishu(`📌 今日 AI 必看 · ${date}`, buildDailyPicksMessage(date, dailyPicks.picks));
+  }
+
+  if (paperPicks?.picks?.length) {
+    console.log(`[feishu] Sending ${paperPicks.picks.length} paper picks…`);
+    await sendFeishu(`📄 今日论文精读 · ${date}`, buildPaperPicksMessage(date, paperPicks.picks));
   }
 
   console.log(`[feishu] Sending to ${urls.length} webhook(s) for ${date} (${reports.length} reports)…`);

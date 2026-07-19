@@ -31,8 +31,11 @@ import {
   buildTrendingPrompt,
   buildHighlightsPrompt,
   buildDailyPicksPrompt,
+  buildPaperPicksPrompt,
   type DailyPick,
   type DailyPicks,
+  type PaperPick,
+  type PaperPicks,
   type ReportHighlights,
 } from "./prompts-data.ts";
 import { callLlm, parseLlmJson, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
@@ -513,7 +516,54 @@ async function main(): Promise<void> {
   console.log(`  Saved ${picksJsonPath}`);
   console.log(`  Saved ${picksMarkdownPath}`);
 
-  // 7. Create GitHub issues for CLI + OpenClaw (zh + en)
+  // 7. Build a compact research reading list. Named conference tags are only
+  // used when the source ArXiv metadata explicitly confirms the venue.
+  console.log("  Selecting today's paper reading list...");
+  const paperPicks: PaperPicks = { picks: [] };
+  if (arxivData.papers.length) {
+    try {
+      const rawPaperPicks = await callLlm(buildPaperPicksPrompt(arxivData, dateStr), 2048);
+      const parsed = parseLlmJson<PaperPicks>(rawPaperPicks);
+      const candidateUrls = new Set(arxivData.papers.map((paper) => paper.url));
+      if (Array.isArray(parsed.picks)) {
+        paperPicks.picks = parsed.picks
+          .filter(
+            (pick): pick is PaperPick =>
+              typeof pick?.title === "string" &&
+              typeof pick?.takeaway === "string" &&
+              typeof pick?.why === "string" &&
+              typeof pick?.venue === "string" &&
+              typeof pick?.url === "string" &&
+              candidateUrls.has(pick.url),
+          )
+          .slice(0, 5);
+      }
+    } catch (err) {
+      console.error(`  [paper-picks] generation failed: ${err}`);
+    }
+  }
+
+  const paperPicksJsonPath = saveFile(JSON.stringify(paperPicks, null, 2), dateStr, "paper-picks.json");
+  const paperPicksMarkdown = [
+    `# 今日论文精读 · ${dateStr}`,
+    "",
+    "> 候选来自最新 ArXiv 投稿；CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 标签仅在论文自身元数据明确标注时显示。",
+    "",
+    ...(paperPicks.picks.length
+      ? paperPicks.picks.flatMap((pick, index) => [
+          `${index + 1}. **${pick.title}** · \`${pick.venue}\``,
+          `   **做什么：** ${pick.takeaway}`,
+          `   **为什么读：** ${pick.why}`,
+          `   [阅读论文](${pick.url})`,
+          "",
+        ])
+      : ["今天没有筛出足够高质量的新论文；请查看 ArXiv AI 研究日报。", ""]),
+  ].join("\n");
+  const paperPicksMarkdownPath = saveFile(paperPicksMarkdown, dateStr, "ai-paper-picks.md");
+  console.log(`  Saved ${paperPicksJsonPath}`);
+  console.log(`  Saved ${paperPicksMarkdownPath}`);
+
+  // 8. Create GitHub issues for CLI + OpenClaw (zh + en)
   if (digestRepo) {
     for (const lang of ["zh", "en"] as const) {
       const cliUrl = await createGitHubIssue(

@@ -394,6 +394,18 @@ export interface DailyPicks {
   picks: DailyPick[];
 }
 
+export interface PaperPick {
+  title: string;
+  takeaway: string;
+  why: string;
+  venue: string;
+  url: string;
+}
+
+export interface PaperPicks {
+  picks: PaperPick[];
+}
+
 /**
  * Selects a short, cross-source editorial briefing for readers who want the
  * signal without opening every specialist report.
@@ -404,6 +416,28 @@ export function buildDailyPicksPrompt(reportContents: Record<string, string>): s
     .join("\n\n---\n\n");
 
   return `你是一位严格的中文 AI 新闻主编。以下是今日多个来源的 AI 生态报告节选。请从中选出真正最值得读者关注的 5–10 条事件；如果当天没有足够强的新闻，可以少于 5 条，绝不能凑数。\n\n${sections}\n\n---\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"picks":[{"title":"事件标题","why":"为什么重要（不超过45字）","source":"来源名称","url":"报告中已有的原始链接"}]}\n\n选择规则：\n- 优先级：官方模型/产品发布、原始论文、重要开源发布、政策/融资等实质行业事件；高质量社区讨论只能作为佐证，不能替代事实来源\n- 同一事件多处出现时，只保留一条，并使用最原始、最可信的来源\n- 跳过例行小更新、营销稿、重复讨论、没有实际新增信息的 Issue/PR\n- 条目要覆盖当天最重要的不同方向，不要让同一家公司或同一主题占据多数\n- url 只能使用节选里出现过的链接；找不到可靠链接时省略 url 字段，绝不能编造\n- title 要具体，why 用人话解释对 AI 从业者或关注者的实际影响`;
+}
+
+/**
+ * Selects a small reading list from the fresh ArXiv feed. Conference labels
+ * are deliberately conservative: a venue may only be named when it appears
+ * in the paper's own ArXiv metadata.
+ */
+export function buildPaperPicksPrompt(data: ArxivData, dateStr: string): string {
+  const papers = data.papers
+    .map((paper, index) => {
+      const metadata = [
+        `分类: ${paper.categories.join(", ")}`,
+        paper.comment ? `作者备注: ${paper.comment}` : "",
+        paper.journalRef ? `期刊/会议: ${paper.journalRef}` : "",
+      ]
+        .filter(Boolean)
+        .join(" | ");
+      return `${index + 1}. 标题: ${paper.title}\n链接: ${paper.url}\n${metadata}\n摘要: ${paper.summary.slice(0, 700)}`;
+    })
+    .join("\n\n");
+
+  return `你是一位严格的 AI 论文编辑。以下是 ${dateStr} 最新 ArXiv 论文候选池，重点覆盖视觉、多模态、医学影像、具身智能、机器学习方法和大模型研究。请筛出 3–5 篇真正值得精读的论文；候选不够好时可以少于 3 篇，绝不能凑数。\n\n${papers}\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"picks":[{"title":"论文原始标题","takeaway":"它具体解决什么问题（不超过45字）","why":"为什么值得读（不超过45字）","venue":"ArXiv 或 CVPR/NeurIPS/ICCV/ECCV/AAAI/MICCAI","url":"上方候选中已有的 ArXiv 链接"}]}\n\n筛选规则：\n- 优先新方法、可靠基准、开源且可复现、具有明确实际影响的工作；跳过纯小幅调参、营销式命名和缺少验证的论文\n- 尽量覆盖不同方向，不要让同一种主题占据多数\n- 只有候选的“作者备注”或“期刊/会议”明确提到 CVPR、NeurIPS（或 NIPS）、ICCV、ECCV、AAAI、MICCAI 时，venue 才可写该会议；否则一律写 ArXiv，不能猜测或编造\n- title 和 url 必须完全来自候选；url 只能用上方出现的 ArXiv 链接\n- 中文字段要简明、具体，面向希望决定“要不要花时间读全文”的读者`;
 }
 
 export function buildHighlightsPrompt(
@@ -649,7 +683,7 @@ export function buildArxivPrompt(data: ArxivData, dateStr: string, lang: Lang = 
     .join("\n\n");
 
   if (lang === "en") {
-    return `You are an AI research analyst. The following are recent AI-related papers from ArXiv as of ${dateStr} (${data.papers.length} papers from cs.AI, cs.CL, cs.LG):
+    return `You are an AI research analyst. The following are recent AI-related papers from ArXiv as of ${dateStr} (${data.papers.length} papers from AI, ML, language, computer vision, image/video processing, and quantitative biology categories):
 
 ---
 
@@ -680,7 +714,7 @@ Style: English, concise and professional, preserve all ArXiv links.
 `;
   }
 
-  return `你是 AI 研究分析师。以下是 ${dateStr} ArXiv 上最新的 AI 相关论文（共 ${data.papers.length} 篇，来自 cs.AI、cs.CL、cs.LG）：
+  return `你是 AI 研究分析师。以下是 ${dateStr} ArXiv 上最新的 AI 相关论文（共 ${data.papers.length} 篇，来自 AI、机器学习、语言、计算机视觉、图像/视频处理与定量生物分类）：
 
 ---
 

@@ -55,7 +55,7 @@ export function buildMessage(
   const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
   // The must-read selection is delivered separately on Feishu. It is still
   // present on the web site, but should not become a duplicate report row.
-  const baseReports = reports.filter((r) => !r.endsWith("-en") && r !== "ai-picks");
+  const baseReports = reports.filter((r) => !r.endsWith("-en") && r !== "ai-picks" && r !== "ai-paper-picks");
   const isWeekly = baseReports.includes("ai-weekly");
   const isMonthly = baseReports.includes("ai-monthly");
 

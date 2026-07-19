@@ -12,12 +12,14 @@ import {
   buildWeeklyPrompt,
   buildMonthlyPrompt,
   buildHnPrompt,
+  buildPaperPicksPrompt,
 } from "../prompts-data.ts";
 import type { RepoConfig, GitHubItem, GitHubRelease } from "../github.ts";
 import type { RepoDigest } from "../prompts.ts";
 import type { TrendingData } from "../trending.ts";
 import type { HnData } from "../hn.ts";
 import type { WebFetchResult } from "../web.ts";
+import type { ArxivData } from "../arxiv.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures
@@ -353,5 +355,37 @@ describe("buildHnPrompt", () => {
     expect(result).toContain("Score: 10");
     expect(result).toContain("Comments: 2");
     expect(result).toContain("Hacker News");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildPaperPicksPrompt
+// ---------------------------------------------------------------------------
+
+describe("buildPaperPicksPrompt", () => {
+  it("includes source metadata and forbids invented conference labels", () => {
+    const data: ArxivData = {
+      fetchSuccess: true,
+      papers: [
+        {
+          id: "http://arxiv.org/abs/2603.00001",
+          title: "A Vision Paper",
+          summary: "A useful method for image understanding.",
+          authors: ["Alice"],
+          published: "2026-03-09T00:00:00Z",
+          updated: "2026-03-09T00:00:00Z",
+          categories: ["cs.CV"],
+          url: "http://arxiv.org/abs/2603.00001",
+          pdfUrl: "http://arxiv.org/pdf/2603.00001",
+          comment: "Accepted at CVPR 2026.",
+          journalRef: "",
+        },
+      ],
+    };
+    const result = buildPaperPicksPrompt(data, "2026-03-09");
+    expect(result).toContain("A Vision Paper");
+    expect(result).toContain("Accepted at CVPR 2026");
+    expect(result).toContain("不能猜测或编造");
+    expect(result).toContain("MICCAI");
   });
 });

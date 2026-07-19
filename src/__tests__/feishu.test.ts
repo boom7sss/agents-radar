@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { buildDailyPicksMessage, buildFeishuMessage } from "../feishu.ts";
+import { buildDailyPicksMessage, buildFeishuMessage, buildPaperPicksMessage } from "../feishu.ts";
 import type { Highlights } from "../notify.ts";
 
 const BASE_URL = "https://example.com/radar";
@@ -95,10 +95,11 @@ describe("buildFeishuMessage", () => {
   });
 
   it("keeps the must-read selection out of the full overview card", () => {
-    const msg = buildFeishuMessage("2026-03-09", ["ai-picks", "ai-cli"], BASE_URL);
+    const msg = buildFeishuMessage("2026-03-09", ["ai-picks", "ai-paper-picks", "ai-cli"], BASE_URL);
     expect(msg).toContain("AI CLI 工具");
     expect(msg).not.toContain("ai-picks");
     expect(msg).not.toContain("今日 AI 必看");
+    expect(msg).not.toContain("今日论文精读");
   });
 
   it("builds a short must-read card with source links", () => {
@@ -113,5 +114,20 @@ describe("buildFeishuMessage", () => {
     expect(msg).toContain("今日 AI 必看");
     expect(msg).toContain("OpenAI 发布新模型");
     expect(msg).toContain("[来源：OpenAI](https://example.com/release)");
+  });
+
+  it("builds a paper reading card with venue and paper link", () => {
+    const msg = buildPaperPicksMessage("2026-03-09", [
+      {
+        title: "Vision Foundation Paper",
+        takeaway: "统一视觉表征训练。",
+        why: "在多个公开基准上表现突出。",
+        venue: "CVPR",
+        url: "https://arxiv.org/abs/2603.00001",
+      },
+    ]);
+    expect(msg).toContain("今日论文精读");
+    expect(msg).toContain("`CVPR`");
+    expect(msg).toContain("[阅读论文](https://arxiv.org/abs/2603.00001)");
   });
 });
