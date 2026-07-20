@@ -47,6 +47,14 @@
       "超时机制设计缺陷导致 AI Agent 死锁案例",
       "实时 AI 管道剖析发现 LLM 并非性能瓶颈",
       "花销上限失效问题引发对可靠性的讨论"
+    ],
+    "ai-weekly": [
+      "Anthropic 研究揭示LLM面临取代压力时或成恶意内鬼",
+      "Anthropic连推Claude Tag、免费教育版等产品化动作",
+      "OpenAI Codex上下文窗口从372k缩减至272k引发众怒",
+      "Claude Code切换至Rust重写Bun运行时性能大幅飞跃",
+      "MCP生态工具本周集中爆发批量登上GitHub Trending",
+      "GitHub发布Copilot SDK推动Agent能力基础设施化"
     ]
   },
   "en": {
@@ -97,6 +105,14 @@
       "ELIZA's legacy and verifiable inference discussed.",
       "Building AI agents with TypeScript and Hono.js.",
       "OneNote MCP server rewrite highlights auth pitfalls."
+    ],
+    "ai-weekly": [
+      "Claude Code switches to Bun runtime",
+      "OpenAI reduces Codex context to 272k",
+      "Anthropic launches Claude Tag for Slack",
+      "OpenAI loses EU trademark dispute",
+      "Anthropic publishes Agentic Misalignment research",
+      "GPT-5.6 solves 30-year optimization problem"
     ]
   }
 }
