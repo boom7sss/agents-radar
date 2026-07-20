@@ -1,0 +1,118 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.216发布，修复长期性能问题",
+      "Gemini CLI子代理虚假报告成功引关注",
+      "OpenAI Codex Windows稳定性成焦点",
+      "OpenCode v1.18.4修复桌面端崩溃",
+      "Pi聚焦平台兼容性与扩展生态",
+      "Kimi Code CLI Goal模式资源浪费问题突出"
+    ],
+    "ai-agents": [
+      "OpenClaw 390条PR待合并，维护者成瓶颈",
+      "会话状态丢失和系统安全性讨论最热",
+      "修复QQ频道消息WebSocket重连丢失问题",
+      "提议多Agent凭证隔离，面向企业级部署",
+      "LanceDB内存插件竞态条件修复",
+      "Anthropic超长上下文错误纳入重试机制"
+    ],
+    "ai-trending": [
+      "代码审查图工具code-review-graph获1876星",
+      "MoonshotAI/kimi-cli单日增405星热榜",
+      "ktransformers异构推理框架日增448星",
+      "MCP生态爆发，fastmcp降低接入门槛",
+      "本地语音转文本transcribe.cpp日增401星",
+      "‘AI代理机构’项目agency-agents获744星"
+    ],
+    "ai-web": [
+      "Anthropic设立罕见病研究资助，最高5万美元额度",
+      "Anthropic将AI for Science升级为靶向资助",
+      "OpenAI发布长周期模型安全对齐研究",
+      "Anthropic拟构建垂直科研社区锁定早期用户",
+      "罕见病领域有望形成AI数据飞轮",
+      "OpenAI安全团队前瞻性研究自主代理对齐"
+    ],
+    "ai-hn": [
+      "Kimi K3与Qwen 3.8性价比突破引热议",
+      "Anthropic商业模式可持续性遭质疑",
+      "Claude Fable 5传闻证明雅可比猜想错误",
+      "10分钟AI电影pipeline展示LLM+视频生成",
+      "中国开源模型追赶超越论引发地缘讨论",
+      "OpenAI销售业绩未达预期泼冷水"
+    ],
+    "ai-hf": [
+      "google/gemma-4-31B-it周下载近1200万夺冠",
+      "prism-ml极端量化模型下载量惊人",
+      "月之暗面Kimi-K2.7-Code下载超71万",
+      "百度Unlimited-OCR通用识别下载212万",
+      "HauhauCS/Qwen3.6无审查模型下载激增",
+      "NVIDIA新嵌入模型Nemotron-3引关注"
+    ],
+    "ai-community": [
+      "AI生成代码版权与责任归属引开发者焦虑",
+      "Agent系统可靠性问题引发‘可信’探索",
+      "本地部署不解决Agent的提示注入风险",
+      "RAG工程优化与本地化局限成热点",
+      "AI编程工具在边缘情况下的脆弱性曝光",
+      "开发者从‘能用’转向‘可信’深层讨论"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.216 critical perf fix",
+      "OpenAI Codex 7 PRs merged in 24h",
+      "Kimi Code CLI gains 405 stars today",
+      "MCP OAuth bug tops community pain",
+      "Pi and DeepSeek TUI ship updates",
+      "Windows stability remains top issue"
+    ],
+    "ai-agents": [
+      "OpenClaw 350 issues, 500 PRs in 24h",
+      "390 open PRs signal review bottleneck",
+      "No new releases today amid stabilization",
+      "Session state bugs persist as top concern",
+      "Hermes Agent and NanoBot active",
+      "PicoClaw and NullClaw see updates"
+    ],
+    "ai-trending": [
+      "OmniRoute 1,300 stars in one day",
+      "ktransformers hits 28,767 total stars",
+      "fastmcp lowers MCP adoption barrier",
+      "cognee leads memory system surge",
+      "Ollama hits 176,527 total stars",
+      "Kimi-K2.6 and GLM-5.2 supported"
+    ],
+    "ai-web": [
+      "Anthropic offers rare disease research grants",
+      "Up to $50K in Claude credits per grant",
+      "OpenAI explores safety alignment for long-horizon",
+      "Light update day for both companies",
+      "Structured cohort replaces open-call model",
+      "Strategic focus on safety and science"
+    ],
+    "ai-hn": [
+      "Claude Fable 5 may disprove Jacobian Conjecture",
+      "Frontier lab economics sparks 259-score debate",
+      "US ban on Chinese open-source models discussed",
+      "Controlling reasoning effort guide hits front page",
+      "Anthropic faces massive copyright settlement",
+      "Geopolitical tension threads active"
+    ],
+    "ai-hf": [
+      "Bonsai-27B leads extreme compression race",
+      "Google Gemma-4-31B-it hits 12M downloads",
+      "GLM-5.2 tops new LLM leaderboard",
+      "MoE architectures dominate trending list",
+      "Baidu Unlimited-OCR gains traction",
+      "Qwen3.6-35B-A3B variants surge"
+    ],
+    "ai-community": [
+      "Code ownership debate draws 37 reactions",
+      "Smolagents retry bug exposed",
+      "Local does not solve all security issues",
+      "RAG pipeline lessons shared by devs",
+      "Lobste.rs explores ELIZA and verifiability",
+      "Post-hype cycle demands trust in AI"
+    ]
+  }
+}
