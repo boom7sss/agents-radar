@@ -54,6 +54,7 @@ import { fetchTrendingData, type TrendingData } from "./trending.ts";
 import { fetchHnData, type HnData } from "./hn.ts";
 import { fetchPhData, type PhData } from "./ph.ts";
 import { fetchArxivData, type ArxivData } from "./arxiv.ts";
+import { fetchConferencePaperData, type ConferencePaperData } from "./conference-papers.ts";
 import { fetchHfData, type HfData } from "./hf.ts";
 import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
@@ -82,6 +83,34 @@ function requireEnv(name: string): string {
   return value;
 }
 
+function recentPaperPickKeys(days = 14): Set<string> {
+  if (!fs.existsSync("digests")) return new Set();
+
+  const dates = fs
+    .readdirSync("digests", { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
+    .map((entry) => entry.name)
+    .sort()
+    .slice(-days);
+
+  const keys = new Set<string>();
+  for (const date of dates) {
+    const file = path.join("digests", date, "paper-picks.json");
+    if (!fs.existsSync(file)) continue;
+    try {
+      const parsed = JSON.parse(fs.readFileSync(file, "utf-8")) as { picks?: PaperPick[] };
+      for (const pick of parsed.picks ?? []) {
+        if (typeof pick.title === "string" && typeof pick.venue === "string") {
+          keys.add(`${pick.venue}:${pick.title}`);
+        }
+      }
+    } catch {
+      console.log(`  [paper-picks] Could not read history from ${file}`);
+    }
+  }
+  return keys;
+}
+
 // ---------------------------------------------------------------------------
 // Phase 1: Fetch
 // ---------------------------------------------------------------------------
@@ -97,13 +126,14 @@ async function fetchAllData(
   hnData: HnData;
   phData: PhData;
   arxivData: ArxivData;
+  conferenceData: ConferencePaperData;
   hfData: HfData;
   devtoData: DevtoData;
   lobstersData: LobstersData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters`,
+    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, conference papers, hf, devto, lobsters`,
   );
 
   const [
@@ -114,6 +144,7 @@ async function fetchAllData(
     hnData,
     phData,
     arxivData,
+    conferenceData,
     hfData,
     devtoData,
     lobstersData,
@@ -172,6 +203,7 @@ async function fetchAllData(
     fetchHnData().catch((): HnData => ({ stories: [], fetchSuccess: false })),
     fetchPhData().catch((): PhData => ({ products: [], fetchSuccess: false })),
     fetchArxivData().catch((): ArxivData => ({ papers: [], fetchSuccess: false })),
+    fetchConferencePaperData().catch((): ConferencePaperData => ({ sources: [], fetchSuccess: false })),
     fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
@@ -185,6 +217,7 @@ async function fetchAllData(
     hnData,
     phData,
     arxivData,
+    conferenceData,
     hfData,
     devtoData,
     lobstersData,
@@ -318,6 +351,7 @@ async function main(): Promise<void> {
     hnData,
     phData,
     arxivData,
+    conferenceData,
     hfData,
     devtoData,
     lobstersData,
@@ -516,15 +550,18 @@ async function main(): Promise<void> {
   console.log(`  Saved ${picksJsonPath}`);
   console.log(`  Saved ${picksMarkdownPath}`);
 
-  // 7. Build a compact research reading list. Named conference tags are only
-  // used when the source ArXiv metadata explicitly confirms the venue.
+  // 7. Build a compact research reading list from new ArXiv work and official
+  // top-conference award / spotlight pages, without repeating recent picks.
   console.log("  Selecting today's paper reading list...");
   const paperPicks: PaperPicks = { picks: [] };
-  if (arxivData.papers.length) {
+  const seenPaperKeys = recentPaperPickKeys();
+  const unseenArxivPapers = arxivData.papers.filter((paper) => !seenPaperKeys.has(`ArXiv:${paper.title}`));
+  const paperInput = { ...arxivData, papers: unseenArxivPapers };
+  if (paperInput.papers.length || conferenceData.sources.length) {
     try {
-      const rawPaperPicks = await callLlm(buildPaperPicksPrompt(arxivData, dateStr), 2048);
+      const rawPaperPicks = await callLlm(buildPaperPicksPrompt(paperInput, conferenceData, dateStr), 2048);
       const parsed = parseLlmJson<PaperPicks>(rawPaperPicks);
-      const candidateUrls = new Set(arxivData.papers.map((paper) => paper.url));
+      const arxivUrls = new Set(paperInput.papers.map((paper) => paper.url));
       if (Array.isArray(parsed.picks)) {
         paperPicks.picks = parsed.picks
           .filter(
@@ -534,7 +571,14 @@ async function main(): Promise<void> {
               typeof pick?.why === "string" &&
               typeof pick?.venue === "string" &&
               typeof pick?.url === "string" &&
-              candidateUrls.has(pick.url),
+              !seenPaperKeys.has(`${pick.venue}:${pick.title}`) &&
+              (arxivUrls.has(pick.url) ||
+                conferenceData.sources.some(
+                  (source) =>
+                    source.venue === pick.venue &&
+                    source.url === pick.url &&
+                    source.text.includes(pick.title),
+                )),
           )
           .slice(0, 5);
       }
@@ -547,7 +591,7 @@ async function main(): Promise<void> {
   const paperPicksMarkdown = [
     `# 今日论文精读 · ${dateStr}`,
     "",
-    "> 候选来自最新 ArXiv 投稿；CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 标签仅在论文自身元数据明确标注时显示。",
+    "> 候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；优先级为视觉、医学影像、多模态、大模型。",
     "",
     ...(paperPicks.picks.length
       ? paperPicks.picks.flatMap((pick, index) => [

@@ -10,6 +10,7 @@ import type { TrendingData } from "./trending.ts";
 import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
 import type { ArxivData } from "./arxiv.ts";
+import type { ConferencePaperData } from "./conference-papers.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
@@ -423,7 +424,11 @@ export function buildDailyPicksPrompt(reportContents: Record<string, string>): s
  * are deliberately conservative: a venue may only be named when it appears
  * in the paper's own ArXiv metadata.
  */
-export function buildPaperPicksPrompt(data: ArxivData, dateStr: string): string {
+export function buildPaperPicksPrompt(
+  data: ArxivData,
+  conferenceData: ConferencePaperData,
+  dateStr: string,
+): string {
   const papers = data.papers
     .map((paper, index) => {
       const metadata = [
@@ -437,7 +442,14 @@ export function buildPaperPicksPrompt(data: ArxivData, dateStr: string): string 
     })
     .join("\n\n");
 
-  return `你是一位严格的 AI 论文编辑。以下是 ${dateStr} 最新 ArXiv 论文候选池，重点覆盖视觉、多模态、医学影像、具身智能、机器学习方法和大模型研究。请筛出 3–5 篇真正值得精读的论文；候选不够好时可以少于 3 篇，绝不能凑数。\n\n${papers}\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"picks":[{"title":"论文原始标题","takeaway":"它具体解决什么问题（不超过45字）","why":"为什么值得读（不超过45字）","venue":"ArXiv 或 CVPR/NeurIPS/ICCV/ECCV/AAAI/MICCAI","url":"上方候选中已有的 ArXiv 链接"}]}\n\n筛选规则：\n- 优先新方法、可靠基准、开源且可复现、具有明确实际影响的工作；跳过纯小幅调参、营销式命名和缺少验证的论文\n- 尽量覆盖不同方向，不要让同一种主题占据多数\n- 只有候选的“作者备注”或“期刊/会议”明确提到 CVPR、NeurIPS（或 NIPS）、ICCV、ECCV、AAAI、MICCAI 时，venue 才可写该会议；否则一律写 ArXiv，不能猜测或编造\n- title 和 url 必须完全来自候选；url 只能用上方出现的 ArXiv 链接\n- 中文字段要简明、具体，面向希望决定“要不要花时间读全文”的读者`;
+  const conferenceSources = conferenceData.sources
+    .map(
+      (source) =>
+        `## ${source.venue} ${source.year} 官方获奖 / Spotlight 来源\n来源链接: ${source.url}\n${source.text}`,
+    )
+    .join("\n\n---\n\n");
+
+  return `你是一位严格的 AI 论文编辑。请为 ${dateStr} 筛出 3–5 篇真正值得精读的论文。候选由“最新 ArXiv”与“CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方获奖/Spotlight 页面”组成；候选不够好时可以少于 3 篇，绝不能凑数。\n\n你的读者研究优先级严格为：视觉 > 医学影像 > 多模态 > 大模型 > 通用机器学习。优先从高优先级方向选，除非没有可靠候选。每天尽量包含 1–2 篇顶会官方高信号论文与 2–3 篇新 ArXiv 论文。\n\n# 最新 ArXiv 候选\n\n${papers || "今天没有可用的 ArXiv 候选。"}\n\n# 顶会官方候选\n\n${conferenceSources || "今天没有可用的顶会官方来源。"}\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"picks":[{"title":"论文原始标题","takeaway":"它具体解决什么问题（不超过45字）","why":"为什么值得读（不超过45字）","venue":"ArXiv 或 CVPR/NeurIPS/ICCV/ECCV/AAAI/MICCAI","url":"候选中已有的 ArXiv 链接，或该会议对应的官方来源链接"}]}\n\n筛选规则：\n- 顶会论文优先官方 Best Paper、Honorable Mention、Oral、Spotlight、Award Candidate 或 MICCAI 官方高评审/获奖工作；不能只因“顶会”就选普通论文\n- 优先新方法、可靠基准、开源且可复现、具有明确实际影响的工作；跳过纯小幅调参、营销式命名和缺少验证的论文\n- 尽量覆盖不同方向，但不得为了凑数降低质量\n- 对 ArXiv，只有候选的“作者备注”或“期刊/会议”明确提到 CVPR、NeurIPS（或 NIPS）、ICCV、ECCV、AAAI、MICCAI 时，venue 才可写该会议；否则写 ArXiv\n- 对顶会来源，venue 必须与来源标题一致，url 必须使用该来源块里的“来源链接”；不能编造单篇论文链接\n- title 必须逐字来自候选或官方来源；不能猜测或改写标题\n- 中文字段要简明、具体，面向希望决定“要不要花时间读全文”的读者`;
 }
 
 export function buildHighlightsPrompt(

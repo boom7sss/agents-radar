@@ -149,13 +149,20 @@ export async function fetchArxivData(): Promise<ArxivData> {
     }
   }
 
-  // Filter to last 48h (ArXiv has a ~1-day publishing delay, so 24h would miss today's batch)
-  const cutoff = Date.now() - 48 * 60 * 60 * 1000;
-  const papers = [...seen.values()]
-    .filter((p) => new Date(p.published).getTime() > cutoff)
-    .sort((a, b) => new Date(b.published).getTime() - new Date(a.published).getTime())
-    .slice(0, ARXIV_MAX_RESULTS);
+  // ArXiv has weekend / holiday gaps. Prefer the fresh 48h window, but keep a
+  // 7-day fallback so the paper card is not blank simply because a batch did
+  // not land today. The caller removes papers already sent recently.
+  const allPapers = [...seen.values()].sort(
+    (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime(),
+  );
+  const fresh = allPapers.filter((p) => new Date(p.published).getTime() > Date.now() - 48 * 60 * 60 * 1000);
+  const fallback = allPapers.filter(
+    (p) => new Date(p.published).getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000,
+  );
+  const papers = (fresh.length ? fresh : fallback).slice(0, ARXIV_MAX_RESULTS);
 
-  console.log(`  [arxiv] ${papers.length} papers (from ${seen.size} unique)`);
+  console.log(
+    `  [arxiv] ${papers.length} papers (from ${seen.size} unique${fresh.length ? "" : ", 7-day fallback"})`,
+  );
   return { papers, fetchSuccess: papers.length > 0 };
 }

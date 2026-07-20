@@ -20,6 +20,7 @@ import type { TrendingData } from "../trending.ts";
 import type { HnData } from "../hn.ts";
 import type { WebFetchResult } from "../web.ts";
 import type { ArxivData } from "../arxiv.ts";
+import type { ConferencePaperData } from "../conference-papers.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures
@@ -382,10 +383,22 @@ describe("buildPaperPicksPrompt", () => {
         },
       ],
     };
-    const result = buildPaperPicksPrompt(data, "2026-03-09");
+    const conferences: ConferencePaperData = {
+      fetchSuccess: true,
+      sources: [
+        {
+          venue: "CVPR",
+          year: 2025,
+          url: "https://example.com/cvpr-awards",
+          text: "CVPR 2025 Best Paper: A Vision Paper",
+        },
+      ],
+    };
+    const result = buildPaperPicksPrompt(data, conferences, "2026-03-09");
     expect(result).toContain("A Vision Paper");
     expect(result).toContain("Accepted at CVPR 2026");
-    expect(result).toContain("不能猜测或编造");
+    expect(result).toContain("不能猜测或改写标题");
     expect(result).toContain("MICCAI");
+    expect(result).toContain("视觉 > 医学影像 > 多模态 > 大模型");
   });
 });
