@@ -399,6 +399,6 @@ describe("buildPaperPicksPrompt", () => {
     expect(result).toContain("Accepted at CVPR 2026");
     expect(result).toContain("不能猜测或改写标题");
     expect(result).toContain("MICCAI");
-    expect(result).toContain("视觉 > 医学影像 > 多模态 > 大模型");
+    expect(result).toContain("视觉、医学影像、多模态和大模型，这四类同等重要");
   });
 });

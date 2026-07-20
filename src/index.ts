@@ -591,7 +591,7 @@ async function main(): Promise<void> {
   const paperPicksMarkdown = [
     `# 今日论文精读 · ${dateStr}`,
     "",
-    "> 候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；优先级为视觉、医学影像、多模态、大模型。",
+    "> 候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；重点关注视觉、医学影像、多模态和大模型，并尽量均衡覆盖。",
     "",
     ...(paperPicks.picks.length
       ? paperPicks.picks.flatMap((pick, index) => [
