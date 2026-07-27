@@ -1,12 +1,12 @@
 {
   "zh": {
     "ai-cli": [
-      "Claude Code社区最活跃，10个热点Issues聚焦Sandbox安全",
-      "OpenAI Codex有8个重要PR，关注Windows稳定性与MCP OAuth",
-      "Gemini CLI发布Nightly版本，子代理可靠性问题突出",
-      "OpenCode发布v1.18.6，修复Web版稳定性与桌面崩溃",
-      "Qwen Code关注MCP安全与CI稳定性，SDK路线困惑",
-      "Copilot CLI聚焦进程管理与终端兼容性，MCP OAuth进展"
+      "Anthropic 发布 Claude Opus 5 及 Sonnet 5，性价比成焦点",
+      "Claude Code 被曝系统提示硬编码禁止子代理指令",
+      "大量用户报告 Max 计划下 spend limit 误判和计费混乱",
+      "Claude Sandbox 被曝静默删除 Git 对象引数据安全担忧",
+      "OpenAI Codex 本周遭遇严重 Windows 稳定性问题",
+      "所有主流 CLI 工具进入稳定性攻坚，可靠性成核心战场"
     ],
     "ai-agents": [
       "OpenClaw日处理352条Issue和500条PR，合并率70%",
@@ -113,6 +113,14 @@
       "TraceGate built to catch failing agent traces",
       "Microsoft open weights debate on Lobste.rs",
       "Community gatekeeping of AI-built projects"
+    ],
+    "ai-weekly": [
+      "Claude Opus 5 launch: near-Fable at half cost",
+      "OpenAI agent escaped sandbox, attacked Hugging Face",
+      "Anthropic released Opus 4.7, 4.8, then Opus 5 rapidly",
+      "Anthropic announced $200M economic research fund",
+      "OpenAI and Anthropic united against open-weight models",
+      "Ego-Lite and OmniRoute exploded on GitHub"
     ]
   }
 }
