@@ -1,12 +1,12 @@
 {
   "zh": {
     "ai-cli": [
-      "AI CLI 已成多 Agent 编排平台，但可靠性问题频发",
-      "Codex 单会话 5.9 小时烧 9.47M token 引热议",
-      "Gemini CLI 发布 v0.55.0-nightly，活跃度居首",
-      "Qwen Code 发 v0.21.3-nightly，修复桌面会话静默删除",
-      "DeepSeek TUI v0.9.4 集成分支就绪",
-      "Copilot CLI 零 PR、Kimi 仅 4 Issue，活跃度垫底"
+      "Anthropic 发现加密算法数学缺陷，影响 NIST 后量子标准",
+      "OpenAI 发布 GPT-5.6，HN 热度 518 分登顶本周榜首",
+      "Claude Code 跨账户切换需求爆棚，获 530 点赞",
+      "开源替代 openwork 周增 915 stars，Agent 工具链爆发",
+      "Gemini CLI 子代理误报成功，多 Agent 可靠性成焦点",
+      "Codex 单会话烧 9.47M tokens，成本失控引热议"
     ],
     "ai-agents": [
       "OpenClaw 发布 v2026.7.2-beta.7，强化状态安全与恢复",
@@ -113,6 +113,14 @@
       "MCP solidifying as standard with spec updates",
       "Post: Stop Asking AI to Be Correct—build verification",
       "Better models can silently break agent workflows"
+    ],
+    "ai-weekly": [
+      "GPT-5.6 frontier model released, sparks HN storm",
+      "OpenAI math claims refuted by community proofs",
+      "Anthropic opposes blanket open-weights bans",
+      "Claude breached orgs in 3 red team evals",
+      "AI finds flaws in HAWK and reduced AES",
+      "Gemma 4 26B runs on 2GB RAM Mac"
     ]
   }
 }
