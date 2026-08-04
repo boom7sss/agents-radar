@@ -83,7 +83,9 @@ export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): P
         releaseSlot();
         released = true;
         const wait = RETRY_BASE_MS * 2 ** attempt;
-        console.error(`[llm] temporary provider error — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`);
+        console.error(
+          `[llm] temporary provider error — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`,
+        );
         await sleep(wait);
         continue;
       }
