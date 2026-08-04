@@ -83,8 +83,20 @@ function requireEnv(name: string): string {
   return value;
 }
 
-function recentPaperPickKeys(days = 14): Set<string> {
-  if (!fs.existsSync("digests")) return new Set();
+interface RecentPaperHistory {
+  keys: Set<string>;
+  titles: string[];
+}
+
+function paperTitleKey(title: string): string {
+  return title
+    .normalize("NFKC")
+    .toLocaleLowerCase()
+    .replace(/[\p{P}\p{S}\s]+/gu, "");
+}
+
+function recentPaperHistory(days = 30): RecentPaperHistory {
+  if (!fs.existsSync("digests")) return { keys: new Set(), titles: [] };
 
   const dates = fs
     .readdirSync("digests", { withFileTypes: true })
@@ -94,21 +106,24 @@ function recentPaperPickKeys(days = 14): Set<string> {
     .slice(-days);
 
   const keys = new Set<string>();
+  const titles: string[] = [];
   for (const date of dates) {
     const file = path.join("digests", date, "paper-picks.json");
     if (!fs.existsSync(file)) continue;
     try {
       const parsed = JSON.parse(fs.readFileSync(file, "utf-8")) as { picks?: PaperPick[] };
       for (const pick of parsed.picks ?? []) {
-        if (typeof pick.title === "string" && typeof pick.venue === "string") {
-          keys.add(`${pick.venue}:${pick.title}`);
+        if (typeof pick.title === "string" && pick.title.trim()) {
+          const key = paperTitleKey(pick.title);
+          if (!keys.has(key)) titles.push(pick.title);
+          keys.add(key);
         }
       }
     } catch {
       console.log(`  [paper-picks] Could not read history from ${file}`);
     }
   }
-  return keys;
+  return { keys, titles };
 }
 
 async function generateComparison(prompt: string, lang: Lang, name: string): Promise<string> {
@@ -573,12 +588,17 @@ async function main(): Promise<void> {
   // top-conference award / spotlight pages, without repeating recent picks.
   console.log("  Selecting today's paper reading list...");
   const paperPicks: PaperPicks = { picks: [] };
-  const seenPaperKeys = recentPaperPickKeys();
-  const unseenArxivPapers = arxivData.papers.filter((paper) => !seenPaperKeys.has(`ArXiv:${paper.title}`));
+  const recentPapers = recentPaperHistory();
+  const unseenArxivPapers = arxivData.papers.filter(
+    (paper) => !recentPapers.keys.has(paperTitleKey(paper.title)),
+  );
   const paperInput = { ...arxivData, papers: unseenArxivPapers };
   if (paperInput.papers.length || conferenceData.sources.length) {
     try {
-      const rawPaperPicks = await callLlm(buildPaperPicksPrompt(paperInput, conferenceData, dateStr), 2048);
+      const rawPaperPicks = await callLlm(
+        buildPaperPicksPrompt(paperInput, conferenceData, dateStr, recentPapers.titles),
+        2048,
+      );
       const parsed = parseLlmJson<PaperPicks>(rawPaperPicks);
       const arxivUrls = new Set(paperInput.papers.map((paper) => paper.url));
       if (Array.isArray(parsed.picks)) {
@@ -590,7 +610,7 @@ async function main(): Promise<void> {
               typeof pick?.why === "string" &&
               typeof pick?.venue === "string" &&
               typeof pick?.url === "string" &&
-              !seenPaperKeys.has(`${pick.venue}:${pick.title}`) &&
+              !recentPapers.keys.has(paperTitleKey(pick.title)) &&
               (arxivUrls.has(pick.url) ||
                 conferenceData.sources.some(
                   (source) =>
