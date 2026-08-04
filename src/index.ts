@@ -111,6 +111,17 @@ function recentPaperPickKeys(days = 14): Set<string> {
   return keys;
 }
 
+async function generateComparison(prompt: string, lang: Lang, name: string): Promise<string> {
+  try {
+    return await callLlm(prompt);
+  } catch (err) {
+    console.error(`  [${name}] comparison unavailable after retries:`, err);
+    return lang === "zh"
+      ? "_今日横向对比暂时不可用；其余日报内容已正常生成。_"
+      : "_Today's cross-repository comparison is temporarily unavailable; the rest of the digest was generated normally._";
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Phase 1: Fetch
 // ---------------------------------------------------------------------------
@@ -382,10 +393,18 @@ async function main(): Promise<void> {
   });
 
   const [zhComparison, zhPeersComparison, enComparison, enPeersComparison] = await Promise.all([
-    callLlm(buildComparisonPrompt(zhSummaries.cliDigests, dateStr, "zh")),
-    callLlm(buildPeersComparisonPrompt(makeOpenclawDigest("zh"), zhSummaries.peerDigests, dateStr, "zh")),
-    callLlm(buildComparisonPrompt(enSummaries.cliDigests, dateStr, "en")),
-    callLlm(buildPeersComparisonPrompt(makeOpenclawDigest("en"), enSummaries.peerDigests, dateStr, "en")),
+    generateComparison(buildComparisonPrompt(zhSummaries.cliDigests, dateStr, "zh"), "zh", "cli-zh"),
+    generateComparison(
+      buildPeersComparisonPrompt(makeOpenclawDigest("zh"), zhSummaries.peerDigests, dateStr, "zh"),
+      "zh",
+      "peers-zh",
+    ),
+    generateComparison(buildComparisonPrompt(enSummaries.cliDigests, dateStr, "en"), "en", "cli-en"),
+    generateComparison(
+      buildPeersComparisonPrompt(makeOpenclawDigest("en"), enSummaries.peerDigests, dateStr, "en"),
+      "en",
+      "peers-en",
+    ),
   ]);
 
   const comparisonByLang = { zh: zhComparison, en: enComparison };

@@ -26,8 +26,14 @@ export abstract class OpenAICompatibleProvider implements LlmProvider {
       max_completion_tokens: maxTokens,
       messages: [{ role: "user", content: prompt }],
     });
-    const text = response.choices[0]?.message?.content;
-    if (!text) throw new Error(`Unexpected empty response from ${this.name}`);
-    return text;
+    // Some OpenAI-compatible gateways can return a non-standard error payload
+    // with HTTP 200. Validate it before accessing choices so callers can retry.
+    const choices = (response as { choices?: unknown }).choices;
+    if (!Array.isArray(choices) || choices.length === 0) {
+      throw new Error(`Unexpected response from ${this.name}: no completion choices`);
+    }
+    const text = choices[0] as { message?: { content?: string | null } };
+    if (!text.message?.content) throw new Error(`Unexpected empty response from ${this.name}`);
+    return text.message.content;
   }
 }
