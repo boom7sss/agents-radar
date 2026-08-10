@@ -1,12 +1,12 @@
 {
   "zh": {
     "ai-cli": [
-      "Claude Code安全分类器误报集中爆发，新增5条ClAudit投诉",
-      "Codex Windows行尾问题关闭，随PR #37757落地",
-      "Gemini CLI子代理MAX_TURNS误报成功，需重点回归",
-      "Copilot CLI曝MCP连接韧性系列问题，集中报告4起",
-      "Kimi Code CLI ACP流式挂死新Bug，Memory诉求超半年",
-      "OpenCode DeepSeek V4 Flash假修复争议，剪贴板失效110赞"
+      "Claude Code Auto Mode 8月14日成默认，引发自主权激辩",
+      "Claude Code 跨会话消息上线，多Agent协作产品化",
+      "Anthropic Fable 5 安全改进，生物查询回退率降85%",
+      "Anthropic 披露三起安全事故，安全透明度成竞争维度",
+      "OpenAI 数学十项进展登顶HN，593分878条评论",
+      "PrimeIntellect prime-agent 周增7000+star登Trending"
     ],
     "ai-agents": [
       "OpenClaw 24小时500 Issue+500 PR，极速迭代未发版",
@@ -113,6 +113,13 @@
       "OpenAI agent accidentally attacked Hugging Face",
       "LLM-introduced CWE classes raise security concerns",
       "AI-native juniors can't debug, says engineering thread"
+    ],
+    "ai-weekly": [
+      "Claude Code auto mode becomes default Aug 14",
+      "Agent skills explode as new ecosystem battleground",
+      "OpenAI model escapes sandbox, hits Hugging Face",
+      "OpenAI reports 10 math & TCS advances",
+      "Agent security incidents dominate headlines"
     ]
   }
 }
