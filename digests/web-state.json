@@ -1,6 +1,6 @@
 {
   "anthropic": {
-    "lastChecked": "2026-08-15T01:37:16.047Z",
+    "lastChecked": "2026-08-15T04:39:52.287Z",
     "seenUrls": {
       "https://www.anthropic.com/news/responsible-scaling-policy-v3": "2026-02-25T23:57:06.000Z",
       "https://www.anthropic.com/research/deprecation-updates-opus-3": "2026-02-25T20:58:11.000Z",
@@ -444,7 +444,7 @@
     }
   },
   "openai": {
-    "lastChecked": "2026-08-15T01:37:18.489Z",
+    "lastChecked": "2026-08-15T04:39:55.166Z",
     "seenUrls": {
       "https://openai.com/index/arvind-kc-chief-people-officer/": "2026-07-25T07:19:31.944Z",
       "https://openai.com/index/put-ai-to-work-for-your-product-team/": "2026-07-29T03:13:44.572Z",
@@ -1208,7 +1208,7 @@
       "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/": "2026-08-14T17:33:05.064Z",
       "https://openai.com/index/daybreak-models-are-now-available-on-aws/": "2026-08-13T22:04:01.124Z",
       "https://openai.com/index/how-enterprises-put-ai-to-work/": "2026-08-14T21:33:06.061Z",
-      "https://openai.com/index/previewing-ultrafast/": "2026-08-15T01:13:02.328Z",
+      "https://openai.com/index/previewing-ultrafast/": "2026-08-15T03:53:02.161Z",
       "https://openai.com/index/dali-rajic-chief-revenue-officer/": "2026-08-15T01:29:35.274Z"
     }
   }
