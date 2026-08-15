@@ -4,6 +4,7 @@ import {
   OpenAIProvider,
   GitHubCopilotProvider,
   OpenRouterProvider,
+  DeepSeekProvider,
   createProvider,
   VALID_PROVIDER_NAMES,
   type LlmProvider,
@@ -311,6 +312,39 @@ describe("OpenRouterProvider", () => {
     const p = new OpenRouterProvider({ apiKey: "k" });
     await expect(p.call("prompt", 100)).rejects.toThrow("Unexpected empty response from openrouter");
   });
+});
+
+// ---------------------------------------------------------------------------
+// DeepSeekProvider
+// ---------------------------------------------------------------------------
+
+describe("DeepSeekProvider", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it(
+    "uses a stable cacheable system prefix and disables thinking for digest work",
+    withEnv({ DEEPSEEK_THINKING: "disabled" }, async () => {
+      const mockCreate = await getOpenAIMockCreate();
+      mockCreate.mockResolvedValueOnce({
+        choices: [{ message: { content: "digest" } }],
+        usage: { prompt_tokens: 100, prompt_cache_hit_tokens: 64, prompt_cache_miss_tokens: 36 },
+      });
+
+      const p = new DeepSeekProvider({ apiKey: "k", model: "deepseek-v4-flash" });
+      await expect(p.call("daily material", 512)).resolves.toBe("digest");
+      expect(mockCreate).toHaveBeenCalledWith({
+        model: "deepseek-v4-flash",
+        max_completion_tokens: 512,
+        messages: [
+          { role: "system", content: expect.stringContaining("personal AI research") },
+          { role: "user", content: "daily material" },
+        ],
+        thinking: { type: "disabled" },
+      });
+    }),
+  );
 });
 
 // ---------------------------------------------------------------------------

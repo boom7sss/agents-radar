@@ -96,6 +96,23 @@ export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): P
   }
 }
 
+/**
+ * Establish the shared DeepSeek system-message prefix before the many daily
+ * summarization calls begin. DeepSeek discovers a reusable prefix after two
+ * distinct requests with the same start; failures here must never block a digest.
+ */
+export async function warmDeepSeekCache(): Promise<void> {
+  if (provider.name !== "deepseek") return;
+
+  try {
+    console.log("  Warming DeepSeek prompt cache...");
+    await callLlm("Cache warm-up request one. Reply only with OK.", 8);
+    await callLlm("Cache warm-up request two. Reply only with READY.", 8);
+  } catch (err) {
+    console.warn(`  [llm/deepseek] cache warm-up skipped: ${err}`);
+  }
+}
+
 // Matches ASCII control characters U+0000–U+001F. Built from a string so no
 // literal control character appears in the source (keeps it readable + lint-clean).
 // eslint-disable-next-line no-control-regex

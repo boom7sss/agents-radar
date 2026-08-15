@@ -38,7 +38,14 @@ import {
   type PaperPicks,
   type ReportHighlights,
 } from "./prompts-data.ts";
-import { callLlm, parseLlmJson, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
+import {
+  callLlm,
+  parseLlmJson,
+  saveFile,
+  autoGenFooter,
+  warmDeepSeekCache,
+  LLM_TOKENS_TRENDING,
+} from "./report.ts";
 import { buildCliReportContent, buildOpenclawReportContent } from "./report-builders.ts";
 import {
   saveWebReport,
@@ -367,6 +374,10 @@ async function main(): Promise<void> {
   const providerName = process.env["LLM_PROVIDER"] ?? "anthropic";
   console.log(`[${now.toISOString()}] Starting digest | provider: ${providerName}`);
 
+  // Start the tiny cache warm-up while external sources are downloading, so it
+  // adds virtually no wall-clock time before the larger LLM requests begin.
+  const cacheWarmup = warmDeepSeekCache();
+
   // 1. Fetch all data in parallel
   const webState = loadWebState();
   const {
@@ -382,6 +393,7 @@ async function main(): Promise<void> {
     devtoData,
     lobstersData,
   } = await fetchAllData(since, webState);
+  await cacheWarmup;
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
   const fetchedCli = fetched.filter((f) => f.cfg.id !== OPENCLAW.id && !peerIds.has(f.cfg.id));
