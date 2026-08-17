@@ -59,13 +59,13 @@ describe("formatItem", () => {
     expect(result).not.toContain("[]");
   });
 
-  it("truncates body at 300 chars with ellipsis", () => {
+  it("truncates body at 240 chars with ellipsis", () => {
     const longBody = "A".repeat(400);
     const result = formatItem(makeItem({ body: longBody }));
-    expect(result).toContain("A".repeat(300) + "...");
+    expect(result).toContain("A".repeat(240) + "...");
   });
 
-  it("does not add ellipsis for body <= 300 chars", () => {
+  it("does not add ellipsis for a short body", () => {
     const result = formatItem(makeItem({ body: "Short body" }));
     expect(result).toContain("Short body");
     expect(result).not.toContain("...");

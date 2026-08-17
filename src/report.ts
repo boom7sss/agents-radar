@@ -6,18 +6,29 @@ import fs from "node:fs";
 import path from "node:path";
 import { type Lang, FOOTER } from "./i18n.ts";
 import { sleep } from "./date.ts";
+import { createLlmResponseCacheKey, LlmResponseCache } from "./llm-response-cache.ts";
 
 // ---------------------------------------------------------------------------
 // LLM token budget constants
 // ---------------------------------------------------------------------------
 
-export const LLM_TOKENS_DEFAULT = 4096;
-export const LLM_TOKENS_TRENDING = 6144;
-export const LLM_TOKENS_WEB = 8192;
-export const LLM_TOKENS_ROLLUP = 8192;
+// These are ceilings, not targets. They leave enough room for complete reports
+// while preventing unexpectedly verbose generations from dominating the bill.
+export const LLM_TOKENS_DEFAULT = 3072;
+export const LLM_TOKENS_TRENDING = 4096;
+export const LLM_TOKENS_WEB = 6144;
+export const LLM_TOKENS_ROLLUP = 6144;
 import { type LlmProvider, createProvider } from "./providers/index.ts";
 
 const provider: LlmProvider = createProvider();
+const responseCache = new LlmResponseCache();
+
+function deepSeekResponseCacheKey(prompt: string, maxTokens: number): string | undefined {
+  if (provider.name !== "deepseek") return undefined;
+  const model = process.env["DEEPSEEK_MODEL"] ?? "deepseek-chat";
+  const thinking = process.env["DEEPSEEK_THINKING"] === "enabled" ? "enabled" : "disabled";
+  return createLlmResponseCacheKey(`deepseek:${model}:${thinking}`, prompt, maxTokens);
+}
 
 // ---------------------------------------------------------------------------
 // Concurrency limiter — prevents rate-limit (429) errors when many LLM calls
@@ -73,11 +84,22 @@ function isRetryableLlmError(err: unknown): boolean {
 }
 
 export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): Promise<string> {
+  const responseCacheKey = deepSeekResponseCacheKey(prompt, maxTokens);
+  if (responseCacheKey) {
+    const cached = responseCache.get(responseCacheKey);
+    if (cached !== undefined) {
+      console.log(`  [llm/cache] exact response hit ${responseCacheKey.slice(0, 12)}`);
+      return cached;
+    }
+  }
+
   for (let attempt = 0; ; attempt++) {
     await acquireSlot();
     let released = false;
     try {
-      return await provider.call(prompt, maxTokens);
+      const response = await provider.call(prompt, maxTokens);
+      if (responseCacheKey) responseCache.set(responseCacheKey, response);
+      return response;
     } catch (err) {
       if (attempt < MAX_RETRIES && isRetryableLlmError(err)) {
         releaseSlot();

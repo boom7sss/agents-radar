@@ -26,7 +26,7 @@ export interface HnData {
 // Constants
 // ---------------------------------------------------------------------------
 
-const HN_TOP_STORIES = 30;
+const HN_TOP_STORIES = 20;
 
 /** Queries run in parallel; results are deduped by story ID. */
 const QUERIES = ["AI", "LLM", "Claude", "OpenAI", "Anthropic", "machine learning"];

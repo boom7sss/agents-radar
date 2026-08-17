@@ -29,10 +29,12 @@ import {
 } from "./prompts.ts";
 import {
   buildTrendingPrompt,
+  buildDailyEditorialPrompt,
   buildHighlightsPrompt,
   buildDailyPicksPrompt,
   buildPaperPicksPrompt,
   type DailyPick,
+  type DailyEditorial,
   type DailyPicks,
   type PaperPick,
   type PaperPicks,
@@ -312,8 +314,8 @@ async function generateSummaries(
         fetchedOpenclaw.prs,
         fetchedOpenclaw.releases,
         dateStr,
-        50,
         30,
+        20,
         lang,
       ),
       noActivity,
@@ -484,40 +486,84 @@ async function main(): Promise<void> {
     if (zh) zhReports[id] = zh;
   }
 
-  console.log("  Generating Chinese highlights...");
+  // Generate card highlights and the cross-source must-read list from the same
+  // excerpts in one request. If either section is malformed, retry only that
+  // section with the original focused prompt to preserve report quality.
+  console.log("  Generating Chinese highlights and today's AI must-reads...");
   const highlights: Record<Lang, ReportHighlights> = { zh: {}, en: {} };
+  const dailyPicks: DailyPicks = { picks: [] };
+  let needsHighlightsFallback = true;
+  let needsPicksFallback = true;
+
+  const acceptPicks = (picks: unknown): void => {
+    if (!Array.isArray(picks)) return;
+    const accepted = picks
+      .filter(
+        (pick): pick is DailyPick =>
+          typeof pick?.title === "string" &&
+          typeof pick?.why === "string" &&
+          typeof pick?.source === "string",
+      )
+      .slice(0, 10);
+
+    if (accepted.length === 0) return;
+    dailyPicks.picks = accepted;
+    needsPicksFallback = false;
+  };
+
+  const acceptHighlights = (candidate: unknown): void => {
+    if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) return;
+
+    const reportIds = new Set(Object.keys(zhReports));
+    const accepted: ReportHighlights = {};
+    for (const [reportId, items] of Object.entries(candidate)) {
+      if (!reportIds.has(reportId) || !Array.isArray(items)) continue;
+      const validItems = items
+        .filter((item): item is string => typeof item === "string" && item.trim().length > 0)
+        .slice(0, 6);
+      if (validItems.length > 0) accepted[reportId] = validItems;
+    }
+
+    // A partially malformed combined response should not silently remove most
+    // cards. Retry the focused prompt unless at least half the reports are covered.
+    const minimumCoverage = Math.max(1, Math.ceil(reportIds.size / 2));
+    if (Object.keys(accepted).length < minimumCoverage) return;
+    highlights.zh = accepted;
+    needsHighlightsFallback = false;
+  };
+
   try {
-    highlights.zh = parseLlmJson<ReportHighlights>(
-      await callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
-    );
+    const editorial = parseLlmJson<DailyEditorial>(await callLlm(buildDailyEditorialPrompt(zhReports), 3072));
+    acceptHighlights(editorial.highlights);
+    acceptPicks(editorial.picks);
   } catch (err) {
-    console.error(`  [highlights] zh generation failed: ${err}`);
+    console.error(`  [daily-editorial] combined generation failed: ${err}`);
+  }
+
+  if (needsHighlightsFallback) {
+    try {
+      highlights.zh = parseLlmJson<ReportHighlights>(
+        await callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
+      );
+    } catch (err) {
+      console.error(`  [highlights] fallback generation failed: ${err}`);
+    }
+  }
+
+  if (needsPicksFallback) {
+    try {
+      const parsed = parseLlmJson<DailyPicks>(await callLlm(buildDailyPicksPrompt(zhReports), 2048));
+      acceptPicks(parsed.picks);
+    } catch (err) {
+      console.error(`  [daily-picks] fallback generation failed: ${err}`);
+    }
   }
 
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
   console.log(`  Saved ${highlightsPath}`);
 
-  // 6. Build one cross-source editorial selection for readers who only want
+  // 6. Save the cross-source editorial selection for readers who only want
   // today's highest-signal developments. The specialist reports remain intact.
-  console.log("  Selecting today's AI must-reads...");
-  const dailyPicks: DailyPicks = { picks: [] };
-  try {
-    const rawPicks = await callLlm(buildDailyPicksPrompt(zhReports), 2048);
-    const parsed = parseLlmJson<DailyPicks>(rawPicks);
-    if (Array.isArray(parsed.picks)) {
-      dailyPicks.picks = parsed.picks
-        .filter(
-          (pick): pick is DailyPick =>
-            typeof pick?.title === "string" &&
-            typeof pick?.why === "string" &&
-            typeof pick?.source === "string",
-        )
-        .slice(0, 10);
-    }
-  } catch (err) {
-    console.error(`  [daily-picks] generation failed: ${err}`);
-  }
-
   const picksJsonPath = saveFile(JSON.stringify(dailyPicks, null, 2), dateStr, "daily-picks.json");
   const picksMarkdown = [
     `# 今日 AI 必看 · ${dateStr}`,

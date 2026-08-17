@@ -12,6 +12,7 @@ import {
   buildWeeklyPrompt,
   buildMonthlyPrompt,
   buildHnPrompt,
+  buildDailyEditorialPrompt,
   buildPaperPicksPrompt,
 } from "../prompts-data.ts";
 import type { RepoConfig, GitHubItem, GitHubRelease } from "../github.ts";
@@ -86,7 +87,7 @@ describe("buildCliPrompt", () => {
     const items = Array.from({ length: 50 }, (_, i) => makeItem({ number: i, comments: i }));
     const result = buildCliPrompt(cfg, items, [], [], "2026-03-09");
     expect(result).toContain("共 50 条");
-    expect(result).toContain("30 条");
+    expect(result).toContain("20 条");
   });
 });
 
@@ -376,6 +377,24 @@ describe("buildHnPrompt", () => {
     expect(result).toContain("Score: 10");
     expect(result).toContain("Comments: 2");
     expect(result).toContain("Hacker News");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildDailyEditorialPrompt
+// ---------------------------------------------------------------------------
+
+describe("buildDailyEditorialPrompt", () => {
+  it("requests both card highlights and cross-source picks from one input", () => {
+    const result = buildDailyEditorialPrompt({
+      "ai-cli": "CLI report content",
+      "ai-arxiv": "Paper report content",
+    });
+    expect(result).toContain("CLI report content");
+    expect(result).toContain("Paper report content");
+    expect(result).toContain('"highlights"');
+    expect(result).toContain('"picks"');
+    expect(result).toContain("每份报告最多 6 条");
   });
 });
 

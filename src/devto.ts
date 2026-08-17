@@ -28,7 +28,7 @@ export interface DevtoData {
 // Constants
 // ---------------------------------------------------------------------------
 
-const DEVTO_PER_PAGE = 30;
+const DEVTO_PER_PAGE = 20;
 const API_URL = "https://dev.to/api/articles";
 
 /** Tags to query — run in parallel, dedup by id. */

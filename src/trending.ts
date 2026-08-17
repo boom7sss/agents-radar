@@ -44,6 +44,7 @@ const SEARCH_QUERIES = [
   { q: "topic:large-language-model", label: "llm-model" },
   { q: "topic:machine-learning", label: "ml" },
 ];
+const SEARCH_RESULT_LIMIT = 36;
 
 // ---------------------------------------------------------------------------
 // GitHub Trending HTML fetch
@@ -186,7 +187,7 @@ async function searchAiRepos(sevenDaysAgo: string): Promise<SearchRepo[]> {
     }),
   );
 
-  return all;
+  return all.sort((a, b) => b.stargazersCount - a.stargazersCount).slice(0, SEARCH_RESULT_LIMIT);
 }
 
 // ---------------------------------------------------------------------------

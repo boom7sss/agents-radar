@@ -378,6 +378,11 @@ export interface DailyPicks {
   picks: DailyPick[];
 }
 
+export interface DailyEditorial {
+  highlights: ReportHighlights;
+  picks: DailyPick[];
+}
+
 export interface PaperPick {
   title: string;
   takeaway: string;
@@ -388,6 +393,22 @@ export interface PaperPick {
 
 export interface PaperPicks {
   picks: PaperPick[];
+}
+
+/**
+ * Produces both per-report card highlights and the cross-source must-read list
+ * from one shared set of excerpts. Keeping the two editorial tasks together
+ * avoids sending essentially the same report material to the model twice.
+ */
+export function buildDailyEditorialPrompt(
+  reportContents: Record<string, string>,
+  itemsPerReport: number = 6,
+): string {
+  const sections = Object.entries(reportContents)
+    .map(([id, content]) => `## [${id}]\n\n${content.slice(0, 2000)}`)
+    .join("\n\n---\n\n");
+
+  return `你是一位严格、简洁的中文 AI 新闻主编。以下是今日多个 AI 生态专题报告的节选，每份报告均以 ID 标注。请一次完成两项编辑工作：为现有卡片提取专题亮点，并选出跨来源的今日必看事件。\n\n${sections}\n\n---\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"highlights":{"ai-cli":["亮点1","亮点2"],"ai-agents":["亮点1","亮点2"]},"picks":[{"title":"事件标题","why":"为什么重要（不超过45字）","source":"来源名称","url":"报告中已有的原始链接"}]}\n\n专题亮点规则：\n- highlights 必须使用上面方括号中的报告 ID 作为 key\n- 只包含有实际内容的报告，失败或无活动的报告直接跳过\n- 每份报告最多 ${itemsPerReport} 条，每条不超过30个字\n- 优先版本发布、重要特性、热门项目、关键讨论，并保留项目名、版本号或 star 数等具体信息\n\n今日必看规则：\n- picks 选出真正值得关注的 5–10 条；当天信号不足时可以少于5条，绝不能凑数\n- 优先官方模型/产品发布、原始论文、重要开源发布、政策或融资等实质事件\n- 同一事件多处出现时只保留一条，并选择最原始、最可信的来源\n- 跳过例行小更新、营销稿、重复讨论和没有实际新增信息的 Issue/PR\n- 尽量覆盖不同方向，不要让同一家公司或主题占据多数\n- url 只能使用节选里已有的链接；没有可靠链接时省略 url，绝不能编造`;
 }
 
 /**

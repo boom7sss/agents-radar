@@ -24,8 +24,8 @@ export interface RepoDigest {
 export function formatItem(item: GitHubItem, lang: Lang = "zh"): string {
   const labels = item.labels.map((l) => l.name).join(", ");
   const labelStr = labels ? ` [${labels}]` : "";
-  const body = (item.body ?? "").replace(/\n/g, " ").trim().slice(0, 300);
-  const ellipsis = (item.body ?? "").length > 300 ? "..." : "";
+  const body = (item.body ?? "").replace(/\n/g, " ").trim().slice(0, 240);
+  const ellipsis = (item.body ?? "").length > 240 ? "..." : "";
   const t =
     lang === "en"
       ? {
@@ -53,8 +53,10 @@ export function formatItem(item: GitHubItem, lang: Lang = "zh"): string {
 // Sampling helpers (shared)
 // ---------------------------------------------------------------------------
 
-const CLI_ISSUE_LIMIT = 30;
-const CLI_PR_LIMIT = 20;
+// A high-engagement sample preserves the useful signal while avoiding dozens
+// of low-context operational items in every repository prompt.
+const CLI_ISSUE_LIMIT = 20;
+const CLI_PR_LIMIT = 15;
 
 /** Sort by comment count desc, take top N. */
 export function topN(items: GitHubItem[], n: number): GitHubItem[] {
@@ -154,8 +156,8 @@ ${prsText}
 `;
 }
 
-const PEER_ISSUE_LIMIT = 30;
-const PEER_PR_LIMIT = 20;
+const PEER_ISSUE_LIMIT = 20;
+const PEER_PR_LIMIT = 15;
 
 export function buildPeerPrompt(
   cfg: RepoConfig,
