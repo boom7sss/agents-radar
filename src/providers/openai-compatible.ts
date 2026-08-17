@@ -51,11 +51,16 @@ export abstract class OpenAICompatibleProvider implements LlmProvider {
     };
     const response = await this.client.chat.completions.create(request);
     const usage = response.usage as
-      | { prompt_tokens?: number; prompt_cache_hit_tokens?: number; prompt_cache_miss_tokens?: number }
+      | {
+          prompt_tokens?: number;
+          completion_tokens?: number;
+          prompt_cache_hit_tokens?: number;
+          prompt_cache_miss_tokens?: number;
+        }
       | undefined;
     if (this.name === "deepseek" && typeof usage?.prompt_cache_hit_tokens === "number") {
       console.log(
-        `[llm/deepseek] input=${usage.prompt_tokens ?? 0} cache-hit=${usage.prompt_cache_hit_tokens} cache-miss=${usage.prompt_cache_miss_tokens ?? 0}`,
+        `[llm/deepseek] input=${usage.prompt_tokens ?? 0} output=${usage.completion_tokens ?? 0} cache-hit=${usage.prompt_cache_hit_tokens} cache-miss=${usage.prompt_cache_miss_tokens ?? 0}`,
       );
     }
     // Some OpenAI-compatible gateways can return a non-standard error payload

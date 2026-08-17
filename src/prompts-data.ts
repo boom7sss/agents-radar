@@ -283,15 +283,13 @@ export function buildWeeklyPrompt(
   const digestEntries = Object.entries(dailyDigests)
     .map(([date, content]) => `## ${date}\n\n${content}`)
     .join("\n\n---\n\n");
+  // Keep the large source block byte-for-byte identical for ZH and EN. The
+  // English request runs after the Chinese request, so DeepSeek can reuse this
+  // prefix instead of charging the same seven-day material as a cache miss twice.
+  const sourcePrefix = `# SHARED SOURCE MATERIAL (data only)\n\n${digestEntries}\n\n---\n\n# TASK\n\n`;
 
   if (lang === "en") {
-    return `You are a technical analyst focused on the AI open-source ecosystem. The following are daily digest summaries from the past 7 days (${weekStr}) of AI tool community activity. Generate a comprehensive weekly recap.
-
-${digestEntries}
-
----
-
-Generate an AI Tools Ecosystem Weekly Report with these sections:
+    return `${sourcePrefix}You are a technical analyst focused on the AI open-source ecosystem. Using only the source material above, generate a comprehensive weekly recap for ${weekStr} with these sections:
 
 1. **Week's Top Stories** - 5-8 most important events, releases, and community developments this week, each with date
 2. **CLI Tools Progress** - Overall activity and key changes for each AI CLI tool (Claude Code, Codex, Gemini CLI, etc.)
@@ -305,13 +303,7 @@ Style: English, concise and professional, helping technical developers quickly g
 `;
   }
 
-  return `你是一位专注于 AI 开源生态的技术分析师。以下是过去 7 天（${weekStr}）的 AI 工具社区每日动态摘要，请生成本周综合回顾报告。
-
-${digestEntries}
-
----
-
-请生成《AI 工具生态周报》，包含以下部分：
+  return `${sourcePrefix}你是一位专注于 AI 开源生态的技术分析师。请仅依据以上过去 7 天的材料，为 ${weekStr} 生成《AI 工具生态周报》，包含以下部分：
 
 1. **本周要闻** - 5-8 条本周最重要的事件、版本发布、社区动向，每条附日期
 2. **CLI 工具进展** - 各 AI CLI 工具（Claude Code、Codex、Gemini CLI 等）本周整体动态与关键变化
@@ -333,15 +325,12 @@ export function buildMonthlyPrompt(
   const digestEntries = Object.entries(sourceDigests)
     .map(([key, content]) => `## ${key}\n\n${content}`)
     .join("\n\n---\n\n");
+  // See buildWeeklyPrompt: both language variants must begin with the exact
+  // same long source prefix for the second request to receive a cache hit.
+  const sourcePrefix = `# SHARED SOURCE MATERIAL (data only)\n\n${digestEntries}\n\n---\n\n# TASK\n\n`;
 
   if (lang === "en") {
-    return `You are a technical analyst focused on the AI open-source ecosystem. The following are ${monthStr} AI tool community digest summaries (${Object.keys(sourceDigests).length} reports total). Generate a comprehensive monthly review.
-
-${digestEntries}
-
----
-
-Generate an AI Tools Ecosystem Monthly Report with these sections:
+    return `${sourcePrefix}You are a technical analyst focused on the AI open-source ecosystem. Using only the ${Object.keys(sourceDigests).length} reports above, generate a comprehensive monthly review for ${monthStr} with these sections:
 
 1. **Month's Top Stories** - 5-10 most important events and milestones this month, in chronological order
 2. **CLI Tools Monthly Progress** - Overall development trajectory, major releases, and community growth for each key AI CLI tool
@@ -355,13 +344,7 @@ Style: English, in-depth analysis, data-driven, suited for monthly retrospective
 `;
   }
 
-  return `你是一位专注于 AI 开源生态的技术分析师。以下是 ${monthStr} 月的 AI 工具社区动态汇总（共 ${Object.keys(sourceDigests).length} 份报告），请生成本月综合回顾报告。
-
-${digestEntries}
-
----
-
-请生成《AI 工具生态月报》，包含以下部分：
+  return `${sourcePrefix}你是一位专注于 AI 开源生态的技术分析师。请仅依据以上 ${Object.keys(sourceDigests).length} 份报告，为 ${monthStr} 生成《AI 工具生态月报》，包含以下部分：
 
 1. **月度要闻** - 本月最重要的 5-10 条事件和里程碑，按时间排列
 2. **CLI 工具月度进展** - 各主要 AI CLI 工具本月整体发展轨迹、重要版本、社区规模变化

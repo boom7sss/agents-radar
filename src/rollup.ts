@@ -152,12 +152,11 @@ export async function runWeeklyRollup(): Promise<void> {
     `[weekly] Found ${Object.keys(dailyDigests).length} daily digests: ${Object.keys(dailyDigests).join(", ")}`,
   );
 
-  // Generate ZH and EN in parallel
-  console.log("[weekly] Calling LLM for ZH and EN weekly reports in parallel...");
-  const [zhSummary, enSummary] = await Promise.all([
-    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "zh"), LLM_TOKENS_ROLLUP),
-    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "en"), LLM_TOKENS_ROLLUP),
-  ]);
+  // Generate sequentially so the second request can reuse the identical,
+  // long source-material prefix persisted by the first request.
+  console.log("[weekly] Calling LLM for ZH weekly report, then cache-backed EN report...");
+  const zhSummary = await callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "zh"), LLM_TOKENS_ROLLUP);
+  const enSummary = await callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "en"), LLM_TOKENS_ROLLUP);
 
   const footer = autoGenFooter("zh");
   const enFooter = autoGenFooter("en");
@@ -246,12 +245,11 @@ export async function runMonthlyRollup(): Promise<void> {
 
   console.log(`[monthly] Source: ${sourceLabel.zh}`);
 
-  // Generate ZH and EN in parallel
-  console.log("[monthly] Calling LLM for ZH and EN monthly reports in parallel...");
-  const [zhSummary, enSummary] = await Promise.all([
-    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "zh"), LLM_TOKENS_ROLLUP),
-    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "en"), LLM_TOKENS_ROLLUP),
-  ]);
+  // Generate sequentially so the second request can reuse the identical,
+  // long source-material prefix persisted by the first request.
+  console.log("[monthly] Calling LLM for ZH monthly report, then cache-backed EN report...");
+  const zhSummary = await callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "zh"), LLM_TOKENS_ROLLUP);
+  const enSummary = await callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "en"), LLM_TOKENS_ROLLUP);
 
   const footer = autoGenFooter("zh");
   const enFooter = autoGenFooter("en");

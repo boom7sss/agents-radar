@@ -286,6 +286,16 @@ describe("buildWeeklyPrompt", () => {
     const result = buildWeeklyPrompt({ "2026-03-03": "content" }, "2026-W10", "en");
     expect(result).toContain("weekly recap");
   });
+
+  it("uses the same long source prefix for Chinese and English", () => {
+    const digests = { "2026-03-03": "Day 1 content", "2026-03-04": "Day 2 content" };
+    const zh = buildWeeklyPrompt(digests, "2026-W10", "zh");
+    const en = buildWeeklyPrompt(digests, "2026-W10", "en");
+    const taskBoundary = "# TASK\n\n";
+    expect(zh.slice(0, zh.indexOf(taskBoundary) + taskBoundary.length)).toBe(
+      en.slice(0, en.indexOf(taskBoundary) + taskBoundary.length),
+    );
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -304,6 +314,16 @@ describe("buildMonthlyPrompt", () => {
   it("generates English variant", () => {
     const result = buildMonthlyPrompt({ "2026-02-01": "w1" }, "2026-02", "en");
     expect(result).toContain("monthly review");
+  });
+
+  it("uses the same long source prefix for Chinese and English", () => {
+    const digests = { "2026-02-01": "Week 1", "2026-02-08": "Week 2" };
+    const zh = buildMonthlyPrompt(digests, "2026-02", "zh");
+    const en = buildMonthlyPrompt(digests, "2026-02", "en");
+    const taskBoundary = "# TASK\n\n";
+    expect(zh.slice(0, zh.indexOf(taskBoundary) + taskBoundary.length)).toBe(
+      en.slice(0, en.indexOf(taskBoundary) + taskBoundary.length),
+    );
   });
 });
 
