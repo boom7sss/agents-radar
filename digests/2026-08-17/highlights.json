@@ -1,12 +1,12 @@
 {
   "zh": {
     "ai-cli": [
-      "OpenAI Codex 50+ Issues，Windows 卡顿 3 个 Issue 获 120+ 赞",
-      "Gemini CLI v0.56.0-nightly 发布，Subagent 误报与代理挂起待修",
-      "Kimi Code CLI PR #864 合并，新增 --starting-prompt 参数",
-      "Qwen Code v0.21.11-nightly，autofix 门控与 E2E 回归通过",
-      "DeepSeek TUI 发布 v0.9.8 正式版，并品牌化为 CodeWhale",
-      "Claude Code #18435 获 730 赞，多账户管理需求旺盛"
+      "Stripe 70亿美元收购OpenRouter，AI基础设施商业化引爆讨论",
+      "GPT-5.6 Sol Ultrafast模式发布，Cerebras合作实现14倍推理加速",
+      "Codex桌面应用登陆Linux预览，获445分HN热度评论300+",
+      "Anthropic发布Claude文本水印机制，定位为行业级合规基线",
+      "Claude披露黎曼猜想突破：零点下界从41.6%提升至67.2%",
+      "OpenClaw发布v2026.8.1-beta.2，新增Secret egress绑定与GPT-5.6 Ultra支持"
     ],
     "ai-agents": [
       "OpenClaw 24 小时 500 PR 更新，384 个待合并",
@@ -49,5 +49,14 @@
       "'AI 工程师 2026 阅读清单'盘点 10 本必读书"
     ]
   },
-  "en": {}
+  "en": {
+    "ai-weekly": [
+      "Anthropic: Claude raises Riemann zero bound to 67.2%",
+      "OpenAI Daybreak models now available on AWS",
+      "Anthropic red team warns on multi-agent risks",
+      "Claude Sonnet 5: most agentic Sonnet, lower price",
+      "OpenAI details Claude text watermarking for EU Act",
+      "Stripe to acquire OpenRouter for $7B: Bloomberg"
+    ]
+  }
 }
