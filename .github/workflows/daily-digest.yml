@@ -2,8 +2,8 @@ name: Daily Agents Radar
 
 on:
   schedule:
-    # 每天 00:00 UTC = 08:00 CST (UTC+8)
-    - cron: "0 0 * * *"
+    # 每天 10:30 UTC = 18:30 CST (UTC+8)，避开 DeepSeek 09:00-12:00、14:00-18:00 高峰价
+    - cron: "30 10 * * *"
   workflow_dispatch:
 
 permissions:
