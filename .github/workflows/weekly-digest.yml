@@ -31,7 +31,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check for existing scheduled report
+        id: existing_report
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          if [ "$EVENT_NAME" = "schedule" ] && [ -f "digests/${DATE}/ai-weekly.md" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Weekly report for ${DATE} already exists; skipping duplicate scheduled run."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run weekly rollup
+        if: steps.existing_report.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_PROVIDER: deepseek
@@ -42,6 +56,7 @@ jobs:
         run: pnpm weekly
 
       - name: Commit weekly report
+        if: steps.existing_report.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -56,9 +71,11 @@ jobs:
           fi
 
       - name: Update web manifest
+        if: steps.existing_report.outputs.skip != 'true'
         run: pnpm manifest
 
       - name: Commit manifest and feed
+        if: steps.existing_report.outputs.skip != 'true'
         run: |
           git add manifest.json feed.xml
           if ! git diff --cached --quiet; then
@@ -68,6 +85,7 @@ jobs:
           fi
 
       - name: Send Telegram notification
+        if: steps.existing_report.outputs.skip != 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '@agents_radar' }}

@@ -33,7 +33,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check for existing scheduled digest
+        id: existing_digest
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          if [ "$EVENT_NAME" = "schedule" ] && [ -f "digests/${DATE}/ai-picks.md" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Daily digest for ${DATE} already exists; skipping duplicate scheduled run."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run daily digest
+        if: steps.existing_digest.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_PROVIDER: deepseek
@@ -45,6 +59,7 @@ jobs:
         run: pnpm start
 
       - name: Commit digest files
+        if: steps.existing_digest.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -59,9 +74,11 @@ jobs:
           fi
 
       - name: Update web manifest
+        if: steps.existing_digest.outputs.skip != 'true'
         run: pnpm manifest
 
       - name: Commit manifest and feed
+        if: steps.existing_digest.outputs.skip != 'true'
         run: |
           git add manifest.json feed.xml
           if ! git diff --cached --quiet; then
@@ -71,6 +88,7 @@ jobs:
           fi
 
       - name: Send Telegram notification
+        if: steps.existing_digest.outputs.skip != 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '@agents_radar' }}
@@ -78,12 +96,14 @@ jobs:
         run: pnpm notify
 
       - name: Send Feishu notification
+        if: steps.existing_digest.outputs.skip != 'true'
         env:
           FEISHU_WEBHOOK_URLS: ${{ secrets.FEISHU_WEBHOOK_URLS }}
           PAGES_URL: https://duanyytop.github.io/agents-radar
         run: pnpm notify:feishu
 
       - name: Close stale issues
+        if: steps.existing_digest.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIGEST_REPO: ${{ github.repository }}
