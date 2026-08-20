@@ -21,19 +21,39 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check temporary scheduled pause
+        id: temporary_pause
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          TODAY_CST=$(TZ=Asia/Shanghai date +%F)
+          case "${EVENT_NAME}:${TODAY_CST}" in
+            schedule:2026-08-21|schedule:2026-08-22|schedule:2026-08-23)
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              echo "Daily digest is temporarily paused for ${TODAY_CST}."
+              ;;
+            *)
+              echo "skip=false" >> "$GITHUB_OUTPUT"
+              ;;
+          esac
+
       - name: Setup pnpm
+        if: steps.temporary_pause.outputs.skip != 'true'
         uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
+        if: steps.temporary_pause.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
       - name: Install dependencies
+        if: steps.temporary_pause.outputs.skip != 'true'
         run: pnpm install --frozen-lockfile
 
       - name: Check for existing scheduled digest
+        if: steps.temporary_pause.outputs.skip != 'true'
         id: existing_digest
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -47,7 +67,7 @@ jobs:
           fi
 
       - name: Run daily digest
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_PROVIDER: deepseek
@@ -59,7 +79,7 @@ jobs:
         run: pnpm start
 
       - name: Commit digest files
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -74,11 +94,11 @@ jobs:
           fi
 
       - name: Update web manifest
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         run: pnpm manifest
 
       - name: Commit manifest and feed
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         run: |
           git add manifest.json feed.xml
           if ! git diff --cached --quiet; then
@@ -88,7 +108,7 @@ jobs:
           fi
 
       - name: Send Telegram notification
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '@agents_radar' }}
@@ -96,14 +116,14 @@ jobs:
         run: pnpm notify
 
       - name: Send Feishu notification
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           FEISHU_WEBHOOK_URLS: ${{ secrets.FEISHU_WEBHOOK_URLS }}
           PAGES_URL: https://duanyytop.github.io/agents-radar
         run: pnpm notify:feishu
 
       - name: Close stale issues
-        if: steps.existing_digest.outputs.skip != 'true'
+        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIGEST_REPO: ${{ github.repository }}
