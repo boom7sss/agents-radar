@@ -63,7 +63,24 @@
       "真实项目中 Claude Code 完整工作流分享",
       "MCP 不解决授权与信任边界问题引发思辨",
       "AI Agent 浪费一半上下文窗口引关注"
+    ],
+    "ai-weekly": [
+      "GPT-5.6 Sol 价格腰斩，被评迄今最强视觉模型",
+      "Claude 蛋白质设计 14/15 靶点成功，远超行业水平",
+      "Stripe 超 70 亿美元收购 OpenRouter，引爆热议",
+      "Claude Code AGENTS.md 标准化诉求获 4852 赞登顶",
+      "OpenAI 推出前沿模型零数据留存选项，主攻企业合规",
+      "OpenClaw v2026.8.1-beta.3 发布，支持 GPT-5.6 全系推理"
     ]
   },
-  "en": {}
+  "en": {
+    "ai-weekly": [
+      "GPT-5.6 Sol pricing cut 50%, called best vision model",
+      "AGENTS.md standardization gains cross-tool consensus",
+      "Claude Code Opus 5.0 output quality controversy on HN",
+      "OpenClaw v2026.8.1-beta.3 adds GPT-5.6 full support",
+      "Claude hits 14/15 protein design targets in research",
+      "Stripe acquires OpenRouter for $7B+, sparks debate"
+    ]
+  }
 }
