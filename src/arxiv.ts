@@ -186,10 +186,10 @@ export async function fetchArxivData(): Promise<ArxivData> {
     const text = `${paper.title} ${paper.summary}`.toLocaleLowerCase();
     return FOCUSED_TERMS.some((term) => text.includes(term));
   };
-  const papers = [
-    ...candidates.filter(isFocused),
-    ...candidates.filter((paper) => !isFocused(paper)),
-  ].slice(0, ARXIV_MAX_RESULTS);
+  const papers = [...candidates.filter(isFocused), ...candidates.filter((paper) => !isFocused(paper))].slice(
+    0,
+    ARXIV_MAX_RESULTS,
+  );
 
   console.log(
     `  [arxiv] ${papers.length} papers (from ${seen.size} unique${fresh.length ? "" : ", 7-day fallback"})`,
