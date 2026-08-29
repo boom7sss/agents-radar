@@ -1,8 +1,8 @@
 /**
  * ArXiv AI papers fetched via the ArXiv API (Atom feed).
  *
- * Strategy: query cs.AI + cs.CL + cs.LG categories for the newest papers,
- * sorted by submission date, filtered to last 48h.
+ * Strategy: query the main AI / imaging categories plus one focused ultrasound
+ * search, sorted by submission date and filtered to the last 48h.
  */
 
 // ---------------------------------------------------------------------------
@@ -36,7 +36,25 @@ const ARXIV_MAX_RESULTS = 50;
 const API_URL = "https://export.arxiv.org/api/query";
 
 /** ArXiv categories to search. */
-const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.CV", "eess.IV", "q-bio.QM"];
+const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.CV", "eess.IV", "q-bio.QM", "physics.med-ph"];
+
+/**
+ * A small source-level boost for the reader's likely carotid-ultrasound work.
+ * The final candidate cap remains unchanged, so this improves recall without
+ * increasing the amount of paper text sent to the LLM.
+ */
+const FOCUSED_SEARCH =
+  "all:ultrasound AND (all:carotid OR all:vascular OR all:segmentation OR all:localization OR all:detection OR all:handheld OR all:POCUS)";
+
+const FOCUSED_TERMS = [
+  "ultrasound",
+  "ultrasonography",
+  "sonography",
+  "carotid",
+  "vascular imaging",
+  "point-of-care ultrasound",
+  "pocus",
+];
 
 /** Delay between requests (ArXiv asks for 3s). */
 const REQUEST_DELAY_MS = 3000;
@@ -110,14 +128,18 @@ async function sleep(ms: number): Promise<void> {
 
 export async function fetchArxivData(): Promise<ArxivData> {
   const seen = new Map<string, ArxivPaper>();
+  const searches = [
+    ...CATEGORIES.map((category) => ({ label: category, query: `cat:${category}` })),
+    { label: "focused-ultrasound", query: FOCUSED_SEARCH },
+  ];
 
-  for (let i = 0; i < CATEGORIES.length; i++) {
-    const cat = CATEGORIES[i]!;
+  for (let i = 0; i < searches.length; i++) {
+    const search = searches[i]!;
     if (i > 0) await sleep(REQUEST_DELAY_MS);
 
     try {
       const params = new URLSearchParams({
-        search_query: `cat:${cat}`,
+        search_query: search.query,
         sortBy: "submittedDate",
         sortOrder: "descending",
         max_results: String(ARXIV_MAX_RESULTS),
@@ -128,7 +150,7 @@ export async function fetchArxivData(): Promise<ArxivData> {
       });
 
       if (!resp.ok) {
-        console.error(`  [arxiv] ${cat}: HTTP ${resp.status}`);
+        console.error(`  [arxiv] ${search.label}: HTTP ${resp.status}`);
         continue;
       }
 
@@ -143,9 +165,9 @@ export async function fetchArxivData(): Promise<ArxivData> {
         }
       }
 
-      console.log(`  [arxiv] ${cat}: ${entryBlocks.length} papers`);
+      console.log(`  [arxiv] ${search.label}: ${entryBlocks.length} papers`);
     } catch (err) {
-      console.error(`  [arxiv] ${cat}: ${err}`);
+      console.error(`  [arxiv] ${search.label}: ${err}`);
     }
   }
 
@@ -159,7 +181,15 @@ export async function fetchArxivData(): Promise<ArxivData> {
   const fallback = allPapers.filter(
     (p) => new Date(p.published).getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000,
   );
-  const papers = (fresh.length ? fresh : fallback).slice(0, ARXIV_MAX_RESULTS);
+  const candidates = fresh.length ? fresh : fallback;
+  const isFocused = (paper: ArxivPaper): boolean => {
+    const text = `${paper.title} ${paper.summary}`.toLocaleLowerCase();
+    return FOCUSED_TERMS.some((term) => text.includes(term));
+  };
+  const papers = [
+    ...candidates.filter(isFocused),
+    ...candidates.filter((paper) => !isFocused(paper)),
+  ].slice(0, ARXIV_MAX_RESULTS);
 
   console.log(
     `  [arxiv] ${papers.length} papers (from ${seen.size} unique${fresh.length ? "" : ", 7-day fallback"})`,

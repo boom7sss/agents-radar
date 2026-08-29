@@ -439,6 +439,9 @@ describe("buildPaperPicksPrompt", () => {
     expect(result).toContain("不能猜测或改写标题");
     expect(result).toContain("MICCAI");
     expect(result).toContain("视觉、医学影像、多模态和大模型，这四类同等重要");
+    expect(result).toContain("颈动脉超声");
+    expect(result).toContain("柔性加权而非固定配额");
+    expect(result).toContain("跨设备验证");
     expect(result).toContain("其他方向出现足够强的工作也应入选");
   });
 });
