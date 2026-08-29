@@ -2,9 +2,17 @@ name: Daily Agents Radar
 
 on:
   schedule:
-    # 每天 10:30 UTC = 18:30 CST (UTC+8)，避开 DeepSeek 09:00-12:00、14:00-18:00 高峰价
+    # 主触发：10:30 UTC = 18:30 CST (UTC+8)。其余为 GitHub 调度延迟时的低成本备用触发。
+    # 同日锁和 concurrency 保证最多只有一次会调用 DeepSeek。
     - cron: "30 10 * * *"
+    - cron: "17 11 * * *"
+    - cron: "13 12 * * *"
+    - cron: "11 13 * * *"
   workflow_dispatch:
+
+concurrency:
+  group: daily-agents-radar
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -21,53 +29,61 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check temporary scheduled pause
-        id: temporary_pause
+      - name: Check scheduled delivery window
+        id: schedule_window
         env:
           EVENT_NAME: ${{ github.event_name }}
         run: |
           TODAY_CST=$(TZ=Asia/Shanghai date +%F)
-          case "${EVENT_NAME}:${TODAY_CST}" in
-            schedule:2026-08-21|schedule:2026-08-22|schedule:2026-08-23)
-              echo "skip=true" >> "$GITHUB_OUTPUT"
-              echo "Daily digest is temporarily paused for ${TODAY_CST}."
+          HOUR_CST=$(TZ=Asia/Shanghai date +%H)
+          echo "date=${TODAY_CST}" >> "$GITHUB_OUTPUT"
+
+          if [ "$EVENT_NAME" != "schedule" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          case "$HOUR_CST" in
+            18|19|20|21|22)
+              echo "skip=false" >> "$GITHUB_OUTPUT"
               ;;
             *)
-              echo "skip=false" >> "$GITHUB_OUTPUT"
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              echo "Scheduled run arrived outside the 18:00-22:59 CST delivery window; skipping."
               ;;
           esac
 
+      - name: Check for existing scheduled digest
+        if: steps.schedule_window.outputs.skip != 'true'
+        id: existing_digest
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          DATE_CST: ${{ steps.schedule_window.outputs.date }}
+        run: |
+          if [ "$EVENT_NAME" = "schedule" ] && [ -f "digests/${DATE_CST}/ai-picks.md" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Daily digest for ${DATE_CST} already exists; skipping duplicate scheduled run."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Setup pnpm
-        if: steps.temporary_pause.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
-        if: steps.temporary_pause.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
       - name: Install dependencies
-        if: steps.temporary_pause.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         run: pnpm install --frozen-lockfile
 
-      - name: Check for existing scheduled digest
-        if: steps.temporary_pause.outputs.skip != 'true'
-        id: existing_digest
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-        run: |
-          DATE=$(date -u +%Y-%m-%d)
-          if [ "$EVENT_NAME" = "schedule" ] && [ -f "digests/${DATE}/ai-picks.md" ]; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Daily digest for ${DATE} already exists; skipping duplicate scheduled run."
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Run daily digest
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_PROVIDER: deepseek
@@ -79,7 +95,9 @@ jobs:
         run: pnpm start
 
       - name: Commit digest files
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        env:
+          DATE_CST: ${{ steps.schedule_window.outputs.date }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -87,18 +105,17 @@ jobs:
           if git diff --cached --quiet; then
             echo "No new digest files to commit"
           else
-            DATE=$(date -u +%Y-%m-%d)
-            git commit -m "digest: ${DATE} daily digest"
+            git commit -m "digest: ${DATE_CST} daily digest"
             git pull --rebase
             git push
           fi
 
       - name: Update web manifest
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         run: pnpm manifest
 
       - name: Commit manifest and feed
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         run: |
           git add manifest.json feed.xml
           if ! git diff --cached --quiet; then
@@ -108,7 +125,7 @@ jobs:
           fi
 
       - name: Send Telegram notification
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '@agents_radar' }}
@@ -116,14 +133,14 @@ jobs:
         run: pnpm notify
 
       - name: Send Feishu notification
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           FEISHU_WEBHOOK_URLS: ${{ secrets.FEISHU_WEBHOOK_URLS }}
           PAGES_URL: https://duanyytop.github.io/agents-radar
         run: pnpm notify:feishu
 
       - name: Close stale issues
-        if: steps.temporary_pause.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
+        if: steps.schedule_window.outputs.skip != 'true' && steps.existing_digest.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIGEST_REPO: ${{ github.repository }}
