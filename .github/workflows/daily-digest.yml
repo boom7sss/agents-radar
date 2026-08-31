@@ -2,14 +2,9 @@ name: Daily Agents Radar
 
 on:
   schedule:
-    # 主触发：10:30 UTC = 18:30 CST (UTC+8)。其余为 GitHub 调度延迟时的低成本备用触发。
-    # 晚间备用触发用于应对数小时的调度积压；同日锁和 concurrency 保证最多只有一次会调用 DeepSeek。
-    - cron: "30 10 * * *"
-    - cron: "17 11 * * *"
-    - cron: "13 12 * * *"
-    - cron: "11 13 * * *"
-    - cron: "37 14 * * *"
-    - cron: "23 15 * * *"
+    # 每小时发送一次低成本心跳，抵抗 GitHub schedule 数小时的不规律延迟。
+    # 只有 18:00–23:59 CST 且当天尚无日报时才会调用 DeepSeek；其余运行在时间检查后立即退出。
+    - cron: "47 * * * *"
   workflow_dispatch:
 
 concurrency:
