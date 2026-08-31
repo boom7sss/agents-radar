@@ -1,0 +1,22 @@
+{
+  "zh": {
+    "ai-cli": [
+      "OpenAI自研芯片Jalapeño性能超越Nvidia Blackwell，HN 499分热议",
+      "Anthropic发布Model Hardware Standard，实验室集成缩至数分钟",
+      "Anthropic开放1万科学家免费席位，高级席位仅$15/月",
+      "未来Claude模型内置文本水印，为合规欧盟AI法案",
+      "Claude Code安全漏洞攻破研究登顶HN，提示注入可绕过限制",
+      "OpenClaw v2026.8.1发布，存在迁移回归致cron作业被误隔离"
+    ]
+  },
+  "en": {
+    "ai-weekly": [
+      "OpenAI releases GPT 5.6 with price cut",
+      "Anthropic pushes AI for Science agenda hard",
+      "OpenAI chip Jalapeño reportedly beats Blackwell",
+      "OpenAI-Cursor partnership ends after SpaceX deal",
+      "AI CLI security failures dominate discussions",
+      "Anthropic text watermarking confirmed for EU AI Act"
+    ]
+  }
+}
