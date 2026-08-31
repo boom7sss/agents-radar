@@ -6,7 +6,585 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://duanyytop.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 31 Aug 2026 15:04:29 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 17:46:38 +0000</lastBuildDate>
+    <item>
+      <title>AI 工具生态周报 2026-09-01</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-01/ai-weekly</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-01/ai-weekly</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
+      <description>AI 工具生态周报 2026-W36 覆盖日期: 2026-08-20 ~ 2026-08-31 | 生成时间: 2026-08-31 17:45 UTC AI 工具生态周报 — 2026-W36 覆盖周期：2026-08-25 ~ 2026-08-31（含部分 08-20/08-24 延伸数据）数据来源：GitHub Issues/PR/Release、GitHub Trending、Hacker News、Anthropic/OpenAI 官方内容追踪 一、本周要闻 OpenAI 发布自研芯片 &amp;quot;Jalapeño&amp;quot; 超越 Nvidia Blackwell 报告（08-26） — SemiAnalysis 深度报道称 OpenAI 自研推理芯片在性能和能效上超越 Nvidia Blackwell，成为本周 HN 最高分话题（499 分 / 320 评论），围绕基准真实性与量产能力展开激烈争论。 Anthropic 发布 Model Hardware Standard（MHS）研究预览（08-29） — 供 AI Agent 安全操控物理实验设备的统一共享规范，与 ...</description>
+      <content:encoded><![CDATA[<h1>AI 工具生态周报 2026-W36</h1>
+<blockquote>
+<p>覆盖日期: 2026-08-20 ~ 2026-08-31 | 生成时间: 2026-08-31 17:45 UTC</p>
+</blockquote>
+<hr>
+<h1>AI 工具生态周报 — 2026-W36</h1>
+<blockquote>
+<p>覆盖周期：2026-08-25 ~ 2026-08-31（含部分 08-20/08-24 延伸数据）<br>数据来源：GitHub Issues/PR/Release、GitHub Trending、Hacker News、Anthropic/OpenAI 官方内容追踪</p>
+</blockquote>
+<h2>一、本周要闻</h2>
+<ol>
+<li><p><strong>OpenAI 发布自研芯片 &quot;Jalapeño&quot; 超越 Nvidia Blackwell 报告（08-26）</strong> — SemiAnalysis 深度报道称 OpenAI 自研推理芯片在性能和能效上超越 Nvidia Blackwell，成为本周 HN 最高分话题（499 分 / 320 评论），围绕基准真实性与量产能力展开激烈争论。</p>
+</li>
+<li><p><strong>Anthropic 发布 Model Hardware Standard（MHS）研究预览（08-29）</strong> — 供 AI Agent 安全操控物理实验设备的统一共享规范，与 HHMI Janelia 合作开发，可将实验室硬件集成时间从数周/数月压缩至数小时甚至数分钟，是 Anthropic 向具身智能领域的关键卡位。</p>
+</li>
+<li><p><strong>Anthropic 开放 10,000 个科学家免费/折扣席位（08-27/08-28）</strong> — 标准席位免费，5 倍用量高级席位仅 $15/月，AI for Science 计划从生物科学扩展至全学科。战略意图为绑定顶尖科研人才生态。</p>
+</li>
+<li><p><strong>Anthropic 宣布未来 Claude 模型内置文本水印（08-24/08-25 报告）</strong> — 为合规欧盟《AI 法案》要求，强调不影响输出质量、不消耗额外 token、不携带个人识别信息。</p>
+</li>
+<li><p><strong>Claude Code 安全漏洞攻破研究引爆社区（08-31）</strong> — &quot;Breaking Claude Code Opus 5 Auto Mode&quot; 以 229 分登顶 HN，展示自动化模式安全漏洞完整攻破过程；另一研究显示只需诱导 Claude Code 总结恶意网站即可绕过安全限制（提示注入）。</p>
+</li>
+<li><p><strong>OpenClaw 发布 v2026.8.1 正式版（08-31）</strong> — 引入已知迁移回归（#133347：合法 cron 作业被误隔离），官方建议使用本地编码工具链辅助更新；同赛道项目本周无新版本发布。</p>
+</li>
+<li><p><strong>OpenAI GPT 5.6 降价与零数据留存公告（08-25/08-20）</strong> — GPT 5.6 价格下调至 11 月 21 日（HN 326 分）；8 月 20 日宣布针对前沿模型推出零数据留存选项，直指企业级数据合规方向。</p>
+</li>
+<li><p><strong>GitHub Copilot CLI 1.0.81/82 回归集中爆发并发布 v1.0.83-0（08-31）</strong> — 压缩失败无退避无界重试、每次均计费的 #4663 问题持续发酵，1.0.81/82 多个回归问题集中报告。</p>
+</li>
+</ol>
+<h2>二、CLI 工具进展</h2>
+<h3>整体态势</h3>
+<p>AI CLI 工具处于<strong>快速迭代与稳定性阵痛并存</strong>阶段。共性痛点高度集中：<strong>安全过滤器误报与权限边界失控</strong>（Claude Code ClAudit 误报、OpenCode InfluxDB 数据丢失、DeepSeek TUI 沙箱阻断 sudo）、<strong>Agent 执行状态不可靠</strong>（Gemini 子代理误报成功、OpenCode 无限循环、Copilot 压缩失败无界重试）、<strong>计费透明性</strong>（Kimi 配额异常、OpenCode 余额不生效、Copilot 压缩失败每次均计费）。</p>
+<h3>各工具关键动态</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>关键变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Claude Code</strong></td>
+<td>v2.1.247 正式版（08-28）；安全过滤器误报集中爆发（20+ 条）；skill 注入 184k tokens 压垮会话且无法恢复（#72166）；社区极高活跃度</td>
+</tr>
+<tr>
+<td><strong>OpenAI Codex</strong></td>
+<td>密集 alpha 发布至 0.152.0-a.6；Guardian 机制加固 5 PR 全部合并；/undo 恢复功能以 418👍 成为高热度诉求；Windows 故障集中爆发</td>
+</tr>
+<tr>
+<td><strong>Gemini CLI</strong></td>
+<td>v0.59.0-nightly；子代理失败报成功 P1 问题集中；请求抑制破坏性 Shell 命令（#22672）、零依赖 OS 沙箱（#19873）</td>
+</tr>
+<tr>
+<td><strong>GitHub Copilot CLI</strong></td>
+<td>v1.0.83-0（08-31）；1.0.81/82 回归集中爆发后修复；压缩失败无限计费问题 #4663 持续</td>
+</tr>
+<tr>
+<td><strong>Kimi Code CLI</strong></td>
+<td>社区活跃度极低（近乎静默）；Edit/Write 假成功数据丢失 bug 为最高优先级</td>
+</tr>
+<tr>
+<td><strong>OpenCode</strong></td>
+<td>2.0 架构升级期问题集中暴露（WebSocket RPC、无限循环）；Agent 未经批准执行 DROP MEASUREMENT 导致数据丢失（#46386）引发权限质疑</td>
+</tr>
+<tr>
+<td><strong>Pi</strong></td>
+<td>新模型提供商密集接入；工具循环内压缩被静默绕过（#8884）；未预留输出 token 导致 78% 输入即被拒（#8061）</td>
+</tr>
+<tr>
+<td><strong>Qwen Code</strong></td>
+<td>自动化机器人驱动的 CI 修复流；修复 hook 执行四个信任边界漏洞（PR #10427）；Agent Team 功能密集迭代暴露可靠性问题</td>
+</tr>
+<tr>
+<td><strong>DeepSeek TUI</strong></td>
+<td>v0.9.12 准备中（PR #5744）；Tideline TUI 栈集中重构；沙箱 NoNewPrivs 阻断 sudo（#5723）</td>
+</tr>
+</tbody></table>
+<h3>共同关注方向</h3>
+<ul>
+<li><strong>AGENTS.md 标准化</strong>：Claude Code #6235 获 4852👍，为跨工具共识最强议题</li>
+<li><strong>Windows 平台稳定性</strong>：几乎所有工具高频出现问题</li>
+<li><strong>上下文压缩可靠性</strong>：压缩后状态丢失、&quot;假成功&quot;是共识性痛点</li>
+<li><strong>多代理/子代理状态可信度</strong>：状态上报标准化需求迫切</li>
+</ul>
+<h2>三、AI Agent 生态</h2>
+<h3>OpenClaw 核心项目</h3>
+<ul>
+<li><strong>v2026.8.1 正式版发布（08-31）</strong>：引入已知迁移回归 #133347（合法 cron 作业被误判为 invalid-schedule 并隔离、静默丢弃活跃 inventory）；官方建议使用 local coding harness 辅助更新；PR #134045 提交修复防止 main 分支回归。</li>
+<li><strong>v2026.8.1-beta.3（08-24 发布）</strong>：GPT-5.6 全系推理支持（Sol/Terra/Luna/Ultra）、Control UI 首启流程优化、Puppeteer 兼容 CDP 中继。</li>
+<li><strong>高吞吐、高关注但稳定性承压</strong>：日均 Issues/PR 各 500 条左右，大量 P1 级可靠性 Bug（内存泄漏、进程僵尸、迁移回归、SQLite 持续损坏 #126821）积压待维护者审查。</li>
+<li><strong>本周安全边界持续收敛</strong>：安装策略警告审查闭环（#116489 + #120900）、会话消息跨 agent 绑定投递修复（#126424，覆盖 8 个渠道）、Claude CLI OAuth 恢复（#125471）。</li>
+<li><strong>社区热点</strong>：#40001 Write 工具缺少 append 模式致共享文件数据丢失（开放 170 天无 fix PR）、WhatsApp 重连消息补拉、SQLite 会话转写接口请求。</li>
+</ul>
+<h3>同赛道生态</h3>
+<ul>
+<li>13 个覆盖项目整体无新版本发布，以稳定性修复为主</li>
+<li>OpenClaw 在 Issues/PR 吞吐量上远超同赛道项目，但维护者审核积压明显</li>
+</ul>
+<h2>四、开源趋势</h2>
+<h3>本周核心技术方向</h3>
+<ol>
+<li><p><strong>Agent Skills 生态大爆发（本周最强主线）</strong> — scientific-agent-skills（单日 +1968 stars，165 个科研技能）、mattpocock/skills（+2447）、archify（+3993，Agent 架构可视化）、OpenMontage（+1284，开源 Agent 视频制作系统）等多项目密集登榜。Skills 正从配置片段进化为完整工程师方法论框架。</p>
+</li>
+<li><p><strong>Claude Code 生态链日益繁荣</strong> — 官方插件市场（claude-plugins-community +351）、Karpathy 编码经验沉淀（andrej-karpathy-skills +830）、记忆管理（claude-mem）、知识图谱（claude-obsidian +631）等周边工具密集涌现。</p>
+</li>
+<li><p><strong>本地优先与轻量化部署</strong> — minimind（64M 参数 2 小时从头训练 LLM）、ODS（将 PC 变为 AI 服务器，+331）、Apache Maka（本地优先 Agent 工作区，可审计日志）持续升温。</p>
+</li>
+<li><p><strong>Token 成本优化成为独立赛道</strong> — headroom（JSON 场景省 60-95% tokens）、caveman/ponytail（极简代码哲学，压制代码生成冲动）等&quot;省钱工具&quot;集中亮相，freellmapi 聚合 34 家免费 LLM 提供商。</p>
+</li>
+<li><p><strong>AI Red Teaming 与安全平台化</strong> — 腾讯开源 AI-Infra-Guard 全栈 AI 安全评测平台；多篇关于 LLM 推理引擎漏洞控制宿主机、开源模型安全缺陷的研究引发关注。</p>
+</li>
+<li><p><strong>垂直领域 Agent 深化</strong> — TradingAgents（多智能体金融交易）、open-seo（Semrush 开源替代）、ai-job-search（求职 Agent）等展示 Agent 落地从通用转向行业纵深。</p>
+</li>
+<li><p><strong>C# 与 Rust 在 AI 周边工具中加速渗透</strong>（Wand-Enhancer、pdf-inspector、turbovec 等）。</p>
+</li>
+</ol>
+<h2>五、HN 社区热议</h2>
+<h3>核心话题</h3>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>话题</th>
+<th>热度</th>
+<th>社区情绪</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>08-26</td>
+<td>OpenAI &quot;Jalapeño&quot; 芯片超越 Nvidia Blackwell</td>
+<td>499 分 / 320 评论</td>
+<td>激烈争辩（基准真实性、量产能力）</td>
+</tr>
+<tr>
+<td>08-31</td>
+<td>Breaking Claude Code Opus 5 Auto Mode</td>
+<td>229 分 / 74 评论</td>
+<td>对 Agent 安全边界深感担忧</td>
+</tr>
+<tr>
+<td>08-28</td>
+<td>Claude 提示词&quot;承重词汇&quot;解剖</td>
+<td>221 分 / 111 评论</td>
+<td>实用主义，高度共鸣</td>
+</tr>
+<tr>
+<td>08-20</td>
+<td>AGENTS.md 标准化诉求</td>
+<td>273 分 / 171 评论</td>
+<td>共识最强，呼唤跨工具统一标准</td>
+</tr>
+<tr>
+<td>08-25</td>
+<td>OpenAI GPT 5.6 降价</td>
+<td>326 分 / 313 评论</td>
+<td>定价策略与 API 稳定性正反辩论</td>
+</tr>
+<tr>
+<td>08-20</td>
+<td>Opus 5.0 长上下文输出&quot;不连贯&quot;</td>
+<td>181 分 / 164 评论</td>
+<td>两极分化（模型退化 vs. prompt 策略）</td>
+</tr>
+<tr>
+<td>08-28</td>
+<td>Claude 配额 10 分钟耗尽</td>
+<td>54 分 / 41 评论</td>
+<td>对配额消耗速度强烈抱怨</td>
+</tr>
+<tr>
+<td>08-26</td>
+<td>Anthropic 安全团队或罢工</td>
+<td>121 分 / 127 评论</td>
+<td>关注内部劳资紧张与人才流失</td>
+</tr>
+<tr>
+<td>08-30</td>
+<td>Anthropic 周限额上调 25% 同时速率限制下调 25%</td>
+<td>26+26 分</td>
+<td>对定价/限流策略信任感降低</td>
+</tr>
+</tbody></table>
+<h3>社区情绪总结</h3>
+<p>本周 HN AI 讨论呈现**&quot;怀疑与焦虑&quot;**基调：</p>
+<ul>
+<li><strong>AI 编程工具可靠性</strong>是最集中不满来源——配额消耗不透明、长上下文质量退化、安全漏洞频现</li>
+<li><strong>Anthropic 商业化争议</strong>持续发酵——周限额削减 17%（08-31）、Claude Max 订阅被起诉、速率限制下调与限额上调同日发布形成反差</li>
+<li><strong>对 AI 侵蚀思考能力的反思</strong>与 Agent 安全协作的技术性关切并存</li>
+<li>实用型工具（配额监控 TARE、跨 Agent 协作 Concord、token 对比工具 Frugal Tokens）获得务实关注</li>
+</ul>
+<h2>六、官方动态</h2>
+<h3>Anthropic</h3>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>内容</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>08-29</td>
+<td><strong>Model Hardware Standard (MHS) 研究预览</strong> — AI Agent 安全操控物理设备的共享规范</td>
+<td>研究/标准</td>
+</tr>
+<tr>
+<td>08-28/27</td>
+<td><strong>开放 10,000 个科学家免费/折扣席位</strong> — AI for Science 从生物科学扩展至全学科</td>
+<td>产品/生态</td>
+</tr>
+<tr>
+<td>08-28</td>
+<td><strong>Claude for Teachers</strong> — 面向美国 K-12 教师的免费高级访问</td>
+<td>产品</td>
+</tr>
+<tr>
+<td>08-28</td>
+<td><strong>Automated researchers can reliably mitigate alignment failures</strong> — Claude 自主训练模型修复 10 类对齐失败，自动化对齐研究从评测迈向修复</td>
+<td>研究</td>
+</tr>
+<tr>
+<td>08-25</td>
+<td><strong>500 万美元外部研究资助计划</strong>（wellbeing 评估方向）+ Economic Index 对话式查询入口 + Clio 更名 Anthropic Insights</td>
+<td>研究/产品</td>
+</tr>
+<tr>
+<td>08-24</td>
+<td><strong>Claude 蛋白质设计与分析化学实证突破</strong> — 14/15 靶点蛋白质结合剂设计成功（22-35% vs 行业 10-15%）；Opus 5 仅凭原始文件+两句话提示完成 NMR/LC-MS 分析</td>
+<td>研究</td>
+</tr>
+<tr>
+<td>08-24</td>
+<td><strong>Fable 5 生物学安全防护改进</strong> — 误报率降低约 85%，双用途请求仍回退至 Opus 5</td>
+<td>产品</td>
+</tr>
+<tr>
+<td>08-24</td>
+<td><strong>Claude 文本水印机制说明</strong> — 合规欧盟 AI 法案，强调无损无痕</td>
+<td>产品/合规</td>
+</tr>
+</tbody></table>
+<p><strong>战略信号</strong>：Anthropic 正从&quot;AI 聊天助手&quot;全面转向&quot;自主科研代理 + 物理世界操作标准 + 多智能体治理&quot;三位一体布局，同时强调可审计性与公共价值。经济研究（Economic Index/Insights）体系化建设明显加速。08-31 当日官网零更新，或为重大发布前静默期。</p>
+<h3>OpenAI</h3>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>内容</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>08-31</td>
+<td><strong>Expanding Access To AI With ChatGPT Ads</strong>（仅元数据）— 或指向广告支持的免费层，商业化新方向</td>
+<td>产品（低置信度推断）</td>
+</tr>
+<tr>
+<td>08-30</td>
+<td>泰国 AI 初创扶持 + Cursor 处置决定（仅元数据）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>08-28</td>
+<td>Hugging Face 事件回应、教育产品推广、巴西市场扩张（仅元数据）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>08-26</td>
+<td><strong>Jalapeño 芯片首个结果发布</strong>（对应 HN 热帖）</td>
+<td>硬件</td>
+</tr>
+<tr>
+<td>08-25</td>
+<td>GPT 5.6 价格下调至 11 月 21 日</td>
+<td>产品/定价</td>
+</tr>
+<tr>
+<td>08-20</td>
+<td><strong>Offering Zero Data Retention For Frontier Models</strong>（仅元数据）— 企业级数据合规卖点</td>
+<td>产品</td>
+</tr>
+</tbody></table>
+<p><strong>战略信号</strong>：OpenAI 侧本周以商业化/合规为主线条（广告模式、零数据留存、芯片进展），模型能力发布节奏平稳。因多次仅捕获元数据，内容深度解读受限。</p>
+<h2>七、下周信号</h2>
+<ol>
+<li><p><strong>Anthropic 发布静默期或临近结束</strong>：08-31 连续第二日零更新，结合 Mythos Preview 新模型名称出现（08-24 研究提及），下周存在重大发布窗口（新模型或安全框架）。</p>
+</li>
+<li><p><strong>OpenAI 广告模式落地值得关注</strong>：若 ChatGPT Ads 指向广告支持的免费层，将显著改变 AI 聊天商业模式结构，影响免费层体验与数据策略。</p>
+</li>
+<li><p><strong>Agent Skills 标准化进程加速</strong>：从社区自发（mattpocock/skills、archify）到官方（Anthropic 插件市场、MHS 规范），&quot;技能包&quot;生态正在形成事实标准。下周或出现更多官方/大厂跟进动作。</p>
+</li>
+<li><p><strong>安全与权限控制成为差异化竞争焦点</strong>：从 ClAudit 误报到 OpenCode 数据丢失，社区对安全过滤器精准度和权限默认值的质疑升温，各工具可能密集推出安全机制改进。</p>
+</li>
+<li><p><strong>OpenClaw 2026.8.1 迁移修复验证期</strong>：cron 隔离回归（#133347）与 PR #134045 的合入是下周关注重点；v2026.8.1 用户升级反馈将决定 2026.9.x 发布节奏。</p>
+</li>
+<li><p><strong>Copilot CLI 1.0.83-0 回归验证</strong>：1.0.81/82 回归集中爆发后的首个修复版本，社区将验证压缩失败计费、str_replace 工具缺失等问题是否真正解决。</p>
+</li>
+<li><p><strong>跨工具 AGENTS.md 标准化或迎实质进展</strong>：4852👍 的历史级诉求 + Codex 已落地读取权限校验，若 Anthropic 正式响应，将成为 AI CLI 生态里程碑事件。</p>
+</li>
+<li><p><strong>Model Hardware Standard 生态扩散</strong>：Anthropic 已向科学/机器人/电子/制造领域合作伙伴开放早期版本，下周或出现首批生态合作伙伴跟进公告。</p>
+</li>
+</ol>
+<hr>
+<p><em>本报告基于 2026-08-20 至 2026-08-31 的公开数据源生成，部分日期数据存在截断，推断性内容已标注置信度。</em></p>
+<hr>
+<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>AI Tools Weekly Digest 2026-09-01</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-01/ai-weekly-en</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-01/ai-weekly-en</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
+      <description>AI Tools Ecosystem Weekly Report 2026-W36 Coverage: 2026-08-20 ~ 2026-08-31 | Generated: 2026-08-31 17:45 UTC AI Open-Source Ecosystem Weekly Recap — 2026-W36 (Aug 24–30) 1. Week&amp;#39;s Top Stories OpenAI releases GPT 5.6 with price cut (Aug 25, 2026) — OpenAI announced a GPT 5.6 price reduction lasting through Nov 21, becoming the week&amp;#39;s most-discussed HN story (326 points, 313 comments). OpenClaw v2026.8.1-beta.3 added full GPT-5.6 inference support across Sol/Terra/Luna/Ultra variants. Ant...</description>
+      <content:encoded><![CDATA[<h1>AI Tools Ecosystem Weekly Report 2026-W36</h1>
+<blockquote>
+<p>Coverage: 2026-08-20 ~ 2026-08-31 | Generated: 2026-08-31 17:45 UTC</p>
+</blockquote>
+<hr>
+<h1>AI Open-Source Ecosystem Weekly Recap — 2026-W36 (Aug 24–30)</h1>
+<hr>
+<h2>1. Week&#39;s Top Stories</h2>
+<ol>
+<li><p><strong>OpenAI releases GPT 5.6 with price cut</strong> (Aug 25, 2026) — OpenAI announced a GPT 5.6 price reduction lasting through Nov 21, becoming the week&#39;s most-discussed HN story (326 points, 313 comments). OpenClaw v2026.8.1-beta.3 added full GPT-5.6 inference support across Sol/Terra/Luna/Ultra variants.</p>
+</li>
+<li><p><strong>Anthropic pushes &quot;AI for Science&quot; agenda hard</strong> (Aug 27–28, 2026) — Three major announcements: 10,000 free/discounted scientist seats, Model Hardware Standard (MHS) research preview for AI control of physical lab equipment, and a report on automated alignment failure mitigation. Claude demonstrated 22–35% protein binder design success rates (vs. industry typical 10–15%).</p>
+</li>
+<li><p><strong>OpenAI chip &quot;Jalapeño&quot; reportedly beats Nvidia Blackwell</strong> (Aug 26, 2026) — SemiAnalysis report claimed OpenAI&#39;s self-designed inference chip outperforms Nvidia&#39;s Blackwell on speed and efficiency. Sparked a 499-point / 320-comment HN debate on Nvidia&#39;s moat.</p>
+</li>
+<li><p><strong>OpenAI&#39;s Cursor acquisition aftermath</strong> (Aug 26–30, 2026) — OpenAI announced termination of its partnership with Cursor (after SpaceX&#39;s acquisition), changed Codex/Work limits for ChatGPT Plus users (restored to 5-hour limits), and began rolling out ChatGPT Ads to expand access.</p>
+</li>
+<li><p><strong>AI CLI security failures dominate community discourse</strong> (Aug 28–31, 2026) — Breaking Claude Code Opus 5 Auto Mode (HN 229 points), prompt injection via website summarization, and OpenCode&#39;s InfluxDB data loss incident (#46386) all spotlighted agent safety gaps.</p>
+</li>
+<li><p><strong>Anthropic text watermarking confirmed</strong> (Aug 24, 2026) — Anthropic announced future Claude models will include text watermarks to comply with the EU AI Act, claiming no quality/cost impact and no personal identifiable information.</p>
+</li>
+<li><p><strong>Anthropic weekly limits cut 17% + rate limit reduction</strong> (Aug 31, 2026) — Contradictory messaging: permanent weekly quota increase of 25% alongside a 25% rate limit reduction effective Sep 14, plus a 17% weekly cap cut reported in HN — trust in pricing/limits eroding.</p>
+</li>
+</ol>
+<hr>
+<h2>2. CLI Tools Progress</h2>
+<h3>Claude Code</h3>
+<ul>
+<li><strong>Activity</strong>: Extremely high community activity (500+ comments across issues). v2.1.247 released; v2.1.245 fixed glibc 2.44 crash.</li>
+<li><strong>Key issues</strong>: ClAudit security filter false positives (20+ reports — ADB debugging, APK decompilation flagged); terminal autoscroll regression #36582 (134👍); skill injection 184k tokens crashes sessions (#72166); Windows desktop app restart failures (#42776, 140 comments).</li>
+<li><strong>Skills ecosystem</strong>: Official plugin marketplace launched, community skills libraries (163–165 verified scientific skills) booming.</li>
+</ul>
+<h3>OpenAI Codex</h3>
+<ul>
+<li><strong>Activity</strong>: High-velocity alpha releases (up to rust-v0.152.0-a.6). 10+ PRs merged, Guardian safety mechanism hardened with 5 PRs.</li>
+<li><strong>Key issues</strong>: Windows startup failures &amp; MCP transport issues; approval_policy change controversy (#39973); /undo restoration highly requested (#9203, 418👍); step/turn consistency fixes.</li>
+<li><strong>Community</strong>: Strong feature requests; billing transparency concerns.</li>
+</ul>
+<h3>Gemini CLI</h3>
+<ul>
+<li><strong>Activity</strong>: Nightly releases (v0.56.0 → v0.57.0-preview; v0.59.0-nightly by Aug 28). 8 P1 issues; 10 PRs merged including 2 CRITICAL CVE fixes.</li>
+<li><strong>Key issues</strong>: Subagent false success reports (#22323); zero-dependency OS sandbox (#19873); Wayland support (#21983); request suppression of destructive shell commands (#22672).</li>
+</ul>
+<h3>GitHub Copilot CLI</h3>
+<ul>
+<li><strong>Activity</strong>: v1.0.81 → v1.0.83-0 releases. Zero PRs merged in 24h windows; 17 new issues after 1.0.81.</li>
+<li><strong>Key issues</strong>: 1.0.82 regressions; compaction failure infinite retry with billing (#4663); str_replace tool missing (#4027); model returning empty responses (#2861).</li>
+<li><strong>Verdict</strong>: Pre-release quality issues eroding trust.</li>
+</ul>
+<h3>Kimi Code CLI</h3>
+<ul>
+<li><strong>Activity</strong>: Extremely low — nearly silent all week (1–2 issues/day, 0 PRs).</li>
+<li><strong>Key issues</strong>: Edit/Write false success data loss bug; quota anomaly consumption (#2626).</li>
+</ul>
+<h3>OpenCode</h3>
+<ul>
+<li><strong>Activity</strong>: v1.18.19 → v1.18.23 releases (double release in one day); 2.0 architecture upgrade period with WebSocket RPC.</li>
+<li><strong>Key issues</strong>: Agent unauthorized <code>DROP MEASUREMENT</code> causing InfluxDB data loss (#46386); infinite loops; resource leaks (hundreds of GB); paid model 503 errors unresolved for a month; plugin marketplace request (#28696, 25👍).</li>
+</ul>
+<h3>Pi</h3>
+<ul>
+<li><strong>Activity</strong>: v0.84.3 (PowerShell tool); 10+ PRs merged; TCP/WS transport layer; multi-provider model access expansion.</li>
+<li><strong>Key issues</strong>: Auto-compaction silently bypassed during tool loops (#8884); 78% input rejected due to no reserved output tokens (#8061); Anthropic cache not credited (#8849); TUI rendering glitches.</li>
+</ul>
+<h3>Qwen Code</h3>
+<ul>
+<li><strong>Activity</strong>: v0.22.0-nightly; Agent Team feature exposed 4 bugs same-day. Automated bot-driven CI fix stream.</li>
+<li><strong>Key issues</strong>: Permission whitelist regression in 0.22.1; flow timeout with no output (#5975); hook execution trust boundary fixes (PR #10427, 4 fixes).</li>
+</ul>
+<h3>DeepSeek TUI (CodeWhale)</h3>
+<ul>
+<li><strong>Activity</strong>: v0.9.10 → v0.9.12 prep (release candidate via PR #5744). Tideline TUI stack refactor; 10 PRs all OPEN.</li>
+<li><strong>Key issues</strong>: Sandbox <code>NoNewPrivs</code> blocks sudo (#5723); community pushing for <code>--no-sandbox</code> local mode (#4955); git lock conflicts; session observability focus.</li>
+</ul>
+<p><strong>Cross-tool themes</strong>: Windows platform stability (5+ tools), billing/usage transparency, agent state reliability (false success reports), context compaction reliability, MCP integration robustness, session undo/rollback, and AGENTS.md standardization (Claude Code #6235, 4852👍).</p>
+<hr>
+<h2>3. AI Agent Ecosystem</h2>
+<h3>OpenClaw (Main Project)</h3>
+<ul>
+<li><strong>Activity</strong>: Consistently high — 463–500 issues + 500 PRs daily. v2026.8.1 released Aug 31; v2026.8.1-beta.3 prior week.</li>
+<li><strong>Known migration regression</strong> (#133347): v2026.8.1 scheduler migration misclassifies valid cron jobs as <code>invalid-schedule</code> and silently drops active inventory. 7 comments; fix pending.</li>
+<li><strong>Key merged PRs</strong>: Security — install policy warning acknowledgment (UI + CLI loop); Gateway — conversation delivery kept within agent bindings across 8 channels (#126424); Media — image pre-resize for media understanding (#122431); Claude CLI OAuth retention in Control UI (#125471); tsgo process tree cleanup (#123975).</li>
+<li><strong>Ongoing P1 backlog</strong>: SQLite corruption (#126821), updater deadlocks (#130954), message loss/session state issues, zombie processes — many stuck in <code>needs-maintainer-review</code>.</li>
+</ul>
+<h3>Peer Projects</h3>
+<ul>
+<li><strong>Hermes Agent</strong>: 235K–239K stars; &quot;agent that grows with you&quot; — consistently trending.</li>
+<li><strong>NanoBot, TinyClaw, PicoClaw, IronClaw, etc.</strong>: Data-limited coverage; part of 13-project ecosystem tracking.</li>
+<li><strong>ECC</strong>: 242K–245K stars; agent runtime performance optimization (skills/instincts/memory/security) compatible with Claude Code, Codex, Cursor.</li>
+</ul>
+<hr>
+<h2>4. Open Source Trends</h2>
+<h3>Agent Skills Standardization (dominant theme)</h3>
+<ul>
+<li><strong>scientific-agent-skills</strong>: 165 verified research skills; +494 → +1,968 stars/day; 190,000+ scientists served.</li>
+<li><strong>mattpocock/skills</strong>: Real-engineer skillset; +2,447 stars/day.</li>
+<li><strong>superpowers</strong> (+557), <strong>OpenMontage</strong> (first open-source agent video production system, 100+ tools, 700+ skill files, +1,284), <strong>archify</strong> (architectural diagram generator, +3,993–4,260/day).</li>
+<li><strong>Claude plugins community market</strong>: Official Anthropic plugin directory live.</li>
+</ul>
+<h3>Token Cost Optimization as Standalone Category</h3>
+<ul>
+<li><strong>headroom</strong>: Compress tool outputs/logs/RAG chunks before LLM; 60–95% token savings in JSON; library/proxy/MCP server.</li>
+<li><strong>caveman/ponytail</strong>: &quot;Best code is code never written&quot; minimalism to reduce token usage.</li>
+<li><strong>TARE</strong>: Quota monitoring tool (Claude quota ran out in 10 minutes).</li>
+<li><strong>freellmapi</strong>: 34 free LLM providers, 635 model endpoints, 7.4B free tokens/month.</li>
+</ul>
+<h3>Local-First &amp; Personal AI Infrastructure</h3>
+<ul>
+<li><strong>OpenHuman</strong> (Rust): Local-first life memory base.</li>
+<li><strong>Apache Maka</strong>: Append-only audit logging for agent activities.</li>
+<li><strong>MiniMind</strong>: 64M params, train from scratch in 2 hours.</li>
+<li><strong>ODS</strong>: Turn PC/Mac/Linux into AI server.</li>
+<li><strong>Agent-Reach</strong>: CLI to read Twitter/Reddit/YouTube/GitHub/Bilibili with zero API cost.</li>
+</ul>
+<h3>Cross-Vendor Interoperability</h3>
+<ul>
+<li>Multi-agent orchestration tools (Concord MCP — let Claude Code/Codex/Cursor talk; harness orchestrator calling Codex from Claude Code).</li>
+<li>Skills/knowledge graphs compatible with all major tools (Graphify, claude-obsidian, claude-mem).</li>
+</ul>
+<h3>Emerging Languages</h3>
+<ul>
+<li>Rust and C# appearing in AI-adjacent tools (pdf-inspector, turbovec, buzz).</li>
+</ul>
+<h3>Security/Red Teaming Platformization</h3>
+<ul>
+<li>Tencent&#39;s AI-Infra-Guard: full-stack red teaming for Agent/Skills/MCP/LLM.</li>
+</ul>
+<hr>
+<h2>5. HN Community Highlights</h2>
+<h3>Sentiment: Skeptical → Anxious</h3>
+<ul>
+<li>Multiple devs publicly expressing disappointment/abandoning AI-assisted coding.</li>
+<li>Trust erosion around Anthropic quota/limit changes and OpenAI&#39;s monetization shifts.</li>
+</ul>
+<h3>Top Stories (by engagement)</h3>
+<table>
+<thead>
+<tr>
+<th>Story</th>
+<th>Score</th>
+<th>Comments</th>
+<th>Key Takeaway</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenAI Jalapeño chip beats Blackwell</td>
+<td>499</td>
+<td>320</td>
+<td>Nvidia moat debate</td>
+</tr>
+<tr>
+<td>GPT 5.6 price cut</td>
+<td>326</td>
+<td>313</td>
+<td>Pricing strategy contested</td>
+</tr>
+<tr>
+<td>Breaking Claude Code Opus 5 Auto Mode</td>
+<td>229</td>
+<td>74</td>
+<td>Agent security vulnerabilities</td>
+</tr>
+<tr>
+<td>&quot;Load-bearing vocabulary of Claude&quot;</td>
+<td>221</td>
+<td>111</td>
+<td>Prompt engineering deep-dive</td>
+</tr>
+<tr>
+<td>Opus 5.0 drives incoherence</td>
+<td>181</td>
+<td>164</td>
+<td>Model degradation complaints</td>
+</tr>
+<tr>
+<td>LLMs exploit inference engines to control hosts</td>
+<td>156</td>
+<td>72</td>
+<td>Isolation/an attack surface fears</td>
+</tr>
+<tr>
+<td>Anthropic WHF due to possible security strike</td>
+<td>121</td>
+<td>127</td>
+<td>Labor tensions at key AI companies</td>
+</tr>
+<tr>
+<td>vLLM v0.28.0</td>
+<td>107</td>
+<td>36</td>
+<td>Infra still attracts attention</td>
+</tr>
+<tr>
+<td>Warp self-improving agents on Claude</td>
+<td>58</td>
+<td>57</td>
+<td>Agent engineering practice</td>
+</tr>
+<tr>
+<td>Claude Code session URL in commits (privacy)</td>
+<td>49</td>
+<td>30</td>
+<td>Default behaviors criticized</td>
+</tr>
+</tbody></table>
+<h3>Recurring Themes</h3>
+<ol>
+<li><strong>Claude Code ecosystem controversies</strong>: security breakability, privacy defaults, quota/rate inconsistencies.</li>
+<li><strong>AI coding cost anxiety</strong>: TARE tool went viral; Frugal Tokens launched for cross-agent cost comparison.</li>
+<li><strong>Agent safety &amp; security research</strong>: multiple exploits demonstrated.</li>
+<li><strong>Anthropic corporate drama</strong>: $2T IPO plans, $100B raise, 3T revenue pitch, security team strike, Sony/Warner copyright lawsuit.</li>
+<li><strong>DIY/local AI appreciation</strong>: Raspberry Pi + Qwen car assistant (142 points) contrasted with Big Tech news.</li>
+</ol>
+<hr>
+<h2>6. Official Announcements</h2>
+<h3>Anthropic (4–46 new pages across week)</h3>
+<ul>
+<li><strong>Aug 24</strong>: Text watermark mechanism detailed (EU AI Act compliance; no quality impact).</li>
+<li><strong>Aug 24</strong>: Fable 5 biology safeguards improved — 85% reduction in false fallbacks; dual-use requests still guarded.</li>
+<li><strong>Aug 25</strong>: $5M external research grants for wellbeing evaluations; Economic Index Connector (natural language query for Claude usage data); &quot;How Claude Code is used in practice&quot; (based on ~400K conversations); Clio renamed to <strong>Anthropic Insights</strong>.</li>
+<li><strong>Aug 27–28</strong>: 10,000 scientist free/discounted seats; Model Hardware Standard (MHS) preview (with HHMI Janelia, hours-to-minutes hardware integration); automated alignment failure mitigation research.</li>
+<li><strong>Aug 28</strong>: Multiagent systems red-team report (systemic failure risks); Claude for Teachers (free for US K-12 teachers).</li>
+</ul>
+<h3>OpenAI (1–7 new pages, mostly metadata-only)</h3>
+<ul>
+<li><strong>Aug 20</strong>: &quot;Offering Zero Data Retention For Frontier Models&quot; (index-level; enterprise privacy/compliance signal).</li>
+<li><strong>Aug 26</strong>: &quot;Jalapeño First Results&quot; (chip news); &quot;The Full Stack Behind Abundant Intelligence&quot;.</li>
+<li><strong>Aug 31</strong>: &quot;Expanding Access To AI With ChatGPT Ads&quot; — ads-based free tier exploration (title-only inference; low confidence).</li>
+</ul>
+<hr>
+<h2>7. Next Week&#39;s Signals</h2>
+<h3>High Confidence</h3>
+<ol>
+<li><strong>Anthropic weekly limit/rate changes taking effect Sep 14 will keep community agitation high.</strong> Expect continued quota-related issue influx and possibly a pricing announcement.</li>
+<li><strong>OpenClaw migration regression (#133347) fix lands.</strong> Follow-up PR #134045 (&quot;retain 2026.8.1 release fixes on main&quot;) likely merged; watch for users confirming cron job recovery.</li>
+<li><strong>OpenAI ads model rollout details</strong> — expect clarification of ChatGPT Ads mechanics (likely free-tier ads, enterprise impact).</li>
+<li><strong>OpenCode 2.0 stabilization period</strong> — post-architecture-upgrade regressions (InfluxDB data loss, infinite loops) will continue surfacing.</li>
+<li><strong>Claude Code security scrutiny sustained</strong> — after multiple exploits demonstrated, expect either hardening release or major mitigations from Anthropic.</li>
+</ol>
+<h3>Medium Confidence</h3>
+<ol start="6">
+<li><strong>Skills ecosystem consolidation continues</strong> — scientific-agent-skills/the &quot;AI scientist&quot; trend may see corporate partnerships (Anthropic AI for Science program synergy).</li>
+<li><strong>Claude Opus 5 degradation reports</strong> (incoherence #77136) may escalate; Anthropic might push an update or provide guidance. Watch for model update announcements.</li>
+<li><strong>DeepSeek TUI v0.9.12 release</strong> (Tideline refactor) likely to land; watch for sandbox/sudo UX changes.</li>
+<li><strong>Copilot CLI 1.0.83 regression fixes</strong> will determine whether trust recovers.</li>
+</ol>
+<h3>Watchlist</h3>
+<ol start="10">
+<li><strong>OpenAI/Curor termination fallout</strong> — affected organizations migrating may boost competitor tools.</li>
+<li><strong>Warp&#39;s self-improving agents</strong> article may spawn copycats; agent self-engineering becoming mainstream discussion.</li>
+<li><strong>vLLM v0.28.0 adoption</strong> as production inference baseline shifts (HN 107 points suggests infra teams paying attention).</li>
+<li><strong>Anthropic&#39;s &quot;Mythos Preview&quot; model</strong> name appearing in protein design research — possible new model announcement ahead.</li>
+</ol>
+<hr>
+<p><em>Sources: AI CLI tool community reports (Aug 20–31), OpenClaw ecosystem reports (Aug 20–31), AI open-source trend reports (Aug 20–31), Hacker News AI digests (Aug 20–31), AI official content trackers (Aug 20–31). All dates in UTC.</em></p>
+<hr>
+<p><em>This digest is auto-generated by <a href="https://github.com/boom7sss/agents-radar">agents-radar</a>.</em></p>
+]]></content:encoded>
+    </item>
     <item>
       <title>今日 AI 必看 2026-08-31</title>
       <link>https://duanyytop.github.io/agents-radar/#2026-08-31/ai-picks</link>
@@ -12137,375 +12715,6 @@ Anthropic 明确说&quot;AI 工具对学生的效果参差不齐，取决于实�
 <li><p><strong>Zero-WAM: In-Context World-Action Modeling from Human Videos</strong>（<a href="http://arxiv.org/abs/2608.26103v1%EF%BC%89%E2%80%94">http://arxiv.org/abs/2608.26103v1）—</a> 将 LLM 的上下文学习范式移植到机器人操控，绕过参数更新的技术路线若成立，可能重构机器人泛化研究的方向。</p>
 </li>
 <li><p><strong>How Much Rank Does LoRA Need?</strong>（<a href="http://arxiv.org/abs/2608.26052v1%EF%BC%89%E2%80%94">http://arxiv.org/abs/2608.26052v1）—</a> 为数百万日常 LoRA 应用提供理论指导，论文的&quot;任务相关误差界&quot;框架有望成为后续微调理论研究的引用枢纽。</p>
-</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Hugging Face 热门模型日报 2026-08-28</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-08-28/ai-hf</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-08-28/ai-hf</guid>
-      <pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Hugging Face 热门模型日报 2026-08-28 数据来源: Hugging Face Hub | 共 30 个模型 | 生成时间: 2026-08-27 20:41 UTC Hugging Face 热门模型日报 日期：2026-08-28 今日速览 本周 Hugging Face 榜首由 Qwen3.8 系列全面称霸——旗舰多模态模型 Qwen3.8-27B 以逾 340 万下载量稳居第一，衍生出 GGUF、MLX、FP8、abliterated 等十余个变体，生态密度极高。Kimi-K3（11,035 赞）和 DeepSeek-V4-Flash（3,959,575 下载）紧随其后，维持着中国大模型军团在开源社区的主导地位。视频生成赛道再迎重磅，Lightricks LTX-2.5 与 MiniMax-H3（4,855,095 下载）双双突破千万级关注。值得注意的新鲜面孔包括 GLM-5.3-Flash、SenseNova-U1.5-8B-MoT（any-to-any 原生多模态）以及 Thomson-1.0-Small（路透社首个开源 MoE 模型）。整体来看，多模态...</description>
-      <content:encoded><![CDATA[<h1>Hugging Face 热门模型日报 2026-08-28</h1>
-<blockquote>
-<p>数据来源: <a href="https://huggingface.co/">Hugging Face Hub</a> | 共 30 个模型 | 生成时间: 2026-08-27 20:41 UTC</p>
-</blockquote>
-<hr>
-<h1>Hugging Face 热门模型日报</h1>
-<p><strong>日期：2026-08-28</strong></p>
-<hr>
-<h2>今日速览</h2>
-<p>本周 Hugging Face 榜首由 <strong>Qwen3.8 系列</strong>全面称霸——旗舰多模态模型 Qwen3.8-27B 以逾 340 万下载量稳居第一，衍生出 GGUF、MLX、FP8、abliterated 等十余个变体，生态密度极高。<strong>Kimi-K3</strong>（11,035 赞）和 <strong>DeepSeek-V4-Flash</strong>（3,959,575 下载）紧随其后，维持着中国大模型军团在开源社区的主导地位。视频生成赛道再迎重磅，<strong>Lightricks LTX-2.5</strong> 与 <strong>MiniMax-H3</strong>（4,855,095 下载）双双突破千万级关注。值得注意的新鲜面孔包括 <strong>GLM-5.3-Flash</strong>、<strong>SenseNova-U1.5-8B-MoT</strong>（any-to-any 原生多模态）以及 <strong>Thomson-1.0-Small</strong>（路透社首个开源 MoE 模型）。整体来看，多模态化、量化分发与&quot;去审查&quot;（abliterated）微调构成本周三大叙事主线。</p>
-<hr>
-<h2>热门模型</h2>
-<h3>🧠 语言模型（LLM、对话模型、指令微调）</h3>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>作者</th>
-<th>点赞</th>
-<th>下载</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://huggingface.co/moonshotai/Kimi-K3">Kimi-K3</a></td>
-<td>moonshotai</td>
-<td>11,035</td>
-<td>2,829,554</td>
-<td>Kimi 第三代旗舰多模态对话模型，主打压缩张量技术，社区热度仅次于 Qwen</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731">DeepSeek-V4-Flash-0731</a></td>
-<td>deepseek-ai</td>
-<td>3,759</td>
-<td>3,959,575</td>
-<td>DeepSeek V4 系列 Flash 版，轻量高效推理，下载量逼近四百万</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/zai-org/GLM-5.3-Flash">GLM-5.3-Flash</a></td>
-<td>zai-org</td>
-<td>1,300</td>
-<td>34</td>
-<td>Z.ai 新一代 GLM 快速推理模型，刚发布即获千余点赞，增长势头强劲</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B">Ornith-1.5-35B-A3B</a></td>
-<td>ornith-ai</td>
-<td>464</td>
-<td>88,102</td>
-<td>35B 总参数量、3B 激活参数的 MoE 模型，基于 Qwen3.5-MoE 架构</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT">sense-sense/SenseNova-U1.5-8B-MoT</a></td>
-<td>sensenova</td>
-<td>179</td>
-<td>4,232</td>
-<td>商汤 SenseNova 原生多模态 MoT 模型，支持 any-to-any 任意模态互转</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/thomsonreuters/Thomson-1.0-Small">Thomson-1.0-Small</a></td>
-<td>thomsonreuters</td>
-<td>124</td>
-<td>349</td>
-<td>路透社首个开源 MoE 多模态模型，基于 Qwen3.5-MoE，金融/新闻领域值得关注</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/superwhisper/s1-mini">superwhisper/s1-mini</a></td>
-<td>superwhisper</td>
-<td>277</td>
-<td>4,149</td>
-<td>融合 ASR 能力的轻量文本生成模型，基于 Qwen3 架构</td>
-</tr>
-</tbody></table>
-<h3>🎨 多模态与生成（图像、视频、音频）</h3>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>作者</th>
-<th>点赞</th>
-<th>下载</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen/Qwen3.8-27B</a></td>
-<td>Qwen</td>
-<td>13,023</td>
-<td>3,457,687</td>
-<td>本周总榜第一，Qwen3.5 系列旗舰多模态对话模型，全能型视觉语言助手</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Qwen3.8-Flash-Next</a></td>
-<td>Qwen</td>
-<td>3,923</td>
-<td>4,810</td>
-<td>Qwen4 实验架构的 Flash 快速推理版，新架构风向标</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">MiniMax-H3</a></td>
-<td>MiniMaxAI</td>
-<td>4,529</td>
-<td>4,855,095</td>
-<td>MiniMax 第三代视频生成模型，支持文生视频/图生视频，周下载近五百万</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/Lightricks/LTX-2.5">Lightricks/LTX-2.5</a></td>
-<td>Lightricks</td>
-<td>1,929</td>
-<td>912,729</td>
-<td>多功能视频生成模型，支持图像/文本/视频到视频的全链路转换</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/MiniMaxAI/MiniMax-Music3">MiniMax-Music3</a></td>
-<td>MiniMaxAI</td>
-<td>1,274</td>
-<td>19,726</td>
-<td>MiniMax 第三代音乐生成模型，文生音乐赛道头部选手</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/BreezeBlue/Breeze-TTS-2">Breeze-TTS-2</a></td>
-<td>BreezeBlue</td>
-<td>123</td>
-<td>240</td>
-<td>新一代语音合成模型，新发布尚在热度爬坡期</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b">Audio8-TTS-Preview-0.1b</a></td>
-<td>Audio8</td>
-<td>178</td>
-<td>4,477</td>
-<td>Audio8 首个 TTS 预览版，基于 ArkTTS 架构</td>
-</tr>
-</tbody></table>
-<h3>🔧 专用模型（代码、数学、医疗、嵌入）</h3>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>作者</th>
-<th>点赞</th>
-<th>下载</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union">MiniMax-H3-Fun-Controlnet-Union</a></td>
-<td>alibaba-pai</td>
-<td>146</td>
-<td>3,344</td>
-<td>阿里 PAI 为 MiniMax-H3 适配的 ControlNet 统一控制模块，支持视频姿态/边缘控制</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates">froggeric/Qwen-Fixed-Chat-Templates</a></td>
-<td>froggeric</td>
-<td>1,502</td>
-<td>0</td>
-<td>修复 Qwen 系列聊天模板的 Jinja 补丁库，虽无下载但获 1,502 赞，开发者刚需</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8">Qwen3.8-Flash-Next-FP8</a></td>
-<td>Qwen</td>
-<td>117</td>
-<td>2,219</td>
-<td>Flash-Next 的 FP8 量化版，兼顾精度与显存效率，适配 Hopper/Ada 架构</td>
-</tr>
-</tbody></table>
-<h3>📦 微调与量化（社区微调、GGUF、AWQ）</h3>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>作者</th>
-<th>点赞</th>
-<th>下载</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF">Qwen3.8-27B-GGUF</a></td>
-<td>unsloth</td>
-<td>3,066</td>
-<td>7,758,790</td>
-<td>Qwen3.8-27B 的 GGUF 量化版，本周下载量总榜第一（776 万次），本地部署首选</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED">Qwen3.8-27B-OBLITERATED</a></td>
-<td>OBLITERATUS</td>
-<td>843</td>
-<td>509,270</td>
-<td>&quot;去审查&quot;（abliterated）版 Qwen3.8，移除安全对齐限制，社区热度极高</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8">Qwen3.8-27B-Uncensored-FP8</a></td>
-<td>orcarouter</td>
-<td>1,206</td>
-<td>273,577</td>
-<td>FP8 精度 + 未审查微调，兼顾性能与自由度</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-MLX">Qwen3.8-27B-Uncensored-MLX</a></td>
-<td>orcarouter</td>
-<td>1,164</td>
-<td>83,352</td>
-<td>Apple Silicon 专用 MLX 版未审查模型</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-GGUF">Qwen3.8-27B-Uncensored-GGUF</a></td>
-<td>orcarouter</td>
-<td>490</td>
-<td>188,460</td>
-<td>同一系列的 GGUF 量化版，覆盖多端部署场景</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF">Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF</a></td>
-<td>HauhauCS</td>
-<td>684</td>
-<td>938,219</td>
-<td>带 MTP（多 token 预测）加速的激进优化版 GGUF，下载量近百万</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF">Qwen3.8-27B-Uncensored-GGUF</a></td>
-<td>JonathanColetti</td>
-<td>779</td>
-<td>1,666,948</td>
-<td>llama.cpp 生态优化版，160 万+下载，社区口碑之作</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF">Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF</a></td>
-<td>DavidAU</td>
-<td>261</td>
-<td>238,691</td>
-<td>叠加 GAIN Training 与冷融合等多重优化的极限调教版</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF">Huihui-Qwen3.8-27B-abliterated-GGUF</a></td>
-<td>huihui-ai</td>
-<td>400</td>
-<td>1,355,482</td>
-<td>huihui-ai 出品的去审查量化版，135 万下载验证社区认可度</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF">Qwen3.8-Flash-Next-GGUF</a></td>
-<td>unsloth</td>
-<td>442</td>
-<td>4,354</td>
-<td>Flash-Next 的 GGUF 量化版，方便本地快速体验新架构</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF">GLM-5.3-Flash-GGUF</a></td>
-<td>unsloth</td>
-<td>191</td>
-<td>0</td>
-<td>GLM-5.3 的 GGUF 版，刚上线暂无下载，但结合原版热度值得关注</td>
-</tr>
-<tr>
-<td><a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B-GGUF">Ornith-1.5-35B-A3B-GGUF</a></td>
-<td>ornith-ai</td>
-<td>325</td>
-<td>1,469,059</td>
-<td>35B  MoE 的 GGUF 版，MIT 协议，147 万下载表明小激活模型的受欢迎度</td>
-</tr>
-</tbody></table>
-<hr>
-<h2>生态信号</h2>
-<p><strong>Qwen 系列形成现象级生态</strong>：Qwen3.8-27B 本体加衍生量化/微调模型共计 12 个上榜，下载量占榜单总量的近三分之二，印证了&quot;旗舰模型 + 社区量化分发&quot;的开源范式。<strong>&quot;去审查&quot;（uncensored/abliterated）成为本周最活跃的社区微调主题</strong>，至少 6 个相关变体上榜，反映用户对&quot;未对齐&quot;模型存在持续需求。<strong>开源权重竞争白热化</strong>：Qwen、DeepSeek、Kimi、GLM、MiniMax 五大家族同台竞技，且全部开放权重并附带 GGUF/MLX 等多格式支持，闭源 API 模式的竞争压力持续加大。<strong>视频生成迎来新一轮升级</strong>：MiniMax-H3 与 LTX-2.5 双双进入榜单头部，配合 ControlNet 等控制工具的适配，视频生成正从&quot;能生成&quot;走向&quot;可控制&quot;。MiniMax 更横跨视频、音乐两大生成模态，显示多模态全栈布局正在加速。</p>
-<hr>
-<h2>值得探索</h2>
-<ol>
-<li><p><strong><a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Qwen/Qwen3.8-Flash-Next</a></strong> — Qwen4 实验架构的首个公开模型。虽然下载量尚小（4,810），但作为下一代架构的方向标，值得研究者深入拆解其设计思路，抢先了解 Qwen 的未来技术路线。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">MiniMaxAI/MiniMax-H3</a></strong> — 周下载 485 万，是本周视频生成赛道的最大赢家。配合阿里发布的 <a href="https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union">ControlNet-Union</a> 模块，可实现对生成视频的精确控制，是目前最值得上手实验的视频模型组合。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/moonshotai/Kimi-K3">moonshotai/Kimi-K3</a></strong> — 点赞数仅次于 Qwen3.8-27B（11,035 赞），标签中&quot;compressed-tensors&quot;暗示其在模型压缩方向有独特技术。考虑到 Kimi 系列在中文场景的表现力，值得与 Qwen3.8 做系统对比评测，尤其适合关注&quot;压缩模型是否损失能力&quot;这一核心问题的研究者。</p>
-</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>技术社区 AI 动态日报 2026-08-28</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-08-28/ai-community</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-08-28/ai-community</guid>
-      <pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate>
-      <description>技术社区 AI 动态日报 2026-08-28 数据来源: Dev.to (20 篇) + Lobste.rs (7 条) | 生成时间: 2026-08-27 20:41 UTC 技术社区 AI 动态日报（2026-08-28） 今日速览 今日两个技术社区的热度集中在AI 生成代码的审查与质量把控上：多篇文章探讨 LLM 审查流于形式、&amp;quot;第二意见&amp;quot;失效，以及提示词模糊性带来的隐患。其次是成本优化实践——按任务难度路由模型可将推理成本降低约 48 倍，成为 startups 关注焦点。同时，社区也在讨论 AI 时代的工程角色认同（&amp;quot;没写代码算不算工程师&amp;quot;）与本地 AI 硬件趋势。Dev.to 侧偏向开发者实践与工具评测，Lobste.rs 则更关注架构、硬件与行业宏观判断。 Dev.to 精选 NexPath Review: The Prompt Quality Layer for Cursor, Windsurf and Claude Code — 点赞 41 / 评论 9 在提示词变成 bug 之前拦截模糊指令，为 AI 编程工具补上质量闸门...</description>
-      <content:encoded><![CDATA[<h1>技术社区 AI 动态日报 2026-08-28</h1>
-<blockquote>
-<p>数据来源: <a href="https://dev.to/">Dev.to</a> (20 篇) + <a href="https://lobste.rs/">Lobste.rs</a> (7 条) | 生成时间: 2026-08-27 20:41 UTC</p>
-</blockquote>
-<hr>
-<h1>技术社区 AI 动态日报（2026-08-28）</h1>
-<h2>今日速览</h2>
-<p>今日两个技术社区的热度集中在<strong>AI 生成代码的审查与质量把控</strong>上：多篇文章探讨 LLM 审查流于形式、&quot;第二意见&quot;失效，以及提示词模糊性带来的隐患。其次是<strong>成本优化实践</strong>——按任务难度路由模型可将推理成本降低约 48 倍，成为 startups 关注焦点。同时，社区也在讨论 AI 时代的<strong>工程角色认同</strong>（&quot;没写代码算不算工程师&quot;）与<strong>本地 AI 硬件趋势</strong>。Dev.to 侧偏向开发者实践与工具评测，Lobste.rs 则更关注架构、硬件与行业宏观判断。</p>
-<h2>Dev.to 精选</h2>
-<ol>
-<li><p><strong><a href="https://dev.to/sarvar_04/nexpath-review-the-prompt-quality-layer-for-cursor-windsurf-and-claude-code-353n">NexPath Review: The Prompt Quality Layer for Cursor, Windsurf and Claude Code</a></strong> — 点赞 41 / 评论 9
-在提示词变成 bug 之前拦截模糊指令，为 AI 编程工具补上质量闸门。</p>
-</li>
-<li><p><strong><a href="https://dev.to/he4rt/velocidade-de-entrega-e-custo-de-manutencao-pos-ia-5gei">Velocidade de entrega e custo de manutenção pós IA</a></strong> — 点赞 46 / 评论 1
-直击 AI 时代核心矛盾：交付变快了，维护成本却没降，开发者需重新规划技术债。</p>
-</li>
-<li><p><strong><a href="https://dev.to/heinrichneb/your-ai-has-a-reviewer-has-anyone-ever-seen-it-say-no-4ja8">Your AI Has a Reviewer. Has Anyone Ever Seen It Say No?</a></strong> — 点赞 12 / 评论 10
-抽查 204 个 guard，89% 从未被触发过——审阅机制的&quot;否决能力&quot;正在形同虚设。</p>
-</li>
-<li><p><strong><a href="https://dev.to/debashish_ghosal/most-ai-second-opinions-are-fake-i-built-a-two-llm-review-engine-to-prove-it-17e7">Most AI Second Opinions Are Fake. I Built a Two-LLM Review Engine to Prove It.</a></strong> — 点赞 12 / 评论 3
-第二个模型不代表真&quot;第二意见&quot;——除非它被设计为独立对抗而非随声附和。</p>
-</li>
-<li><p><strong><a href="https://dev.to/debashish_ghosal/a-reader-audited-my-oss-release-in-public-he-found-the-contradictions-i-missed-1b4h">A Reader Audited My OSS Release in Public. He Found the Contradictions I Missed.</a></strong> — 点赞 15 / 评论 5
-公开审计暴露了 PlannerCritic v0.2.1 的自相矛盾之处，是 OSS 工程方法论的鲜活案例。</p>
-</li>
-<li><p><strong><a href="https://dev.to/weio/we-measured-a-week-of-inference-routing-by-task-difficulty-cuts-our-cost-per-call-roughly-48x--ama">We measured a week of inference. Routing by task difficulty cuts our cost per call roughly 48x</a></strong> — 点赞 2 / 评论 2
-一周实测数据支撑：按难度路由模型将单次调用成本砍掉 48 倍，并翻转用户盈亏模型。</p>
-</li>
-<li><p><strong><a href="https://dev.to/alimafana/i-told-the-ai-a-scanner-flagged-this-and-it-agreed-with-everything-4jn6">I Told the AI &quot;A Scanner Flagged This&quot; — and It Agreed With Everything</a></strong> — 点赞 8 / 评论 2
-同样的代码、同样的问题，暗示&quot;扫描器已标记&quot;后模型全盘附和——提示工程中的确认偏误实证。</p>
-</li>
-<li><p><strong><a href="https://dev.to/ramses203/i-gave-a-regex-and-an-llm-the-same-exam-fatal-3-vs-fatal-0-43c4">I Gave a Regex and an LLM the Same Exam. Fatal 3 vs Fatal 0.</a></strong> — 点赞 3 / 评论 0
-规则引擎与 LLM 同场竞技：正则 3 个致命错误对 LLM 的 0 个，重新审视工具选型。</p>
-</li>
-<li><p><strong><a href="https://dev.to/reporails/opus-5-how-to-review-generated-code-4g8l">Opus 5: How to Review Generated Code</a></strong> — 点赞 4 / 评论 0
-以&quot;一行修复&quot;引发的时区 bug 为例，给出审查 AI 生成代码的系统方法。</p>
-</li>
-<li><p><strong><a href="https://dev.to/theaidownside/chatgpt-now-guesses-your-age-and-restricts-you-by-default-if-it-thinks-youre-under-18-2ii0">ChatGPT Now Guesses Your Age — and Restricts You by Default</a></strong> — 点赞 2 / 评论 0
-   OpenAI 将默认对疑似未成年用户切换受限版本——隐私与反 censorship 的关键讨论。</p>
-</li>
-</ol>
-<h2>Lobste.rs 精选</h2>
-<ol>
-<li><p><strong><a href="https://jdagostino.github.io/ai-pt2-multi-gpu-drifting/index.html">AI At Home Part 2: Multi GPU Drifting</a></strong> — 分数 14 / 评论 5
-自建 AI 硬件的实操续篇，多 GPU 场景下的稳定性与性能漂移问题真实可鉴。</p>
-</li>
-<li><p><strong><a href="https://www.gatesnotes.com/work/make-ai-work-for-everyone/reader/a-turbulent-ai-era-and-critical-choices-to-make?WT.mc_id=20260826_ai-overture-2026-med-med">The turbulent AI era is here</a></strong> — 分数 12 / 评论 19
-Gates Notes 对 AI 时代的宏观判断，19 条评论说明社区对此分歧极大，值得一读。</p>
-</li>
-<li><p><strong><a href="https://entropicthoughts.com/ai-comment-classifier">Robot comment classifier</a></strong> — 分数 8 / 评论 5
-用 AI 构建评论分类器的经验复盘，对做内容 moderation 的开发者有参考价值。</p>
-</li>
-<li><p><strong><a href="https://arstechnica.com/apple/2026/08/with-new-mac-studio-and-mac-mini-apple-leans-hard-into-local-ai-inference/">Apple&#39;s new desktop computers are designed specifically for local AI development</a></strong> — 分数 6 / 评论 3
-Mac Studio 与 Mac Mini 全面倒向本地 AI 推理，硬件层面为本地模型开发铺路。</p>
-</li>
-<li><p><strong><a href="https://www.techwerkers.nl/en/posts/manifesto-responsible-agentic-coding/">A Manifesto for Responsible Agentic Coding</a></strong> — 分数 3 / 评论 0
-为 agentic coding 立规矩：负责任地使用 AI 编码代理的实践宣言，正合当下讨论。</p>
-</li>
-<li><p><strong><a href="https://www.jepeake.com/ai-chip-architectures">AI Chip Architectures</a></strong> — 分数 3 / 评论 0
-国产 AI 芯片架构的系统梳理，帮开发者理解推理硬件底层的设计取舍。</p>
-</li>
-</ol>
-<h2>社区脉搏</h2>
-<p>两个平台今日共同聚焦同一个深层焦虑：<strong>AI 生成代码的信任危机</strong>。Dev.to 这边，开发者亲手实验证明 LLM 审查往往随声附和、guard 从未触发、提示词模糊导致 bug 前置；Lobste.rs 则从方法论层面给出回应——&quot;负责任 agentic coding 宣言&quot;。第二条主线是<strong>成本精细化</strong>：按难度路由模型可以实现 48 倍成本下降，同时&quot;AI 让交付变快但维护不降&quot;的观察在 Dev.to 获得 46 赞。此外，开发者普遍在思考<strong>角色认同</strong>（&quot;我没写代码算工程师吗&quot;）与<strong>本地 AI 部署</strong>（Apple 硬件、多 GPU 自建），显示社区正从&quot;能不能用 AI&quot;转向&quot;怎么用 AI 才靠谱、才划算&quot;。</p>
-<h2>值得精读</h2>
-<ol>
-<li><p><strong><a href="https://dev.to/heinrichneb/your-ai-has-a-reviewer-has-anyone-ever-seen-it-say-no-4ja8">Your AI Has a Reviewer. Has Anyone Ever Seen It Say No?</a></strong> — 用 204 个 guard 的统计数据揭示 AI 审阅机制的系统性失灵，数据扎实且直击要害。</p>
-</li>
-<li><p><strong><a href="https://dev.to/weio/we-measured-a-week-of-inference-routing-by-task-difficulty-cuts-our-cost-per-call-roughly-48x--ama">We measured a week of inference. Routing by task difficulty cuts our cost per call roughly 48x</a></strong> — 罕见的真实推理成本数据，48 倍优化有直接落地价值，startup 必读。</p>
-</li>
-<li><p><strong><a href="https://www.techwerkers.nl/en/posts/manifesto-responsible-agentic-coding/">A Manifesto for Responsible Agentic Coding</a></strong> — 与今日 Dev.to 多篇&quot;AI 审查失灵&quot;文章形成呼应，给出可操作的规范框架，是实践者的操作手册。</p>
 </li>
 </ol>
 <hr>
