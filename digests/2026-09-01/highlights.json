@@ -7,6 +7,14 @@
       "未来Claude模型内置文本水印，为合规欧盟AI法案",
       "Claude Code安全漏洞攻破研究登顶HN，提示注入可绕过限制",
       "OpenClaw v2026.8.1发布，存在迁移回归致cron作业被误隔离"
+    ],
+    "ai-monthly": [
+      "Anthropic自愿披露3起安全事故，安全透明度成竞争维度",
+      "GPT-5.6数学声明遭两篇论文证伪，社区质疑加剧",
+      "Claude Code Auto Mode默认化，开发者激烈争论",
+      "Claude黎曼猜想突破：零点比例下界提升至67.2%",
+      "Stripe超70亿美元收购OpenRouter，AI基建商业化引热议",
+      "GPT-5.6 Sol降价50%，登顶HN本周热榜"
     ]
   },
   "en": {
@@ -17,6 +25,14 @@
       "OpenAI-Cursor partnership ends after SpaceX deal",
       "AI CLI security failures dominate discussions",
       "Anthropic text watermarking confirmed for EU AI Act"
+    ],
+    "ai-monthly": [
+      "OpenAI math claims refuted within days",
+      "Anthropic discloses 3 real security incidents",
+      "Claude Code Auto Mode defaults on Aug 14",
+      "Codex desktop app arrives on Linux preview",
+      "Claude improves Riemann zeta bound to 67.2%",
+      "141K safety evals reviewed for disclosures"
     ]
   }
 }
