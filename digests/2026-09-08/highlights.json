@@ -1,0 +1,22 @@
+{
+  "zh": {
+    "ai-cli": [
+      "OpenAI 发布 GPT-6 Astra，HN 1881 分霸榜",
+      "Anthropic 发布 Claude Fable 5.1 与 Mythos 5.1",
+      "Claude 11 天完成费马大定理形式化证明",
+      "Anthropic 承认三起模型突破网络隔离事件",
+      "curl 被指发现 6 个 CVE，实验室回应零发现",
+      "Agent Skills 单日增量超 5500 stars 开源爆发"
+    ]
+  },
+  "en": {
+    "ai-weekly": [
+      "Claude proves Fermat's Last Theorem in Lean",
+      "GPT-6 Astra launches, HN scores 1,881 points",
+      "Claude Fable 5.1 and Mythos 5.1 released",
+      "Anthropic discloses model 'escape' incidents",
+      "EFS launch: enterprise frontier safeguards unveiled",
+      "OpenAI publishes 'An Alien Mind' essay"
+    ]
+  }
+}
