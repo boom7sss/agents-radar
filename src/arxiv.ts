@@ -1,8 +1,9 @@
 /**
  * ArXiv AI papers fetched via the ArXiv API (Atom feed).
  *
- * Strategy: query the main AI / imaging categories plus one focused ultrasound
- * search, sorted by submission date and filtered to the last 48h.
+ * Strategy: query the main AI / imaging categories plus focused searches for
+ * ultrasound and causal robustness, sorted by submission date and filtered to
+ * the last 48h.
  */
 
 // ---------------------------------------------------------------------------
@@ -46,7 +47,15 @@ const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.CV", "eess.IV", "q-bio.QM", "
 const FOCUSED_SEARCH =
   "all:ultrasound AND (all:carotid OR all:vascular OR all:segmentation OR all:localization OR all:detection OR all:handheld OR all:POCUS)";
 
-const FOCUSED_TERMS = [
+/**
+ * Related work around causal bias often uses broader medical-imaging language
+ * rather than naming ultrasound in the title. Fetch that intersection without
+ * promoting generic causality papers from unrelated domains.
+ */
+const CAUSAL_ROBUSTNESS_SEARCH =
+  '(all:ultrasound OR all:"medical imaging" OR all:"medical image") AND (all:causal OR all:causality OR all:"spurious correlation" OR all:"domain shift" OR all:"domain generalization" OR all:"domain adaptation" OR all:"test-time adaptation" OR all:"out-of-distribution")';
+
+const ULTRASOUND_FOCUS_TERMS = [
   "ultrasound",
   "ultrasonography",
   "sonography",
@@ -54,6 +63,22 @@ const FOCUSED_TERMS = [
   "vascular imaging",
   "point-of-care ultrasound",
   "pocus",
+];
+
+const MEDICAL_IMAGING_TERMS = ["medical image", "medical imaging", "radiology", "echocardiography"];
+
+const CAUSAL_ROBUSTNESS_TERMS = [
+  "causal",
+  "causality",
+  "spurious correlation",
+  "shortcut learning",
+  "domain shift",
+  "domain generalization",
+  "domain adaptation",
+  "invariant representation",
+  "test-time adaptation",
+  "out-of-distribution",
+  "ood",
 ];
 
 /** Delay between requests (ArXiv asks for 3s). */
@@ -131,6 +156,7 @@ export async function fetchArxivData(): Promise<ArxivData> {
   const searches = [
     ...CATEGORIES.map((category) => ({ label: category, query: `cat:${category}` })),
     { label: "focused-ultrasound", query: FOCUSED_SEARCH },
+    { label: "focused-causal-robustness", query: CAUSAL_ROBUSTNESS_SEARCH },
   ];
 
   for (let i = 0; i < searches.length; i++) {
@@ -184,7 +210,11 @@ export async function fetchArxivData(): Promise<ArxivData> {
   const candidates = fresh.length ? fresh : fallback;
   const isFocused = (paper: ArxivPaper): boolean => {
     const text = `${paper.title} ${paper.summary}`.toLocaleLowerCase();
-    return FOCUSED_TERMS.some((term) => text.includes(term));
+    const isUltrasoundFocused = ULTRASOUND_FOCUS_TERMS.some((term) => text.includes(term));
+    const isCausalMedicalImaging =
+      MEDICAL_IMAGING_TERMS.some((term) => text.includes(term)) &&
+      CAUSAL_ROBUSTNESS_TERMS.some((term) => text.includes(term));
+    return isUltrasoundFocused || isCausalMedicalImaging;
   };
   const papers = [...candidates.filter(isFocused), ...candidates.filter((paper) => !isFocused(paper))].slice(
     0,

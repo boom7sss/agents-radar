@@ -442,6 +442,9 @@ describe("buildPaperPicksPrompt", () => {
     expect(result).toContain("颈动脉超声");
     expect(result).toContain("柔性加权而非固定配额");
     expect(result).toContain("跨设备验证");
+    expect(result).toContain("域偏移、数据集偏置与伪相关");
+    expect(result).toContain("因果表征/干预");
+    expect(result).toContain("只有“因果”标签却缺少明确干预");
     expect(result).toContain("其他方向出现足够强的工作也应入选");
   });
 });
