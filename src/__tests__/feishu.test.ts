@@ -1,5 +1,10 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { buildDailyPicksMessage, buildFeishuMessage, buildPaperPicksMessage } from "../feishu.ts";
+import {
+  buildDailyPicksMessage,
+  buildFeishuMessage,
+  buildHandheldUltrasoundMessage,
+  buildPaperPicksMessage,
+} from "../feishu.ts";
 import type { Highlights } from "../notify.ts";
 
 const BASE_URL = "https://example.com/radar";
@@ -95,11 +100,16 @@ describe("buildFeishuMessage", () => {
   });
 
   it("keeps the must-read selection out of the full overview card", () => {
-    const msg = buildFeishuMessage("2026-03-09", ["ai-picks", "ai-paper-picks", "ai-cli"], BASE_URL);
+    const msg = buildFeishuMessage(
+      "2026-03-09",
+      ["ai-picks", "ai-paper-picks", "ai-handheld-ultrasound", "ai-cli"],
+      BASE_URL,
+    );
     expect(msg).toContain("AI CLI 工具");
     expect(msg).not.toContain("ai-picks");
     expect(msg).not.toContain("今日 AI 必看");
     expect(msg).not.toContain("今日论文精读");
+    expect(msg).not.toContain("掌上超声产品与交互");
   });
 
   it("builds a short must-read card with source links", () => {
@@ -129,5 +139,21 @@ describe("buildFeishuMessage", () => {
     expect(msg).toContain("今日论文精读");
     expect(msg).toContain("`CVPR`");
     expect(msg).toContain("[阅读论文](https://arxiv.org/abs/2603.00001)");
+  });
+
+  it("builds a handheld-ultrasound product and interaction card", () => {
+    const msg = buildHandheldUltrasoundMessage("2026-09-09", [
+      {
+        title: "Vscan Air 新增 DICOMweb 配置",
+        why: "可直接参考移动端检查上传和错误反馈流程。",
+        category: "工程集成",
+        source: "GE HealthCare Vscan Air",
+        url: "https://example.com/vscan-dicomweb",
+      },
+    ]);
+    expect(msg).toContain("掌上超声产品与交互");
+    expect(msg).toContain("`工程集成`");
+    expect(msg).toContain("开发价值：");
+    expect(msg).toContain("[来源：GE HealthCare Vscan Air]");
   });
 });

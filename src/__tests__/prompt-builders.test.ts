@@ -14,6 +14,7 @@ import {
   buildHnPrompt,
   buildDailyEditorialPrompt,
   buildPaperPicksPrompt,
+  buildHandheldUltrasoundPrompt,
 } from "../prompts-data.ts";
 import type { RepoConfig, GitHubItem, GitHubRelease } from "../github.ts";
 import type { RepoDigest } from "../prompts.ts";
@@ -22,6 +23,7 @@ import type { HnData } from "../hn.ts";
 import type { WebFetchResult } from "../web.ts";
 import type { ArxivData } from "../arxiv.ts";
 import type { ConferencePaperData } from "../conference-papers.ts";
+import type { HandheldUltrasoundData } from "../handheld-ultrasound.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures
@@ -446,5 +448,34 @@ describe("buildPaperPicksPrompt", () => {
     expect(result).toContain("因果表征/干预");
     expect(result).toContain("只有“因果”标签却缺少明确干预");
     expect(result).toContain("其他方向出现足够强的工作也应入选");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildHandheldUltrasoundPrompt
+// ---------------------------------------------------------------------------
+
+describe("buildHandheldUltrasoundPrompt", () => {
+  it("keeps the card sparse and rejects marketing-only updates", () => {
+    const data: HandheldUltrasoundData = {
+      fetchSuccess: true,
+      items: [
+        {
+          title: "Lumify adds a guided scanning workflow",
+          source: "Philips Lumify",
+          kind: "official-update",
+          date: "2026-09-09",
+          url: "https://example.com/lumify-update",
+          summary: "New in-app guidance and DICOM workflow.",
+        },
+      ],
+    };
+
+    const result = buildHandheldUltrasoundPrompt(data, "2026-09-09");
+    expect(result).toContain("最多选出 1–2 条");
+    expect(result).toContain("Lumify adds a guided scanning workflow");
+    expect(result).toContain("DICOM/PACS");
+    expect(result).toContain("跳过商业地区扩张、融资、奖项");
+    expect(result).toContain('{"picks":[]}');
   });
 });

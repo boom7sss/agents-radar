@@ -33,11 +33,14 @@ import {
   buildHighlightsPrompt,
   buildDailyPicksPrompt,
   buildPaperPicksPrompt,
+  buildHandheldUltrasoundPrompt,
   type DailyPick,
   type DailyEditorial,
   type DailyPicks,
   type PaperPick,
   type PaperPicks,
+  type HandheldUltrasoundPick,
+  type HandheldUltrasoundPicks,
   type ReportHighlights,
 } from "./prompts-data.ts";
 import { callLlm, parseLlmJson, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
@@ -60,6 +63,11 @@ import { fetchConferencePaperData, type ConferencePaperData } from "./conference
 import { fetchHfData, type HfData } from "./hf.ts";
 import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
+import {
+  fetchHandheldUltrasoundData,
+  markHandheldUltrasoundItemsProcessed,
+  type HandheldUltrasoundData,
+} from "./handheld-ultrasound.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -158,10 +166,11 @@ async function fetchAllData(
   hfData: HfData;
   devtoData: DevtoData;
   lobstersData: LobstersData;
+  handheldUltrasoundData: HandheldUltrasoundData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, conference papers, hf, devto, lobsters`,
+    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, conference papers, hf, devto, lobsters, handheld ultrasound`,
   );
 
   const [
@@ -176,6 +185,7 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
+    handheldUltrasoundData,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -235,6 +245,7 @@ async function fetchAllData(
     fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
+    fetchHandheldUltrasoundData().catch((): HandheldUltrasoundData => ({ items: [], fetchSuccess: false })),
   ]);
 
   return {
@@ -249,6 +260,7 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
+    handheldUltrasoundData,
   };
 }
 
@@ -383,6 +395,7 @@ async function main(): Promise<void> {
     hfData,
     devtoData,
     lobstersData,
+    handheldUltrasoundData,
   } = await fetchAllData(since, webState);
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
   const fetchedCli = fetched.filter((f) => f.cfg.id !== OPENCLAW.id && !peerIds.has(f.cfg.id));
@@ -643,7 +656,78 @@ async function main(): Promise<void> {
   console.log(`  Saved ${paperPicksJsonPath}`);
   console.log(`  Saved ${paperPicksMarkdownPath}`);
 
-  // 8. Create Chinese GitHub issues for CLI + OpenClaw.
+  // 8. Send a separate, sparse product/interaction card only when a new
+  // official update or curated open-source release is genuinely useful.
+  console.log("  Selecting handheld-ultrasound product and interaction updates...");
+  const handheldPicks: HandheldUltrasoundPicks = { picks: [] };
+  const handheldCategories = new Set([
+    "界面交互",
+    "扫查工作流",
+    "AI引导",
+    "工程集成",
+    "设备软件",
+    "安全合规",
+  ]);
+  if (handheldUltrasoundData.items.length) {
+    let selectionSucceeded = false;
+    try {
+      const parsed = parseLlmJson<HandheldUltrasoundPicks>(
+        await callLlm(buildHandheldUltrasoundPrompt(handheldUltrasoundData, dateStr), 1024),
+      );
+      const candidatesByUrl = new Map(handheldUltrasoundData.items.map((item) => [item.url, item]));
+      if (Array.isArray(parsed.picks)) {
+        const accepted = parsed.picks
+          .filter((pick): pick is HandheldUltrasoundPick => {
+            const candidate = candidatesByUrl.get(pick?.url);
+            return (
+              typeof pick?.title === "string" &&
+              typeof pick?.why === "string" &&
+              typeof pick?.category === "string" &&
+              handheldCategories.has(pick.category) &&
+              typeof pick?.source === "string" &&
+              candidate?.source === pick.source
+            );
+          })
+          .slice(0, 2);
+        handheldPicks.picks = accepted;
+        selectionSucceeded = parsed.picks.length === 0 || accepted.length > 0;
+      }
+    } catch (err) {
+      console.error(`  [handheld-ultrasound] selection failed: ${err}`);
+    }
+    if (selectionSucceeded) {
+      markHandheldUltrasoundItemsProcessed(handheldUltrasoundData.items.map((item) => item.url));
+    }
+  } else {
+    console.log("  [handheld-ultrasound] No new candidates; skipping LLM call and card.");
+  }
+
+  const handheldJsonPath = saveFile(
+    JSON.stringify(handheldPicks, null, 2),
+    dateStr,
+    "handheld-ultrasound-picks.json",
+  );
+  console.log(`  Saved ${handheldJsonPath}`);
+  const handheldMarkdownPath = path.join("digests", dateStr, "ai-handheld-ultrasound.md");
+  if (handheldPicks.picks.length) {
+    const handheldMarkdown = [
+      `# 掌上超声产品与交互 · ${dateStr}`,
+      "",
+      "> 只收录对界面、扫查工作流、AI 引导或工程集成有明确价值的新变化；没有强信号时本栏不生成。",
+      "",
+      ...handheldPicks.picks.flatMap((pick, index) => [
+        `${index + 1}. **${pick.title}** · \`${pick.category}\``,
+        `   **开发价值：** ${pick.why}`,
+        `   [来源：${pick.source}](${pick.url})`,
+        "",
+      ]),
+    ].join("\n");
+    console.log(`  Saved ${saveFile(handheldMarkdown, dateStr, "ai-handheld-ultrasound.md")}`);
+  } else if (fs.existsSync(handheldMarkdownPath)) {
+    fs.unlinkSync(handheldMarkdownPath);
+  }
+
+  // 9. Create Chinese GitHub issues for CLI + OpenClaw.
   if (digestRepo) {
     const cliUrl = await createGitHubIssue(CLI_ISSUE_TITLE(dateStr, "zh"), cliContent, ISSUE_LABELS.cli.zh);
     console.log(`  Created CLI issue (zh): ${cliUrl}`);

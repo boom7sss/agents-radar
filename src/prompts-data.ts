@@ -11,6 +11,7 @@ import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
 import type { ArxivData } from "./arxiv.ts";
 import type { ConferencePaperData } from "./conference-papers.ts";
+import type { HandheldUltrasoundData } from "./handheld-ultrasound.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
@@ -393,6 +394,29 @@ export interface PaperPick {
 
 export interface PaperPicks {
   picks: PaperPick[];
+}
+
+export interface HandheldUltrasoundPick {
+  title: string;
+  why: string;
+  category: string;
+  source: string;
+  url: string;
+}
+
+export interface HandheldUltrasoundPicks {
+  picks: HandheldUltrasoundPick[];
+}
+
+export function buildHandheldUltrasoundPrompt(data: HandheldUltrasoundData, dateStr: string): string {
+  const candidates = data.items
+    .map(
+      (item, index) =>
+        `${index + 1}. 标题: ${item.title}\n来源: ${item.source}\n类型: ${item.kind}\n日期: ${item.date || "未知"}\n链接: ${item.url}\n内容: ${item.summary.slice(0, 700) || "来源页没有可用正文"}`,
+    )
+    .join("\n\n");
+
+  return `你是掌上超声产品、医学影像界面与临床工作流方向的严格技术编辑。请从 ${dateStr} 新发现的官方页面变更和开源版本中，最多选出 1–2 条对掌上超声界面设计或集成开发真正有用的更新。信号不足时返回空数组，绝不能凑数。\n\n# 候选\n\n${candidates || "今天没有新候选。"}\n\n只返回合法 JSON，不要 markdown 代码块，不要解释。格式：\n{"picks":[{"title":"简明中文标题","why":"对界面或集成开发的具体价值（不超过50字）","category":"界面交互/扫查工作流/AI引导/工程集成/设备软件/安全合规之一","source":"候选中的来源名","url":"候选中的原始链接"}]}\n\n筛选规则：\n- 重点关注：扫查流程、深度/增益/焦点/预设、冻结回放、测量标注、AI 扫查引导与质量反馈、移动端交互、单手/戴手套操作、DICOM/PACS、SDK/API、网络连接、边缘推理、隐私安全和可用性\n- 优先有明确版本、功能、接口、操作流程或工程影响的官方更新与重要开源版本\n- 跳过商业地区扩张、融资、奖项、普通合作、活动宣传、课程营销和只有口号没有功能细节的产品稿\n- 厂商自述只能当产品信号，不得改写成已被独立验证的临床结论\n- source 和 url 必须逐字使用候选中已有的值，绝不能编造\n- 同一事件只保留一条；没有足够具体、可执行的信息就返回 {"picks":[]}`;
 }
 
 /**

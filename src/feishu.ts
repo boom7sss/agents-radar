@@ -14,7 +14,14 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { NOTIFY_LABELS } from "./i18n.ts";
 import type { Highlights } from "./notify.ts";
-import type { DailyPick, DailyPicks, PaperPick, PaperPicks } from "./prompts-data.ts";
+import type {
+  DailyPick,
+  DailyPicks,
+  HandheldUltrasoundPick,
+  HandheldUltrasoundPicks,
+  PaperPick,
+  PaperPicks,
+} from "./prompts-data.ts";
 
 const PAGES_URL_DEFAULT = "https://duanyytop.github.io/agents-radar";
 
@@ -67,7 +74,9 @@ export function buildFeishuMessage(
   const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
   // Picks have their own compact card, so keep the existing overview focused
   // on the specialist reports instead of listing the same content twice.
-  const baseReports = reports.filter((r) => !r.endsWith("-en") && r !== "ai-picks" && r !== "ai-paper-picks");
+  const baseReports = reports.filter(
+    (r) => !r.endsWith("-en") && r !== "ai-picks" && r !== "ai-paper-picks" && r !== "ai-handheld-ultrasound",
+  );
   const isWeekly = baseReports.includes("ai-weekly");
   const isMonthly = baseReports.includes("ai-monthly");
 
@@ -135,6 +144,19 @@ export function buildPaperPicksMessage(date: string, picks: PaperPick[]): string
   return lines.join("\n");
 }
 
+export function buildHandheldUltrasoundMessage(date: string, picks: HandheldUltrasoundPick[]): string {
+  const lines = [`🩺 **掌上超声产品与交互 · ${date}**`];
+
+  for (const [index, pick] of picks.entries()) {
+    lines.push("");
+    lines.push(`${index + 1}. **${pick.title}** · \`${pick.category}\``);
+    lines.push(`   开发价值：${pick.why}`);
+    lines.push(`   [来源：${pick.source}](${pick.url})`);
+  }
+
+  return lines.join("\n");
+}
+
 async function main(): Promise<void> {
   const urls = getWebhookUrls();
   if (!urls.length) {
@@ -188,6 +210,16 @@ async function main(): Promise<void> {
     }
   }
 
+  let handheldPicks: HandheldUltrasoundPicks | null = null;
+  const handheldPicksPath = path.join("digests", date, "handheld-ultrasound-picks.json");
+  if (fs.existsSync(handheldPicksPath)) {
+    try {
+      handheldPicks = JSON.parse(fs.readFileSync(handheldPicksPath, "utf-8")) as HandheldUltrasoundPicks;
+    } catch {
+      console.log("[feishu] Failed to parse handheld-ultrasound-picks.json — skipping card.");
+    }
+  }
+
   const isMonthly = reports.some((r) => r === "ai-monthly");
   const isWeekly = reports.some((r) => r === "ai-weekly");
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
@@ -204,6 +236,14 @@ async function main(): Promise<void> {
   if (paperPicks?.picks?.length) {
     console.log(`[feishu] Sending ${paperPicks.picks.length} paper picks…`);
     await sendFeishu(`📄 今日论文精读 · ${date}`, buildPaperPicksMessage(date, paperPicks.picks));
+  }
+
+  if (handheldPicks?.picks?.length) {
+    console.log(`[feishu] Sending ${handheldPicks.picks.length} handheld-ultrasound picks…`);
+    await sendFeishu(
+      `🩺 掌上超声产品与交互 · ${date}`,
+      buildHandheldUltrasoundMessage(date, handheldPicks.picks),
+    );
   }
 
   console.log(`[feishu] Sending to ${urls.length} webhook(s) for ${date} (${reports.length} reports)…`);
