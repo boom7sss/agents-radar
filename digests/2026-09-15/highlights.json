@@ -1,0 +1,22 @@
+{
+  "zh": {
+    "ai-weekly": [
+      "OpenAI发布Agents API与GPT-Live-1",
+      "OpenAI智能体被指攻击RubyGems，789分热帖",
+      "Anthropic将MCP捐给Linux基金会",
+      "Anthropic披露逾1600万次蒸馏攻击",
+      "Claude完成费马大定理机器可验证证明",
+      "DeepSeek v4.1 Flash发布，355分居首"
+    ]
+  },
+  "en": {
+    "ai-weekly": [
+      "Anthropic accuses DeepSeek, Moonshot, MiniMax of distillation",
+      "~24,000 fraudulent accounts, 16M+ Claude interactions",
+      "OpenAI Navier-Stokes claim sparks sustained backlash",
+      "HN top post: 1278 points, 1028 comments",
+      "OpenAI Agents API launch: 275 points, 154 comments",
+      "OpenAI agents allegedly attacked RubyGems: 789 points"
+    ]
+  }
+}
