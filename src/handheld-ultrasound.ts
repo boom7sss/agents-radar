@@ -136,6 +136,26 @@ const OPEN_SOURCE_PROJECTS = [
   { repo: "Project-MONAI/MONAILabel", name: "MONAI Label" },
 ];
 
+/**
+ * Keep the product card from turning into a feed of routine dependency
+ * patches. Major/minor milestones still go to the editor; patch releases only
+ * qualify when their own notes signal an urgent compatibility or security
+ * impact that a product team should not miss.
+ */
+export function isSubstantiveOpenSourceRelease(
+  tag: string,
+  name: string,
+  body: string | null | undefined,
+): boolean {
+  const version = tag.match(/^v?(\d+)\.(\d+)\.(\d+)(?:[-+].*)?$/i);
+  if (version && Number(version[3]) === 0) return true;
+
+  const notes = `${name}\n${body ?? ""}`.toLocaleLowerCase();
+  return /\b(cve-\d+|critical|security advisory|breaking change|data loss|remote code execution)\b/.test(
+    notes,
+  );
+}
+
 function emptyState(): HandheldUltrasoundState {
   return { initializedSources: [], seenUrls: {}, pageHashes: {}, seenReleases: {}, pendingItems: [] };
 }
@@ -277,6 +297,7 @@ async function fetchOpenSourceReleases(state: HandheldUltrasoundState): Promise<
         const key = `${repo}@${release.tag_name}`;
         if (state.seenReleases[key]) return null;
         state.seenReleases[key] = release.published_at;
+        if (!isSubstantiveOpenSourceRelease(release.tag_name, release.name, release.body)) return null;
         return {
           title: `${name} ${release.name || release.tag_name}`,
           url: `https://github.com/${repo}/releases/tag/${encodeURIComponent(release.tag_name)}`,

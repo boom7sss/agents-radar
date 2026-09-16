@@ -144,14 +144,17 @@ export function buildPaperPicksMessage(date: string, picks: PaperPick[]): string
   return lines.join("\n");
 }
 
-export function buildHandheldUltrasoundMessage(date: string, picks: HandheldUltrasoundPick[]): string {
-  const lines = [`🩺 **掌上超声产品与交互 · ${date}**`];
+export function buildHandheldUltrasoundMessage(_date: string, picks: HandheldUltrasoundPick[]): string {
+  const lines = ["以下内容已按掌超项目相关性筛选，无需打开链接也能判断是否值得跟进。"];
 
   for (const [index, pick] of picks.entries()) {
     lines.push("");
     lines.push(`${index + 1}. **${pick.title}** · \`${pick.category}\``);
-    lines.push(`   开发价值：${pick.why}`);
-    lines.push(`   [来源：${pick.source}](${pick.url})`);
+    lines.push(`   **这是什么：** ${pick.context}`);
+    lines.push(`   **和你的项目有什么关系：** ${pick.relevance}`);
+    lines.push(`   **建议：** ${pick.action}`);
+    const linkLabel = pick.kind === "open-source-release" ? "查看版本说明" : "查看官方更新";
+    lines.push(`   [${linkLabel}](${pick.url}) · 来源：${pick.source}`);
   }
 
   return lines.join("\n");

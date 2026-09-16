@@ -681,11 +681,14 @@ async function main(): Promise<void> {
             const candidate = candidatesByUrl.get(pick?.url);
             return (
               typeof pick?.title === "string" &&
-              typeof pick?.why === "string" &&
+              typeof pick?.context === "string" &&
+              typeof pick?.relevance === "string" &&
+              typeof pick?.action === "string" &&
               typeof pick?.category === "string" &&
               handheldCategories.has(pick.category) &&
               typeof pick?.source === "string" &&
-              candidate?.source === pick.source
+              candidate?.source === pick.source &&
+              candidate?.kind === pick.kind
             );
           })
           .slice(0, 2);
@@ -717,8 +720,10 @@ async function main(): Promise<void> {
       "",
       ...handheldPicks.picks.flatMap((pick, index) => [
         `${index + 1}. **${pick.title}** · \`${pick.category}\``,
-        `   **开发价值：** ${pick.why}`,
-        `   [来源：${pick.source}](${pick.url})`,
+        `   **这是什么：** ${pick.context}`,
+        `   **和你的项目有什么关系：** ${pick.relevance}`,
+        `   **建议：** ${pick.action}`,
+        `   [${pick.kind === "open-source-release" ? "查看版本说明" : "查看官方更新"}](${pick.url}) · 来源：${pick.source}`,
         "",
       ]),
     ].join("\n");

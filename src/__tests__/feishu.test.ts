@@ -145,15 +145,21 @@ describe("buildFeishuMessage", () => {
     const msg = buildHandheldUltrasoundMessage("2026-09-09", [
       {
         title: "Vscan Air 新增 DICOMweb 配置",
-        why: "可直接参考移动端检查上传和错误反馈流程。",
+        context: "Vscan Air 是掌上超声产品，本次新增检查上传配置。",
+        relevance: "可参考移动端检查上传和错误反馈流程。",
+        action: "设计云端上传流程时对照其交互。",
         category: "工程集成",
         source: "GE HealthCare Vscan Air",
         url: "https://example.com/vscan-dicomweb",
+        kind: "official-update",
       },
     ]);
-    expect(msg).toContain("掌上超声产品与交互");
+    expect(msg).not.toContain("掌上超声产品与交互");
     expect(msg).toContain("`工程集成`");
-    expect(msg).toContain("开发价值：");
-    expect(msg).toContain("[来源：GE HealthCare Vscan Air]");
+    expect(msg).toContain("这是什么：");
+    expect(msg).toContain("和你的项目有什么关系：");
+    expect(msg).toContain("建议：");
+    expect(msg).toContain("[查看官方更新]");
+    expect(msg).toContain("来源：GE HealthCare Vscan Air");
   });
 });

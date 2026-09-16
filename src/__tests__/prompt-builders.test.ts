@@ -476,6 +476,11 @@ describe("buildHandheldUltrasoundPrompt", () => {
     expect(result).toContain("Lumify adds a guided scanning workflow");
     expect(result).toContain("DICOM/PACS");
     expect(result).toContain("跳过商业地区扩张、融资、奖项");
+    expect(result).toContain("无需打开链接");
+    expect(result).toContain("例行补丁、构建/依赖更新");
+    expect(result).toContain('"context"');
+    expect(result).toContain('"relevance"');
+    expect(result).toContain('"action"');
     expect(result).toContain('{"picks":[]}');
   });
 });
