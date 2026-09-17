@@ -47,6 +47,17 @@ const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.CV", "eess.IV", "q-bio.QM", "
 const FOCUSED_SEARCH =
   "all:ultrasound AND (all:carotid OR all:vascular OR all:segmentation OR all:localization OR all:detection OR all:handheld OR all:POCUS)";
 
+/** Ultrasound restoration and reconstruction work can sit outside cs.CV. */
+const ULTRASOUND_RECONSTRUCTION_SEARCH =
+  '(all:ultrasound OR all:sonography) AND (all:"super resolution" OR all:super-resolution OR all:reconstruction OR all:beamforming OR all:denoising OR all:enhancement OR all:"inverse problem")';
+
+/**
+ * Favor deployment papers with a medical-imaging or ultrasound connection;
+ * generic compression work remains available through the main AI categories.
+ */
+const EDGE_DEPLOYMENT_SEARCH =
+  '(all:ultrasound OR all:"medical imaging" OR all:"medical image") AND (all:"model compression" OR all:quantization OR all:pruning OR all:distillation OR all:"lightweight model" OR all:"edge deployment" OR all:"on-device" OR all:"efficient inference")';
+
 /**
  * Related work around causal bias often uses broader medical-imaging language
  * rather than naming ultrasound in the title. Fetch that intersection without
@@ -79,6 +90,28 @@ const CAUSAL_ROBUSTNESS_TERMS = [
   "test-time adaptation",
   "out-of-distribution",
   "ood",
+];
+
+const RECONSTRUCTION_TERMS = [
+  "super resolution",
+  "super-resolution",
+  "image reconstruction",
+  "ultrasound reconstruction",
+  "beamforming",
+  "inverse problem",
+  "denoising",
+];
+
+const EDGE_DEPLOYMENT_TERMS = [
+  "model compression",
+  "quantization",
+  "pruning",
+  "knowledge distillation",
+  "lightweight model",
+  "edge deployment",
+  "on-device",
+  "efficient inference",
+  "mobile deployment",
 ];
 
 /** Delay between requests (ArXiv asks for 3s). */
@@ -156,6 +189,8 @@ export async function fetchArxivData(): Promise<ArxivData> {
   const searches = [
     ...CATEGORIES.map((category) => ({ label: category, query: `cat:${category}` })),
     { label: "focused-ultrasound", query: FOCUSED_SEARCH },
+    { label: "focused-ultrasound-reconstruction", query: ULTRASOUND_RECONSTRUCTION_SEARCH },
+    { label: "focused-edge-deployment", query: EDGE_DEPLOYMENT_SEARCH },
     { label: "focused-causal-robustness", query: CAUSAL_ROBUSTNESS_SEARCH },
   ];
 
@@ -211,10 +246,14 @@ export async function fetchArxivData(): Promise<ArxivData> {
   const isFocused = (paper: ArxivPaper): boolean => {
     const text = `${paper.title} ${paper.summary}`.toLocaleLowerCase();
     const isUltrasoundFocused = ULTRASOUND_FOCUS_TERMS.some((term) => text.includes(term));
+    const isMedicalImaging = MEDICAL_IMAGING_TERMS.some((term) => text.includes(term));
     const isCausalMedicalImaging =
-      MEDICAL_IMAGING_TERMS.some((term) => text.includes(term)) &&
-      CAUSAL_ROBUSTNESS_TERMS.some((term) => text.includes(term));
-    return isUltrasoundFocused || isCausalMedicalImaging;
+      isMedicalImaging && CAUSAL_ROBUSTNESS_TERMS.some((term) => text.includes(term));
+    const isReconstructionFocused =
+      isUltrasoundFocused && RECONSTRUCTION_TERMS.some((term) => text.includes(term));
+    const isDeploymentFocused =
+      (isUltrasoundFocused || isMedicalImaging) && EDGE_DEPLOYMENT_TERMS.some((term) => text.includes(term));
+    return isUltrasoundFocused || isCausalMedicalImaging || isReconstructionFocused || isDeploymentFocused;
   };
   const papers = [...candidates.filter(isFocused), ...candidates.filter((paper) => !isFocused(paper))].slice(
     0,

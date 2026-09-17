@@ -447,6 +447,12 @@ describe("buildPaperPicksPrompt", () => {
     expect(result).toContain("域偏移、数据集偏置与伪相关");
     expect(result).toContain("因果表征/干预");
     expect(result).toContain("只有“因果”标签却缺少明确干预");
+    expect(result).toContain("超声图像超分辨率、去噪、增强与重建");
+    expect(result).toContain("RF/IQ/通道数据");
+    expect(result).toContain("掌上超声算法的小型化与端侧部署");
+    expect(result).toContain("移动 NPU/ARM 推理");
+    expect(result).toContain("真实硬件上的延迟/FPS、内存、功耗");
+    expect(result).toContain("只有 FLOPs 或参数下降");
     expect(result).toContain("其他方向出现足够强的工作也应入选");
   });
 });
