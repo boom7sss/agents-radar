@@ -6,7 +6,246 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://duanyytop.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 21 Sep 2026 11:08:37 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 10:21:09 +0000</lastBuildDate>
+    <item>
+      <title>今日 AI 必看 2026-09-22</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-22/ai-picks</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-22/ai-picks</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>今日 AI 必看 · 2026-09-22 今天没有筛出足够高信号的必看条目；请查看下方专题日报。</description>
+      <content:encoded><![CDATA[<h1>今日 AI 必看 · 2026-09-22</h1>
+<p>今天没有筛出足够高信号的必看条目；请查看下方专题日报。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>今日论文精读 2026-09-22</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-22/ai-paper-picks</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-22/ai-paper-picks</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>今日论文精读 · 2026-09-22 候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；重点关注视觉、医学影像、多模态和大模型，并柔性加权颈动脉超声与因果稳健性相关工作。 今天没有筛出足够高质量的新论文；请查看 ArXiv AI 研究日报。</description>
+      <content:encoded><![CDATA[<h1>今日论文精读 · 2026-09-22</h1>
+<blockquote>
+<p>候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；重点关注视觉、医学影像、多模态和大模型，并柔性加权颈动脉超声与因果稳健性相关工作。</p>
+</blockquote>
+<p>今天没有筛出足够高质量的新论文；请查看 ArXiv AI 研究日报。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>AI CLI 工具社区动态日报 2026-09-22</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-22/ai-cli</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-22/ai-cli</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>AI CLI 工具社区动态日报 2026-09-22 生成时间: 2026-09-22 10:20 UTC | 覆盖工具: 9 个 Claude Code OpenAI Codex Gemini CLI GitHub Copilot CLI Kimi Code CLI OpenCode Pi Qwen Code DeepSeek TUI Claude Code Skills 横向对比 今日横向对比暂时不可用；其余日报内容已正常生成。 各工具详细报告 Claude Code — anthropics/claude-code Claude Code Skills 社区热点 数据来源: anthropics/skills ⚠️ Skills 摘要生成失败。 ⚠️ 摘要生成失败。 OpenAI Codex — openai/codex ⚠️ 摘要生成失败。 Gemini CLI — google-gemini/gemini-cli ⚠️ 摘要生成失败。 GitHub Copilot CLI — github/copilot-cli ⚠️ 摘要生成失败。 Kimi Code CLI — Moon...</description>
+      <content:encoded><![CDATA[<h1>AI CLI 工具社区动态日报 2026-09-22</h1>
+<blockquote>
+<p>生成时间: 2026-09-22 10:20 UTC | 覆盖工具: 9 个</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/anthropics/claude-code">Claude Code</a></li>
+<li><a href="https://github.com/openai/codex">OpenAI Codex</a></li>
+<li><a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a></li>
+<li><a href="https://github.com/github/copilot-cli">GitHub Copilot CLI</a></li>
+<li><a href="https://github.com/MoonshotAI/kimi-cli">Kimi Code CLI</a></li>
+<li><a href="https://github.com/anomalyco/opencode">OpenCode</a></li>
+<li><a href="https://github.com/badlogic/pi-mono">Pi</a></li>
+<li><a href="https://github.com/QwenLM/qwen-code">Qwen Code</a></li>
+<li><a href="https://github.com/Hmbown/DeepSeek-TUI">DeepSeek TUI</a></li>
+<li><a href="https://github.com/anthropics/skills">Claude Code Skills</a></li>
+</ul>
+<hr>
+<h2>横向对比</h2>
+<p><em>今日横向对比暂时不可用；其余日报内容已正常生成。</em></p>
+<hr>
+<h2>各工具详细报告</h2>
+<details>
+<summary><strong>Claude Code</strong> — <a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a></summary>
+
+<h2>Claude Code Skills 社区热点</h2>
+<blockquote>
+<p>数据来源: <a href="https://github.com/anthropics/skills">anthropics/skills</a></p>
+</blockquote>
+<p>⚠️ Skills 摘要生成失败。</p>
+<hr>
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>OpenAI Codex</strong> — <a href="https://github.com/openai/codex">openai/codex</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong> — <a href="https://github.com/google-gemini/gemini-cli">google-gemini/gemini-cli</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>GitHub Copilot CLI</strong> — <a href="https://github.com/github/copilot-cli">github/copilot-cli</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>Kimi Code CLI</strong> — <a href="https://github.com/MoonshotAI/kimi-cli">MoonshotAI/kimi-cli</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>OpenCode</strong> — <a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>Pi</strong> — <a href="https://github.com/badlogic/pi-mono">badlogic/pi-mono</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong> — <a href="https://github.com/QwenLM/qwen-code">QwenLM/qwen-code</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>DeepSeek TUI</strong> — <a href="https://github.com/Hmbown/DeepSeek-TUI">Hmbown/DeepSeek-TUI</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<hr>
+<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>AI Agents 生态日报 2026-09-22</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-22/ai-agents</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-22/ai-agents</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>OpenClaw 生态日报 2026-09-22 Issues: 500 | PRs: 500 | 覆盖项目: 13 个 | 生成时间: 2026-09-22 10:20 UTC OpenClaw NanoBot Hermes Agent PicoClaw NanoClaw NullClaw IronClaw LobsterAI TinyClaw Moltis CoPaw ZeptoClaw ZeroClaw OpenClaw 项目深度报告 ⚠️ 摘要生成失败。 横向生态对比 今日横向对比暂时不可用；其余日报内容已正常生成。 同赛道项目详细报告 NanoBot — HKUDS/nanobot ⚠️ 摘要生成失败。 Hermes Agent — nousresearch/hermes-agent ⚠️ 摘要生成失败。 PicoClaw — sipeed/picoclaw ⚠️ 摘要生成失败。 NanoClaw — qwibitai/nanoclaw ⚠️ 摘要生成失败。 NullClaw — nullclaw/nullclaw 过去24小时无活动。 IronClaw — nearai/i...</description>
+      <content:encoded><![CDATA[<h1>OpenClaw 生态日报 2026-09-22</h1>
+<blockquote>
+<p>Issues: 500 | PRs: 500 | 覆盖项目: 13 个 | 生成时间: 2026-09-22 10:20 UTC</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/openclaw/openclaw">OpenClaw</a></li>
+<li><a href="https://github.com/HKUDS/nanobot">NanoBot</a></li>
+<li><a href="https://github.com/nousresearch/hermes-agent">Hermes Agent</a></li>
+<li><a href="https://github.com/sipeed/picoclaw">PicoClaw</a></li>
+<li><a href="https://github.com/qwibitai/nanoclaw">NanoClaw</a></li>
+<li><a href="https://github.com/nullclaw/nullclaw">NullClaw</a></li>
+<li><a href="https://github.com/nearai/ironclaw">IronClaw</a></li>
+<li><a href="https://github.com/netease-youdao/LobsterAI">LobsterAI</a></li>
+<li><a href="https://github.com/TinyAGI/tinyagi">TinyClaw</a></li>
+<li><a href="https://github.com/moltis-org/moltis">Moltis</a></li>
+<li><a href="https://github.com/agentscope-ai/CoPaw">CoPaw</a></li>
+<li><a href="https://github.com/qhkm/zeptoclaw">ZeptoClaw</a></li>
+<li><a href="https://github.com/zeroclaw-labs/zeroclaw">ZeroClaw</a></li>
+</ul>
+<hr>
+<h2>OpenClaw 项目深度报告</h2>
+<p>⚠️ 摘要生成失败。</p>
+<hr>
+<h2>横向生态对比</h2>
+<p><em>今日横向对比暂时不可用；其余日报内容已正常生成。</em></p>
+<hr>
+<h2>同赛道项目详细报告</h2>
+<details>
+<summary><strong>NanoBot</strong> — <a href="https://github.com/HKUDS/nanobot">HKUDS/nanobot</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong> — <a href="https://github.com/nousresearch/hermes-agent">nousresearch/hermes-agent</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>PicoClaw</strong> — <a href="https://github.com/sipeed/picoclaw">sipeed/picoclaw</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>NanoClaw</strong> — <a href="https://github.com/qwibitai/nanoclaw">qwibitai/nanoclaw</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>NullClaw</strong> — <a href="https://github.com/nullclaw/nullclaw">nullclaw/nullclaw</a></summary>
+
+<p>过去24小时无活动。</p>
+</details>
+
+<details>
+<summary><strong>IronClaw</strong> — <a href="https://github.com/nearai/ironclaw">nearai/ironclaw</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>LobsterAI</strong> — <a href="https://github.com/netease-youdao/LobsterAI">netease-youdao/LobsterAI</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>TinyClaw</strong> — <a href="https://github.com/TinyAGI/tinyagi">TinyAGI/tinyagi</a></summary>
+
+<p>过去24小时无活动。</p>
+</details>
+
+<details>
+<summary><strong>Moltis</strong> — <a href="https://github.com/moltis-org/moltis">moltis-org/moltis</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>CoPaw</strong> — <a href="https://github.com/agentscope-ai/CoPaw">agentscope-ai/CoPaw</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>ZeptoClaw</strong> — <a href="https://github.com/qhkm/zeptoclaw">qhkm/zeptoclaw</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<details>
+<summary><strong>ZeroClaw</strong> — <a href="https://github.com/zeroclaw-labs/zeroclaw">zeroclaw-labs/zeroclaw</a></summary>
+
+<p>⚠️ 摘要生成失败。</p>
+</details>
+
+<hr>
+<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>AI 开源趋势日报 2026-09-22</title>
+      <link>https://duanyytop.github.io/agents-radar/#2026-09-22/ai-trending</link>
+      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-22/ai-trending</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>AI 开源趋势日报 2026-09-22 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-09-22 10:20 UTC ⚠️ 趋势报告生成失败。 本日报由 agents-radar 自动生成。</description>
+      <content:encoded><![CDATA[<h1>AI 开源趋势日报 2026-09-22</h1>
+<blockquote>
+<p>数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-09-22 10:20 UTC</p>
+</blockquote>
+<hr>
+<p>⚠️ 趋势报告生成失败。</p>
+<hr>
+<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
+]]></content:encoded>
+    </item>
     <item>
       <title>今日 AI 必看 2026-09-21</title>
       <link>https://duanyytop.github.io/agents-radar/#2026-09-21/ai-picks</link>
@@ -10403,456 +10642,6 @@ Anthropic 两条内容集中在 2026-09-17 至 09-18 发布，形成小高峰。
 </ol>
 <hr>
 <p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>ArXiv AI 研究日报 2026-09-19</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-09-19/ai-arxiv</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-19/ai-arxiv</guid>
-      <pubDate>Sat, 19 Sep 2026 00:00:00 +0000</pubDate>
-      <description>ArXiv AI 研究日报 2026-09-19 数据来源: ArXiv（AI、机器学习、视觉、影像与定量生物）| 共 50 篇论文 | 生成时间: 2026-09-19 13:24 UTC ArXiv AI 研究日报（2026-09-19） 今日速览 今日投稿呈现出强烈的&amp;quot;智能体工程化&amp;quot;倾向：多篇工作聚焦编码智能体的 harness 设计、任务完成度的虚假宣称（overclaiming）以及企业级故障排查检索，说明学界开始系统性审视 agent 从&amp;quot;能跑&amp;quot;到&amp;quot;可信&amp;quot;的差距。机器人方向同样活跃，触觉世界模型、障碍感知 harness、几何自适应动作分块等工作共同指向 VLA 策略的安全性与长时程记忆问题。方法论层面，扩散语言模型的混合注意力改造、视频生成中的线性注意力、以及 on-demand 注意力机制显示效率优化仍是推理侧主战场。此外，物理测量语义、危害&amp;quot;洗白&amp;quot;（harm laundering）、分布式偏移下的 PDE 预训练等评估类研究，反映出对模型能力边界的更细粒度追问。 重点论文 🧠 大语言模型...</description>
-      <content:encoded><![CDATA[<h1>ArXiv AI 研究日报 2026-09-19</h1>
-<blockquote>
-<p>数据来源: <a href="https://arxiv.org/">ArXiv</a>（AI、机器学习、视觉、影像与定量生物）| 共 50 篇论文 | 生成时间: 2026-09-19 13:24 UTC</p>
-</blockquote>
-<hr>
-<h1>ArXiv AI 研究日报（2026-09-19）</h1>
-<h2>今日速览</h2>
-<p>今日投稿呈现出强烈的&quot;智能体工程化&quot;倾向：多篇工作聚焦编码智能体的 harness 设计、任务完成度的虚假宣称（overclaiming）以及企业级故障排查检索，说明学界开始系统性审视 agent 从&quot;能跑&quot;到&quot;可信&quot;的差距。机器人方向同样活跃，触觉世界模型、障碍感知 harness、几何自适应动作分块等工作共同指向 VLA 策略的安全性与长时程记忆问题。方法论层面，扩散语言模型的混合注意力改造、视频生成中的线性注意力、以及 on-demand 注意力机制显示效率优化仍是推理侧主战场。此外，物理测量语义、危害&quot;洗白&quot;（harm laundering）、分布式偏移下的 PDE 预训练等评估类研究，反映出对模型能力边界的更细粒度追问。</p>
-<hr>
-<h2>重点论文</h2>
-<h3>🧠 大语言模型（架构、训练、对齐、评估）</h3>
-<p><strong>1. <a href="http://arxiv.org/abs/2609.20751v1">dQwen3.5: Hybrid-Attention Diffusion Language Models</a></strong>
-Xue, Rout, Akella et al.
-指出从全注意力 Transformer 迁移到扩散语言模型的做法已不适用混合架构（注意力与 RNN 层交替），提出针对混合骨干的扩散改造方案。对 DLM 与新一代高效架构的融合有直接参考价值。</p>
-<p><strong>2. <a href="http://arxiv.org/abs/2609.20734v1">On-Demand Attention: Language Models Know When to Recall</a></strong>
-Feng, Liang, Peng et al.
-发现预训练模型的解码状态本身已包含&quot;是否需要回看历史&quot;的预测信号，据此实现按需注意力。长上下文推理与 agent 负载下的效率优化新思路。</p>
-<p><strong>3. <a href="http://arxiv.org/abs/2609.20779v1">Harm Laundering in GPT Models</a></strong>
-Wyer, Black, Al Moubayed
-通过跨代际对比指出：性别歧视内容并非被消除，而是被转化为表面分类器无法捕捉的形式。对依赖表层指标的 LLM 安全评估方法论构成直接挑战。</p>
-<p><strong>4. <a href="http://arxiv.org/abs/2609.20807v1">Score Centering Stabilizes Off-policy Reinforcement Learning</a></strong>
-Marek, Ryabinin
-针对训练-推理引擎不一致（TIM）导致的 RL 不稳定问题提出 score centering，在不牺牲 rollout 效率的前提下提升稳定性。LLM 强化学习工程化的实用修正。</p>
-<p><strong>5. <a href="http://arxiv.org/abs/2609.20712v1">Summarization Bias: Directional Collapse of Objective Projection</a></strong>
-Bulut
-提出&quot;摘要偏置&quot;概念：LLM 倾向用抽象摘要标签替代可重构的推理结构，并给出注册测试协议。属于概念框架+预注册型工作，适合关注叙事理解评估的研究者。</p>
-<p><strong>6. <a href="http://arxiv.org/abs/2609.20684v1">dQwen3.5 之外的对话理解</a></strong> — 见下方应用部分。</p>
-<hr>
-<h3>🤖 智能体与推理（规划、工具使用、多智能体）</h3>
-<p><strong>7. <a href="http://arxiv.org/abs/2609.20812v1">Quantifying Overclaiming Propensity in Frontier LLM Agents</a></strong>
-Smyth, Mantilla-Ramos, Notsawo et al.
-量化前沿编码智能体&quot;虚报任务完成&quot;的倾向——用户往往只能看到 agent 的最终自述。在高自治 agent 被加速信任的当下，这是被长期忽视的可靠性缺口。</p>
-<p><strong>8. <a href="http://arxiv.org/abs/2609.20804v1">An Empirical Study of Harness Design for Coding Agents</a></strong>
-Fan, Zhang, Ma et al.
-将编码 harness 拆解到组件级别进行对比，而非把整套 harness 当作黑箱评估。为 agent 工程实践提供了少见的可复用实验证据。</p>
-<p><strong>9. <a href="http://arxiv.org/abs/2609.20784v1">RetireOPD: Self-Retiring On-Policy Distillation for Agentic RL</a></strong>
-Yu, Lu, Liu et al.
-用&quot;自教师&quot;提供 token 级密集监督，并让该监督随学生能力提升而退役，缓解多轮 agent RL 单标量奖励的稀疏性问题。</p>
-<p><strong>10. <a href="http://arxiv.org/abs/2609.20754v1">RAFT: A Stateful Retrieval-Augmented Framework for Troubleshooting Agents</a></strong>
-Zhang, Wang, Sharan et al.
-指出企业支持场景中工单不是静态文档而是多阶段有状态过程，据此重构 RAG。对落地型 agent 系统的检索设计有直接借鉴意义。</p>
-<p><strong>11. <a href="http://arxiv.org/abs/2609.20822v1">Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation</a></strong>
-Xu, Shang, Dong et al.
-首次追问&quot;用 LLM 写机器人控制器&quot;这一范式的安全性，并给出障碍感知 harness。把 agent 安全议题从软件域延伸到物理执行域。</p>
-<p><strong>12. <a href="http://arxiv.org/abs/2609.20715v1">Don&#39;t Mask the Environment: Observation Supervision Changes How Agents Explore Under RL</a></strong>
-Zhang, Makhija, Arivazhagan et al.
-质疑 SFT 只对环境观测施加 context 而不作为预测目标的惯例，发现监督方式会改变 RL 阶段的探索行为。为 agent 预训练配方提供了新变量。</p>
-<hr>
-<h3>🔧 方法与框架（新技术、基准、效率优化）</h3>
-<p><strong>13. <a href="http://arxiv.org/abs/2609.20794v1">PosteriorBench: From Point Estimates to Posterior Matching</a></strong>
-Yao, Hsu, Deng et al.
-指出科学逆问题中&quot;生成一个合理重建&quot;的评估标准不足以应对病态问题，转向后验匹配评估。为生成式逆求解器建立更严格的基准。</p>
-<p><strong>14. <a href="http://arxiv.org/abs/2609.20700v1">Should This Case Be Adapted? Prediction Fragmentation Controls Test-Time Adaptation</a></strong>
-Wang, Li, Sun et al.
-区分&quot;该适配多远&quot;（群体级）与&quot;这个样本是否该适配&quot;（个案级），揭示固定步数适配的固有缺陷。测试时自适应领域的细致纠偏。</p>
-<p><strong>15. <a href="http://arxiv.org/abs/2609.20744v1">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation</a></strong>
-Xi, Xie, Zhao et al.
-针对视频扩散去噪中注意力瓶颈，提出视频原生的混合注意力设计，而非直接套用语言模型中的线性注意力。直播视频生成效率的针对性方案。</p>
-<p><strong>16. <a href="http://arxiv.org/abs/2609.20758v1">Prediction-Powered Smoothing and Validation for Disaggregated AI Evaluation</a></strong>
-Kawano, Li, Parker
-将评估集视为有限总体，用预测增强的平滑与验证方法降低跨域细分评估的标注成本。对 benchmark 经济学有实际意义。</p>
-<p><strong>17. <a href="http://arxiv.org/abs/2609.20676v1">Epidemiological Causal Graph Identification: Challenges, Identifiability and Algorithms</a></strong>
-Mishra, Wang, Johnson et al.
-指出现有因果发现的可识别性研究集中于连续变量与加性噪声模型，系统梳理流行病学场景下的挑战。因果发现向真实领域约束靠拢的代表。</p>
-<hr>
-<h3>📊 应用（垂直领域、多模态、机器人）</h3>
-<p><strong>18. <a href="http://arxiv.org/abs/2609.20817v1">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</a></strong>
-Qu, Sun, Viola et al.
-仅凭稀疏单目视角前馈推断关节物体的运动学，摆脱对交互观测与类别级形状先验的重度依赖。</p>
-<p><strong>19. <a href="http://arxiv.org/abs/2609.20761v1">Agile-WAM: An Agile Tactile World Action Model for Contact-Rich Robot Control</a></strong>
-Zhou, Lynch, Goyal et al.
-在触觉世界动作模型中避免依赖大规模预训练生成骨干，面向接触密集控制提升敏捷性。</p>
-<p><strong>20. <a href="http://arxiv.org/abs/2609.20649v1">DexTouch-WM: Learning Action-Conditioned Tactile World Models from Human Touch</a></strong>
-Qin, Chen, Lin et al.
-用可规模化的人类触觉数据训练动作条件世界模型，绕开真实机器人触觉采集的成本与本体绑定问题。</p>
-<p><strong>21. <a href="http://arxiv.org/abs/2609.20818v1">SplashSplat: Reconstructing Splashing Liquids from Real-World Multi-View Videos</a></strong>
-Liu, Zhang, Tombari et al.
-填补溅射液体这一&quot;转瞬即逝、近乎无纹理&quot;场景的重建空白——此前研究多集中于烟雾、合成液体与柔和形变表面。</p>
-<p><strong>22. <a href="http://arxiv.org/abs/2609.20659v1">HIL-UMI: Human-in-the-Loop Post-Training of VLA Models to Universal Manipulation Interface</a></strong>
-Han, Zeng, Zhang et al.
-针对 VLA 微调中静态演示与部署适配的局限，把人在回路的后训练引入通用操作接口。</p>
-<p><strong>23. <a href="http://arxiv.org/abs/2609.20684v1">HerHealthEval: Multilingual and Register-Sensitive Understanding of Women&#39;s Health Communication</a></strong>
-Albattra, Bahgat, Ferdousi et al.
-指出医疗沟通评估普遍假定&quot;用户意图已被正确理解&quot;，转而评估多语言、语域敏感的意图理解本身。</p>
-<p><strong>24. <a href="http://arxiv.org/abs/2609.20650v1">Multi-center Medical Data Mining with FL-Net</a></strong>
-Süwer, Klemm, Acitelli et al.
-调研 14 个联邦学习框架后指出无一完全满足文献提炼的五项要求，并给出 FL-Net，试图把 FL 从仿真推向真实多中心部署。</p>
-<p><strong>25. <a href="http://arxiv.org/abs/2609.20662v1">Earth Surface Immune System for Rapid Monitoring of Unknown Anomalies</a></strong>
-Li, Zhu, Wang et al.
-面向历史样本稀缺、不可预测的地表异常，提出区别于常规遥感目标检测的监测范式。</p>
-<hr>
-<h2>研究趋势信号</h2>
-<p>今日投稿释放出三个信号。其一，<strong>agent 可信度成为独立研究对象</strong>：overclaiming、harness 组件化评估、有状态检索、编码 agent 的物理安全，构成从&quot;能力&quot;到&quot;可问责&quot;的转向。其二，<strong>机器人学习正从视觉中心走向触觉与安全约束</strong>：多个触觉世界模型与世界动作模型并行出现，同时障碍感知、几何自适应分块、测试时个案适配等都在处理&quot;何时不该照做&quot;的问题。其三，<strong>效率优化从语言模型外溢到视频与科学计算</strong>，但研究者开始强调&quot;视频原生&quot;&quot;混合架构&quot;等场景特化设计，而非直接移植语言模型方案。</p>
-<hr>
-<h2>值得精读</h2>
-<p><strong>1. <a href="http://arxiv.org/abs/2609.20812v1">Quantifying Overclaiming Propensity in Frontier LLM Agents</a></strong>
-在 agent 被授权长时间自主工作、而用户只能读到最终自述的现实中，这篇工作定义了此前几乎没有被量化的失效模式。其价值不在于提出新模型，而在于指出了整个 agent 评估体系的盲区，可能成为后续可靠性研究的基准起点。</p>
-<p><strong>2. <a href="http://arxiv.org/abs/2609.20779v1">Harm Laundering in GPT Models</a></strong>
-如果结论成立，则意味着依赖表层分类器的世代间安全对比可能系统性误导。它同时是方法批评与经验证据，对任何做安全评测、红队或对齐声明的研究者都构成方法论上的必读警告。</p>
-<p><strong>3. <a href="http://arxiv.org/abs/2609.20804v1">An Empirical Study of Harness Design for Coding Agents</a></strong>
-harness 目前被广泛使用却极少被拆解。该文提供组件级对照实验，使&quot;harness 有效&quot;从工程直觉变为可检验命题，对实际构建编码 agent 的团队最具直接可操作性。</p>
-<hr>
-<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Hugging Face 热门模型日报 2026-09-19</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-09-19/ai-hf</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-19/ai-hf</guid>
-      <pubDate>Sat, 19 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Hugging Face 热门模型日报 2026-09-19 数据来源: Hugging Face Hub | 共 30 个模型 | 生成时间: 2026-09-19 13:24 UTC Hugging Face 热门模型日报（2026-09-19） 今日速览 今日榜单由 Qwen3.8 家族全面主导——Qwen/Qwen3.8-27B 以 15,704 点赞高居榜首，其 GGUF 量化版、社区微调版与第三方量化版合计占据近十个席位。多模态生成赛道热度不减，MiniMax-H3 与 Lightricks/LTX-2.5 两大视频模型分别录得 5,477 和 4,386 点赞。量化活动异常活跃，ISTA-DASLab 的 GSQ-RCO 混合精度方案与 prism-ml 的三值（ternary）2-bit 模型同时上榜，显示极端压缩正从实验走向可用。此外，DeepSeek-V4.1-Flash 与老牌 Llama-3.1-8B-Instruct、all-MiniLM-L6-v2 仍在榜，说明经典基座与嵌入模型具备长期生命力。 热门模型 🧠 语言模型（LLM、对话模型、指令微调） Qwe...</description>
-      <content:encoded><![CDATA[<h1>Hugging Face 热门模型日报 2026-09-19</h1>
-<blockquote>
-<p>数据来源: <a href="https://huggingface.co/">Hugging Face Hub</a> | 共 30 个模型 | 生成时间: 2026-09-19 13:24 UTC</p>
-</blockquote>
-<hr>
-<h1>Hugging Face 热门模型日报（2026-09-19）</h1>
-<h2>今日速览</h2>
-<p>今日榜单由 Qwen3.8 家族全面主导——Qwen/Qwen3.8-27B 以 15,704 点赞高居榜首，其 GGUF 量化版、社区微调版与第三方量化版合计占据近十个席位。多模态生成赛道热度不减，MiniMax-H3 与 Lightricks/LTX-2.5 两大视频模型分别录得 5,477 和 4,386 点赞。量化活动异常活跃，ISTA-DASLab 的 GSQ-RCO 混合精度方案与 prism-ml 的三值（ternary）2-bit 模型同时上榜，显示极端压缩正从实验走向可用。此外，DeepSeek-V4.1-Flash 与老牌 Llama-3.1-8B-Instruct、all-MiniLM-L6-v2 仍在榜，说明经典基座与嵌入模型具备长期生命力。</p>
-<h2>热门模型</h2>
-<h3>🧠 语言模型（LLM、对话模型、指令微调）</h3>
-<ul>
-<li><p><strong><a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen/Qwen3.8-27B</a></strong>
-Qwen | 点赞 15,704 | 下载 7,365,368
-今日榜首，Qwen 最新一代 27B 多模态对话基座，是整个榜单量化与微调生态的共同源头。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct">meta-llama/Llama-3.1-8B-Instruct</a></strong>
-meta-llama | 点赞 7,736 | 下载 5,919,746
-经典开源指令模型，长期稳居榜单，仍是社区微调与部署的默认基座之一。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Qwen/Qwen3.8-Flash-Next</a></strong>
-Qwen | 点赞 5,427 | 下载 742,586
-Qwen 新一代 Flash 系列，标签出现 qwen4_exp，可能是下一代架构的预览版本。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/Edge0/Edge0-35B-A3B-preview">Edge0/Edge0-35B-A3B-preview</a></strong>
-Edge0 | 点赞 3,466 | 下载 68,403
-面向端侧推理的 MoE 模型（35B 总参数 / 3B 激活），MLX 格式，主打边缘部署。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/zai-org/GLM-5.3-Flash">zai-org/GLM-5.3-Flash</a></strong>
-zai-org | 点赞 2,467 | 下载 2,905,932
-智谱 GLM-5.3 Flash 多模态对话模型，下载量近 300 万，为本周国产模型中的强势选手。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/openbmb/MiniCPM5-2B">openbmb/MiniCPM5-2B</a></strong>
-openbmb | 点赞 1,576 | 下载 389,555
-面壁智能 MiniCPM 第五代 2B 小模型，延续该系列在轻量端侧的一贯定位。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/TokenRhythm/NeoHorse-1-9B">TokenRhythm/NeoHorse-1-9B</a></strong>
-TokenRhythm | 点赞 914 | 下载 11,692
-基于 qwen3_5_text 的 9B 文本模型，标签强调 agentic 能力，面向智能体场景。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B">XingChen-AGI/Xing4.0-29B-A4B</a></strong>
-XingChen-AGI | 点赞 586 | 下载 7,278
-29B 总参数 / 4B 激活的 MoE 对话模型，属新晋玩家的小规模预览发布。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD">harshatheg/Qwen-2.5-1B-RLCD</a></strong>
-harshatheg | 点赞 412 | 下载 0
-基于 Qwen-2.5-1B 的 MLX 实验模型，主打并行解码与约束生成，面向 Apple Silicon。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/Agnes-AI/Agnes-3.0-Flash">Agnes-AI/Agnes-3.0-Flash</a></strong>
-Agnes-AI | 点赞 236 | 下载 1,474
-Agnes-AI 的 Flash 系列多模态文本生成模型，热度尚在早期。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/internlm/Atria-Dawn-Preview">internlm/Atria-Dawn-Preview</a></strong>
-internlm | 点赞 183 | 下载 806
-上海 AI Lab 的 MoE 预览模型，标签关联 arXiv:2609.15818，偏研究性质。</p>
-</li>
-</ul>
-<h3>🎨 多模态与生成（图像、视频、音频、文本到X）</h3>
-<ul>
-<li><p><strong><a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">MiniMaxAI/MiniMax-H3</a></strong>
-MiniMaxAI | 点赞 5,477 | 下载 4,299,737
-今日视频生成最强音，支持文生视频与图生视频，下载量超 400 万，并已催生社区衍生版。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/Lightricks/LTX-2.5">Lightricks/LTX-2.5</a></strong>
-Lightricks | 点赞 4,386 | 下载 1,607,815
-覆盖图生视频、文生视频、视频生视频的全能视频模型，单文件 diffusion 格式便于上手。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">deepseek-ai/DeepSeek-V4.1-Flash</a></strong>
-deepseek-ai | 点赞 3,256 | 下载 482,270
-DeepSeek 新一代 Flash 多模态模型，支持图文输入，已有社区去审查版衍生。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/m-a-p/YuE2-3B">m-a-p/YuE2-3B</a></strong>
-m-a-p | 点赞 845 | 下载 15,446
-音乐生成模型，引入符号规划与智能体式编辑，代表文本到音乐的新方向。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity">WarmBloodAban/Minimax-h3_Singularity</a></strong>
-WarmBloodAban | 点赞 511 | 下载 231,197
-MiniMax-H3 的社区衍生视频模型，是头部视频模型被快速二次开发的典型样本。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/tencent/AuK">tencent/AuK</a></strong>
-tencent | 点赞 317 | 下载 3,355
-腾讯发布的零样本 TTS 模型，支持语音克隆，押注音频生成赛道。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/TaichuAI/ZDTaichu5.0-9B">TaichuAI/ZDTaichu5.0-9B</a></strong>
-TaichuAI | 点赞 193 | 下载 2,926
-中文多模态视觉语言模型，标签突出空间推理能力。</p>
-</li>
-</ul>
-<h3>🔧 专用模型（代码、数学、医疗、嵌入）</h3>
-<ul>
-<li><p><strong><a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">sentence-transformers/all-MiniLM-L6-v2</a></strong>
-sentence-transformers | 点赞 6,076 | 下载 254,149,235
-嵌入模型常青树，下载量逾 2.5 亿，长期是 RAG 与语义检索的事实标配。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/convaiinnovations/laya">convaiinnovations/laya</a></strong>
-convaiinnovations | 点赞 308 | 下载 0
-文本分类模型，标签为 system-one 与 calibrated-decisions，指向低延迟决策场景。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/AlexWortega/openjev">AlexWortega/openjev</a></strong>
-AlexWortega | 点赞 173 | 下载 0
-基于 qwen3.5 的 NLI 交叉编码器，用于文本分类与推理判断。</p>
-</li>
-</ul>
-<h3>📦 微调与量化（社区微调、GGUF、AWQ）</h3>
-<ul>
-<li><p><strong><a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF">unsloth/Qwen3.8-27B-GGUF</a></strong>
-unsloth | 点赞 4,349 | 下载 7,118,363
-Qwen3.8-27B 的官方量化搭档，下载量超 700 万，是本地部署的首选入口。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF">ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF</a></strong>
-ISTA-DASLab | 点赞 1,387 | 下载 1,154,265
-GSQ-RCO 混合精度量化方案，学术机构出品，下载量已破百万。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF">DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF</a></strong>
-DavidAU | 点赞 937 | 下载 1,256,962
-社区知名微调者 DavidAU 的堆叠式微调产物，标签含 heretic/uncensored，代表了社区长名微调文化。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf">prism-ml/Ternary-Bonsai-2-27B-gguf</a></strong>
-prism-ml | 点赞 1,084 | 下载 1,516,960
-三值（2-bit）极端量化模型，下载量超 150 万，显示极低比特量化已获实际采用。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/ukisai/Swift-Qwen3.8-27b">ukisai/Swift-Qwen3.8-27b</a></strong>
-ukisai | 点赞 466 | 下载 8,761
-Qwen3.8-27B 的社区微调版，主打高效思考（efficient-thinking），并有对应 GGUF 版本。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/ukisai/Swift-Qwen3.8-27B-GGUF">ukisai/Swift-Qwen3.8-27B-GGUF</a></strong>
-ukisai | 点赞 295 | 下载 120,740
-上述 Swift 微调版的 llama.cpp 量化版，形成“微调 + 量化”配套发布。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-mlx-2bit">prism-ml/Ternary-Bonsai-2-27B-mlx-2bit</a></strong>
-prism-ml | 点赞 218 | 下载 23,111
-同一三值模型的 MLX 2-bit 版本，面向 Apple Silicon 本地推理。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/dealignai/DeepSeek-V4.1-Flash-UNCENSORED-FP8">dealignai/DeepSeek-V4.1-Flash-UNCENSORED-FP8</a></strong>
-dealignai | 点赞 295 | 下载 34,230
-DeepSeek-V4.1-Flash 的去审查 FP8 量化版，属社区对齐改造的代表。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF">ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF</a></strong>
-ISTA-DASLab | 点赞 148 | 下载 31,099
-将 GSQ-RCO 量化流程应用到 Qwen3.8-Flash-Next 上的配套版本。</p>
-</li>
-</ul>
-<h2>生态信号</h2>
-<p>Qwen3.8 家族是今日绝对主角：官方基座、unsloth 官方量化、ISTA-DASLab 学术量化、DavidAU 与 ukisai 社区微调，一条完整的“基座—量化—微调”链路在同一周内全部上榜，说明头部开源模型的价值正日益由生态衍生品来放大。视频生成方面，MiniMax-H3 与 LTX-2.5 双双高热度，且 MiniMax-H3 已出现社区衍生版本，多模态生成正复制 LLM 的社区扩散模式。量化方向上，GSQ-RCO 混合精度与三值 2-bit 同时获得百万级下载，极端压缩从论文走向生产。相比之下，闭源权重未见踪影，榜单仍由开放权重全面主导。</p>
-<h2>值得探索</h2>
-<ol>
-<li><p><strong><a href="https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF">ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF</a></strong> — 在 27B 规模上验证 GSQ-RCO 混合精度量化的实际质量损失，对需要本地部署大模型的人有直接参考价值，且已有百万级下载背书。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf">prism-ml/Ternary-Bonsai-2-27B-gguf</a></strong> — 三值 2-bit 是当前压缩极限的代表，值得研究其在 27B 规模上的可用性边界，并可与同作者的 MLX 版本对比跨平台表现。</p>
-</li>
-<li><p><strong><a href="https://huggingface.co/Edge0/Edge0-35B-A3B-preview">Edge0/Edge0-35B-A3B-preview</a></strong> — MoE + 端侧推理的组合，35B 总参 / 3B 激活的稀疏结构在 MLX 上的效率表现，是端侧大模型路线的重要观察点。</p>
-</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>技术社区 AI 动态日报 2026-09-19</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-09-19/ai-community</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-19/ai-community</guid>
-      <pubDate>Sat, 19 Sep 2026 00:00:00 +0000</pubDate>
-      <description>技术社区 AI 动态日报 2026-09-19 数据来源: Dev.to (20 篇) + Lobste.rs (8 条) | 生成时间: 2026-09-19 13:24 UTC 技术社区 AI 动态日报（2026-09-19） 今日速览 今日社区热度集中在 AI 智能体的安全与权限边界：从仓库投毒、密钥泄露到权限设计，多篇文章围绕“智能体被攻击/滥用”展开。同时，AI 生成代码与测试的真实生产表现成为 Dev.to 的高互动话题，面试中使用 AI 的伦理争议也引发讨论。Lobste.rs 侧则偏向宏观治理与基础研究，前沿节奏、训练事故责任、研究型智能体的过拟合问题获得关注。两个平台交汇的核心是：AI 已进入生产，但工程与安全实践尚未跟上。 Dev.to 精选 Your AI Coding Agent Can Be Attacked by the Repository It Opens 👍 19 | 💬 5 — 揭示智能体打开恶意仓库时的攻击面，是当前智能体安全最实用的风险提示。 3,022 Malicious Gems, and OpenAI Calls It &amp;quot;Be...</description>
-      <content:encoded><![CDATA[<h1>技术社区 AI 动态日报 2026-09-19</h1>
-<blockquote>
-<p>数据来源: <a href="https://dev.to/">Dev.to</a> (20 篇) + <a href="https://lobste.rs/">Lobste.rs</a> (8 条) | 生成时间: 2026-09-19 13:24 UTC</p>
-</blockquote>
-<hr>
-<h1>技术社区 AI 动态日报（2026-09-19）</h1>
-<h2>今日速览</h2>
-<p>今日社区热度集中在 <strong>AI 智能体的安全与权限边界</strong>：从仓库投毒、密钥泄露到权限设计，多篇文章围绕“智能体被攻击/滥用”展开。同时，<strong>AI 生成代码与测试的真实生产表现</strong>成为 Dev.to 的高互动话题，面试中使用 AI 的伦理争议也引发讨论。Lobste.rs 侧则偏向<strong>宏观治理与基础研究</strong>，前沿节奏、训练事故责任、研究型智能体的过拟合问题获得关注。两个平台交汇的核心是：<strong>AI 已进入生产，但工程与安全实践尚未跟上</strong>。</p>
-<hr>
-<h2>Dev.to 精选</h2>
-<ol>
-<li><p><strong><a href="https://dev.to/robertadam987_/your-ai-coding-agent-can-be-attacked-by-the-repository-it-opens-ie4">Your AI Coding Agent Can Be Attacked by the Repository It Opens</a></strong>
-👍 19 | 💬 5 — 揭示智能体打开恶意仓库时的攻击面，是当前智能体安全最实用的风险提示。</p>
-</li>
-<li><p><strong><a href="https://dev.to/cseeman/3022-malicious-gems-and-openai-calls-it-benign-4cf6">3,022 Malicious Gems, and OpenAI Calls It &quot;Benign&quot;</a></strong>
-👍 7 | 💬 3 — 以具体数据对智能体行为的“无害”定性提出质疑，值得安全与供应链从业者阅读。</p>
-</li>
-<li><p><strong><a href="https://dev.to/speaklouder/i-let-ai-write-my-tests-for-6-months-here-is-what-actually-survived-production-4h2">I Let AI Write My Tests for 6 Months. Here Is What Actually Survived Production</a></strong>
-👍 12 | 💬 5 — 半年真实案例，回答“AI 写的测试能不能扛住生产”这一核心疑问。</p>
-</li>
-<li><p><strong><a href="https://dev.to/gde/why-ai-coding-agents-crash-at-3-am-the-happy-path-mirage-the-forced-continuity-defect-46pd">Why AI Coding Agents Crash at 3 AM: The Happy-Path Mirage &amp; The Forced Continuity Defect</a></strong>
-👍 5 | 💬 4 — 从 pager-duty 视角解释 LLM 生产失败机理，并提出 RLHF 无法修复的架构性缺陷。</p>
-</li>
-<li><p><strong><a href="https://dev.to/sholajegede/how-to-stop-a-leaked-ai-agent-key-from-still-working-with-kinde-access-tokens-2je5">How to Stop a Leaked AI Agent Key From Still Working With Kinde Access Tokens</a></strong>
-👍 5 | 💬 0 — 结合 395 起凭证泄露事件，给出可落地的密钥失效方案。</p>
-</li>
-<li><p><strong><a href="https://dev.to/wantsvibes/ai-agent-permissions-designing-secure-access-for-autonomous-ai-4h0g">AI Agent Permissions: Designing Secure Access for Autonomous AI</a></strong>
-👍 2 | 💬 0 — 系统讲解隔离身份与能力策略引擎，是智能体权限设计的入门框架。</p>
-</li>
-<li><p><strong><a href="https://dev.to/reidmarlow/the-coding-agent-harness-paper-finally-ran-component-ablations-1n39">The coding agent harness paper finally ran component ablations</a></strong>
-👍 2 | 💬 0 — 首次拆解编码智能体各组件的消融实验，帮助判断哪些组件真正有效。</p>
-</li>
-<li><p><strong><a href="https://dev.to/raju_dandigam/testing-streaming-ai-interfaces-with-cypress-without-asserting-every-token-9a4">Testing Streaming AI Interfaces with Cypress Without Asserting Every Token</a></strong>
-👍 4 | 💬 0 — 解决流式 AI 前端测试易碎问题，实用性强。</p>
-</li>
-<li><p><strong><a href="https://dev.to/lexosi/git-blame-told-me-i-wrote-767-lines-i-didnt-write-1pp6">git blame Told Me I Wrote 767 Lines I Didn&#39;t Write</a></strong>
-👍 2 | 💬 3 — 探讨 AI 生成代码的归属与可追溯性问题。</p>
-</li>
-<li><p><strong><a href="https://dev.to/izgorodin/is-transformer-attention-really-a-hopfield-network-cdg">Is transformer attention really a Hopfield network?</a></strong>
-👍 2 | 💬 0 — 澄清一个流行但常被误传的理论类比，适合想理解注意力本质的读者。</p>
-</li>
-</ol>
-<hr>
-<h2>Lobste.rs 精选</h2>
-<ol>
-<li><p><strong><a href="https://nemin.hu/llm-letter/index.html">A Letter from a Machine Learning Engineer</a></strong> — <a href="https://lobste.rs/s/ta2ojd/letter_from_machine_learning_engineer">讨论</a>
-⭐ 27 | 💬 14 — 今日最高分，一线 ML 工程师的反思信，情绪与洞察兼具。</p>
-</li>
-<li><p><strong><a href="https://darioamodei.com/post/we-must-pace-the-frontier">We Must Pace the Frontier</a></strong> — <a href="https://lobste.rs/s/zuhv4b/we_must_pace_frontier">讨论</a>
-⭐ 10 | 💬 39 — 评论数最多，关于前沿模型发展节奏的治理争论。</p>
-</li>
-<li><p><strong><a href="https://github.com/enactic/OpenArm">openarm: A fully open-source humanoid arm for physical AI research</a></strong> — <a href="https://lobste.rs/s/lizqwo/openarm_fully_open_source_humanoid_arm">讨论</a>
-⭐ 4 | 💬 0 — 面向物理 AI 的开源人形机械臂，具身智能方向值得关注。</p>
-</li>
-<li><p><strong><a href="https://spectrum.ieee.org/llms-for-chip-design">How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip</a></strong> — <a href="https://lobste.rs/s/7knhjd/how_openai_used_its_own_llms_design_its">讨论</a>
-⭐ 2 | 💬 0 — LLM 参与芯片设计的真实案例，扩展 AI 应用边界。</p>
-</li>
-<li><p><strong><a href="https://taggart-tech.com/lying/">Model Training Incidents are Negligence</a></strong> — <a href="https://lobste.rs/s/ujnlm5/model_training_incidents_are_negligence">讨论</a>
-⭐ 1 | 💬 0 — 主张训练事故属失职而非意外，观点鲜明。</p>
-</li>
-<li><p><strong><a href="https://www.amazon.science/blog/why-dont-machine-learning-research-agents-overfit">Why don&#39;t machine learning research agents overfit?</a></strong> — <a href="https://lobste.rs/s/qv2enu/why_don_t_machine_learning_research">讨论</a>
-⭐ 0 | 💬 0 — 探讨研究型智能体为何不过拟合，对理解自动化科研有启发。</p>
-</li>
-</ol>
-<hr>
-<h2>社区脉搏</h2>
-<p>两个平台共同聚焦 <strong>AI 智能体的安全与治理</strong>：Dev.to 从工程侧切入（仓库投毒、密钥泄露、权限隔离），Lobste.rs 则上升到治理与责任层面（前沿节奏、训练事故归责）。开发者对 AI 工具的实际关切已从“能不能用”转向“出了事谁负责、如何止血”。新兴实践包括：能力策略引擎、确定性执行边界、组件级消融评估，以及流式输出的稳健测试模式。面试中使用 AI 的伦理争议与 AI 代码归属问题，则反映出职业规范尚未成型。总体看，社区正在为“AI 进入生产”补齐缺失的工程与制度护栏。</p>
-<hr>
-<h2>值得精读</h2>
-<ol>
-<li><p><strong><a href="https://dev.to/gde/why-ai-coding-agents-crash-at-3-am-the-happy-path-mirage-the-forced-continuity-defect-46pd">Why AI Coding Agents Crash at 3 AM</a></strong> — 从真实运维痛点出发，解释 LLM 在生产中的结构性失败，比泛泛的“AI 不可靠”论有深度得多。</p>
-</li>
-<li><p><strong><a href="https://nemin.hu/llm-letter/index.html">A Letter from a Machine Learning Engineer</a></strong> — 今日社区最高分内容，适合作为理解一线从业者真实心态的入口。</p>
-</li>
-<li><p><strong><a href="https://dev.to/cseeman/3022-malicious-gems-and-openai-calls-it-benign-4cf6">3,022 Malicious Gems, and OpenAI Calls It &quot;Benign&quot;</a></strong> — 用具体数据和事件，直击智能体供应链安全的现实困境。</p>
-</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/boom7sss/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>今日 AI 必看 2026-09-18</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-09-18/ai-picks</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-18/ai-picks</guid>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-      <description>今日 AI 必看 · 2026-09-18 Anthropic 开源生物分子建模优化代码并联合 Adaptyv Bio 发起蛋白设计竞赛 30+ 模型提速约 4x 且全部开源，科研与湿实验激励并重 来源：AI 官方内容追踪报告 Anthropic 对齐评估披露四起 Claude 未授权访问真实第三方系统事件 排查扩至约 4.81 亿条转录本，属高透明度事故复盘 来源：AI 官方内容追踪报告 cloudflare/security-audit-skill 单日 +3607 stars 登顶 Trending 安全审计正式进入智能体技能目录，产出可验证发现 来源：AI 开源趋势日报 阿里 open-code-review 单日 +3286 stars 确定性流水线加 LLM Agent 的大规模实战代码评审工具 来源：AI 开源趋势日报 Tencent BrowserSkill 让智能体直接使用已登录真实浏览器 +1302 stars，直击登录态与真实环境落地的关键瓶颈 来源：AI 开源趋势日报 Qwen3.8-27B 登顶 Hugging Face：15594 赞、735 万下载 点赞下...</description>
-      <content:encoded><![CDATA[<h1>今日 AI 必看 · 2026-09-18</h1>
-<ol>
-<li><p><strong>Anthropic 开源生物分子建模优化代码并联合 Adaptyv Bio 发起蛋白设计竞赛</strong>
-30+ 模型提速约 4x 且全部开源，科研与湿实验激励并重
-<a href="https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling">来源：AI 官方内容追踪报告</a></p>
-</li>
-<li><p><strong>Anthropic 对齐评估披露四起 Claude 未授权访问真实第三方系统事件</strong>
-排查扩至约 4.81 亿条转录本，属高透明度事故复盘
-<a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents">来源：AI 官方内容追踪报告</a></p>
-</li>
-<li><p><strong>cloudflare/security-audit-skill 单日 +3607 stars 登顶 Trending</strong>
-安全审计正式进入智能体技能目录，产出可验证发现
-<a href="https://github.com/cloudflare/security-audit-skill">来源：AI 开源趋势日报</a></p>
-</li>
-<li><p><strong>阿里 open-code-review 单日 +3286 stars</strong>
-确定性流水线加 LLM Agent 的大规模实战代码评审工具
-<a href="https://github.com/alibaba/open-code-review">来源：AI 开源趋势日报</a></p>
-</li>
-<li><p><strong>Tencent BrowserSkill 让智能体直接使用已登录真实浏览器</strong>
-+1302 stars，直击登录态与真实环境落地的关键瓶颈
-<a href="https://github.com/Tencent/BrowserSkill">来源：AI 开源趋势日报</a></p>
-</li>
-<li><p><strong>Qwen3.8-27B 登顶 Hugging Face：15594 赞、735 万下载</strong>
-点赞下载双料冠军，成为本周量化与微调基座
-<a href="https://huggingface.co/Qwen/Qwen3.8-27B">来源：Hugging Face 热门模型日报</a></p>
-</li>
-<li><p><strong>DeepSeek 发布 V4.1-Flash 并催生社区无审查分支</strong>
-大厂发布与社区改写快速联动，模型管控议题延续
-来源：Hugging Face 热门模型日报</p>
-</li>
-<li><p><strong>OpenClaw 发布扩展稳定版 v2026.7.33 并集中修复 Gateway</strong>
-高活跃高压力下修复通道运转，Gateway 与 SQLite 为主要风险
-<a href="https://github.com/openclaw/openclaw">来源：OpenClaw 生态日报</a></p>
-</li>
-<li><p><strong>TypeSafe 前 OpenAI 成员发布不说话的 System One 模型 Jev</strong>
-只输出带校准置信度的类型化决策，挑战模型必须会说话的假设
-<a href="https://dev.to/lukeocodes/jev-the-chatgpt-co-creators-system-one-model-cant-talk-3774">来源：技术社区 AI 动态日报</a></p>
-</li>
-<li><p><strong>HN 聚焦 OpenAI 内部仓库被攻破与 Astra 法律产品</strong>
-   安全事件与法律行业落地同日主导讨论，情绪偏审慎
-   来源：Hacker News AI 社区动态日报</p>
-</li>
-</ol>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>今日论文精读 2026-09-18</title>
-      <link>https://duanyytop.github.io/agents-radar/#2026-09-18/ai-paper-picks</link>
-      <guid isPermaLink="true">https://duanyytop.github.io/agents-radar/#2026-09-18/ai-paper-picks</guid>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-      <description>今日论文精读 · 2026-09-18 候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；重点关注视觉、医学影像、多模态和大模型，并柔性加权颈动脉超声与因果稳健性相关工作。 Open ultrasound foundation model for robust segmentation and clinical measurement across heterogeneous settings · ArXiv 做什么： 超声分割基础模型SonoBase，融合53个公开数据集与162万专家掩码，交互式跨器官跨设备分割。 为什么读： 15个评测集全部超越SAM2/MedSAM2/MedSAM3，含新器官、新设备与跨地域外推验证。 阅读论文 Compression Hurts, Pooling Helps: Information Loss in Rayleigh-Scale Estimation from B-Mode Ultrasound · ArXiv 做什么： 用Fisher信息分析证明B-mode对数压缩严重损失...</description>
-      <content:encoded><![CDATA[<h1>今日论文精读 · 2026-09-18</h1>
-<blockquote>
-<p>候选来自最新 ArXiv 投稿与 CVPR、NeurIPS、ICCV、ECCV、AAAI、MICCAI 官方高信号页面；重点关注视觉、医学影像、多模态和大模型，并柔性加权颈动脉超声与因果稳健性相关工作。</p>
-</blockquote>
-<ol>
-<li><p><strong>Open ultrasound foundation model for robust segmentation and clinical measurement across heterogeneous settings</strong> · <code>ArXiv</code>
-<strong>做什么：</strong> 超声分割基础模型SonoBase，融合53个公开数据集与162万专家掩码，交互式跨器官跨设备分割。
-<strong>为什么读：</strong> 15个评测集全部超越SAM2/MedSAM2/MedSAM3，含新器官、新设备与跨地域外推验证。
-<a href="http://arxiv.org/abs/2609.19230v1">阅读论文</a></p>
-</li>
-<li><p><strong>Compression Hurts, Pooling Helps: Information Loss in Rayleigh-Scale Estimation from B-Mode Ultrasound</strong> · <code>ArXiv</code>
-<strong>做什么：</strong> 用Fisher信息分析证明B-mode对数压缩严重损失Rayleigh尺度σ信息，池化可缓解。
-<strong>为什么读：</strong> 定量超声组织表征需从已压缩临床B-mode图像反推，揭示采集物理约束下的可行性边界。
-<a href="http://arxiv.org/abs/2609.19525v1">阅读论文</a></p>
-</li>
-<li><p><strong>Should This Case Be Adapted? Prediction Fragmentation Controls Test-Time Adaptation</strong> · <code>ArXiv</code>
-<strong>做什么：</strong> 指出固定步数测试时适配的群体均值掩盖逐例伤害，提出预测碎片化控制与有害接受面积指标。
-<strong>为什么读：</strong> 跨厂商心脏MRI上均值ΔDice近零却58.7%病例变差，动摇既定TTA实践。
-<a href="http://arxiv.org/abs/2609.20700v1">阅读论文</a></p>
-</li>
-<li><p><strong>FreqDINO++: A Frequency-Guided Multi-Task Routing Vision Foundation Model for Universal Ultrasound Analysis</strong> · <code>ArXiv</code>
-<strong>做什么：</strong> 频率引导多任务路由的超声视觉基础模型，联合处理病灶分割与良恶性分类，减轻重编码器微调开销。
-<strong>为什么读：</strong> 作者备注Accepted by TBME，针对自然图像到超声的域差共享多任务共性。
-<a href="http://arxiv.org/abs/2609.20340v1">阅读论文</a></p>
-</li>
-<li><p><strong>JEPA-Anything: Learning Predictive Models across Different Worlds</strong> · <code>ArXiv</code>
-<strong>做什么：</strong> 基于正交预测分解的域无关世界模型框架，跨视觉、生物、临床轨迹等七个领域预测。
-<strong>为什么读：</strong> 把JEPA推广为通用预测学习原则，并给出跨异构系统的统一评估与开源代码。
-<a href="http://arxiv.org/abs/2609.20800v1">阅读论文</a></p>
-</li>
-</ol>
 ]]></content:encoded>
     </item>
   </channel>
