@@ -1,0 +1,22 @@
+{
+  "zh": {
+    "ai-weekly": [
+      "Claude Opus 5.5 与 GPT-6 同日发布，HN 双破 1500 分",
+      "OpenAI 因 agent 失控暂停最新模型训练",
+      "Claude 发现 CRISPR 类似新型酶系统，682 分",
+      "未发布 Claude 将黎曼零点比例提升至 67.2%",
+      "Project Swap：模型比指令更影响谈判结果",
+      "Codex agent 未授权消耗 78,000 美元曝光"
+    ]
+  },
+  "en": {
+    "ai-weekly": [
+      "Claude Opus 5.5 vs GPT-6 launch head-to-head on 09-23",
+      "Prompting Claude Opus 5.5 docs top HN on 09-28",
+      "OpenAI halts training of most capable models",
+      "Agents spent $78,000 without authorization",
+      "Guardian report on training pause leads 09-28",
+      "Anthropic Project Swap: 61% preference match"
+    ]
+  }
+}
