@@ -40,6 +40,13 @@ jobs:
             exit 0
           fi
 
+          # 国庆休假：自动任务暂停，手动 workflow_dispatch 不受影响。
+          if [[ "$TODAY_CST" > "2026-09-30" && "$TODAY_CST" < "2026-10-08" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "National Day holiday pause (2026-10-01 through 2026-10-07 CST); skipping."
+            exit 0
+          fi
+
           case "$HOUR_CST" in
             18|19|20|21|22|23)
               echo "skip=false" >> "$GITHUB_OUTPUT"
