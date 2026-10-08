@@ -788,7 +788,21 @@
     "https://www.mindray.com/na/news-and-events/news/mindray-introduces-te-air-e5m-wireless-handheld-ultrasound-to-revolutionize-whole-body-scanning/": "2025-11-20T17:35:24.498Z",
     "https://www.mindray.com/na/news-and-events/news/mindray-unveils-a-breakthrough-in-ultra-premium-ultrasound-at-rsna-2025-the-resona-a20/": "2025-12-01T15:41:14.937Z",
     "https://www.mindray.com/na/news-and-events/news/mindray-leads-the-evolution-of-gastroenterology-imaging-with-the-newly-expanded-hepatus-series-ultrasound-systems/": "2026-05-26T22:21:02.113Z",
-    "https://clarius.com/press/clarius-named-to-times-worlds-top-healthtech-companies-for-second-year-in-a-row/": "2026-09-24T10:00:00+00:00"
+    "https://clarius.com/press/clarius-named-to-times-worlds-top-healthtech-companies-for-second-year-in-a-row/": "2026-09-24T10:00:00+00:00",
+    "https://www.butterflynetwork.com/press-releases/arun-nagdev-chief-medical-officer-pocus": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-gusi-chai-500-probes-south-africa": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-network-eu-mdr": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-network-expands-its-handheld-ultrasound-availability-into-brazil": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-network-expands-its-next-generation-butterfly-iq3-tm-to-europe": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-network-launches-butterfly-iq3": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-network-launches-compass-ai-to-power-the-next-generation-of-pocus-program-management": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-network-named-to-times-list-of-the-worlds-top-healthtech-companies-2025": "seen",
+    "https://www.butterflynetwork.com/press-releases/butterfly-networks-embedded-tm-partner-aleph-neuro-unveils-stunning-brain-images": "seen",
+    "https://www.butterflynetwork.com/press-releases/kcu-butterfly-scanlab-elective": "seen",
+    "https://www.butterflynetwork.com/press-releases/kcu-pocus-case-study": "seen",
+    "https://www.butterflynetwork.com/press-releases/midjourney-scanner-ultrasound-chip": "seen",
+    "https://www.butterflynetwork.com/press-releases/rutgers-butterfly-preliminary-findings": "seen",
+    "https://www.butterflynetwork.com/press-releases/rutgers-butterfly-research": "seen"
   },
   "pageHashes": {
     "https://www.butterflynetwork.com/compassai": "8003a96c3ab12a8c81262b5d99ba6222cb3dbe282ca6c562c32ce3a68fef72ab",
@@ -818,7 +832,19 @@
     "cornerstonejs/cornerstone3D@v5.10.10": "2026-09-22T22:36:40Z",
     "cornerstonejs/cornerstone3D@v5.10.9": "2026-09-22T20:19:54Z",
     "cornerstonejs/cornerstone3D@v5.10.11": "2026-09-23T16:22:44Z",
-    "cornerstonejs/cornerstone3D@v5.11.0": "2026-09-24T18:44:41Z"
+    "cornerstonejs/cornerstone3D@v5.11.0": "2026-09-24T18:44:41Z",
+    "cornerstonejs/cornerstone3D@v5.11.7": "2026-10-08T14:19:59Z",
+    "cornerstonejs/cornerstone3D@v5.11.6": "2026-10-07T13:03:56Z",
+    "cornerstonejs/cornerstone3D@v5.11.5": "2026-10-05T22:29:37Z",
+    "cornerstonejs/cornerstone3D@v5.11.4": "2026-10-02T16:15:10Z",
+    "OHIF/Viewers@v3.14.0-beta.48": "2026-10-07T16:42:22Z",
+    "OHIF/Viewers@v3.14.0-beta.47": "2026-10-07T16:04:40Z",
+    "OHIF/Viewers@v3.14.0-beta.46": "2026-10-07T13:14:16Z",
+    "OHIF/Viewers@v3.14.0-beta.45": "2026-10-06T17:05:21Z",
+    "OHIF/Viewers@v3.14.0-beta.44": "2026-10-05T22:49:07Z",
+    "OHIF/Viewers@v3.14.0-beta.42": "2026-10-05T14:20:18Z",
+    "OHIF/Viewers@v3.14.0-beta.41": "2026-10-02T20:53:17Z",
+    "OHIF/Viewers@v3.13.12": "2026-10-01T16:05:20Z"
   },
   "pendingItems": []
 }
