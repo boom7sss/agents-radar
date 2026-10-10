@@ -3,9 +3,14 @@ name: Daily Agents Radar
 on:
   schedule:
     # 每小时发送一次低成本心跳，抵抗 GitHub schedule 数小时的不规律延迟。
-    # 只有 18:00–23:59 CST 且当天尚无日报时才会调用 DeepSeek；其余运行在时间检查后立即退出。
+    # 只有 17:00–23:59 CST 且当天尚无日报时才会调用 DeepSeek；其余运行在时间检查后立即退出。
     - cron: "47 * * * *"
   workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Optional digest date for a manual backfill (YYYY-MM-DD)"
+        required: false
+        type: string
 
 concurrency:
   group: daily-agents-radar
@@ -30,15 +35,23 @@ jobs:
         id: schedule_window
         env:
           EVENT_NAME: ${{ github.event_name }}
+          TARGET_DATE: ${{ inputs.target_date }}
         run: |
           TODAY_CST=$(TZ=Asia/Shanghai date +%F)
           HOUR_CST=$(TZ=Asia/Shanghai date +%H)
-          echo "date=${TODAY_CST}" >> "$GITHUB_OUTPUT"
 
           if [ "$EVENT_NAME" != "schedule" ]; then
+            DATE_CST=${TARGET_DATE:-$TODAY_CST}
+            if ! [[ "$DATE_CST" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "Invalid target_date '${DATE_CST}'; expected YYYY-MM-DD." >&2
+              exit 1
+            fi
+            echo "date=${DATE_CST}" >> "$GITHUB_OUTPUT"
             echo "skip=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
+          echo "date=${TODAY_CST}" >> "$GITHUB_OUTPUT"
 
           # 国庆休假：自动任务暂停，手动 workflow_dispatch 不受影响。
           if [[ "$TODAY_CST" > "2026-09-30" && "$TODAY_CST" < "2026-10-08" ]]; then
@@ -48,12 +61,12 @@ jobs:
           fi
 
           case "$HOUR_CST" in
-            18|19|20|21|22|23)
+            17|18|19|20|21|22|23)
               echo "skip=false" >> "$GITHUB_OUTPUT"
               ;;
             *)
               echo "skip=true" >> "$GITHUB_OUTPUT"
-              echo "Scheduled run arrived outside the 18:00-23:59 CST delivery window; skipping."
+              echo "Scheduled run arrived outside the 17:00-23:59 CST delivery window; skipping."
               ;;
           esac
 
@@ -96,6 +109,7 @@ jobs:
           DEEPSEEK_THINKING: disabled
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
           DIGEST_REPO: ${{ github.repository }}
+          DIGEST_DATE: ${{ steps.schedule_window.outputs.date }}
         run: pnpm start
 
       - name: Commit digest files
