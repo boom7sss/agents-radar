@@ -69,7 +69,7 @@ import {
   type HandheldUltrasoundData,
 } from "./handheld-ultrasound.ts";
 import { loadConfig } from "./config.ts";
-import { toCstDateStr, toUtcStr } from "./date.ts";
+import { resolveDigestDate, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
 
 // ---------------------------------------------------------------------------
@@ -374,7 +374,7 @@ async function main(): Promise<void> {
 
   const now = new Date();
   const since = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-  const dateStr = toCstDateStr(now);
+  const dateStr = resolveDigestDate(now, process.env["DIGEST_DATE"]);
   const utcStr = toUtcStr(now);
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
